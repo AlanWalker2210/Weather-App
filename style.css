@@ -1,0 +1,1576 @@
+.dayToNightMain::-webkit-scrollbar {
+  display: none;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url("Poppins-medium.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*LOCAL FONT LINKING*/
+/* @font-face {
+    font-family: 'Montserrat';
+    src: url("Montserrat-regular.ttf");)
+  }*/
+
+/*APPLYING LOCAL FONT TO ALL ELEMENTS IN BODY*/
+body {
+  font-family: 'Montserrat';
+}
+
+.mainBody {
+  display:;
+}
+
+.wrapper-pre {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.wrapper-sub-pre {
+  position: fixed;
+  max-width: 100%;
+  height: 90px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circleOne {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #D6454500;
+  border-right: 2.5px solid #f00;
+  border-left: 2.5px solid #f00;
+  border-top: 2.5px solid #000;
+  border-bottom: 2.5px solid #000;
+  border-radius: 50%;
+  /* animation: rotate 2s linear infinite;*/
+  animation: opacitys 2s linear infinite;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.circleTwo {
+  position: absolute;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  border-top: 2.5px solid #000;
+  border-bottom: 2.5px solid #000;
+  border-right: 2.5px solid #f00;
+  border-left: 2.5px solid #f00;
+  /*  animation: rotateRev 2s linear infinite;*/
+  animation: opacitys 2s linear infinite;
+  animation-delay: 0.9s;
+  opacity: 0;
+}
+
+/*  .circleThree {
+     position: absolute;
+     border-radius: 50%;
+     width: 70px;
+     height: 70px;
+     border-top: 2.5px solid #f00;
+     border-bottom: 2.5px solid #000;
+     border-right: 2.5px solid #f00;
+     border-left: 2.5px solid #f00;
+     animation: rotate 4s linear infinite;
+   }*/
+
+.circleSmall {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border-top: 2.5px solid #000;
+  border-bottom: 2.5px solid #000;
+  border-right: 2.5px solid #f00;
+  border-left: 2.5px solid #f00;
+  animation: opacitys 2s linear infinite;
+  opacity: 0;
+  animation-delay: 0.2s;
+  /* animation: rotateRev 2s linear infinite;*/
+}
+
+@keyframes opacitys {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*  @keyframes rotate {
+     0% {
+       transform: rotate(0);
+     }
+
+     100% {
+       transform: rotate(360deg);
+     }
+   }
+
+   @keyframes rotateRev {
+     0% {
+       transform: rotate(0);
+     }
+
+     100% {
+       transform: rotate(-360deg);
+     }
+   }*/
+
+.toggle {
+  transform: translateY(2400px);
+  opacity: 1;
+  transition: 4s;
+}
+
+.contentTogg {
+  opacity: 1;
+  transition: 2s;
+}
+
+.txt {
+  position: absolute;
+  color: #fff;
+}
+
+.bar {
+  position: fixed;
+  width: 30%;
+  height: 2px;
+  top: 58%;
+  border: 0.5px solid #FF0101;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.barSub {
+  width: 0px;
+  height: 10px;
+  background: #FF0101;
+  animation: prog 4s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+@keyframes prog {
+  100% {
+    width: 100%;
+  }
+}
+
+/*MAIN WRAP OF BACK WALLPAPERS*/
+.mainWrap {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #9E9E9E;
+  z-index: -1000;
+}
+
+/*SIZING OF BACKGROUND WALLPAPER*/
+.backWall {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: -1000;
+}
+
+.navBarBtnMain {
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s;
+  border-radius: 50%;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: jumpU 1s linear;
+}
+
+.barOne,
+.barTwo,
+.barThi {
+  width: 30px;
+  height: 2px;
+  background: #fff;
+  margin: 8.5px 0 8px 0;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.navBarBtnMove {
+  position: fixed;
+  margin-left: 200px;
+  transform: rotate(360deg);
+}
+
+.barOneMove {
+  transform: translateY(10px) rotate(45deg);
+  background: #FF0000;
+}
+
+.barTwoMove {
+  opacity: 0;
+}
+
+.barThiMove {
+  transform: translateY(-10px) rotate(-45deg);
+  background: #FF0000;
+}
+
+.navBarDivMain {
+  position: fixed;
+  left: 0;
+  width: 230px;
+  height: 100vh;
+  background: #000;
+  z-index: 19;
+  color: #fff;
+  margin-left: -230px;
+  transition: 0.5s;
+}
+
+.info {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #394199, #453999);
+  margin: 0 0 10px 0;
+}
+
+.fa-chevron-down {
+  transition: 0.5s;
+}
+
+.cred {
+  padding: 5px 0 0 10px;
+  transition: 0.5s;
+}
+
+.rot {
+  transform: rotateX(180deg);
+}
+
+.navBarDivMove {
+  margin-left: 0;
+}
+
+.inforMation {
+  display: none;
+}
+
+.infoBlock {
+  display: block;
+}
+
+a {
+  padding: 0px 0 0 10px;
+  color: #02CCFF;
+}
+
+.linkOne,
+.linkTwo,
+.linkThi {
+  margin: 10px 0 10px 0;
+}
+
+.createdBy {
+  position: fixed;
+  bottom: 0;
+  padding: 0 0 0 10px;
+}
+
+/*INPUT AND BUTTON DIV*/
+.searchSection {
+  width: 100%;
+  height: 60px;
+  animation: jumpU 1s linear;
+}
+
+/*INPUT STYLING*/
+.inpSelf {
+  position: relative;
+  top: 12px;
+  left: 35px;
+  width: 88%;
+  height: 40px;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat';
+  padding: 0 0 0 15px;
+  border-radius: 5px;
+  z-index: 2;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+/*SEARCHICON AND LOCATION ICON POSITIONS DIV*/
+.searchIcon,
+.locIcon {
+  position: absolute;
+  top: 15.5px;
+  right: 50px;
+  width: 34px;
+  height: 34px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  box-shadow: .1px .1px 5px #000 inset;
+  border-radius: 50%;
+  z-index: 5;
+  transition: 0.5s;
+}
+
+/*SEARCH & LOCATION ICON HOVER EFFECT*/
+.searchIcon:hover,
+.locIcon:hover {
+  background: #000;
+  color: #fff;
+  box-shadow: .1px .1px 5px #fff inset;
+}
+
+/*MOVING THE LOCATION ICON*/
+.locIcon {
+  right: 14px;
+}
+
+/*CENTERING DIV FOR WEATHERSUBSECTION */
+.weatherMainSection {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin: 10px 0 0px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 1s linear;
+}
+
+/* STYLING THE FIRST CARD CONTAINS WEATHER INFORMATION*/
+.weatherSubSection {
+  position: relative;
+  width: 95%;
+  height: 290px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  backdrop-filter: blur(2px);
+}
+
+/*CELSISUS INFO & LOCATION*/
+.tempDigit {
+  position: relative;
+  top: 1%;
+  left: 2%;
+  width: 70px;
+  text-align: left;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/*CONDITION OF TODAY EX-SUNNY, HAZE, FOG*/
+.tempCond {
+  position: relative;
+  top: 7%;
+  color: #fff;
+  left: 15%;
+  width: 180px;
+  font-size: 1.09rem;
+}
+
+/*IMG FOR WEATHER CONDITION*/
+.condImg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 21%;
+  left: 3%;
+  outline: none;
+  border: none;
+}
+
+/*CITY DIV STYLING*/
+.citySection {
+  position: absolute;
+  top: 6%;
+  right: 3%;
+  text-align: right;
+  color: #fff;
+  max-width: 230px;
+}
+
+/*ALIGN TEXT LEFT */
+.temlInF {
+  color: #fff;
+  text-align: left;
+}
+
+/*FAHRENHEIT, HUMIDITY, CELSIUS, FAHRENHEITFEEL, TEXT STYLING AND POSITIONING*/
+.fahText,
+.humText,
+.celsText,
+.fahFeelText {
+  position: absolute;
+  width: 180px;
+  left: 15%;
+  top: 45%;
+}
+
+/*TOPPING FOR ALIGNING THE TEXT TO THE HUMIDITY ICON*/
+.humText {
+  top: 56%;
+}
+
+/*DESIGNING ICON AND POSITIONING*/
+.fahIcon,
+.humidityIcon,
+.celsiusIcon,
+.fahfeelIcon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 44%;
+  left: 4.5%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}
+
+/*ALIGB HUMIDITY ICON*/
+.humidityIcon {
+  top: 55%;
+}
+
+/*ALIGN CELSIUS ICON*/
+.celsiusIcon {
+  top: 66.4%;
+}
+
+/*ALIGN CELSIUS TEXT*/
+.celsText {
+  top: 68%;
+}
+
+/*ALIGN FAHRENHEIT TEXT*/
+.fahFeelText {
+  top: 79%;
+}
+
+/*ALIGN FAHRENHEIT ICON*/
+.fahfeelIcon {
+  top: 78%;
+}
+
+/*APLLYING STYLE AND POSITION TO LAST UPDATED TEXT*/
+.lastUpdate {
+  position: absolute;
+  width: 95%;
+  bottom: 2%;
+  left: 2%;
+  text-align: center;
+  color: #737373;
+  font-size: 0.8rem;
+}
+
+/*STYLING °C */
+.celsiusUnit {
+  font-size: 10px;
+}
+
+/*CHART MAIN SECTION [TO ALIGN SUB SECTIONS]*/
+.chartMainSection {
+  position: relative;
+  left: 2.5%;
+  width: 95%;
+  height: 240px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  border-radius: 5px;
+  animation: scaleIn 1s linear;
+}
+
+/*OVERFLOWING X ON CHART TO CREATE A SCROLLABLE CHART*/
+.chartSubSection {
+  position: absolute;
+  overflow-x: scroll;
+}
+
+/*ALERT MAIN SECTION [TO ALIGN SUB SECTION] */
+.alertMainSection {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  animation: scaleIn 1s linear;
+}
+
+/* DESIGNING CARD FOR ALERT SECTION*/
+.alertSubSection {
+  position: relative;
+  height: 160px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 95%;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/*POSITION AND FONT-SIZE FOR WARNING ICON*/
+
+
+/* TITLE CONTAINS (ALERT)*/
+.alertTitle {
+  position: absolute;
+  top: 0;
+  height: 20px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+/*CREATE A OVERFLOWING PLACES DIV*/
+.alertPlace {
+  position: absolute;
+  top: 12%;
+  color: #fff;
+  font-size: 15px;
+  height: 25px;
+  overflow-x: scroll;
+  width: 100%;
+  text-align: center;
+}
+
+/*STYLING & OVERFLOWING THE ALERT DESCRIPTION*/
+.alertDesk {
+  position: absolute;
+  top: 28%;
+  width: 100%;
+  height: 120px;
+  overflow: scroll;
+  color: #f00;
+  text-align: center;
+}
+
+/* ALIGN & CENTRE ITEMS FOR WIND SUB SECTION*/
+.windMainSection {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin: 0 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 1s linear;
+}
+
+/*DESIGNING CARD FOR WIND SECTION*/
+.windSubSection {
+  position: relative;
+  height: 140px;
+  width: 95%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/*ICON OF AIRSOCK*/
+.airImg {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+/*INFO FOR WIND DIR,KM/H*/
+.windInfo {
+  color: #fff;
+}
+
+/* ALIGN & CENTRE ITEMS FOR AQI SUB SECTION*/
+.aqiMainSection {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 10px 0;
+  font-size: 0.8rem;
+  animation: scaleIn 0.8s linear;
+}
+
+/*DESIGNING CARD FOR AQI SECTION*/
+.aqiSubSection {
+  position: relative;
+  top: 0;
+  width: 95%;
+  height: 140px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/*ICON OF AIR QUALITY INDEX (US_EPA)*/
+.aqImg {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+/*AQ INFORMATION COLOR #FFF*/
+.aqScroll {
+  position: relative;
+  color: #fff;
+}
+
+/* ALIGN & CENTRE ITEMS FOR VISIBILITY SUB SECTION*/
+.visibiltyMainSection {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin: 0 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 1s linear;
+}
+
+/*DESIGNING CARD FOR VISIBILITY SECTION*/
+.visibiltySubSection {
+  position: relative;
+  height: 90px;
+  width: 95%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/*ICON OF VISIBILITY*/
+.visibitlityIcon,
+.imgEye {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*INFO FOR VISIBILITY TEXT*/
+.visInfo {
+  color: #fff;
+}
+
+/* KEYFRAME FOR INPUT SECTION*/
+@keyframes jumpU {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+}
+
+/*KEYFRAMES FOR ALL DIVS*/
+@keyframes scaleIn {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*MAIN BOX (ALIGN) FOR CITY SUGGESTION*/
+.suggestionMainBox {
+  width: 100%;
+  height: 210px;
+  position: absolute;
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.8s;
+  transform: translateY(-800px);
+}
+
+/*DESIGNING CARD FOR SUGGEST CITY SECTION*/
+.suggestionSubBox {
+  width: 95%;
+  height: 210px;
+  background: #fff;
+  overflow: scroll;
+  border-radius: 5px;
+}
+
+/*PADDING FOR LISTED DIV IN SUGGEST CITY SECTION*/
+.suggestionSubBox div {
+  padding: 0 0 0 15px;
+}
+
+/*STYLING CITY NAMES*/
+.cityLoad {
+  position: absolute;
+  width: 80%;
+  height: 13px;
+  margin: 5px 0 0 0;
+  border-radius: 5px;
+  animation: search 1s linear infinite;
+}
+
+.City {
+  position: absolute;
+  font-size: 1.2rem;
+  min-width: 80%;
+  opacity: 1;
+  border-radius: 5px;
+  z-index: 10000;
+  color: #000;
+}
+
+@keyframes search {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+    background: #ACACAC;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/*STYLING COUNTRY NAMES*/
+.Count {
+  font-size: 0.7rem;
+  color: #919193;
+}
+
+/*ANIMATION TOGGLE CLASS FOR CITY SUGGEST SECTION*/
+.pointer {
+  transition: 0.8s;
+  transform: translateY(0);
+}
+
+/* ALIGN & CENTRE ITEMS FOR WARNING POP UP SUB SECTION*/
+.warningPopUpMain {
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0px 0;
+  opacity: 1;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+/*DESIGNING CARD FOR WARNING SECTION*/
+.warningPopUpSub {
+  width: 100%;
+  height: 40px;
+  background: #3B3B3B;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px #000;
+}
+
+@keyframes showPop {
+  0% {
+    transform: translateX(0);
+  }
+}
+
+/* [X] BUTTON STYLE*/
+.xText {
+  position: relative;
+  font-size: 2rem;
+}
+
+/* WARNING TEXT*/
+.textWarn {
+  position: relative;
+  text-align: center;
+  left: -2%;
+}
+
+/*TOGGLE WARN IF CITY NOT FOUND*/
+.toggleWarn {
+  transition: 0.8s;
+  z-index: 7;
+  transform: translateY(0);
+}
+
+/* ASTRO MAIN DIV*/
+.astroMain {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 15px 0;
+  animation: scaleIn 0.8s linear;
+  color: #fff;
+}
+
+/* SUB DIV ASTRO*/
+.astroSub {
+  position: relative;
+  width: 95%;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+/*MOON IMG AND TEXT FOR MOON CONDITION*/
+.moonSetImg,
+.moonRiseImg,
+.moonIllumination,
+.sunRise,
+.sunSet {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/*MOON _PHASE ICON*/
+.moonIllumination {
+  left: 2%;
+  top: 1%;
+}
+
+/*MOON RISE ICON*/
+.moonRiseImg {
+  top: 35%;
+  left: 2%;
+}
+
+/*MOON SET ICON*/
+.moonSetImg {
+  top: 70%;
+  left: 2%;
+}
+
+/*SUN RISE ICON*/
+.sunRise {
+  left: 4%;
+}
+
+/*SUN SET ICON*/
+.sunSet {
+  top: 50%;
+  left: 4%;
+}
+
+/* TEXT */
+.moonSetText,
+.moonRiseText,
+.moonCondition {
+  position: absolute;
+  top: 6%;
+  left: 15%;
+}
+
+/* TEXT */
+.moonRiseText {
+  top: 40%;
+}
+
+/* TEXT */
+.moonSetText {
+  top: 77%;
+}
+
+/* ALIGN & CENTRE ITEMS FOR ASTRO SUN SUB SECTION*/
+
+.astroSunMain {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/*DESIGNING CARD FOR ASTRO SUN SECTION*/
+
+.astroSunSub {
+  width: 95%;
+  height: 95px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+/* TEXT */
+.sunSetText,
+.sunRiseText {
+  position: absolute;
+  left: 16.5%;
+  top: 10%;
+}
+
+/*TEXT*/
+.sunSetText {
+  top: 58%;
+}
+
+/* ALIGN & CENTRE ITEMS FOR UOARROW SUB SECTION*/
+.upArrowMain {
+  position: fixed;
+  bottom: 10%;
+  right: 0%;
+  width: 50px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px 0 0 5px;
+  opacity: 1;
+  transition: 0.8s;
+  margin: 0 -100px 0 0;
+  z-index: 500;
+}
+
+/*DESIGNING DIV FOR UP ARROW SECTION*/
+.upArrowSub {
+  width: 50px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TOGGLE / CLASSLIST FOR ARROW UP*/
+.navAd {
+  opacity: 1;
+  animation: arrowJump 0.3s;
+  margin: 0 0 0 0;
+}
+
+/* ANIMATION FOR ARROWUP ICON*/
+/* @keyframes arrowJump {
+   0% {
+     transform: translateX(100px);
+   }
+   100% {
+     transform: translateX(0);
+   }
+ }*/
+.arrowMoreMain {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.arrowText {
+  position: absolute;
+  top: 5%;
+}
+
+.arrowOne,
+.arrowSec {
+  position: relative;
+  top: 18%;
+  width: 30px;
+  height: 5px;
+  background: #fff;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.arrowOne {
+  transform: translateX(4.5px) rotate(35deg);
+}
+
+.arrowSec {
+  transform: translateX(-4.5px) rotate(-35deg);
+}
+
+.arrowRotOne {
+  transform: translateX(5px) rotate(-35deg);
+}
+
+.arrowRotTwo {
+  transform: translateX(-5px)rotate(35deg);
+}
+
+.folderHide {
+  display: none;
+}
+
+.folderShow {
+  display: block;
+  animation: scaleIn 0.8s linear;
+  color: #fff;
+}
+
+.dateDivMain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dateDiv {
+  width: 95%;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin: 0 0 0px 0;
+  border-radius: 50px;
+}
+
+.foreCelDiv {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 30px;
+  margin: 10px 0 20px 0;
+}
+
+.cardOne,
+.cardTwo {
+  width: 49%;
+  height: 30px;
+  margin: 5px 0 -50px 0;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+}
+
+.lineMain {
+  width: 100%;
+  height: 11px;
+  margin: 0 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+.lineSub {
+  width: 94%;
+  height: 11px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: .1px .1px 2.5px #A5A5A5 inset;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 0 0 2px;
+}
+.lineSubSec {
+  width: 0px;
+  height: 6px;
+  background: #fff;
+  padding: 0 0 0 0px;
+  border-radius: 10px;
+  transition: 0.1s ease;
+  margin: 0 0 0 2px;
+  box-shadow: .1px .1px 2px #000;
+}
+.celSubIcon,
+.fahSubIcon {
+  display: flex;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  left: 2%;
+  align-items: center;
+  margin: 0 10px 0 0;
+}
+
+.imageSize {
+  width: 40px;
+  height: 40px;
+}
+
+.txtMarg {
+  margin: 0 0 0 10px;
+}
+
+.fahSubIcon {
+  left: 52%;
+}
+
+.conditionLineMain {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 50px 0;
+}
+
+.conditionLine {
+  position: absolute;
+  width: 95%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  margin: 0px 0 10px 0;
+  border-radius: 50px;
+}
+
+.dayToNightMain {
+  position: static;
+  margin: 60px 0 0px 0;
+  width: 100%;
+  height: 90px;
+  overflow-y: scroll;
+}
+
+.dayToNightSub {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  height: 90px;
+  width: 700%;
+}
+
+.lineDivide {
+  width: 95%;
+  height: 0.5px;
+  background: #E5E5E5;
+  margin: 10px 0 10px 7px;
+  border-radius: 5px;
+}
+
+.cardSunRise,
+.cardSunSet,
+.cardMoonRise,
+.cardMoonSet,
+.cardOneC,
+.cardTwoC,
+.cardThree,
+.cardFour,
+.cardFive,
+.cardSix,
+.cardSeven,
+.cardEight,
+.cardNine,
+.cardTen,
+.cardEleven,
+.cardTwelve,
+.cardThirteen,
+.cardFourteen,
+.cardFifteen,
+.cardSixteen,
+.cardSeventeen,
+.cardEighteen,
+.cardNineteen,
+.cardTwenty,
+.cardTwentyOne,
+.cardTwentyTwo,
+.cardTwentyThree,
+.cardTwentyFour {
+  position: relative;
+  width: 60px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+}
+
+.font {
+  font-size: 10px;
+  color: #B5B5B5;
+}
+
+.nightIcon,
+.dayIcon,
+.sunRiseIconDiv,
+.sunSetIconDiv,
+.moonRiseIconDiv,
+.moonSetIconDiv {
+  width: 60px;
+  height: 35px;
+}
+
+.nightImg,
+.dayImg,
+.sunRiseIcon,
+.sunSetIcon,
+.moonRiseIcon,
+.moonSetIconDi {
+  width: 35px;
+  height: 35px;
+}
+
+.tempOne {
+  font-size: 11px;
+}
+
+.statusPopMain {
+  width: 100%;
+  height: 40px;
+  background: #3D3D3F;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.statusPopSub {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.retry {
+  font-size: 2rem;
+}
+
+.toggleNet {
+  transform: translateY(0);
+}
+
+.fetchErrMain {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #212121;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.toggleFetch {
+  transform: translateY(0);
+}
+
+.fetchLoaderMain {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  color: #fff;
+}
+
+.fetchLoaderSub {
+  width: 50px;
+  height: 50px;
+  background: #202020;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 43%;
+}
+
+.Loader {
+  width: 35px;
+  height: 35px;
+  border-top: 3px solid #07A3FF;
+  border-right: 3px solid #07A3FF;
+  border-left: 3px solid #07A3FF;
+  border-bottom: 3px solid #202020;
+  border-radius: 50%;
+  animation: spinLoad 2s linear infinite;
+}
+
+@keyframes spinLoad {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.disableFire {
+  padding: 0 10px 0 10px;
+}
+.note {
+  margin: 10px 0 0 0;
+}
+.chevronLeft,.chevronLeftQ {
+  position: absolute;
+  left: 13.7%;
+  top: 30%;
+  animation: popIt 2s infinite;
+  font-size: 22px;
+}
+@keyframes popIt {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.willItRain-m {
+  width: 100%;
+  height: 90px;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  margin-bottom: -25px;
+}
+.willItRain-s {
+  width: 1500%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sectionS {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.divOne {
+  width: 130px;
+  height: 30px;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  margin: 0 10px 0 10px;
+  padding: 9px;
+  border-radius: 50px;
+}
+.iconRain {
+  width: 28px;
+  height: 28px;
+  background: #000;
+  border-radius: 50%;
+  margin-left: -8px;
+}
+.infoOfRain {
+  width: 30px;
+  height: 30px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 10px;
+  transition: 0.8s;
+}
+.toolTipRainOne {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background: #000;
+  border-radius: 20px;
+  padding: 3px 10px;
+  opacity: 1;
+  transition: 0.4s;
+}
+.stickyClass {
+  width: 75px;
+  position: sticky;
+  top: -50px;
+  border-radius: 0 10px 10px 0;
+  animation: animationS .2s linear;
+  font-size: 0.9rem;
+  text-align: center;
+}
+@keyframes animationS {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.dateToForeOne-m {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.dateToForeOne-s {
+  width: 95%;
+  height: 230px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 5px;
+  display: flex;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+}
+.wrapper-cast {
+  min-width: 200%;
+  display: flex;
+  justify-content: space-around;
+}
+.sectionOne {
+  width: 100%;
+  scroll-snap-align: center
+}
+.dateSection {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 0.5px solid gray;
+  font-size: 1.1rem;
+}
+.calendarIcon {
+  margin: 0 0 0 10px;
+}
+.dateSect {
+  margin: 0 10px 0 15px;
+}
+.conditionToZero {
+  padding: 10px 0 0 10px;
+  margin: 5px 0;
+}
+.allForeCast {
+  width: 100%;
+  height: 130px;
+}
+.minMaxCover {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin: 7px 0 7px 10px;
+}
+.minMaxCover text {
+  margin: 0 0 0 5px;
+}
+.minMaxCover img {
+  width: 30px;
+  height: 30px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+}
+.twentyFourZero-m {
+  width: 100%;
+  height: 130px;
+  margin: 10px 0;
+  overflow: scroll;
+  position: relative;
+}
+.twentyFourZero-s {
+  width: 730%;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+}
+.twentyFourTag {
+  position: absolute;
+  background: rgba(0,0,0);
+  padding: 2px 8px 2px 8px;
+  top: 0;
+  transition: 0.3s;
+}
+.twentyFourTagTog {
+  position: sticky;
+  left: 0;
+  top: -50px;
+  background: rgba(0,0,0);
+  width: 70px;
+  height: 80%;
+  border-radius: 0 50px 50px 0;
+  margin: 25px 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 5555;
+  transform: translateX(-100px);
+  animation: scaleSim 0.3s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes scaleSim {
+  100% {
+    transform: translateX(0);
+  }
+}
+.textTFtog {
+  transform: rotate(-90deg);
+  text-align: center;
+  margin: 0 0 0 -10px;
+}
+.twentyFourCard {
+  width: 70px;
+  height: 100px;
+  margin: 30px 10px 0 10px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 12px 3px 12px 3px;
+  box-shadow: .1px .1px 8px rgba(0,0,0,0.7);
+}
+.imgClock {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgClock img {
+  width: 35px;
+  height: 35px;
+}
+.txtClock,.finalRes {
+  text-align: center;
+}
+.finalRes {
+  font-size: 0.8rem;
+}
+/*.weatherSubSection,.alertSubSection,.windSubSection,.aqiSubSection,.visibiltySubSection,.astroSub,.chartMainSection {
+      backdrop-filter: blur(2px);
+    }*/
