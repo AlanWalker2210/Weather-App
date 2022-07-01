@@ -3151,10 +3151,10 @@ function runMath() {
 
   if (stickyProgCard > 2) {
     toTogg.classList.add('twentyFourTagTog');
-    tFourText.classList.add('textTFtog');
+  //  tFourText.classList.add('textTFtog');
   }
   else {
     toTogg.classList.remove('twentyFourTagTog');
-    tFourText.classList.remove('textTFtog');
+   // tFourText.classList.remove('textTFtog');
   }
 }

@@ -1517,24 +1517,17 @@ a {
   background: rgba(0,0,0);
   padding: 2px 8px 2px 8px;
   top: 0;
+  left: 0;
   transition: 0.3s;
 }
 .twentyFourTagTog {
   position: sticky;
+  width: 140px;
+  height: 25px;
   left: 0;
   top: -50px;
   background: rgba(0,0,0);
-  width: 70px;
-  height: 80%;
-  border-radius: 0 50px 50px 0;
-  margin: 25px 0 0 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 5555;
-  transform: translateX(-100px);
-  animation: scaleSim 0.3s linear;
-  animation-fill-mode: forwards;
+  margin: 0px 0 0 0;
 }
 @keyframes scaleSim {
   100% {
@@ -1567,6 +1560,7 @@ a {
 }
 .txtClock,.finalRes {
   text-align: center;
+  font-size: 0.8rem;
 }
 .finalRes {
   font-size: 0.8rem;
