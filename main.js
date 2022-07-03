@@ -1323,6 +1323,9 @@ btn.addEventListener('click', () => {
       var humPer = data.current.humidity;
       var feelsFah = data.current.feelslike_f;
       var feelsCel = data.current.feelslike_c;
+      
+      var todayChanceRain = data.forecast.forecastday[0].day.daily_chance_of_rain;
+      var todayChanceSnow = data.forecast.forecastday[0].day.daily_chance_of_snow;
       //IMAGE DISPLAY
       //imgC.src = img;
 
@@ -1335,10 +1338,13 @@ btn.addEventListener('click', () => {
       var condition = data.current.condition.text;
 
       temp.innerHTML = tempN + `<sup class="celsiusUnit">°C</sup>`;
-      fahText.innerHTML = "Fahrenheit" + " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
+      fahText.innerHTML =`<text class="fahMin">Fahrenheit</text>`+ " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
       humiText.innerHTML = "Humidity" + " : " + humPer + "%";
       feelsFahText.innerHTML = "Feels like" + " : " + feelsFah + `<sup class="celsiusUnit">°F</sup>`;
       feelsCelText.innerHTML = "Feels like" + " : " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
+      chanceRain.innerHTML = `<text class="fahMin">Rain Chance</text>` + " : " + todayChanceRain + "%";
+      chanceSnow.innerHTML = `<text class="fahMin">Snow Chance</text>` + " : " + todayChanceSnow + "%";
+
 
       cond.innerHTML = condition;
 
@@ -1425,7 +1431,7 @@ btn.addEventListener('click', () => {
         aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-9.svg"
       }
 
-      lastUpdate.innerHTML = "Last updated" + ' - ' + lstUpdate;
+     // lastUpdate.innerHTML = "Last updated" + ' - ' + lstUpdate;
 
       if (arraySize.length > 0) {
         var alertDesc = data.alerts.alert[0].desc;
@@ -2162,7 +2168,7 @@ btn.addEventListener('click', () => {
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
         }
       }
-      var foreCastd1 = new Array();
+   /*   var foreCastd1 = new Array();
       foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
       foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
       foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
@@ -2277,7 +2283,7 @@ btn.addEventListener('click', () => {
             },
           },
         },
-      })
+      })*/
 
       /* var foreCastCel = new Array();
 
@@ -2458,7 +2464,7 @@ btn.addEventListener('click', () => {
        sunRiseTextNxt.innerHTML = sunRised2;
        sunSetTextNxt.innerHTML = sunSetd2;
        moonRiseTextNxt.innerHTML = moonRised2;
-       moonSetTextNxt.innerHTML = moonSetd2;
+       moonSetTextNxt.innerHTML = moonSetd2;*/
 
        let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
 
@@ -2515,8 +2521,60 @@ btn.addEventListener('click', () => {
        rainFeatArrToday[23].innerHTML = rainTodayArr[23] + "%";
 
 
+       let snowRender = document.querySelectorAll('.snowFaetToday');
+       let snowTodayArr = new Array();
 
-       let rainFeatArr = document.querySelectorAll(".rainFaet");
+       snowTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_snow;
+       snowTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_snow;
+       snowTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_snow;
+       snowTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_snow;
+       snowTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_snow;
+       snowTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_snow;
+       snowTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_snow;
+       snowTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_snow;
+       snowTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_snow;
+       snowTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_snow;
+       snowTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_snow;
+       snowTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_snow;
+       snowTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_snow;
+       snowTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_snow;
+       snowTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_snow;
+       snowTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_snow;
+       snowTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_snow;
+       snowTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_snow;
+       snowTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_snow;
+       snowTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_snow;
+       snowTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_snow;
+       snowTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_snow;
+       snowTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_snow;
+       snowTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_snow;
+       
+       snowRender[0].innerHTML = snowTodayArr[0] + "%";
+       snowRender[1].innerHTML = snowTodayArr[1] + "%";
+       snowRender[2].innerHTML = snowTodayArr[2] + "%";
+       snowRender[3].innerHTML = snowTodayArr[3] + "%";
+       snowRender[4].innerHTML = snowTodayArr[4] + "%";
+       snowRender[5].innerHTML = snowTodayArr[5] + "%";
+       snowRender[6].innerHTML = snowTodayArr[6] + "%";
+       snowRender[7].innerHTML = snowTodayArr[7] + "%";
+       snowRender[8].innerHTML = snowTodayArr[8] + "%";
+       snowRender[9].innerHTML = snowTodayArr[9] + "%";
+       snowRender[10].innerHTML = snowTodayArr[10] + "%";
+       snowRender[11].innerHTML = snowTodayArr[11] + "%";
+       snowRender[12].innerHTML = snowTodayArr[12] + "%";
+       snowRender[13].innerHTML = snowTodayArr[13] + "%";
+       snowRender[14].innerHTML = snowTodayArr[14] + "%";
+       snowRender[15].innerHTML = snowTodayArr[15] + "%";
+       snowRender[16].innerHTML = snowTodayArr[16] + "%";
+       snowRender[17].innerHTML = snowTodayArr[17] + "%";
+       snowRender[18].innerHTML = snowTodayArr[18] + "%";
+       snowRender[19].innerHTML = snowTodayArr[19] + "%";
+       snowRender[20].innerHTML = snowTodayArr[20] + "%";
+       snowRender[21].innerHTML = snowTodayArr[21] + "%";
+       snowRender[22].innerHTML = snowTodayArr[22] + "%";
+       snowRender[23].innerHTML = snowTodayArr[23] + "%";
+
+    /*   let rainFeatArr = document.querySelectorAll(".rainFaet");
 
        let rainGetArr = new Array();
 
@@ -3104,7 +3162,7 @@ scrollerSec.addEventListener('scroll', () => {
 
 
 function runMath() {
-  /* var stickyRain = document.querySelectorAll(".willItRain-s");
+   var stickyRain = document.querySelectorAll(".willItRain-s");
    var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
 
    let stickyPos = -stickyRain[0].getBoundingClientRect().left;
@@ -3138,7 +3196,7 @@ function runMath() {
    }
    else {
      stickyRainPos[2].classList.remove('stickyClass');
-   }*/
+   }
 
   let tFourCast = document.getElementById("willFore");
 

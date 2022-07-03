@@ -379,32 +379,96 @@ a {
   height: 290px;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-  backdrop-filter: blur(2px);
-}
-
-/*CELSISUS INFO & LOCATION*/
-.tempDigit {
-  position: relative;
-  top: 1%;
-  left: 2%;
-  width: 70px;
-  text-align: left;
-  font-size: 2.5rem;
   color: #fff;
 }
 
-/*CONDITION OF TODAY EX-SUNNY, HAZE, FOG*/
-.tempCond {
+.tempDigit {
+  font-size: 3rem;
+  margin: 5px 0 0 10px;
+  color: #fff;
+}
+
+.extraImgHold {
+  width: 100%;
+  height: 30px;
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tempImg {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px 0 10px;
+}
+
+.extraTempDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.citySection {
+  text-align: right;
+  margin: 8px 8px 0 0;
+  color: #fff;
+}
+
+.fahAndHum,.celCur {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fahDiv,.humDiv {
+  width: 48%;
+  height: 40px;
+  background: #0000007A;
+  border-radius: 10px;
+  border: 0.0001px solid #ABABABE0;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-size: 0.9rem;
+}
+
+.fahIcon {
+  width: 35px;
+  height: 35px;
+  margin: 7px 3px 0 0;
+  background: #000;
+  border-radius: 10px;
+}
+
+.fahMin {
+  font-size: 0.8rem;
+}
+
+/*CELSISUS INFO & LOCATION*/
+/*.tempDigit {
   position: relative;
-  top: 7%;
+  top: 2%;
+  left: 4%;
+  width: 70px;
+  text-align: left;
+  font-size: 3rem;
+  color: #fff;
+}
+*/
+/*CONDITION OF TODAY EX-SUNNY, HAZE, FOG*/
+/*.tempCond {
+  position: relative;
+  top: 2%;
   color: #fff;
   left: 15%;
   width: 180px;
   font-size: 1.09rem;
-}
+}*/
 
 /*IMG FOR WEATHER CONDITION*/
-.condImg {
+/*.condImg {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -412,26 +476,26 @@ a {
   left: 3%;
   outline: none;
   border: none;
-}
+}*/
 
 /*CITY DIV STYLING*/
-.citySection {
+/*.citySection {
   position: absolute;
   top: 6%;
   right: 3%;
   text-align: right;
   color: #fff;
   max-width: 230px;
-}
+}*/
 
 /*ALIGN TEXT LEFT */
-.temlInF {
+/*.temlInF {
   color: #fff;
   text-align: left;
-}
+}*/
 
 /*FAHRENHEIT, HUMIDITY, CELSIUS, FAHRENHEITFEEL, TEXT STYLING AND POSITIONING*/
-.fahText,
+/*.fahText,
 .humText,
 .celsText,
 .fahFeelText {
@@ -439,15 +503,15 @@ a {
   width: 180px;
   left: 15%;
   top: 45%;
-}
+}*/
 
 /*TOPPING FOR ALIGNING THE TEXT TO THE HUMIDITY ICON*/
-.humText {
+/*.humText {
   top: 56%;
-}
+}*/
 
 /*DESIGNING ICON AND POSITIONING*/
-.fahIcon,
+/*.fahIcon,
 .humidityIcon,
 .celsiusIcon,
 .fahfeelIcon {
@@ -458,32 +522,32 @@ a {
   left: 4.5%;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
-}
+}*/
 
 /*ALIGB HUMIDITY ICON*/
-.humidityIcon {
+/*.humidityIcon {
   top: 55%;
-}
+}*/
 
 /*ALIGN CELSIUS ICON*/
-.celsiusIcon {
+/*.celsiusIcon {
   top: 66.4%;
-}
+}*/
 
 /*ALIGN CELSIUS TEXT*/
-.celsText {
+/*.celsText {
   top: 68%;
-}
+}*/
 
 /*ALIGN FAHRENHEIT TEXT*/
-.fahFeelText {
+/*.fahFeelText {
   top: 79%;
-}
+}*/
 
 /*ALIGN FAHRENHEIT ICON*/
-.fahfeelIcon {
+/*.fahfeelIcon {
   top: 78%;
-}
+}*/
 
 /*APLLYING STYLE AND POSITION TO LAST UPDATED TEXT*/
 .lastUpdate {
@@ -1366,7 +1430,7 @@ a {
   align-items: center;
   color: #fff;
   position: relative;
-  margin-bottom: -25px;
+  margin-bottom: -15px;
 }
 .willItRain-s {
   width: 1500%;
@@ -1386,9 +1450,10 @@ a {
   background: rgba(0,0,0,0.7);
   display: flex;
   align-items: center;
-  margin: 0 10px 0 10px;
+  margin: 0 15px 0 15px;
   padding: 9px;
   border-radius: 50px;
+  border: 0.5px solid #919191;
 }
 .iconRain {
   width: 28px;
@@ -1411,7 +1476,7 @@ a {
 .toolTipRainOne {
   position: absolute;
   top: 0px;
-  left: 0;
+  left: 5px;
   background: #000;
   border-radius: 20px;
   padding: 3px 10px;
@@ -1422,6 +1487,7 @@ a {
   width: 75px;
   position: sticky;
   top: -50px;
+  left: 0;
   border-radius: 0 10px 10px 0;
   animation: animationS .2s linear;
   font-size: 0.9rem;
@@ -1459,7 +1525,7 @@ a {
 }
 .sectionOne {
   width: 100%;
-  scroll-snap-align: center
+  scroll-snap-align: center;
 }
 .dateSection {
   width: 100%;
@@ -1505,6 +1571,7 @@ a {
   margin: 10px 0;
   overflow: scroll;
   position: relative;
+    scroll-snap-type: x mandatory;
 }
 .twentyFourZero-s {
   width: 730%;
@@ -1546,6 +1613,7 @@ a {
   background: rgba(0,0,0,0.7);
   border-radius: 12px 3px 12px 3px;
   box-shadow: .1px .1px 8px rgba(0,0,0,0.7);
+  scroll-snap-align: end;
 }
 .imgClock {
   width: 100%;
