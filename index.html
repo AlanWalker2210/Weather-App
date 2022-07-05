@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Weather Forecast</title>
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
@@ -27,9 +27,32 @@
 
   <div class="mainWrap">
     <div class="backWall">
-      <img src="/backgrounds/snow.jpg" class="backWall" id="backImg">
+      <img src="/backgrounds/fog.jpg" class="backWall" id="backImg">
     </div>
   </div>
+  
+  <!--
+  CONTENT MOVER = content
+  NAV BTN = navBarBtn
+  bars I'd = barOne,barTwo,barThi
+  
+  //NAV id 
+  
+  show = showNav
+  function = pclick()
+  id = chevRot
+  
+  //linkz
+              <text>Wallpapers from <a href="https://unsplash.com" target="_blank">Unsplash</a></text><br><br>
+            <a href="https://unsplash.com/@cristofer" target="_blank">Cristofer</a><br><br>
+            <a href="https://unsplash.com/@peymanfarmani" target="_blank">peyman farmani</a><br><br>
+            <a href="https://unsplash.com/@anniespratt" target="_blank">Annies pratt</a><br><br>
+            <a href="https://unsplash.com/@maxwbender" target="_blank">Maxwbender</a><br><br>
+            <a href="https://unsplash.com/@brenomachado" target="_blank">brenomachado</a><br><br>
+            <a href="https://unsplash.com/@joonas1233" target="_blank">Joonas</a>
+           
+  
+  
   <div class="contentShow" id="content">
     <div class="navBarBtnMain" id="navBarBtn" onclick="nav()">
       <div class="navBarBtnSub">
@@ -59,14 +82,7 @@
           </div>
           <hr>
           <div class="linkFo">
-            <text>Wallpapers from <a href="https://unsplash.com" target="_blank">Unsplash</a></text><br><br>
-            <a href="https://unsplash.com/@cristofer" target="_blank">Cristofer</a><br><br>
-            <a href="https://unsplash.com/@peymanfarmani" target="_blank">peyman farmani</a><br><br>
-            <a href="https://unsplash.com/@anniespratt" target="_blank">Annies pratt</a><br><br>
-            <a href="https://unsplash.com/@maxwbender" target="_blank">Maxwbender</a><br><br>
-            <a href="https://unsplash.com/@brenomachado" target="_blank">brenomachado</a><br><br>
-            <a href="https://unsplash.com/@joonas1233" target="_blank">Joonas</a>
-          </div>
+</div>
         </div>
         <div class="note">
           <text style="color: #f00">Note</text>
@@ -80,16 +96,16 @@
           <text>Last update 10-04-2022</text>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="searchSection">
       <div class="inpSection">
         <input type="text" placeholder="Enter city name" id="searchCity" class="inpSelf" onkeyup="suggestCity()" onkeydown="suggestCity()" onfocus="enableInp()" value="Ahmedabad" onblur="disableInp()">
       </div>
       <div class="searchIcon" id="searchCitybtn">
-        <i class="fa fa-search"></i>
+        <i class="fa fa-search" id="sBtn"></i>
       </div>
       <div class="locIcon" id="clickLocation">
-        <i class="fa fa-location-crosshairs"></i>
+        <i class="fa fa-location-crosshairs" id="lBtn"></i>
       </div>
     </div>
 
@@ -634,6 +650,9 @@
               </div>
             </div>
           </div>
+          <div class="arrowRight" id="disArr">
+            <i class="fa fa-chevron-right"></i>
+          </div>
         </div>
 
 
@@ -962,76 +981,158 @@
             </div>
             <div class="sectionS">
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>00:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>00:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>01:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>01:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>02:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>02:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>03:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>03:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>04:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>04:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>05:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>05:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>06:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>06:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>07:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>07:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>08:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>08:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>09:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>09:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>10:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>10:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>11:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>11:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>12:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>12:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>13:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>13:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>14:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>14:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>15:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>15:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>16:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>16:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>17:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>17:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>18:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>18:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>19:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>19:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>20:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>20:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>21:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>21:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>22:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>22:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
               </div>
               <div class="divOne">
-                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>23:00</text>&nbsp;|&nbsp;<text class="rainFaetToday">38%</text>
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/rain.svg" class="iconRain"><text>23:00</text>&nbsp;|&nbsp;<text class="rainFaetNext">38%</text>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="willItRain-m" onscroll="runMath()">
+          <div class="willItRain-s" id="rainSticky">
+            <div class="toolTipRainOne" id="toolTipRain">
+              Snow Forecast
+            </div>
+            <div class="sectionS">
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>00:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>01:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>02:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>03:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>04:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>05:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>06:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>07:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>08:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>09:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>10:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>11:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>12:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>13:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>14:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>15:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>16:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>17:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>18:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>19:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>20:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>21:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>22:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
+              </div>
+              <div class="divOne">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/snow.svg" class="iconRain"><text>23:00</text>&nbsp;|&nbsp;<text class="snowRenderMulp">38%</text>
               </div>
             </div>
           </div>

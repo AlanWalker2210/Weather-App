@@ -44,7 +44,7 @@ function pClick() {
 window.onload = function() {
   setTimeout(() => {
     disappear.classList.add("toggle");
-    content.classList.add("contentTogg");
+    // content.classList.add("contentTogg");
   }, 10);
   // letLoad.style.display = 'none';
 }
@@ -1062,186 +1062,6 @@ locBtn.addEventListener("click", () => {
             }
             // myChart.destroy()
           })
-          var foreCastCel = new Array();
-
-          foreCastCel[0] = data.forecast.forecastday[1].hour[0].temp_c;
-          foreCastCel[1] = data.forecast.forecastday[1].hour[1].temp_c;
-          foreCastCel[2] = data.forecast.forecastday[1].hour[2].temp_c;
-          foreCastCel[3] = data.forecast.forecastday[1].hour[3].temp_c;
-          foreCastCel[4] = data.forecast.forecastday[1].hour[4].temp_c;
-          foreCastCel[5] = data.forecast.forecastday[1].hour[5].temp_c;
-          foreCastCel[6] = data.forecast.forecastday[1].hour[6].temp_c;
-          foreCastCel[7] = data.forecast.forecastday[1].hour[7].temp_c;
-          foreCastCel[8] = data.forecast.forecastday[1].hour[8].temp_c;
-          foreCastCel[9] = data.forecast.forecastday[1].hour[9].temp_c;
-          foreCastCel[10] = data.forecast.forecastday[1].hour[10].temp_c;
-          foreCastCel[11] = data.forecast.forecastday[1].hour[11].temp_c;
-          foreCastCel[12] = data.forecast.forecastday[1].hour[12].temp_c;
-          foreCastCel[13] = data.forecast.forecastday[1].hour[13].temp_c;
-          foreCastCel[14] = data.forecast.forecastday[1].hour[14].temp_c;
-          foreCastCel[15] = data.forecast.forecastday[1].hour[15].temp_c;
-          foreCastCel[16] = data.forecast.forecastday[1].hour[16].temp_c;
-          foreCastCel[17] = data.forecast.forecastday[1].hour[17].temp_c;
-          foreCastCel[18] = data.forecast.forecastday[1].hour[18].temp_c;
-          foreCastCel[19] = data.forecast.forecastday[1].hour[19].temp_c;
-          foreCastCel[20] = data.forecast.forecastday[1].hour[20].temp_c;
-          foreCastCel[21] = data.forecast.forecastday[1].hour[21].temp_c;
-          foreCastCel[22] = data.forecast.forecastday[1].hour[22].temp_c;
-          foreCastCel[23] = data.forecast.forecastday[1].hour[23].temp_c;
-
-          var foreCastFah = new Array();
-
-          foreCastFah[0] = data.forecast.forecastday[1].hour[0].temp_f;
-          foreCastFah[1] = data.forecast.forecastday[1].hour[1].temp_f;
-          foreCastFah[2] = data.forecast.forecastday[1].hour[2].temp_f;
-          foreCastFah[3] = data.forecast.forecastday[1].hour[3].temp_f;
-          foreCastFah[4] = data.forecast.forecastday[1].hour[4].temp_f;
-          foreCastFah[5] = data.forecast.forecastday[1].hour[5].temp_f;
-          foreCastFah[6] = data.forecast.forecastday[1].hour[6].temp_f;
-          foreCastFah[7] = data.forecast.forecastday[1].hour[7].temp_f;
-          foreCastFah[8] = data.forecast.forecastday[1].hour[8].temp_f;
-          foreCastFah[9] = data.forecast.forecastday[1].hour[9].temp_f;
-          foreCastFah[10] = data.forecast.forecastday[1].hour[10].temp_f;
-          foreCastFah[11] = data.forecast.forecastday[1].hour[11].temp_f;
-          foreCastFah[12] = data.forecast.forecastday[1].hour[12].temp_f;
-          foreCastFah[13] = data.forecast.forecastday[1].hour[13].temp_f;
-          foreCastFah[14] = data.forecast.forecastday[1].hour[14].temp_f;
-          foreCastFah[15] = data.forecast.forecastday[1].hour[15].temp_f;
-          foreCastFah[16] = data.forecast.forecastday[1].hour[16].temp_f;
-          foreCastFah[17] = data.forecast.forecastday[1].hour[17].temp_f;
-          foreCastFah[18] = data.forecast.forecastday[1].hour[18].temp_f;
-          foreCastFah[19] = data.forecast.forecastday[1].hour[19].temp_f;
-          foreCastFah[20] = data.forecast.forecastday[1].hour[20].temp_f;
-          foreCastFah[21] = data.forecast.forecastday[1].hour[21].temp_f;
-          foreCastFah[22] = data.forecast.forecastday[1].hour[22].temp_f;
-          foreCastFah[23] = data.forecast.forecastday[1].hour[23].temp_f;
-
-          tempZero.innerHTML = foreCastCel[0] + "°C" + "<br>" + foreCastFah[0] + "°F";
-          tempOne.innerHTML = foreCastCel[1] + "°C" + "<br>" + foreCastFah[1] + "°F";
-          tempTwo.innerHTML = foreCastCel[2] + "°C" + "<br>" + foreCastFah[2] + "°F";
-          tempThree.innerHTML = foreCastCel[3] + "°C" + "<br>" + foreCastFah[3] + "°F";
-          tempFour.innerHTML = foreCastCel[4] + "°C" + "<br>" + foreCastFah[4] + "°F";
-          tempFive.innerHTML = foreCastCel[5] + "°C" + "<br>" + foreCastFah[5] + "°F";
-          tempSix.innerHTML = foreCastCel[6] + "°C" + "<br>" + foreCastFah[6] + "°F";
-          tempSeven.innerHTML = foreCastCel[7] + "°C" + "<br>" + foreCastFah[7] + "°F";
-          tempEight.innerHTML = foreCastCel[8] + "°C" + "<br>" + foreCastFah[8] + "°F";
-          tempNine.innerHTML = foreCastCel[9] + "°C" + "<br>" + foreCastFah[9] + "°F";
-          tempTen.innerHTML = foreCastCel[10] + "°C" + "<br>" + foreCastFah[10] + "°F";
-          tempEleven.innerHTML = foreCastCel[11] + "°C" + "<br>" + foreCastFah[11] + "°F";
-          tempTwelve.innerHTML = foreCastCel[12] + "°C" + "<br>" + foreCastFah[12] + "°F";
-          tempThirteen.innerHTML = foreCastCel[13] + "°C" + "<br>" + foreCastFah[13] + "°F";
-          tempFourteen.innerHTML = foreCastCel[14] + "°C" + "<br>" + foreCastFah[14] + "°F";
-          tempFifteen.innerHTML = foreCastCel[15] + "°C" + "<br>" + foreCastFah[15] + "°F";
-          tempSixteen.innerHTML = foreCastCel[16] + "°C" + "<br>" + foreCastFah[16] + "°F";
-          tempSeventeen.innerHTML = foreCastCel[17] + "°C" + "<br>" + foreCastFah[17] + "°F";
-          tempEighteen.innerHTML = foreCastCel[18] + "°C" + "<br>" + foreCastFah[18] + "°F";
-          tempNineteen.innerHTML = foreCastCel[19] + "°C" + "<br>" + foreCastFah[19] + "°F";
-          tempTwenty.innerHTML = foreCastCel[20] + "°C" + "<br>" + foreCastFah[20] + "°F";
-          tempTwentyOne.innerHTML = foreCastCel[21] + "°C" + "<br>" + foreCastFah[21] + "°F";
-          tempTwentyTwo.innerHTML = foreCastCel[22] + "°C" + "<br>" + foreCastFah[22] + "°F";
-          tempTwentyThree.innerHTML = foreCastCel[23] + "°C" + "<br>" + foreCastFah[23] + "°F";
-
-          var sunRised1 = data.forecast.forecastday[1].astro.sunrise;
-          var sunSetd1 = data.forecast.forecastday[1].astro.sunset;
-          var moonRised1 = data.forecast.forecastday[1].astro.moonrise;
-          var moonSetd1 = data.forecast.forecastday[1].astro.moonset;
-
-
-          sunRiseText.innerHTML = sunRised1;
-          sunSetText.innerHTML = sunSetd1;
-          moonRiseText.innerHTML = moonRised1;
-          moonSetText.innerHTML = moonSetd1;
-
-          var foreCastCel2 = new Array();
-
-          foreCastCel2[0] = data.forecast.forecastday[2].hour[0].temp_c;
-          foreCastCel2[1] = data.forecast.forecastday[2].hour[1].temp_c;
-          foreCastCel2[2] = data.forecast.forecastday[2].hour[2].temp_c;
-          foreCastCel2[3] = data.forecast.forecastday[2].hour[3].temp_c;
-          foreCastCel2[4] = data.forecast.forecastday[2].hour[4].temp_c;
-          foreCastCel2[5] = data.forecast.forecastday[2].hour[5].temp_c;
-          foreCastCel2[6] = data.forecast.forecastday[2].hour[6].temp_c;
-          foreCastCel2[7] = data.forecast.forecastday[2].hour[7].temp_c;
-          foreCastCel2[8] = data.forecast.forecastday[2].hour[8].temp_c;
-          foreCastCel2[9] = data.forecast.forecastday[2].hour[9].temp_c;
-          foreCastCel2[10] = data.forecast.forecastday[2].hour[10].temp_c;
-          foreCastCel2[11] = data.forecast.forecastday[2].hour[11].temp_c;
-          foreCastCel2[12] = data.forecast.forecastday[2].hour[12].temp_c;
-          foreCastCel2[13] = data.forecast.forecastday[2].hour[13].temp_c;
-          foreCastCel2[14] = data.forecast.forecastday[2].hour[14].temp_c;
-          foreCastCel2[15] = data.forecast.forecastday[2].hour[15].temp_c;
-          foreCastCel2[16] = data.forecast.forecastday[2].hour[16].temp_c;
-          foreCastCel2[17] = data.forecast.forecastday[2].hour[17].temp_c;
-          foreCastCel2[18] = data.forecast.forecastday[2].hour[18].temp_c;
-          foreCastCel2[19] = data.forecast.forecastday[2].hour[19].temp_c;
-          foreCastCel2[20] = data.forecast.forecastday[2].hour[20].temp_c;
-          foreCastCel2[21] = data.forecast.forecastday[2].hour[21].temp_c;
-          foreCastCel2[22] = data.forecast.forecastday[2].hour[22].temp_c;
-          foreCastCel2[23] = data.forecast.forecastday[2].hour[23].temp_c;
-
-          var foreCastFah2 = new Array();
-
-          foreCastFah2[0] = data.forecast.forecastday[2].hour[0].temp_f;
-          foreCastFah2[1] = data.forecast.forecastday[2].hour[1].temp_f;
-          foreCastFah2[2] = data.forecast.forecastday[2].hour[2].temp_f;
-          foreCastFah2[3] = data.forecast.forecastday[2].hour[3].temp_f;
-          foreCastFah2[4] = data.forecast.forecastday[2].hour[4].temp_f;
-          foreCastFah2[5] = data.forecast.forecastday[2].hour[5].temp_f;
-          foreCastFah2[6] = data.forecast.forecastday[2].hour[6].temp_f;
-          foreCastFah2[7] = data.forecast.forecastday[2].hour[7].temp_f;
-          foreCastFah2[8] = data.forecast.forecastday[2].hour[8].temp_f;
-          foreCastFah2[9] = data.forecast.forecastday[2].hour[9].temp_f;
-          foreCastFah2[10] = data.forecast.forecastday[2].hour[10].temp_f;
-          foreCastFah2[11] = data.forecast.forecastday[2].hour[11].temp_f;
-          foreCastFah2[12] = data.forecast.forecastday[2].hour[12].temp_f;
-          foreCastFah2[13] = data.forecast.forecastday[2].hour[13].temp_f;
-          foreCastFah2[14] = data.forecast.forecastday[2].hour[14].temp_f;
-          foreCastFah2[15] = data.forecast.forecastday[2].hour[15].temp_f;
-          foreCastFah2[16] = data.forecast.forecastday[2].hour[16].temp_f;
-          foreCastFah2[17] = data.forecast.forecastday[2].hour[17].temp_f;
-          foreCastFah2[18] = data.forecast.forecastday[2].hour[18].temp_f;
-          foreCastFah2[19] = data.forecast.forecastday[2].hour[19].temp_f;
-          foreCastFah2[20] = data.forecast.forecastday[2].hour[20].temp_f;
-          foreCastFah2[21] = data.forecast.forecastday[2].hour[21].temp_f;
-          foreCastFah2[22] = data.forecast.forecastday[2].hour[22].temp_f;
-          foreCastFah2[23] = data.forecast.forecastday[2].hour[23].temp_f;
-
-
-          tempZeroTwo.innerHTML = foreCastCel2[0] + "°C" + "<br>" + foreCastFah2[0] + "°F";
-          tempOneTwo.innerHTML = foreCastCel2[1] + "°C" + "<br>" + foreCastFah2[1] + "°F";
-          tempTwoTwo.innerHTML = foreCastCel2[2] + "°C" + "<br>" + foreCastFah2[2] + "°F";
-          tempThreeTwo.innerHTML = foreCastCel2[3] + "°C" + "<br>" + foreCastFah2[3] + "°F";
-          tempFourTwo.innerHTML = foreCastCel2[4] + "°C" + "<br>" + foreCastFah2[4] + "°F";
-          tempFiveTwo.innerHTML = foreCastCel2[5] + "°C" + "<br>" + foreCastFah2[5] + "°F";
-          tempSixTwo.innerHTML = foreCastCel2[6] + "°C" + "<br>" + foreCastFah2[6] + "°F";
-          tempSevenTwo.innerHTML = foreCastCel2[7] + "°C" + "<br>" + foreCastFah2[7] + "°F";
-          tempEightTwo.innerHTML = foreCastCel2[8] + "°C" + "<br>" + foreCastFah2[8] + "°F";
-          tempNineTwo.innerHTML = foreCastCel2[9] + "°C" + "<br>" + foreCastFah2[9] + "°F";
-          tempTenTwo.innerHTML = foreCastCel2[10] + "°C" + "<br>" + foreCastFah2[10] + "°F";
-          tempElevenTwo.innerHTML = foreCastCel2[11] + "°C" + "<br>" + foreCastFah2[11] + "°F";
-          tempTwelveTwo.innerHTML = foreCastCel2[12] + "°C" + "<br>" + foreCastFah2[12] + "°F";
-          tempThirteenTwo.innerHTML = foreCastCel2[13] + "°C" + "<br>" + foreCastFah2[13] + "°F";
-          tempFourteenTwo.innerHTML = foreCastCel2[14] + "°C" + "<br>" + foreCastFah2[14] + "°F";
-          tempFifteenTwo.innerHTML = foreCastCel2[15] + "°C" + "<br>" + foreCastFah2[15] + "°F";
-          tempSixteenTwo.innerHTML = foreCastCel2[16] + "°C" + "<br>" + foreCastFah2[16] + "°F";
-          tempSeventeenTwo.innerHTML = foreCastCel2[17] + "°C" + "<br>" + foreCastFah2[17] + "°F";
-          tempEighteenTwo.innerHTML = foreCastCel2[18] + "°C" + "<br>" + foreCastFah2[18] + "°F";
-          tempNineteenTwo.innerHTML = foreCastCel2[19] + "°C" + "<br>" + foreCastFah2[19] + "°F";
-          tempTwentyTwo.innerHTML = foreCastCel2[20] + "°C" + "<br>" + foreCastFah2[20] + "°F";
-          tempTwentyOneTwo.innerHTML = foreCastCel2[21] + "°C" + "<br>" + foreCastFah2[21] + "°F";
-          tempTwentyTwoTwo.innerHTML = foreCastCel2[22] + "°C" + "<br>" + foreCastFah2[22] + "°F";
-          tempTwentyThreeTwo.innerHTML = foreCastCel2[23] + "°C" + "<br>" + foreCastFah2[23] + "°F";
-
-          var sunRised2 = data.forecast.forecastday[2].astro.sunrise;
-          var sunSetd2 = data.forecast.forecastday[2].astro.sunset;
-          var moonRised2 = data.forecast.forecastday[2].astro.moonrise;
-          var moonSetd2 = data.forecast.forecastday[2].astro.moonset;
-
-
-          sunRiseTextNxt.innerHTML = sunRised2;
-          sunSetTextNxt.innerHTML = sunSetd2;
-          moonRiseTextNxt.innerHTML = moonRised2;
-          moonSetTextNxt.innerHTML = moonSetd2
         })
         .catch(err => {
           var fetchIng = document.getElementById("fetchErr");
@@ -1323,7 +1143,7 @@ btn.addEventListener('click', () => {
       var humPer = data.current.humidity;
       var feelsFah = data.current.feelslike_f;
       var feelsCel = data.current.feelslike_c;
-      
+
       var todayChanceRain = data.forecast.forecastday[0].day.daily_chance_of_rain;
       var todayChanceSnow = data.forecast.forecastday[0].day.daily_chance_of_snow;
       //IMAGE DISPLAY
@@ -1338,7 +1158,7 @@ btn.addEventListener('click', () => {
       var condition = data.current.condition.text;
 
       temp.innerHTML = tempN + `<sup class="celsiusUnit">°C</sup>`;
-      fahText.innerHTML =`<text class="fahMin">Fahrenheit</text>`+ " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
+      fahText.innerHTML = `<text class="fahMin">Fahrenheit</text>` + " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
       humiText.innerHTML = "Humidity" + " : " + humPer + "%";
       feelsFahText.innerHTML = "Feels like" + " : " + feelsFah + `<sup class="celsiusUnit">°F</sup>`;
       feelsCelText.innerHTML = "Feels like" + " : " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
@@ -1431,7 +1251,7 @@ btn.addEventListener('click', () => {
         aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-9.svg"
       }
 
-     // lastUpdate.innerHTML = "Last updated" + ' - ' + lstUpdate;
+      // lastUpdate.innerHTML = "Last updated" + ' - ' + lstUpdate;
 
       if (arraySize.length > 0) {
         var alertDesc = data.alerts.alert[0].desc;
@@ -2127,6 +1947,20 @@ btn.addEventListener('click', () => {
 
         }
       }
+      else if (cond.innerHTML == "Patchy light rain") {
+        backWall.src = "/backgrounds/rain.jpg"
+
+        if (is_day == 1) {
+          //Day icon
+          imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
+
+        }
+        else {
+          //Night icon
+          imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
+
+        }
+      }
       else if (cond.innerHTML == "Moderate or heavy rain with thunder") {
         backWall.src = "/backgrounds/thunderstorm.jpg"
 
@@ -2168,122 +2002,123 @@ btn.addEventListener('click', () => {
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
         }
       }
-   /*   var foreCastd1 = new Array();
-      foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
-      foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
-      foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
-      foreCastd1[3] = data.forecast.forecastday[0].hour[3].temp_c;
-      foreCastd1[4] = data.forecast.forecastday[0].hour[4].temp_c;
-      foreCastd1[5] = data.forecast.forecastday[0].hour[5].temp_c;
-      foreCastd1[6] = data.forecast.forecastday[0].hour[6].temp_c;
-      foreCastd1[7] = data.forecast.forecastday[0].hour[7].temp_c;
-      foreCastd1[8] = data.forecast.forecastday[0].hour[8].temp_c;
-      foreCastd1[9] = data.forecast.forecastday[0].hour[9].temp_c;
-      foreCastd1[10] = data.forecast.forecastday[0].hour[10].temp_c;
-      foreCastd1[11] = data.forecast.forecastday[0].hour[11].temp_c;
-      foreCastd1[12] = data.forecast.forecastday[0].hour[12].temp_c;
-      foreCastd1[13] = data.forecast.forecastday[0].hour[13].temp_c;
-      foreCastd1[14] = data.forecast.forecastday[0].hour[14].temp_c;
-      foreCastd1[15] = data.forecast.forecastday[0].hour[15].temp_c;
-      foreCastd1[16] = data.forecast.forecastday[0].hour[16].temp_c;
-      foreCastd1[17] = data.forecast.forecastday[0].hour[17].temp_c;
-      foreCastd1[18] = data.forecast.forecastday[0].hour[18].temp_c;
-      foreCastd1[19] = data.forecast.forecastday[0].hour[19].temp_c;
-      foreCastd1[20] = data.forecast.forecastday[0].hour[20].temp_c;
-      foreCastd1[21] = data.forecast.forecastday[0].hour[21].temp_c;
-      foreCastd1[22] = data.forecast.forecastday[0].hour[22].temp_c;
-      foreCastd1[23] = data.forecast.forecastday[0].hour[23].temp_c;
 
-      var foreCastd1Inf = new Array();
-      foreCastd1Inf[0] = data.forecast.forecastday[0].hour[0].temp_f;
-      foreCastd1Inf[1] = data.forecast.forecastday[0].hour[1].temp_f;
-      foreCastd1Inf[2] = data.forecast.forecastday[0].hour[2].temp_f;
-      foreCastd1Inf[3] = data.forecast.forecastday[0].hour[3].temp_f;
-      foreCastd1Inf[4] = data.forecast.forecastday[0].hour[4].temp_f;
-      foreCastd1Inf[5] = data.forecast.forecastday[0].hour[5].temp_f;
-      foreCastd1Inf[6] = data.forecast.forecastday[0].hour[6].temp_f;
-      foreCastd1Inf[7] = data.forecast.forecastday[0].hour[7].temp_f;
-      foreCastd1Inf[8] = data.forecast.forecastday[0].hour[8].temp_f;
-      foreCastd1Inf[9] = data.forecast.forecastday[0].hour[9].temp_f;
-      foreCastd1Inf[10] = data.forecast.forecastday[0].hour[10].temp_f;
-      foreCastd1Inf[11] = data.forecast.forecastday[0].hour[11].temp_f;
-      foreCastd1Inf[12] = data.forecast.forecastday[0].hour[12].temp_f;
-      foreCastd1Inf[13] = data.forecast.forecastday[0].hour[13].temp_f;
-      foreCastd1Inf[14] = data.forecast.forecastday[0].hour[14].temp_f;
-      foreCastd1Inf[15] = data.forecast.forecastday[0].hour[15].temp_f;
-      foreCastd1Inf[16] = data.forecast.forecastday[0].hour[16].temp_f;
-      foreCastd1Inf[17] = data.forecast.forecastday[0].hour[17].temp_f;
-      foreCastd1Inf[18] = data.forecast.forecastday[0].hour[18].temp_f;
-      foreCastd1Inf[19] = data.forecast.forecastday[0].hour[19].temp_f;
-      foreCastd1Inf[20] = data.forecast.forecastday[0].hour[20].temp_f;
-      foreCastd1Inf[21] = data.forecast.forecastday[0].hour[21].temp_f;
-      foreCastd1Inf[22] = data.forecast.forecastday[0].hour[22].temp_f;
-      foreCastd1Inf[23] = data.forecast.forecastday[0].hour[23].temp_f;
+      /*   var foreCastd1 = new Array();
+         foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
+         foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
+         foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
+         foreCastd1[3] = data.forecast.forecastday[0].hour[3].temp_c;
+         foreCastd1[4] = data.forecast.forecastday[0].hour[4].temp_c;
+         foreCastd1[5] = data.forecast.forecastday[0].hour[5].temp_c;
+         foreCastd1[6] = data.forecast.forecastday[0].hour[6].temp_c;
+         foreCastd1[7] = data.forecast.forecastday[0].hour[7].temp_c;
+         foreCastd1[8] = data.forecast.forecastday[0].hour[8].temp_c;
+         foreCastd1[9] = data.forecast.forecastday[0].hour[9].temp_c;
+         foreCastd1[10] = data.forecast.forecastday[0].hour[10].temp_c;
+         foreCastd1[11] = data.forecast.forecastday[0].hour[11].temp_c;
+         foreCastd1[12] = data.forecast.forecastday[0].hour[12].temp_c;
+         foreCastd1[13] = data.forecast.forecastday[0].hour[13].temp_c;
+         foreCastd1[14] = data.forecast.forecastday[0].hour[14].temp_c;
+         foreCastd1[15] = data.forecast.forecastday[0].hour[15].temp_c;
+         foreCastd1[16] = data.forecast.forecastday[0].hour[16].temp_c;
+         foreCastd1[17] = data.forecast.forecastday[0].hour[17].temp_c;
+         foreCastd1[18] = data.forecast.forecastday[0].hour[18].temp_c;
+         foreCastd1[19] = data.forecast.forecastday[0].hour[19].temp_c;
+         foreCastd1[20] = data.forecast.forecastday[0].hour[20].temp_c;
+         foreCastd1[21] = data.forecast.forecastday[0].hour[21].temp_c;
+         foreCastd1[22] = data.forecast.forecastday[0].hour[22].temp_c;
+         foreCastd1[23] = data.forecast.forecastday[0].hour[23].temp_c;
 
-      // myChart.destroy();
+         var foreCastd1Inf = new Array();
+         foreCastd1Inf[0] = data.forecast.forecastday[0].hour[0].temp_f;
+         foreCastd1Inf[1] = data.forecast.forecastday[0].hour[1].temp_f;
+         foreCastd1Inf[2] = data.forecast.forecastday[0].hour[2].temp_f;
+         foreCastd1Inf[3] = data.forecast.forecastday[0].hour[3].temp_f;
+         foreCastd1Inf[4] = data.forecast.forecastday[0].hour[4].temp_f;
+         foreCastd1Inf[5] = data.forecast.forecastday[0].hour[5].temp_f;
+         foreCastd1Inf[6] = data.forecast.forecastday[0].hour[6].temp_f;
+         foreCastd1Inf[7] = data.forecast.forecastday[0].hour[7].temp_f;
+         foreCastd1Inf[8] = data.forecast.forecastday[0].hour[8].temp_f;
+         foreCastd1Inf[9] = data.forecast.forecastday[0].hour[9].temp_f;
+         foreCastd1Inf[10] = data.forecast.forecastday[0].hour[10].temp_f;
+         foreCastd1Inf[11] = data.forecast.forecastday[0].hour[11].temp_f;
+         foreCastd1Inf[12] = data.forecast.forecastday[0].hour[12].temp_f;
+         foreCastd1Inf[13] = data.forecast.forecastday[0].hour[13].temp_f;
+         foreCastd1Inf[14] = data.forecast.forecastday[0].hour[14].temp_f;
+         foreCastd1Inf[15] = data.forecast.forecastday[0].hour[15].temp_f;
+         foreCastd1Inf[16] = data.forecast.forecastday[0].hour[16].temp_f;
+         foreCastd1Inf[17] = data.forecast.forecastday[0].hour[17].temp_f;
+         foreCastd1Inf[18] = data.forecast.forecastday[0].hour[18].temp_f;
+         foreCastd1Inf[19] = data.forecast.forecastday[0].hour[19].temp_f;
+         foreCastd1Inf[20] = data.forecast.forecastday[0].hour[20].temp_f;
+         foreCastd1Inf[21] = data.forecast.forecastday[0].hour[21].temp_f;
+         foreCastd1Inf[22] = data.forecast.forecastday[0].hour[22].temp_f;
+         foreCastd1Inf[23] = data.forecast.forecastday[0].hour[23].temp_f;
 
-      var ctx = document.getElementById("myChart").getContext('2d');
+         // myChart.destroy();
 
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
-                  '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-                  '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'
-          ],
-          datasets: [{
-            label: `Celsius`,
-            data: [
-              foreCastd1[0], foreCastd1[1], foreCastd1[2], foreCastd1[3],
-              foreCastd1[4], foreCastd1[5], foreCastd1[6], foreCastd1[7],
-              foreCastd1[8], foreCastd1[9], foreCastd1[10], foreCastd1[11],
-              foreCastd1[12], foreCastd1[13], foreCastd1[14], foreCastd1[15],
-              foreCastd1[16], foreCastd1[17], foreCastd1[18], foreCastd1[19],
-              foreCastd1[20], foreCastd1[21], foreCastd1[22], foreCastd1[23],
-              ],
+         var ctx = document.getElementById("myChart").getContext('2d');
+
+         var myChart = new Chart(ctx, {
+           type: 'line',
+           data: {
+             labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
+                     '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
+                     '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'
+             ],
+             datasets: [{
+               label: `Celsius`,
+               data: [
+                 foreCastd1[0], foreCastd1[1], foreCastd1[2], foreCastd1[3],
+                 foreCastd1[4], foreCastd1[5], foreCastd1[6], foreCastd1[7],
+                 foreCastd1[8], foreCastd1[9], foreCastd1[10], foreCastd1[11],
+                 foreCastd1[12], foreCastd1[13], foreCastd1[14], foreCastd1[15],
+                 foreCastd1[16], foreCastd1[17], foreCastd1[18], foreCastd1[19],
+                 foreCastd1[20], foreCastd1[21], foreCastd1[22], foreCastd1[23],
+                 ],
 
 
-            backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                  ],
-            borderColor: [
-                      '#1394EF'
-                  ],
-            borderWidth: 4,
-            tension: 0.4,
-              }, {
-            label: `Fahrenheit`,
-            data: [foreCastd1Inf[0], foreCastd1Inf[1], foreCastd1Inf[2], foreCastd1Inf[3],
-                         foreCastd1Inf[4], foreCastd1Inf[5], foreCastd1Inf[6], foreCastd1Inf[7],
-                         foreCastd1Inf[8], foreCastd1Inf[9], foreCastd1Inf[10], foreCastd1Inf[11],
-                         foreCastd1Inf[12], foreCastd1Inf[13], foreCastd1Inf[14], foreCastd1Inf[15],
-                         foreCastd1Inf[16], foreCastd1Inf[17], foreCastd1Inf[18], foreCastd1Inf[19],
-                         foreCastd1Inf[20], foreCastd1Inf[21], foreCastd1Inf[22], foreCastd1Inf[23],
-                                 ],
-            backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                  ],
-            borderColor: [
-                      '#FC7403'
-                  ],
-            borderWidth: 4,
-            tension: 0.4,
-              }]
-        },
+               backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)',
+                     ],
+               borderColor: [
+                         '#1394EF'
+                     ],
+               borderWidth: 4,
+               tension: 0.4,
+                 }, {
+               label: `Fahrenheit`,
+               data: [foreCastd1Inf[0], foreCastd1Inf[1], foreCastd1Inf[2], foreCastd1Inf[3],
+                            foreCastd1Inf[4], foreCastd1Inf[5], foreCastd1Inf[6], foreCastd1Inf[7],
+                            foreCastd1Inf[8], foreCastd1Inf[9], foreCastd1Inf[10], foreCastd1Inf[11],
+                            foreCastd1Inf[12], foreCastd1Inf[13], foreCastd1Inf[14], foreCastd1Inf[15],
+                            foreCastd1Inf[16], foreCastd1Inf[17], foreCastd1Inf[18], foreCastd1Inf[19],
+                            foreCastd1Inf[20], foreCastd1Inf[21], foreCastd1Inf[22], foreCastd1Inf[23],
+                                    ],
+               backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)',
+                     ],
+               borderColor: [
+                         '#FC7403'
+                     ],
+               borderWidth: 4,
+               tension: 0.4,
+                 }]
+           },
 
-        options: {
-          pointDotStrokeWidth: 5,
-          dataSetStrokeWidth: 6,
-          hoverRadius: 12,
-          hitRadius: 12,
-          respnsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      })*/
+           options: {
+             pointDotStrokeWidth: 5,
+             dataSetStrokeWidth: 6,
+             hoverRadius: 12,
+             hitRadius: 12,
+             respnsive: true,
+             scales: {
+               y: {
+                 beginAtZero: true,
+               },
+             },
+           },
+         })*/
 
       /* var foreCastCel = new Array();
 
@@ -2466,225 +2301,114 @@ btn.addEventListener('click', () => {
        moonRiseTextNxt.innerHTML = moonRised2;
        moonSetTextNxt.innerHTML = moonSetd2;*/
 
-       let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
+      let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
 
-       let rainTodayArr = new Array();
+      let rainTodayArr = new Array();
 
-       rainTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_rain;
-       rainTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_rain;
-       rainTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_rain;
-       rainTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_rain;
-       rainTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_rain;
-       rainTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_rain;
-       rainTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_rain;
-       rainTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_rain;
-       rainTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_rain;
-       rainTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_rain;
-       rainTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_rain;
-       rainTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_rain;
-       rainTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_rain;
-       rainTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_rain;
-       rainTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_rain;
-       rainTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_rain;
-       rainTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_rain;
-       rainTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_rain;
-       rainTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_rain;
-       rainTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_rain;
-       rainTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_rain;
-       rainTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_rain;
-       rainTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_rain;
-       rainTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_rain;
+      rainTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_rain;
+      rainTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_rain;
+      rainTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_rain;
+      rainTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_rain;
+      rainTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_rain;
+      rainTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_rain;
+      rainTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_rain;
+      rainTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_rain;
+      rainTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_rain;
+      rainTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_rain;
+      rainTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_rain;
+      rainTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_rain;
+      rainTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_rain;
+      rainTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_rain;
+      rainTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_rain;
+      rainTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_rain;
+      rainTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_rain;
+      rainTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_rain;
+      rainTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_rain;
+      rainTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_rain;
+      rainTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_rain;
+      rainTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_rain;
+      rainTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_rain;
+      rainTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_rain;
 
-       rainFeatArrToday[0].innerHTML = rainTodayArr[00] + "%";
-       rainFeatArrToday[1].innerHTML = rainTodayArr[01] + "%";
-       rainFeatArrToday[2].innerHTML = rainTodayArr[02] + "%";
-       rainFeatArrToday[3].innerHTML = rainTodayArr[03] + "%";
-       rainFeatArrToday[4].innerHTML = rainTodayArr[04] + "%";
-       rainFeatArrToday[5].innerHTML = rainTodayArr[05] + "%";
-       rainFeatArrToday[6].innerHTML = rainTodayArr[06] + "%";
-       rainFeatArrToday[7].innerHTML = rainTodayArr[07] + "%";
-       rainFeatArrToday[8].innerHTML = rainTodayArr[08] + "%";
-       rainFeatArrToday[9].innerHTML = rainTodayArr[09] + "%";
-       rainFeatArrToday[10].innerHTML = rainTodayArr[10] + "%";
-       rainFeatArrToday[11].innerHTML = rainTodayArr[11] + "%";
-       rainFeatArrToday[12].innerHTML = rainTodayArr[12] + "%";
-       rainFeatArrToday[13].innerHTML = rainTodayArr[13] + "%";
-       rainFeatArrToday[14].innerHTML = rainTodayArr[14] + "%";
-       rainFeatArrToday[15].innerHTML = rainTodayArr[15] + "%";
-       rainFeatArrToday[16].innerHTML = rainTodayArr[16] + "%";
-       rainFeatArrToday[17].innerHTML = rainTodayArr[17] + "%";
-       rainFeatArrToday[18].innerHTML = rainTodayArr[18] + "%";
-       rainFeatArrToday[19].innerHTML = rainTodayArr[19] + "%";
-       rainFeatArrToday[20].innerHTML = rainTodayArr[20] + "%";
-       rainFeatArrToday[21].innerHTML = rainTodayArr[21] + "%";
-       rainFeatArrToday[22].innerHTML = rainTodayArr[22] + "%";
-       rainFeatArrToday[23].innerHTML = rainTodayArr[23] + "%";
+      rainFeatArrToday[0].innerHTML = rainTodayArr[00] + "%";
+      rainFeatArrToday[1].innerHTML = rainTodayArr[01] + "%";
+      rainFeatArrToday[2].innerHTML = rainTodayArr[02] + "%";
+      rainFeatArrToday[3].innerHTML = rainTodayArr[03] + "%";
+      rainFeatArrToday[4].innerHTML = rainTodayArr[04] + "%";
+      rainFeatArrToday[5].innerHTML = rainTodayArr[05] + "%";
+      rainFeatArrToday[6].innerHTML = rainTodayArr[06] + "%";
+      rainFeatArrToday[7].innerHTML = rainTodayArr[07] + "%";
+      rainFeatArrToday[8].innerHTML = rainTodayArr[08] + "%";
+      rainFeatArrToday[9].innerHTML = rainTodayArr[09] + "%";
+      rainFeatArrToday[10].innerHTML = rainTodayArr[10] + "%";
+      rainFeatArrToday[11].innerHTML = rainTodayArr[11] + "%";
+      rainFeatArrToday[12].innerHTML = rainTodayArr[12] + "%";
+      rainFeatArrToday[13].innerHTML = rainTodayArr[13] + "%";
+      rainFeatArrToday[14].innerHTML = rainTodayArr[14] + "%";
+      rainFeatArrToday[15].innerHTML = rainTodayArr[15] + "%";
+      rainFeatArrToday[16].innerHTML = rainTodayArr[16] + "%";
+      rainFeatArrToday[17].innerHTML = rainTodayArr[17] + "%";
+      rainFeatArrToday[18].innerHTML = rainTodayArr[18] + "%";
+      rainFeatArrToday[19].innerHTML = rainTodayArr[19] + "%";
+      rainFeatArrToday[20].innerHTML = rainTodayArr[20] + "%";
+      rainFeatArrToday[21].innerHTML = rainTodayArr[21] + "%";
+      rainFeatArrToday[22].innerHTML = rainTodayArr[22] + "%";
+      rainFeatArrToday[23].innerHTML = rainTodayArr[23] + "%";
 
 
-       let snowRender = document.querySelectorAll('.snowFaetToday');
-       let snowTodayArr = new Array();
+      let snowRender = document.querySelectorAll('.snowFaetToday');
+      let snowTodayArr = new Array();
 
-       snowTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_snow;
-       snowTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_snow;
-       snowTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_snow;
-       snowTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_snow;
-       snowTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_snow;
-       snowTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_snow;
-       snowTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_snow;
-       snowTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_snow;
-       snowTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_snow;
-       snowTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_snow;
-       snowTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_snow;
-       snowTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_snow;
-       snowTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_snow;
-       snowTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_snow;
-       snowTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_snow;
-       snowTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_snow;
-       snowTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_snow;
-       snowTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_snow;
-       snowTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_snow;
-       snowTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_snow;
-       snowTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_snow;
-       snowTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_snow;
-       snowTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_snow;
-       snowTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_snow;
-       
-       snowRender[0].innerHTML = snowTodayArr[0] + "%";
-       snowRender[1].innerHTML = snowTodayArr[1] + "%";
-       snowRender[2].innerHTML = snowTodayArr[2] + "%";
-       snowRender[3].innerHTML = snowTodayArr[3] + "%";
-       snowRender[4].innerHTML = snowTodayArr[4] + "%";
-       snowRender[5].innerHTML = snowTodayArr[5] + "%";
-       snowRender[6].innerHTML = snowTodayArr[6] + "%";
-       snowRender[7].innerHTML = snowTodayArr[7] + "%";
-       snowRender[8].innerHTML = snowTodayArr[8] + "%";
-       snowRender[9].innerHTML = snowTodayArr[9] + "%";
-       snowRender[10].innerHTML = snowTodayArr[10] + "%";
-       snowRender[11].innerHTML = snowTodayArr[11] + "%";
-       snowRender[12].innerHTML = snowTodayArr[12] + "%";
-       snowRender[13].innerHTML = snowTodayArr[13] + "%";
-       snowRender[14].innerHTML = snowTodayArr[14] + "%";
-       snowRender[15].innerHTML = snowTodayArr[15] + "%";
-       snowRender[16].innerHTML = snowTodayArr[16] + "%";
-       snowRender[17].innerHTML = snowTodayArr[17] + "%";
-       snowRender[18].innerHTML = snowTodayArr[18] + "%";
-       snowRender[19].innerHTML = snowTodayArr[19] + "%";
-       snowRender[20].innerHTML = snowTodayArr[20] + "%";
-       snowRender[21].innerHTML = snowTodayArr[21] + "%";
-       snowRender[22].innerHTML = snowTodayArr[22] + "%";
-       snowRender[23].innerHTML = snowTodayArr[23] + "%";
+      snowTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_snow;
+      snowTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_snow;
+      snowTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_snow;
+      snowTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_snow;
+      snowTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_snow;
+      snowTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_snow;
+      snowTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_snow;
+      snowTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_snow;
+      snowTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_snow;
+      snowTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_snow;
+      snowTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_snow;
+      snowTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_snow;
+      snowTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_snow;
+      snowTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_snow;
+      snowTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_snow;
+      snowTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_snow;
+      snowTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_snow;
+      snowTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_snow;
+      snowTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_snow;
+      snowTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_snow;
+      snowTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_snow;
+      snowTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_snow;
+      snowTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_snow;
+      snowTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_snow;
 
-    /*   let rainFeatArr = document.querySelectorAll(".rainFaet");
+      snowRender[0].innerHTML = snowTodayArr[0] + "%";
+      snowRender[1].innerHTML = snowTodayArr[1] + "%";
+      snowRender[2].innerHTML = snowTodayArr[2] + "%";
+      snowRender[3].innerHTML = snowTodayArr[3] + "%";
+      snowRender[4].innerHTML = snowTodayArr[4] + "%";
+      snowRender[5].innerHTML = snowTodayArr[5] + "%";
+      snowRender[6].innerHTML = snowTodayArr[6] + "%";
+      snowRender[7].innerHTML = snowTodayArr[7] + "%";
+      snowRender[8].innerHTML = snowTodayArr[8] + "%";
+      snowRender[9].innerHTML = snowTodayArr[9] + "%";
+      snowRender[10].innerHTML = snowTodayArr[10] + "%";
+      snowRender[11].innerHTML = snowTodayArr[11] + "%";
+      snowRender[12].innerHTML = snowTodayArr[12] + "%";
+      snowRender[13].innerHTML = snowTodayArr[13] + "%";
+      snowRender[14].innerHTML = snowTodayArr[14] + "%";
+      snowRender[15].innerHTML = snowTodayArr[15] + "%";
+      snowRender[16].innerHTML = snowTodayArr[16] + "%";
+      snowRender[17].innerHTML = snowTodayArr[17] + "%";
+      snowRender[18].innerHTML = snowTodayArr[18] + "%";
+      snowRender[19].innerHTML = snowTodayArr[19] + "%";
+      snowRender[20].innerHTML = snowTodayArr[20] + "%";
+      snowRender[21].innerHTML = snowTodayArr[21] + "%";
+      snowRender[22].innerHTML = snowTodayArr[22] + "%";
+      snowRender[23].innerHTML = snowTodayArr[23] + "%";
 
-       let rainGetArr = new Array();
-
-       console.log(data)
-
-       rainGetArr[00] = data.forecast.forecastday[1].hour[0].chance_of_rain;
-       rainGetArr[01] = data.forecast.forecastday[1].hour[1].chance_of_rain;
-       rainGetArr[02] = data.forecast.forecastday[1].hour[2].chance_of_rain;
-       rainGetArr[03] = data.forecast.forecastday[1].hour[3].chance_of_rain;
-       rainGetArr[04] = data.forecast.forecastday[1].hour[4].chance_of_rain;
-       rainGetArr[05] = data.forecast.forecastday[1].hour[5].chance_of_rain;
-       rainGetArr[06] = data.forecast.forecastday[1].hour[6].chance_of_rain;
-       rainGetArr[07] = data.forecast.forecastday[1].hour[7].chance_of_rain;
-       rainGetArr[08] = data.forecast.forecastday[1].hour[8].chance_of_rain;
-       rainGetArr[09] = data.forecast.forecastday[1].hour[9].chance_of_rain;
-       rainGetArr[10] = data.forecast.forecastday[1].hour[10].chance_of_rain;
-       rainGetArr[11] = data.forecast.forecastday[1].hour[11].chance_of_rain;
-       rainGetArr[12] = data.forecast.forecastday[1].hour[12].chance_of_rain;
-       rainGetArr[13] = data.forecast.forecastday[1].hour[13].chance_of_rain;
-       rainGetArr[14] = data.forecast.forecastday[1].hour[14].chance_of_rain;
-       rainGetArr[15] = data.forecast.forecastday[1].hour[15].chance_of_rain;
-       rainGetArr[16] = data.forecast.forecastday[1].hour[16].chance_of_rain;
-       rainGetArr[17] = data.forecast.forecastday[1].hour[17].chance_of_rain;
-       rainGetArr[18] = data.forecast.forecastday[1].hour[18].chance_of_rain;
-       rainGetArr[19] = data.forecast.forecastday[1].hour[19].chance_of_rain;
-       rainGetArr[20] = data.forecast.forecastday[1].hour[20].chance_of_rain;
-       rainGetArr[21] = data.forecast.forecastday[1].hour[21].chance_of_rain;
-       rainGetArr[22] = data.forecast.forecastday[1].hour[22].chance_of_rain;
-       rainGetArr[23] = data.forecast.forecastday[1].hour[23].chance_of_rain;
-
-       rainFeatArr[0].innerHTML = rainGetArr[00] + "%";
-       rainFeatArr[1].innerHTML = rainGetArr[01] + "%";
-       rainFeatArr[2].innerHTML = rainGetArr[02] + "%";
-       rainFeatArr[3].innerHTML = rainGetArr[03] + "%";
-       rainFeatArr[4].innerHTML = rainGetArr[04] + "%";
-       rainFeatArr[5].innerHTML = rainGetArr[05] + "%";
-       rainFeatArr[6].innerHTML = rainGetArr[06] + "%";
-       rainFeatArr[7].innerHTML = rainGetArr[07] + "%";
-       rainFeatArr[8].innerHTML = rainGetArr[08] + "%";
-       rainFeatArr[9].innerHTML = rainGetArr[09] + "%";
-       rainFeatArr[10].innerHTML = rainGetArr[10] + "%";
-       rainFeatArr[11].innerHTML = rainGetArr[11] + "%";
-       rainFeatArr[12].innerHTML = rainGetArr[12] + "%";
-       rainFeatArr[13].innerHTML = rainGetArr[13] + "%";
-       rainFeatArr[14].innerHTML = rainGetArr[14] + "%";
-       rainFeatArr[15].innerHTML = rainGetArr[15] + "%";
-       rainFeatArr[16].innerHTML = rainGetArr[16] + "%";
-       rainFeatArr[17].innerHTML = rainGetArr[17] + "%";
-       rainFeatArr[18].innerHTML = rainGetArr[18] + "%";
-       rainFeatArr[19].innerHTML = rainGetArr[19] + "%";
-       rainFeatArr[20].innerHTML = rainGetArr[20] + "%";
-       rainFeatArr[21].innerHTML = rainGetArr[21] + "%";
-       rainFeatArr[22].innerHTML = rainGetArr[22] + "%";
-       rainFeatArr[23].innerHTML = rainGetArr[23] + "%";
-       
-       
-       let rainNextArr = new Array();
-       
-       rainNextArr[00] = data.forecast.forecastday[2].hour[0].chance_of_rain;
-       rainNextArr[01] = data.forecast.forecastday[2].hour[1].chance_of_rain;
-       rainNextArr[02] = data.forecast.forecastday[2].hour[2].chance_of_rain;
-       rainNextArr[03] = data.forecast.forecastday[2].hour[3].chance_of_rain;
-       rainNextArr[04] = data.forecast.forecastday[2].hour[4].chance_of_rain;
-       rainNextArr[05] = data.forecast.forecastday[2].hour[5].chance_of_rain;
-       rainNextArr[06] = data.forecast.forecastday[2].hour[6].chance_of_rain;
-       rainNextArr[07] = data.forecast.forecastday[2].hour[7].chance_of_rain;
-       rainNextArr[08] = data.forecast.forecastday[2].hour[8].chance_of_rain;
-       rainNextArr[09] = data.forecast.forecastday[2].hour[9].chance_of_rain;
-       rainNextArr[10] = data.forecast.forecastday[2].hour[10].chance_of_rain;
-       rainNextArr[11] = data.forecast.forecastday[2].hour[11].chance_of_rain;
-       rainNextArr[12] = data.forecast.forecastday[2].hour[12].chance_of_rain;
-       rainNextArr[13] = data.forecast.forecastday[2].hour[13].chance_of_rain;
-       rainNextArr[14] = data.forecast.forecastday[2].hour[14].chance_of_rain;
-       rainNextArr[15] = data.forecast.forecastday[2].hour[15].chance_of_rain;
-       rainNextArr[16] = data.forecast.forecastday[2].hour[16].chance_of_rain;
-       rainNextArr[17] = data.forecast.forecastday[2].hour[17].chance_of_rain;
-       rainNextArr[18] = data.forecast.forecastday[2].hour[18].chance_of_rain;
-       rainNextArr[19] = data.forecast.forecastday[2].hour[19].chance_of_rain;
-       rainNextArr[20] = data.forecast.forecastday[2].hour[20].chance_of_rain;
-       rainNextArr[21] = data.forecast.forecastday[2].hour[21].chance_of_rain;
-       rainNextArr[22] = data.forecast.forecastday[2].hour[22].chance_of_rain;
-       rainNextArr[23] = data.forecast.forecastday[2].hour[23].chance_of_rain;
-       
-       let rainNextDay = document.querySelectorAll('.rainFaetNext');
-       
-       rainNextDay[0].innerHTML = rainNextArr[00] + "%";
-       rainNextDay[1].innerHTML = rainNextArr[01] + "%";
-       rainNextDay[2].innerHTML = rainNextArr[02] + "%";
-       rainNextDay[3].innerHTML = rainNextArr[03] + "%";
-       rainNextDay[4].innerHTML = rainNextArr[04] + "%";
-       rainNextDay[5].innerHTML = rainNextArr[05] + "%";
-       rainNextDay[6].innerHTML = rainNextArr[06] + "%";
-       rainNextDay[7].innerHTML = rainNextArr[07] + "%";
-       rainNextDay[8].innerHTML = rainNextArr[08] + "%";
-       rainNextDay[9].innerHTML = rainNextArr[09] + "%";
-       rainNextDay[10].innerHTML = rainNextArr[10] + "%";
-       rainNextDay[11].innerHTML = rainNextArr[11] + "%";
-       rainNextDay[12].innerHTML = rainNextArr[12] + "%";
-       rainNextDay[13].innerHTML = rainNextArr[13] + "%";
-       rainNextDay[14].innerHTML = rainNextArr[14] + "%";
-       rainNextDay[15].innerHTML = rainNextArr[15] + "%";
-       rainNextDay[16].innerHTML = rainNextArr[16] + "%";
-       rainNextDay[17].innerHTML = rainNextArr[17] + "%";
-       rainNextDay[18].innerHTML = rainNextArr[18] + "%";
-       rainNextDay[19].innerHTML = rainNextArr[19] + "%";
-       rainNextDay[20].innerHTML = rainNextArr[20] + "%";
-       rainNextDay[21].innerHTML = rainNextArr[21] + "%";
-       rainNextDay[22].innerHTML = rainNextArr[22] + "%";
-       rainNextDay[23].innerHTML = rainNextArr[23] + "%";
-       */
       let dateOne = data.forecast.forecastday[1].date;
       dayOneDate.innerHTML = dateOne;
 
@@ -2722,8 +2446,12 @@ btn.addEventListener('click', () => {
       rainChanceT.innerHTML = "Dailly Chance Of Rain : " + willItRainT + "%";
       snowChanceT.innerHTML = "Daily Chance Of Snow : " + willItSnowT + "%";
 
+      let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
+      let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
 
       let getId = document.getElementById('getId');
+
+
 
       getId.addEventListener('scroll', changeDynamic);
 
@@ -2739,9 +2467,10 @@ btn.addEventListener('click', () => {
         var stickyProgCard = (stickyCard / (scrollVar.getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 + 5;
 
 
-       // console.log(Math.floor(stickyProgCard));
+        // console.log(Math.floor(stickyProgCard));
 
         if (stickyProgCard > 0 && stickyProgCard < 50) {
+          disArr.style.opacity = '1';
           let tempArr = new Array();
 
           tempArr[0] = data.forecast.forecastday[1].hour[0].temp_c;
@@ -2820,23 +2549,134 @@ btn.addEventListener('click', () => {
           collector[21].innerHTML = tempArr[21] + " <sup>°</sup> C" + "<br>" + tempFahArr[21] + " <sup>°</sup> F";
           collector[22].innerHTML = tempArr[22] + " <sup>°</sup> C" + "<br>" + tempFahArr[22] + " <sup>°</sup> F";
           collector[23].innerHTML = tempArr[23] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
-          
+
+          let rainTom = new Array();
+
+          rainTom[00] = data.forecast.forecastday[1].hour[0].chance_of_rain;
+          rainTom[01] = data.forecast.forecastday[1].hour[1].chance_of_rain;
+          rainTom[02] = data.forecast.forecastday[1].hour[2].chance_of_rain;
+          rainTom[03] = data.forecast.forecastday[1].hour[3].chance_of_rain;
+          rainTom[04] = data.forecast.forecastday[1].hour[4].chance_of_rain;
+          rainTom[05] = data.forecast.forecastday[1].hour[5].chance_of_rain;
+          rainTom[06] = data.forecast.forecastday[1].hour[6].chance_of_rain;
+          rainTom[07] = data.forecast.forecastday[1].hour[7].chance_of_rain;
+          rainTom[08] = data.forecast.forecastday[1].hour[8].chance_of_rain;
+          rainTom[09] = data.forecast.forecastday[1].hour[9].chance_of_rain;
+          rainTom[10] = data.forecast.forecastday[1].hour[10].chance_of_rain;
+          rainTom[11] = data.forecast.forecastday[1].hour[11].chance_of_rain;
+          rainTom[12] = data.forecast.forecastday[1].hour[12].chance_of_rain;
+          rainTom[13] = data.forecast.forecastday[1].hour[13].chance_of_rain;
+          rainTom[14] = data.forecast.forecastday[1].hour[14].chance_of_rain;
+          rainTom[15] = data.forecast.forecastday[1].hour[15].chance_of_rain;
+          rainTom[16] = data.forecast.forecastday[1].hour[16].chance_of_rain;
+          rainTom[17] = data.forecast.forecastday[1].hour[17].chance_of_rain;
+          rainTom[18] = data.forecast.forecastday[1].hour[18].chance_of_rain;
+          rainTom[19] = data.forecast.forecastday[1].hour[19].chance_of_rain;
+          rainTom[20] = data.forecast.forecastday[1].hour[20].chance_of_rain;
+          rainTom[21] = data.forecast.forecastday[1].hour[21].chance_of_rain;
+          rainTom[22] = data.forecast.forecastday[1].hour[22].chance_of_rain;
+          rainTom[23] = data.forecast.forecastday[1].hour[23].chance_of_rain;
+
+
+          rainRenderMulp[0].innerHTML = rainTom[0] + "%";
+          rainRenderMulp[1].innerHTML = rainTom[1] + "%";
+          rainRenderMulp[2].innerHTML = rainTom[2] + "%";
+          rainRenderMulp[3].innerHTML = rainTom[3] + "%";
+          rainRenderMulp[4].innerHTML = rainTom[4] + "%";
+          rainRenderMulp[5].innerHTML = rainTom[5] + "%";
+          rainRenderMulp[6].innerHTML = rainTom[6] + "%";
+          rainRenderMulp[7].innerHTML = rainTom[7] + "%";
+          rainRenderMulp[8].innerHTML = rainTom[8] + "%";
+          rainRenderMulp[9].innerHTML = rainTom[9] + "%";
+          rainRenderMulp[10].innerHTML = rainTom[10] + "%";
+          rainRenderMulp[11].innerHTML = rainTom[11] + "%";
+          rainRenderMulp[12].innerHTML = rainTom[12] + "%";
+          rainRenderMulp[13].innerHTML = rainTom[13] + "%";
+          rainRenderMulp[14].innerHTML = rainTom[14] + "%";
+          rainRenderMulp[15].innerHTML = rainTom[15] + "%";
+          rainRenderMulp[16].innerHTML = rainTom[16] + "%";
+          rainRenderMulp[17].innerHTML = rainTom[17] + "%";
+          rainRenderMulp[18].innerHTML = rainTom[18] + "%";
+          rainRenderMulp[19].innerHTML = rainTom[19] + "%";
+          rainRenderMulp[20].innerHTML = rainTom[20] + "%";
+          rainRenderMulp[21].innerHTML = rainTom[21] + "%";
+          rainRenderMulp[22].innerHTML = rainTom[22] + "%";
+          rainRenderMulp[23].innerHTML = rainTom[23] + "%";
+
+          let snowTom = new Array();
+
+          snowTom[00] = data.forecast.forecastday[1].hour[0].chance_of_snow;
+          snowTom[01] = data.forecast.forecastday[1].hour[1].chance_of_snow;
+          snowTom[02] = data.forecast.forecastday[1].hour[2].chance_of_snow;
+          snowTom[03] = data.forecast.forecastday[1].hour[3].chance_of_snow;
+          snowTom[04] = data.forecast.forecastday[1].hour[4].chance_of_snow;
+          snowTom[05] = data.forecast.forecastday[1].hour[5].chance_of_snow;
+          snowTom[06] = data.forecast.forecastday[1].hour[6].chance_of_snow;
+          snowTom[07] = data.forecast.forecastday[1].hour[7].chance_of_snow;
+          snowTom[08] = data.forecast.forecastday[1].hour[8].chance_of_snow;
+          snowTom[09] = data.forecast.forecastday[1].hour[9].chance_of_snow;
+          snowTom[10] = data.forecast.forecastday[1].hour[10].chance_of_snow;
+          snowTom[11] = data.forecast.forecastday[1].hour[11].chance_of_snow;
+          snowTom[12] = data.forecast.forecastday[1].hour[12].chance_of_snow;
+          snowTom[13] = data.forecast.forecastday[1].hour[13].chance_of_snow;
+          snowTom[14] = data.forecast.forecastday[1].hour[14].chance_of_snow;
+          snowTom[15] = data.forecast.forecastday[1].hour[15].chance_of_snow;
+          snowTom[16] = data.forecast.forecastday[1].hour[16].chance_of_snow;
+          snowTom[17] = data.forecast.forecastday[1].hour[17].chance_of_snow;
+          snowTom[18] = data.forecast.forecastday[1].hour[18].chance_of_snow;
+          snowTom[19] = data.forecast.forecastday[1].hour[19].chance_of_snow;
+          snowTom[20] = data.forecast.forecastday[1].hour[20].chance_of_snow;
+          snowTom[21] = data.forecast.forecastday[1].hour[21].chance_of_snow;
+          snowTom[22] = data.forecast.forecastday[1].hour[22].chance_of_snow;
+          snowTom[23] = data.forecast.forecastday[1].hour[23].chance_of_snow;
+
+          snowRenderMulp[0].innerHTML = snowTom[0] + "%";
+          snowRenderMulp[1].innerHTML = snowTom[1] + "%";
+          snowRenderMulp[2].innerHTML = snowTom[2] + "%";
+          snowRenderMulp[3].innerHTML = snowTom[3] + "%";
+          snowRenderMulp[4].innerHTML = snowTom[4] + "%";
+          snowRenderMulp[5].innerHTML = snowTom[5] + "%";
+          snowRenderMulp[6].innerHTML = snowTom[6] + "%";
+          snowRenderMulp[7].innerHTML = snowTom[7] + "%";
+          snowRenderMulp[8].innerHTML = snowTom[8] + "%";
+          snowRenderMulp[9].innerHTML = snowTom[9] + "%";
+          snowRenderMulp[10].innerHTML = snowTom[10] + "%";
+          snowRenderMulp[11].innerHTML = snowTom[11] + "%";
+          snowRenderMulp[12].innerHTML = snowTom[12] + "%";
+          snowRenderMulp[13].innerHTML = snowTom[13] + "%";
+          snowRenderMulp[14].innerHTML = snowTom[14] + "%";
+          snowRenderMulp[15].innerHTML = snowTom[15] + "%";
+          snowRenderMulp[16].innerHTML = snowTom[16] + "%";
+          snowRenderMulp[17].innerHTML = snowTom[17] + "%";
+          snowRenderMulp[18].innerHTML = snowTom[18] + "%";
+          snowRenderMulp[19].innerHTML = snowTom[19] + "%";
+          snowRenderMulp[20].innerHTML = snowTom[20] + "%";
+          snowRenderMulp[21].innerHTML = snowTom[21] + "%";
+          snowRenderMulp[22].innerHTML = snowTom[22] + "%";
+          snowRenderMulp[23].innerHTML = snowTom[23] + "%";
+
+
+
           let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
           let sunSetDec = data.forecast.forecastday[1].astro.sunset;
           let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
           let moonSetDec = data.forecast.forecastday[1].astro.moonset;
-          
+
           let lastInfo = document.querySelectorAll(".letDayInfo");
-          
+
           lastInfo[0].innerHTML = sunRiseDec;
           lastInfo[1].innerHTML = sunSetDec;
           lastInfo[2].innerHTML = moonRiseDec;
           lastInfo[3].innerHTML = moonSetDec;
- 
+
           // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
 
         }
+
+        //CHANGE CONTENT
+
         else if (stickyProgCard > 50) {
+          disArr.style.opacity = '0';
           let tempArr = new Array();
 
           tempArr[0] = data.forecast.forecastday[2].hour[0].temp_c;
@@ -2916,22 +2756,126 @@ btn.addEventListener('click', () => {
           collector[22].innerHTML = tempArr[22] + " <sup>°</sup> C" + "<br>" + tempFahArr[22] + " <sup>°</sup> F";
           collector[23].innerHTML = tempArr[23] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
           // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
-          
+
           let sunRiseDec = data.forecast.forecastday[2].astro.sunrise;
           let sunSetDec = data.forecast.forecastday[2].astro.sunset;
           let moonRiseDec = data.forecast.forecastday[2].astro.moonrise;
           let moonSetDec = data.forecast.forecastday[2].astro.moonset;
-          
+
           let lastInfo = document.querySelectorAll(".letDayInfo");
-          
+
           lastInfo[0].innerHTML = sunRiseDec;
           lastInfo[1].innerHTML = sunSetDec;
           lastInfo[2].innerHTML = moonRiseDec;
           lastInfo[3].innerHTML = moonSetDec;
- 
+
+
+          let rainNextArr = new Array();
+
+          rainNextArr[00] = data.forecast.forecastday[2].hour[0].chance_of_rain;
+          rainNextArr[01] = data.forecast.forecastday[2].hour[1].chance_of_rain;
+          rainNextArr[02] = data.forecast.forecastday[2].hour[2].chance_of_rain;
+          rainNextArr[03] = data.forecast.forecastday[2].hour[3].chance_of_rain;
+          rainNextArr[04] = data.forecast.forecastday[2].hour[4].chance_of_rain;
+          rainNextArr[05] = data.forecast.forecastday[2].hour[5].chance_of_rain;
+          rainNextArr[06] = data.forecast.forecastday[2].hour[6].chance_of_rain;
+          rainNextArr[07] = data.forecast.forecastday[2].hour[7].chance_of_rain;
+          rainNextArr[08] = data.forecast.forecastday[2].hour[8].chance_of_rain;
+          rainNextArr[09] = data.forecast.forecastday[2].hour[9].chance_of_rain;
+          rainNextArr[10] = data.forecast.forecastday[2].hour[10].chance_of_rain;
+          rainNextArr[11] = data.forecast.forecastday[2].hour[11].chance_of_rain;
+          rainNextArr[12] = data.forecast.forecastday[2].hour[12].chance_of_rain;
+          rainNextArr[13] = data.forecast.forecastday[2].hour[13].chance_of_rain;
+          rainNextArr[14] = data.forecast.forecastday[2].hour[14].chance_of_rain;
+          rainNextArr[15] = data.forecast.forecastday[2].hour[15].chance_of_rain;
+          rainNextArr[16] = data.forecast.forecastday[2].hour[16].chance_of_rain;
+          rainNextArr[17] = data.forecast.forecastday[2].hour[17].chance_of_rain;
+          rainNextArr[18] = data.forecast.forecastday[2].hour[18].chance_of_rain;
+          rainNextArr[19] = data.forecast.forecastday[2].hour[19].chance_of_rain;
+          rainNextArr[20] = data.forecast.forecastday[2].hour[20].chance_of_rain;
+          rainNextArr[21] = data.forecast.forecastday[2].hour[21].chance_of_rain;
+          rainNextArr[22] = data.forecast.forecastday[2].hour[22].chance_of_rain;
+          rainNextArr[23] = data.forecast.forecastday[2].hour[23].chance_of_rain;
+
+          rainRenderMulp[0].innerHTML = rainNextArr[00] + "%";
+          rainRenderMulp[1].innerHTML = rainNextArr[01] + "%";
+          rainRenderMulp[2].innerHTML = rainNextArr[02] + "%";
+          rainRenderMulp[3].innerHTML = rainNextArr[03] + "%";
+          rainRenderMulp[4].innerHTML = rainNextArr[04] + "%";
+          rainRenderMulp[5].innerHTML = rainNextArr[05] + "%";
+          rainRenderMulp[6].innerHTML = rainNextArr[06] + "%";
+          rainRenderMulp[7].innerHTML = rainNextArr[07] + "%";
+          rainRenderMulp[8].innerHTML = rainNextArr[08] + "%";
+          rainRenderMulp[9].innerHTML = rainNextArr[09] + "%";
+          rainRenderMulp[10].innerHTML = rainNextArr[10] + "%";
+          rainRenderMulp[11].innerHTML = rainNextArr[11] + "%";
+          rainRenderMulp[12].innerHTML = rainNextArr[12] + "%";
+          rainRenderMulp[13].innerHTML = rainNextArr[13] + "%";
+          rainRenderMulp[14].innerHTML = rainNextArr[14] + "%";
+          rainRenderMulp[15].innerHTML = rainNextArr[15] + "%";
+          rainRenderMulp[16].innerHTML = rainNextArr[16] + "%";
+          rainRenderMulp[17].innerHTML = rainNextArr[17] + "%";
+          rainRenderMulp[18].innerHTML = rainNextArr[18] + "%";
+          rainRenderMulp[19].innerHTML = rainNextArr[19] + "%";
+          rainRenderMulp[20].innerHTML = rainNextArr[20] + "%";
+          rainRenderMulp[21].innerHTML = rainNextArr[21] + "%";
+          rainRenderMulp[22].innerHTML = rainNextArr[22] + "%";
+          rainRenderMulp[23].innerHTML = rainNextArr[23] + "%";
+
+
+          let snowTom = new Array();
+
+          snowTom[00] = data.forecast.forecastday[2].hour[0].chance_of_snow;
+          snowTom[01] = data.forecast.forecastday[2].hour[1].chance_of_snow;
+          snowTom[02] = data.forecast.forecastday[2].hour[2].chance_of_snow;
+          snowTom[03] = data.forecast.forecastday[2].hour[3].chance_of_snow;
+          snowTom[04] = data.forecast.forecastday[2].hour[4].chance_of_snow;
+          snowTom[05] = data.forecast.forecastday[2].hour[5].chance_of_snow;
+          snowTom[06] = data.forecast.forecastday[2].hour[6].chance_of_snow;
+          snowTom[07] = data.forecast.forecastday[2].hour[7].chance_of_snow;
+          snowTom[08] = data.forecast.forecastday[2].hour[8].chance_of_snow;
+          snowTom[09] = data.forecast.forecastday[2].hour[9].chance_of_snow;
+          snowTom[10] = data.forecast.forecastday[2].hour[10].chance_of_snow;
+          snowTom[11] = data.forecast.forecastday[2].hour[11].chance_of_snow;
+          snowTom[12] = data.forecast.forecastday[2].hour[12].chance_of_snow;
+          snowTom[13] = data.forecast.forecastday[2].hour[13].chance_of_snow;
+          snowTom[14] = data.forecast.forecastday[2].hour[14].chance_of_snow;
+          snowTom[15] = data.forecast.forecastday[2].hour[15].chance_of_snow;
+          snowTom[16] = data.forecast.forecastday[2].hour[16].chance_of_snow;
+          snowTom[17] = data.forecast.forecastday[2].hour[17].chance_of_snow;
+          snowTom[18] = data.forecast.forecastday[2].hour[18].chance_of_snow;
+          snowTom[19] = data.forecast.forecastday[2].hour[19].chance_of_snow;
+          snowTom[20] = data.forecast.forecastday[2].hour[20].chance_of_snow;
+          snowTom[21] = data.forecast.forecastday[2].hour[21].chance_of_snow;
+          snowTom[22] = data.forecast.forecastday[2].hour[22].chance_of_snow;
+          snowTom[23] = data.forecast.forecastday[2].hour[23].chance_of_snow;
+
+          snowRenderMulp[0].innerHTML = snowTom[0] + "%";
+          snowRenderMulp[1].innerHTML = snowTom[1] + "%";
+          snowRenderMulp[2].innerHTML = snowTom[2] + "%";
+          snowRenderMulp[3].innerHTML = snowTom[3] + "%";
+          snowRenderMulp[4].innerHTML = snowTom[4] + "%";
+          snowRenderMulp[5].innerHTML = snowTom[5] + "%";
+          snowRenderMulp[6].innerHTML = snowTom[6] + "%";
+          snowRenderMulp[7].innerHTML = snowTom[7] + "%";
+          snowRenderMulp[8].innerHTML = snowTom[8] + "%";
+          snowRenderMulp[9].innerHTML = snowTom[9] + "%";
+          snowRenderMulp[10].innerHTML = snowTom[10] + "%";
+          snowRenderMulp[11].innerHTML = snowTom[11] + "%";
+          snowRenderMulp[12].innerHTML = snowTom[12] + "%";
+          snowRenderMulp[13].innerHTML = snowTom[13] + "%";
+          snowRenderMulp[14].innerHTML = snowTom[14] + "%";
+          snowRenderMulp[15].innerHTML = snowTom[15] + "%";
+          snowRenderMulp[16].innerHTML = snowTom[16] + "%";
+          snowRenderMulp[17].innerHTML = snowTom[17] + "%";
+          snowRenderMulp[18].innerHTML = snowTom[18] + "%";
+          snowRenderMulp[19].innerHTML = snowTom[19] + "%";
+          snowRenderMulp[20].innerHTML = snowTom[20] + "%";
+          snowRenderMulp[21].innerHTML = snowTom[21] + "%";
+          snowRenderMulp[22].innerHTML = snowTom[22] + "%";
+          snowRenderMulp[23].innerHTML = snowTom[23] + "%";
         }
       }
-
 
     })
     .catch(err => {
@@ -2947,6 +2891,7 @@ btn.addEventListener('click', () => {
       }
     })
 })
+
 
 function suggestCity() {
 
@@ -3120,83 +3065,43 @@ function checkInt() {
 }
 
 
-/*.addEventListener('scroll', () => {
-  let cardLength = document.getElementById("cardSlider");
-
-  let scrollBar = -cardLength.getBoundingClientRect().left;
-  let progBar = (scrollBar / (cardLength.getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  if (progBar <= 0) {
-    widthBar.style.display = 'none';
-    opaqueBar.style.opacity = '0';
-    positionChev.style.display = 'block';
-  }
-  else {
-    widthBar.style.display = 'block';
-    widthBar.style.width = progBar + "%";
-    opaqueBar.style.opacity = '1';
-    positionChev.style.display = 'none';
-  }
-})
-
-scrollerSec.addEventListener('scroll', () => {
-  let cardLength = document.getElementById("cardSliderSec");
-
-  let scrollBar = -cardLength.getBoundingClientRect().left;
-  let progBar = (scrollBar / (cardLength.getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  if (progBar <= 0) {
-    widthBarSec.style.display = 'none';
-    opaqueBarSec.style.opacity = '0';
-    positionChevSec.style.display = 'block';
-
-  }
-  else {
-    opaqueBarSec.style.opacity = '1';
-    widthBarSec.style.display = 'block';
-    widthBarSec.style.width = progBar + "%";
-    positionChevSec.style.display = 'none';
-  }
-});
-*/
-
 
 function runMath() {
-   var stickyRain = document.querySelectorAll(".willItRain-s");
-   var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
+  var stickyRain = document.querySelectorAll(".willItRain-s");
+  var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
 
-   let stickyPos = -stickyRain[0].getBoundingClientRect().left;
-   let stickyProg = (stickyPos / (stickyRain[0].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
+  let stickyPos = -stickyRain[0].getBoundingClientRect().left;
+  let stickyProg = (stickyPos / (stickyRain[0].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
 
-   console.log(stickyProg);
+  //  console.log(stickyProg);
 
-   if (stickyProg > 2) {
-     stickyRainPos[0].classList.add('stickyClass');
-   }
-   else {
-     stickyRainPos[0].classList.remove('stickyClass');
-   }
+  if (stickyProg > 2) {
+    stickyRainPos[0].classList.add('stickyClass');
+  }
+  else {
+    stickyRainPos[0].classList.remove('stickyClass');
+  }
 
 
-   let stickyPosTwo = -stickyRain[1].getBoundingClientRect().left;
-   let stickyProgTwo = (stickyPosTwo / (stickyRain[1].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
+  let stickyPosTwo = -stickyRain[1].getBoundingClientRect().left;
+  let stickyProgTwo = (stickyPosTwo / (stickyRain[1].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
 
-   if (stickyProgTwo > 2) {
-     stickyRainPos[1].classList.add('stickyClass');
-   }
-   else {
-     stickyRainPos[1].classList.remove('stickyClass');
-   }
-   
-   let stickyPosThi = -stickyRain[2].getBoundingClientRect().left;
-   let stickyProgThi = (stickyPosThi / (stickyRain[2].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
+  if (stickyProgTwo > 2) {
+    stickyRainPos[1].classList.add('stickyClass');
+  }
+  else {
+    stickyRainPos[1].classList.remove('stickyClass');
+  }
 
-   if (stickyProgThi > 2) {
-     stickyRainPos[2].classList.add('stickyClass');
-   }
-   else {
-     stickyRainPos[2].classList.remove('stickyClass');
-   }
+  let stickyPosThi = -stickyRain[2].getBoundingClientRect().left;
+  let stickyProgThi = (stickyPosThi / (stickyRain[2].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
+
+  if (stickyProgThi > 2) {
+    stickyRainPos[2].classList.add('stickyClass');
+  }
+  else {
+    stickyRainPos[2].classList.remove('stickyClass');
+  }
 
   let tFourCast = document.getElementById("willFore");
 
@@ -3209,10 +3114,11 @@ function runMath() {
 
   if (stickyProgCard > 2) {
     toTogg.classList.add('twentyFourTagTog');
-  //  tFourText.classList.add('textTFtog');
+    //  tFourText.classList.add('textTFtog');
   }
   else {
     toTogg.classList.remove('twentyFourTagTog');
-   // tFourText.classList.remove('textTFtog');
+    // tFourText.classList.remove('textTFtog');
   }
 }
+

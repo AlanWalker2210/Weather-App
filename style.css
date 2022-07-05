@@ -3,7 +3,7 @@
 }
 @font-face {
   font-family: 'Montserrat';
-  src: url("Poppins-medium.ttf");
+  src: url("/Poppins-Regular.ttf");
 }
 * {
   margin: 0;
@@ -309,6 +309,7 @@ a {
   width: 100%;
   height: 60px;
   animation: jumpU 1s linear;
+  color: #000;
 }
 
 /*INPUT STYLING*/
@@ -319,13 +320,16 @@ a {
   width: 88%;
   height: 40px;
   outline: none;
-  border: none;
+  border: 2px solid #fff;
+  box-shadow: .1px .1px 2px #BEBEBE inset,
+              .1px .1px 2px #BEBEBE;
   font-family: 'Montserrat';
   padding: 0 0 0 15px;
   border-radius: 5px;
   z-index: 2;
   font-weight: bolder;
   letter-spacing: 1px;
+  background: #fff;
 }
 
 /*SEARCHICON AND LOCATION ICON POSITIONS DIV*/
@@ -336,15 +340,14 @@ a {
   right: 50px;
   width: 34px;
   height: 34px;
-  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
   box-shadow: .1px .1px 5px #000 inset;
   border-radius: 50%;
   z-index: 5;
   transition: 0.5s;
+  
 }
 
 /*SEARCH & LOCATION ICON HOVER EFFECT*/
@@ -915,7 +918,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 15px 0;
+  margin: 15px 0 15px 0;
   animation: scaleIn 0.8s linear;
   color: #fff;
 }
@@ -1431,6 +1434,7 @@ a {
   color: #fff;
   position: relative;
   margin-bottom: -15px;
+  scroll-snap-type: x mandatory;
 }
 .willItRain-s {
   width: 1500%;
@@ -1454,6 +1458,7 @@ a {
   padding: 9px;
   border-radius: 50px;
   border: 0.5px solid #919191;
+  scroll-snap-align: center;
 }
 .iconRain {
   width: 28px;
@@ -1502,12 +1507,13 @@ a {
   }
 }
 .dateToForeOne-m {
-  width: 100%;
+  width: 99%;
   height: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
+  position: relative;
 }
 .dateToForeOne-s {
   width: 95%;
@@ -1522,6 +1528,7 @@ a {
   min-width: 200%;
   display: flex;
   justify-content: space-around;
+  transition: 3s;
 }
 .sectionOne {
   width: 100%;
@@ -1584,14 +1591,15 @@ a {
   background: rgba(0,0,0);
   padding: 2px 8px 2px 8px;
   top: 0;
-  left: 0;
+  left: 5px;
   transition: 0.3s;
+  border-radius: 50px;
 }
 .twentyFourTagTog {
   position: sticky;
   width: 140px;
   height: 25px;
-  left: 0;
+  left: 5px;
   top: -50px;
   background: rgba(0,0,0);
   margin: 0px 0 0 0;
@@ -1636,3 +1644,17 @@ a {
 /*.weatherSubSection,.alertSubSection,.windSubSection,.aqiSubSection,.visibiltySubSection,.astroSub,.chartMainSection {
       backdrop-filter: blur(2px);
     }*/
+.arrowRight {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: #DCDCDCD9;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
