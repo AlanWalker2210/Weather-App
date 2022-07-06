@@ -28,17 +28,11 @@ var visMile = document.getElementById('visM');
 var visKm = document.getElementById("visKm");
 var letLoad = document.getElementById("loader");
 
-function nav() {
-  barOne.classList.toggle("barOneMove");
-  barTwo.classList.toggle("barTwoMove");
-  barThi.classList.toggle("barThiMove");
-  navBarBtn.classList.toggle("navBarBtnMove");
-  showNav.classList.toggle("navBarDivMove");
-}
-
-function pClick() {
-  chevRot.classList.toggle("rot");
-  inforMation.classList.toggle("infoBlock");
+function navFunc() {
+  barWhole.classList.toggle('barWholeMove');
+  barOne.classList.toggle('barOneMove');
+  barTwo.classList.toggle('barTwoMove');
+  barThi.classList.toggle('barThiMove');
 }
 
 window.onload = function() {

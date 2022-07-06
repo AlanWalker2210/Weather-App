@@ -1,10 +1,12 @@
 .dayToNightMain::-webkit-scrollbar {
   display: none;
 }
+
 @font-face {
   font-family: 'Montserrat';
   src: url("/Poppins-Regular.ttf");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +25,7 @@ body {
 }
 
 .mainBody {
-  display:;
+  display: ;
 }
 
 .wrapper-pre {
@@ -110,9 +112,11 @@ body {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -194,62 +198,59 @@ body {
   z-index: -1000;
 }
 
-.navBarBtnMain {
-  position: absolute;
-  top: 12px;
-  left: -10px;
+.navBtn {
   width: 40px;
   height: 40px;
-  transition: all 0.5s;
-  border-radius: 50%;
-  z-index: 20;
+  position: absolute;
+  top: 12px;
+  left: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: jumpU 1s linear;
 }
 
-.barOne,
-.barTwo,
-.barThi {
-  width: 30px;
+.navBtnSub {
+  width: 35px;
+  height: 35px;
+  box-shadow: .1px .1px 5px #222222 inset ;
+  /*  background: radial-gradient(circle at 50%,#fff 50%,#fff);*/
+   background: rgb(0,0,0);
+background: -moz-radial-gradient(circle, rgba(0,0,0,1) 32%, rgba(83,83,83,1) 82%);
+background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 32%, rgba(83,83,83,1) 82%);
+background: radial-gradient(circle, rgba(0,0,0,1) 32%, rgba(83,83,83,1) 82%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#535353",GradientType=1);  
+  border-radius: 50%;
+}
+
+.btnS {
+  margin: 10px 0 0 0;
+}
+
+.barOne,.barTwo,.barThi {
+  width: 20px;
   height: 2px;
   background: #fff;
-  margin: 8.5px 0 8px 0;
+  margin: 4.5px auto 3px auto;
+  border-radius: 10px;
   transition: 0.5s;
-  border-radius: 5px;
-}
-
-.navBarBtnMove {
-  position: fixed;
-  margin-left: 200px;
-  transform: rotate(360deg);
 }
 
 .barOneMove {
-  transform: translateY(10px) rotate(45deg);
-  background: #FF0000;
+  transform: translateY(6.5px) rotate(45deg);
+  transition: 1.2s;
 }
-
 .barTwoMove {
+  transform: translateX();
   opacity: 0;
+  transition: 0.8s;
 }
-
 .barThiMove {
-  transform: translateY(-10px) rotate(-45deg);
-  background: #FF0000;
+  transform: translateY(-6.5px) rotate(-45deg);
+  transition: 0.8s;
 }
-
-.navBarDivMain {
-  position: fixed;
-  left: 0;
-  width: 230px;
-  height: 100vh;
-  background: #000;
-  z-index: 19;
-  color: #fff;
-  margin-left: -230px;
-  transition: 0.5s;
+.barWholeMove {
+    transition: 0.8s;
+  transform: rotate(360deg);
 }
 
 .info {
@@ -309,27 +310,28 @@ a {
   width: 100%;
   height: 60px;
   animation: jumpU 1s linear;
-  color: #000;
+  color: #fff;
 }
 
 /*INPUT STYLING*/
 .inpSelf {
   position: relative;
   top: 12px;
-  left: 35px;
-  width: 88%;
+  left: 45px;
+  width: 85%;
   height: 40px;
   outline: none;
-  border: 2px solid #fff;
-  box-shadow: .1px .1px 2px #BEBEBE inset,
-              .1px .1px 2px #BEBEBE;
+  border: 2px solid #030303;
+  box-shadow: .1px .1px 2px #1F1F1F inset,
+    .1px .1px 2px #1F1F1F;
   font-family: 'Montserrat';
   padding: 0 0 0 15px;
   border-radius: 5px;
   z-index: 2;
   font-weight: bolder;
-  letter-spacing: 1px;
-  background: #fff;
+  letter-spacing: 1.4px;
+  background: #000;
+  color: #fff;
 }
 
 /*SEARCHICON AND LOCATION ICON POSITIONS DIV*/
@@ -347,7 +349,7 @@ a {
   border-radius: 50%;
   z-index: 5;
   transition: 0.5s;
-  
+
 }
 
 /*SEARCH & LOCATION ICON HOVER EFFECT*/
@@ -417,7 +419,8 @@ a {
   color: #fff;
 }
 
-.fahAndHum,.celCur {
+.fahAndHum,
+.celCur {
   width: 100%;
   height: 50px;
   display: flex;
@@ -425,7 +428,8 @@ a {
   align-items: center;
 }
 
-.fahDiv,.humDiv {
+.fahDiv,
+.humDiv {
   width: 48%;
   height: 40px;
   background: #0000007A;
@@ -800,9 +804,10 @@ a {
 .suggestionSubBox {
   width: 95%;
   height: 210px;
-  background: #fff;
+  background: #000;
   overflow: scroll;
   border-radius: 5px;
+  color: #fff;
 }
 
 /*PADDING FOR LISTED DIV IN SUGGEST CITY SECTION*/
@@ -827,7 +832,7 @@ a {
   opacity: 1;
   border-radius: 5px;
   z-index: 10000;
-  color: #000;
+  color: #fff;
 }
 
 @keyframes search {
@@ -1164,6 +1169,7 @@ a {
   opacity: 0;
   transition: 0.3s;
 }
+
 .lineSub {
   width: 94%;
   height: 11px;
@@ -1175,6 +1181,7 @@ a {
   overflow: hidden;
   padding: 0 0 0 2px;
 }
+
 .lineSubSec {
   width: 0px;
   height: 6px;
@@ -1185,6 +1192,7 @@ a {
   margin: 0 0 0 2px;
   box-shadow: .1px .1px 2px #000;
 }
+
 .celSubIcon,
 .fahSubIcon {
   display: flex;
@@ -1401,30 +1409,38 @@ a {
     transform: rotate(360deg);
   }
 }
+
 .disableFire {
   padding: 0 10px 0 10px;
 }
+
 .note {
   margin: 10px 0 0 0;
 }
-.chevronLeft,.chevronLeftQ {
+
+.chevronLeft,
+.chevronLeftQ {
   position: absolute;
   left: 13.7%;
   top: 30%;
   animation: popIt 2s infinite;
   font-size: 22px;
 }
+
 @keyframes popIt {
   0% {
     transform: translateX(0px);
   }
+
   50% {
     transform: translateX(-5px);
   }
+
   100% {
     transform: translateY(0px);
   }
 }
+
 .willItRain-m {
   width: 100%;
   height: 90px;
@@ -1436,6 +1452,7 @@ a {
   margin-bottom: -15px;
   scroll-snap-type: x mandatory;
 }
+
 .willItRain-s {
   width: 1500%;
   height: 50px;
@@ -1443,15 +1460,17 @@ a {
   align-items: center;
   justify-content: space-between;
 }
+
 .sectionS {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .divOne {
   width: 130px;
   height: 30px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   margin: 0 15px 0 15px;
@@ -1460,6 +1479,7 @@ a {
   border: 0.5px solid #919191;
   scroll-snap-align: center;
 }
+
 .iconRain {
   width: 28px;
   height: 28px;
@@ -1467,10 +1487,11 @@ a {
   border-radius: 50%;
   margin-left: -8px;
 }
+
 .infoOfRain {
   width: 30px;
   height: 30px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1478,6 +1499,7 @@ a {
   margin: 0 0 0 10px;
   transition: 0.8s;
 }
+
 .toolTipRainOne {
   position: absolute;
   top: 0px;
@@ -1488,6 +1510,7 @@ a {
   opacity: 1;
   transition: 0.4s;
 }
+
 .stickyClass {
   width: 75px;
   position: sticky;
@@ -1498,14 +1521,17 @@ a {
   font-size: 0.9rem;
   text-align: center;
 }
+
 @keyframes animationS {
   0% {
     transform: translateX(-100px);
   }
+
   100% {
     transform: translateX(0);
   }
 }
+
 .dateToForeOne-m {
   width: 99%;
   height: 240px;
@@ -1515,25 +1541,29 @@ a {
   font-size: 0.9rem;
   position: relative;
 }
+
 .dateToForeOne-s {
   width: 95%;
   height: 230px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   display: flex;
   overflow: scroll;
   scroll-snap-type: x mandatory;
 }
+
 .wrapper-cast {
   min-width: 200%;
   display: flex;
   justify-content: space-around;
   transition: 3s;
 }
+
 .sectionOne {
   width: 100%;
   scroll-snap-align: center;
 }
+
 .dateSection {
   width: 100%;
   height: 30px;
@@ -1543,86 +1573,101 @@ a {
   border-bottom: 0.5px solid gray;
   font-size: 1.1rem;
 }
+
 .calendarIcon {
   margin: 0 0 0 10px;
 }
+
 .dateSect {
   margin: 0 10px 0 15px;
 }
+
 .conditionToZero {
   padding: 10px 0 0 10px;
   margin: 5px 0;
 }
+
 .allForeCast {
   width: 100%;
   height: 130px;
 }
+
 .minMaxCover {
   display: flex;
   height: 30px;
   align-items: center;
   margin: 7px 0 7px 10px;
 }
+
 .minMaxCover text {
   margin: 0 0 0 5px;
 }
+
 .minMaxCover img {
   width: 30px;
   height: 30px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
 }
+
 .twentyFourZero-m {
   width: 100%;
   height: 130px;
   margin: 10px 0;
   overflow: scroll;
   position: relative;
-    scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
 }
+
 .twentyFourZero-s {
   width: 730%;
   height: 130px;
   display: flex;
   justify-content: space-between;
 }
+
 .twentyFourTag {
   position: absolute;
-  background: rgba(0,0,0);
+  background: rgba(0, 0, 0);
   padding: 2px 8px 2px 8px;
   top: 0;
   left: 5px;
   transition: 0.3s;
   border-radius: 50px;
 }
+
 .twentyFourTagTog {
   position: sticky;
   width: 140px;
   height: 25px;
   left: 5px;
   top: -50px;
-  background: rgba(0,0,0);
+  background: rgba(0, 0, 0);
   margin: 0px 0 0 0;
 }
+
 @keyframes scaleSim {
   100% {
     transform: translateX(0);
   }
 }
+
 .textTFtog {
   transform: rotate(-90deg);
   text-align: center;
   margin: 0 0 0 -10px;
 }
+
 .twentyFourCard {
   width: 70px;
   height: 100px;
   margin: 30px 10px 0 10px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 12px 3px 12px 3px;
-  box-shadow: .1px .1px 8px rgba(0,0,0,0.7);
+  box-shadow: .1px .1px 8px rgba(0, 0, 0, 0.7);
   scroll-snap-align: end;
 }
+
 .imgClock {
   width: 100%;
   height: 40px;
@@ -1630,17 +1675,22 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .imgClock img {
   width: 35px;
   height: 35px;
 }
-.txtClock,.finalRes {
+
+.txtClock,
+.finalRes {
   text-align: center;
   font-size: 0.8rem;
 }
+
 .finalRes {
   font-size: 0.8rem;
 }
+
 /*.weatherSubSection,.alertSubSection,.windSubSection,.aqiSubSection,.visibiltySubSection,.astroSub,.chartMainSection {
       backdrop-filter: blur(2px);
     }*/
