@@ -25,7 +25,7 @@ body {
 }
 
 .mainBody {
-  display: ;
+  display: none;
 }
 
 .wrapper-pre {
@@ -207,8 +207,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 556;
 }
-
+.gitHub {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
 .navBtnSub {
   width: 35px;
   height: 35px;
@@ -305,6 +311,93 @@ a {
   padding: 0 0 0 10px;
 }
 
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 555;
+  display: none;
+}
+
+.navStartBlock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: #E4E4E4;
+  z-index: 557;
+  box-shadow: .1px .1px 10px #000;
+  border-right: 1px solid #000;
+  margin-left: -260px;
+  transition: 0.8s;
+}
+
+.starterBlock {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  box-shadow: .1px .1px 5px #000;
+}
+.navCallTogg {
+  margin-left: 0;
+}
+.clip-txt {
+  background: url("/backgrounds/patrick-mcmanaman-LN_g3qA8ohg-unsplash.jpg");
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: backMove 80s linear infinite;
+}
+
+.resourceDiv {
+  width: 100%;
+  height: 50px;
+  border-bottom: .1px solid #000;
+  display: flex;
+  align-items: center;
+}
+.apiHolder {
+  margin: 0px 0 0 20px;
+  height: 0px;
+  overflow: hidden;
+  transition: 0.8s;
+}
+.toggC {
+  height: 300px;
+}
+.rotC {
+  transform: rotate(-180deg);
+}
+.apiHolder li {
+ list-style: none;
+}
+
+.textMarg {
+  margin: 0 0 0 10px;
+}
+.fa-chevron-down {
+  font-size: 0.8rem;
+  transition: 0.8s;
+}
+
+@keyframes backMove {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 /*INPUT AND BUTTON DIV*/
 .searchSection {
   width: 100%;
@@ -312,6 +405,7 @@ a {
   animation: jumpU 1s linear;
   color: #fff;
 }
+
 
 /*INPUT STYLING*/
 .inpSelf {
@@ -1638,7 +1732,7 @@ a {
 
 .twentyFourTagTog {
   position: sticky;
-  width: 140px;
+  width: 160px;
   height: 25px;
   left: 5px;
   top: -50px;
