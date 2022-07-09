@@ -1,10 +1,13 @@
-.dayToNightMain::-webkit-scrollbar {
+.dateToForeOne-s::-webkit-scrollbar,
+.twentyFourZero-m::-webkit-scrollbar,
+.chartMainSection::-webkit-scrollbar,
+.willItRain-m::-webkit-scrollbar {
   display: none;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url("/Poppins-Regular.ttf");
+  font-family: 'Poppins';
+  src: url("/fonts/Poppins-Regular.ttf");
 }
 
 * {
@@ -15,13 +18,13 @@
 
 /*LOCAL FONT LINKING*/
 /* @font-face {
-    font-family: 'Montserrat';
-    src: url("Montserrat-regular.ttf");)
+    font-family: 'Poppins';
+    src: url("Poppins-regular.ttf");)
   }*/
 
 /*APPLYING LOCAL FONT TO ALL ELEMENTS IN BODY*/
 body {
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
 }
 
 .mainBody {
@@ -209,22 +212,26 @@ body {
   align-items: center;
   z-index: 556;
 }
+
 .gitHub {
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
+  border-bottom: .1px solid #000;
+  border-top: .1px solid #000;
 }
+
 .navBtnSub {
   width: 35px;
   height: 35px;
-  box-shadow: .1px .1px 5px #222222 inset ;
+  box-shadow: .1px .1px 5px #222222 inset;
   /*  background: radial-gradient(circle at 50%,#fff 50%,#fff);*/
-   background: rgb(0,0,0);
-background: -moz-radial-gradient(circle, rgba(0,0,0,1) 32%, rgba(83,83,83,1) 82%);
-background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 32%, rgba(83,83,83,1) 82%);
-background: radial-gradient(circle, rgba(0,0,0,1) 32%, rgba(83,83,83,1) 82%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#535353",GradientType=1);  
+  background: rgb(0, 0, 0);
+  background: -moz-radial-gradient(circle, rgba(0, 0, 0, 1) 32%, rgba(83, 83, 83, 1) 82%);
+  background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 1) 32%, rgba(83, 83, 83, 1) 82%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 32%, rgba(83, 83, 83, 1) 82%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#535353", GradientType=1);
   border-radius: 50%;
 }
 
@@ -232,7 +239,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endCo
   margin: 10px 0 0 0;
 }
 
-.barOne,.barTwo,.barThi {
+.barOne,
+.barTwo,
+.barThi {
   width: 20px;
   height: 2px;
   background: #fff;
@@ -245,17 +254,20 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endCo
   transform: translateY(6.5px) rotate(45deg);
   transition: 1.2s;
 }
+
 .barTwoMove {
   transform: translateX();
   opacity: 0;
   transition: 0.8s;
 }
+
 .barThiMove {
   transform: translateY(-6.5px) rotate(-45deg);
   transition: 0.8s;
 }
+
 .barWholeMove {
-    transition: 0.8s;
+  transition: 0.8s;
   transform: rotate(360deg);
 }
 
@@ -316,7 +328,7 @@ a {
   height: 100vh;
   position: fixed;
   top: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 555;
   display: none;
 }
@@ -348,14 +360,13 @@ a {
   letter-spacing: 1px;
   box-shadow: .1px .1px 5px #000;
 }
+
 .navCallTogg {
   margin-left: 0;
 }
+
 .clip-txt {
-  background: url("/backgrounds/patrick-mcmanaman-LN_g3qA8ohg-unsplash.jpg");
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: backMove 80s linear infinite;
+  color: #000;
 }
 
 .resourceDiv {
@@ -365,25 +376,30 @@ a {
   display: flex;
   align-items: center;
 }
+
 .apiHolder {
   margin: 0px 0 0 20px;
   height: 0px;
   overflow: hidden;
   transition: 0.8s;
 }
+
 .toggC {
-  height: 330px;
+  height: 370px;
 }
+
 .rotC {
   transform: rotate(-180deg);
 }
+
 .apiHolder li {
- list-style: none;
+  list-style: none;
 }
 
 .textMarg {
   margin: 0 0 0 10px;
 }
+
 .fa-chevron-down {
   font-size: 0.8rem;
   transition: 0.8s;
@@ -393,6 +409,7 @@ a {
   0% {
     background-position: 100% 100%;
   }
+
   100% {
     background-position: 0 0;
   }
@@ -418,7 +435,7 @@ a {
   border: 2px solid #030303;
   box-shadow: .1px .1px 2px #1F1F1F inset,
     .1px .1px 2px #1F1F1F;
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
   padding: 0 0 0 15px;
   border-radius: 5px;
   z-index: 2;
@@ -1408,6 +1425,7 @@ a {
   align-items: center;
   display: none;
   color: #fff;
+  z-index: 5555;
 }
 
 .fetchLoaderSub {

@@ -60,10 +60,11 @@ window.onload = function() {
     disappear.classList.add("toggle");
     // content.classList.add("contentTogg");
   }, 10);
-  // letLoad.style.display = 'none';
+  letLoad.style.display = 'none';
 }
 
 
+loader.style.display = 'block';
 
 locBtn.addEventListener("click", () => {
   loader.style.display = 'block';
@@ -119,7 +120,7 @@ locBtn.addEventListener("click", () => {
           //TEMP DISPLAY
           var tempN = Math.floor(tempN);
           var condition = data.current.condition.text;
-          fahText.innerHTML = "FahrenFeels" + " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
+          fahText.innerHTML = "Fahrenheit" + " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
           humiText.innerHTML = "Humidity" + " - " + humPer + "%";
           feelsCelText.innerHTML = "Feels like" + " : " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
           feelsFahText.innerHTML = "Feels like" + " : " + feelsFah + `<sup class="celsiusUnit">°F</sup>`;
@@ -1192,13 +1193,13 @@ locBtn.addEventListener("click", () => {
           let condTwo = data.forecast.forecastday[2].day.condition.text;
           conditionMulTwo.innerHTML = condTwo;
 
-          let celMaximum = data.forecast.forecastday[1].day.mintemp_c;
-          let celMinimum = data.forecast.forecastday[1].day.maxtemp_c;
+          let celMaximum = data.forecast.forecastday[1].day.maxtemp_c;
+          let celMinimum = data.forecast.forecastday[1].day.mintemp_c;
           let fahMinimum = data.forecast.forecastday[1].day.mintemp_f;
           let fahMaximum = data.forecast.forecastday[1].day.maxtemp_f;
 
-          let celMaximumT = data.forecast.forecastday[2].day.mintemp_c;
-          let celMinimumT = data.forecast.forecastday[2].day.maxtemp_c;
+          let celMaximumT = data.forecast.forecastday[2].day.maxtemp_c;
+          let celMinimumT = data.forecast.forecastday[2].day.mintemp_c;
           let fahMinimumT = data.forecast.forecastday[2].day.mintemp_f;
           let fahMaximumT = data.forecast.forecastday[2].day.maxtemp_f;
 
@@ -2590,59 +2591,59 @@ btn.addEventListener('click', () => {
         }
       }
 
-        var foreCastd1 = new Array();
-         foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
-         foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
-         foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
-         foreCastd1[3] = data.forecast.forecastday[0].hour[3].temp_c;
-         foreCastd1[4] = data.forecast.forecastday[0].hour[4].temp_c;
-         foreCastd1[5] = data.forecast.forecastday[0].hour[5].temp_c;
-         foreCastd1[6] = data.forecast.forecastday[0].hour[6].temp_c;
-         foreCastd1[7] = data.forecast.forecastday[0].hour[7].temp_c;
-         foreCastd1[8] = data.forecast.forecastday[0].hour[8].temp_c;
-         foreCastd1[9] = data.forecast.forecastday[0].hour[9].temp_c;
-         foreCastd1[10] = data.forecast.forecastday[0].hour[10].temp_c;
-         foreCastd1[11] = data.forecast.forecastday[0].hour[11].temp_c;
-         foreCastd1[12] = data.forecast.forecastday[0].hour[12].temp_c;
-         foreCastd1[13] = data.forecast.forecastday[0].hour[13].temp_c;
-         foreCastd1[14] = data.forecast.forecastday[0].hour[14].temp_c;
-         foreCastd1[15] = data.forecast.forecastday[0].hour[15].temp_c;
-         foreCastd1[16] = data.forecast.forecastday[0].hour[16].temp_c;
-         foreCastd1[17] = data.forecast.forecastday[0].hour[17].temp_c;
-         foreCastd1[18] = data.forecast.forecastday[0].hour[18].temp_c;
-         foreCastd1[19] = data.forecast.forecastday[0].hour[19].temp_c;
-         foreCastd1[20] = data.forecast.forecastday[0].hour[20].temp_c;
-         foreCastd1[21] = data.forecast.forecastday[0].hour[21].temp_c;
-         foreCastd1[22] = data.forecast.forecastday[0].hour[22].temp_c;
-         foreCastd1[23] = data.forecast.forecastday[0].hour[23].temp_c;
+      var foreCastd1 = new Array();
+      foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
+      foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
+      foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
+      foreCastd1[3] = data.forecast.forecastday[0].hour[3].temp_c;
+      foreCastd1[4] = data.forecast.forecastday[0].hour[4].temp_c;
+      foreCastd1[5] = data.forecast.forecastday[0].hour[5].temp_c;
+      foreCastd1[6] = data.forecast.forecastday[0].hour[6].temp_c;
+      foreCastd1[7] = data.forecast.forecastday[0].hour[7].temp_c;
+      foreCastd1[8] = data.forecast.forecastday[0].hour[8].temp_c;
+      foreCastd1[9] = data.forecast.forecastday[0].hour[9].temp_c;
+      foreCastd1[10] = data.forecast.forecastday[0].hour[10].temp_c;
+      foreCastd1[11] = data.forecast.forecastday[0].hour[11].temp_c;
+      foreCastd1[12] = data.forecast.forecastday[0].hour[12].temp_c;
+      foreCastd1[13] = data.forecast.forecastday[0].hour[13].temp_c;
+      foreCastd1[14] = data.forecast.forecastday[0].hour[14].temp_c;
+      foreCastd1[15] = data.forecast.forecastday[0].hour[15].temp_c;
+      foreCastd1[16] = data.forecast.forecastday[0].hour[16].temp_c;
+      foreCastd1[17] = data.forecast.forecastday[0].hour[17].temp_c;
+      foreCastd1[18] = data.forecast.forecastday[0].hour[18].temp_c;
+      foreCastd1[19] = data.forecast.forecastday[0].hour[19].temp_c;
+      foreCastd1[20] = data.forecast.forecastday[0].hour[20].temp_c;
+      foreCastd1[21] = data.forecast.forecastday[0].hour[21].temp_c;
+      foreCastd1[22] = data.forecast.forecastday[0].hour[22].temp_c;
+      foreCastd1[23] = data.forecast.forecastday[0].hour[23].temp_c;
 
-         var foreCastd1Inf = new Array();
-         foreCastd1Inf[0] = data.forecast.forecastday[0].hour[0].temp_f;
-         foreCastd1Inf[1] = data.forecast.forecastday[0].hour[1].temp_f;
-         foreCastd1Inf[2] = data.forecast.forecastday[0].hour[2].temp_f;
-         foreCastd1Inf[3] = data.forecast.forecastday[0].hour[3].temp_f;
-         foreCastd1Inf[4] = data.forecast.forecastday[0].hour[4].temp_f;
-         foreCastd1Inf[5] = data.forecast.forecastday[0].hour[5].temp_f;
-         foreCastd1Inf[6] = data.forecast.forecastday[0].hour[6].temp_f;
-         foreCastd1Inf[7] = data.forecast.forecastday[0].hour[7].temp_f;
-         foreCastd1Inf[8] = data.forecast.forecastday[0].hour[8].temp_f;
-         foreCastd1Inf[9] = data.forecast.forecastday[0].hour[9].temp_f;
-         foreCastd1Inf[10] = data.forecast.forecastday[0].hour[10].temp_f;
-         foreCastd1Inf[11] = data.forecast.forecastday[0].hour[11].temp_f;
-         foreCastd1Inf[12] = data.forecast.forecastday[0].hour[12].temp_f;
-         foreCastd1Inf[13] = data.forecast.forecastday[0].hour[13].temp_f;
-         foreCastd1Inf[14] = data.forecast.forecastday[0].hour[14].temp_f;
-         foreCastd1Inf[15] = data.forecast.forecastday[0].hour[15].temp_f;
-         foreCastd1Inf[16] = data.forecast.forecastday[0].hour[16].temp_f;
-         foreCastd1Inf[17] = data.forecast.forecastday[0].hour[17].temp_f;
-         foreCastd1Inf[18] = data.forecast.forecastday[0].hour[18].temp_f;
-         foreCastd1Inf[19] = data.forecast.forecastday[0].hour[19].temp_f;
-         foreCastd1Inf[20] = data.forecast.forecastday[0].hour[20].temp_f;
-         foreCastd1Inf[21] = data.forecast.forecastday[0].hour[21].temp_f;
-         foreCastd1Inf[22] = data.forecast.forecastday[0].hour[22].temp_f;
-         foreCastd1Inf[23] = data.forecast.forecastday[0].hour[23].temp_f;
+      var foreCastd1Inf = new Array();
+      foreCastd1Inf[0] = data.forecast.forecastday[0].hour[0].temp_f;
+      foreCastd1Inf[1] = data.forecast.forecastday[0].hour[1].temp_f;
+      foreCastd1Inf[2] = data.forecast.forecastday[0].hour[2].temp_f;
+      foreCastd1Inf[3] = data.forecast.forecastday[0].hour[3].temp_f;
+      foreCastd1Inf[4] = data.forecast.forecastday[0].hour[4].temp_f;
+      foreCastd1Inf[5] = data.forecast.forecastday[0].hour[5].temp_f;
+      foreCastd1Inf[6] = data.forecast.forecastday[0].hour[6].temp_f;
+      foreCastd1Inf[7] = data.forecast.forecastday[0].hour[7].temp_f;
+      foreCastd1Inf[8] = data.forecast.forecastday[0].hour[8].temp_f;
+      foreCastd1Inf[9] = data.forecast.forecastday[0].hour[9].temp_f;
+      foreCastd1Inf[10] = data.forecast.forecastday[0].hour[10].temp_f;
+      foreCastd1Inf[11] = data.forecast.forecastday[0].hour[11].temp_f;
+      foreCastd1Inf[12] = data.forecast.forecastday[0].hour[12].temp_f;
+      foreCastd1Inf[13] = data.forecast.forecastday[0].hour[13].temp_f;
+      foreCastd1Inf[14] = data.forecast.forecastday[0].hour[14].temp_f;
+      foreCastd1Inf[15] = data.forecast.forecastday[0].hour[15].temp_f;
+      foreCastd1Inf[16] = data.forecast.forecastday[0].hour[16].temp_f;
+      foreCastd1Inf[17] = data.forecast.forecastday[0].hour[17].temp_f;
+      foreCastd1Inf[18] = data.forecast.forecastday[0].hour[18].temp_f;
+      foreCastd1Inf[19] = data.forecast.forecastday[0].hour[19].temp_f;
+      foreCastd1Inf[20] = data.forecast.forecastday[0].hour[20].temp_f;
+      foreCastd1Inf[21] = data.forecast.forecastday[0].hour[21].temp_f;
+      foreCastd1Inf[22] = data.forecast.forecastday[0].hour[22].temp_f;
+      foreCastd1Inf[23] = data.forecast.forecastday[0].hour[23].temp_f;
 
-         // myChart.destroy();*/
+      // myChart.destroy();*/
 
       var ctx = document.getElementById("myChart").getContext('2d');
 
@@ -3008,13 +3009,13 @@ btn.addEventListener('click', () => {
       let condTwo = data.forecast.forecastday[2].day.condition.text;
       conditionMulTwo.innerHTML = condTwo;
 
-      let celMaximum = data.forecast.forecastday[1].day.mintemp_c;
-      let celMinimum = data.forecast.forecastday[1].day.maxtemp_c;
+      let celMaximum = data.forecast.forecastday[1].day.maxtemp_c;
+      let celMinimum = data.forecast.forecastday[1].day.mintemp_c;
       let fahMinimum = data.forecast.forecastday[1].day.mintemp_f;
       let fahMaximum = data.forecast.forecastday[1].day.maxtemp_f;
 
-      let celMaximumT = data.forecast.forecastday[2].day.mintemp_c;
-      let celMinimumT = data.forecast.forecastday[2].day.maxtemp_c;
+      let celMaximumT = data.forecast.forecastday[2].day.maxtemp_c;
+      let celMinimumT = data.forecast.forecastday[2].day.mintemp_c;
       let fahMinimumT = data.forecast.forecastday[2].day.mintemp_f;
       let fahMaximumT = data.forecast.forecastday[2].day.maxtemp_f;
 
@@ -3669,22 +3670,6 @@ function runMath() {
     stickyRainPos[0].classList.remove('stickyClass');
   }
 
-/*  var stickyRain = document.querySelectorAll(".willItRain-s");
-  var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
-
-  let stickyPos = -stickyRain[0].getBoundingClientRect().left;
-  let stickyProg = (stickyPos / (stickyRain[0].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  //  console.log(stickyProg);
-
-  if (stickyProg > 2) {
-    stickyRainPos[0].classList.add('stickyClass');
-  }
-  else {
-    stickyRainPos[0].classList.remove('stickyClass');
-  }
-
-*/
   let stickyPosTwo = -stickyRain[1].getBoundingClientRect().left;
   let stickyProgTwo = (stickyPosTwo / (stickyRain[1].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
 
@@ -3704,6 +3689,24 @@ function runMath() {
   else {
     stickyRainPos[2].classList.remove('stickyClass');
   }
+
+  var stickySnow = document.querySelectorAll(".willItRain-s");
+  var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
+
+  let stickyPosA = -stickySnow[3].getBoundingClientRect().left;
+  let stickyProgSnow = (stickyPosA / (stickySnow[3].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
+
+  //  console.log(stickyProg);
+
+  if (stickyProgSnow > 2) {
+    stickyRainPos[3].classList.add('stickyClass');
+  }
+  else {
+    stickyRainPos[3].classList.remove('stickyClass');
+  }
+
+
+
 
   let tFourCast = document.getElementById("willFore");
 
