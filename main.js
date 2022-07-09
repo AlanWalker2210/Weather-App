@@ -78,8 +78,9 @@ locBtn.addEventListener("click", () => {
       lat = position.coords.latitude;
 
       //  console.log(lom, lat)
+      
+      const api = "not given";
 
-      const api = `https://api.weatherapi.com/v1/forecast.json?key=272886315d4f4f6f844162320222601&q=${lat},${lon}&days=14&aqi=yes&alerts=yes`;
 
       fetch(api)
 
@@ -1704,8 +1705,7 @@ btn.addEventListener('click', () => {
 
   var inp = document.getElementById("searchCity").value;
 
-  const apiData = `https://api.weatherapi.com/v1/forecast.json?key=272886315d4f4f6f844162320222601&q=${inp}&days=10&aqi=yes&alerts=yes`;
-
+  const apiData = "not given";
 
   fetch(apiData)
 
@@ -3485,12 +3485,7 @@ function suggestCity() {
 
   var inp = document.getElementById("searchCity").value;
 
-  fetch(`https://api.api-ninjas.com/v1/city?name=${inp}&limit=30`, {
-      "method": "GET",
-      "headers": {
-        'X-Api-Key': 'iD+J6v11YMcxj+7ZBVgJWg==Yy92RR2H7vZ2NJuC',
-      },
-    })
+  
     .then(response => {
       var first = document.getElementById('firstLine');
       var seco = document.getElementById('secondLine');
