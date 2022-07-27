@@ -5,10 +5,10 @@
   display: none;
 }
 
-@font-face {
-  font-family: 'Poppins';
-  src: url("/fonts/Poppins-Regular.ttf");
-}
+/*@font-face {
+  font-family: 'Open sans';
+  src: url("/fonts/JosefinSans-Regular.ttf");
+}*/
 
 * {
   margin: 0;
@@ -18,17 +18,17 @@
 
 /*LOCAL FONT LINKING*/
 /* @font-face {
-    font-family: 'Poppins';
+    font-family: 'Open sans';
     src: url("Poppins-regular.ttf");)
   }*/
 
 /*APPLYING LOCAL FONT TO ALL ELEMENTS IN BODY*/
 body {
-  font-family: 'Poppins';
+  font-family: 'Open sans';
 }
 
 .mainBody {
-  display: none;
+  display: ;
 }
 
 .wrapper-pre {
@@ -52,99 +52,64 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.circleOne {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: #D6454500;
-  border-right: 2.5px solid #f00;
-  border-left: 2.5px solid #f00;
-  border-top: 2.5px solid #000;
-  border-bottom: 2.5px solid #000;
-  border-radius: 50%;
-  /* animation: rotate 2s linear infinite;*/
-  animation: opacitys 2s linear infinite;
-  animation-delay: 0.6s;
-  opacity: 0;
+.toRot {
+  width: 50px;
+  height: 50px;
+  transform: rotate(0deg);
+  animation: rotRv 8s linear infinite;
+  
 }
-
-.circleTwo {
-  position: absolute;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  border-top: 2.5px solid #000;
-  border-bottom: 2.5px solid #000;
-  border-right: 2.5px solid #f00;
-  border-left: 2.5px solid #f00;
-  /*  animation: rotateRev 2s linear infinite;*/
-  animation: opacitys 2s linear infinite;
-  animation-delay: 0.9s;
-  opacity: 0;
+.subOne,.subTwo {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px 0;
 }
-
-/*  .circleThree {
-     position: absolute;
-     border-radius: 50%;
-     width: 70px;
-     height: 70px;
-     border-top: 2.5px solid #f00;
-     border-bottom: 2.5px solid #000;
-     border-right: 2.5px solid #f00;
-     border-left: 2.5px solid #f00;
-     animation: rotate 4s linear infinite;
-   }*/
-
-.circleSmall {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border-top: 2.5px solid #000;
-  border-bottom: 2.5px solid #000;
-  border-right: 2.5px solid #f00;
-  border-left: 2.5px solid #f00;
-  animation: opacitys 2s linear infinite;
-  opacity: 0;
-  animation-delay: 0.2s;
-  /* animation: rotateRev 2s linear infinite;*/
+.aLoad {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px 0 2px 0;
+  animation: animateYellow 2s linear infinite;
 }
-
-@keyframes opacitys {
+.squareOne {
+  animation-delay: .0s;
+}
+.squareTwo {
+  animation-delay: .5s;
+}
+.squareThi {
+  animation-delay: 1.5s;
+}
+.squareFou {
+  animation-delay: 1s;
+}
+@keyframes animateYellow {
   0% {
-    opacity: 0;
+    background: #000;
+    transform: scale(0.5);
   }
-
   50% {
-    opacity: 1;
+    background: #1945A6;
+    transform: scale(1.2);
   }
-
   100% {
-    opacity: 0;
+    background: #000;
+    transform: scale(0.5);
+  } 
+}
+@keyframes rotRev {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(0);
   }
 }
-
-/*  @keyframes rotate {
-     0% {
-       transform: rotate(0);
-     }
-
-     100% {
-       transform: rotate(360deg);
-     }
-   }
-
-   @keyframes rotateRev {
-     0% {
-       transform: rotate(0);
-     }
-
-     100% {
-       transform: rotate(-360deg);
-     }
-   }*/
-
 .toggle {
   transform: translateY(2400px);
   opacity: 1;
@@ -435,7 +400,7 @@ a {
   border: 2px solid #030303;
   box-shadow: .1px .1px 2px #1F1F1F inset,
     .1px .1px 2px #1F1F1F;
-  font-family: 'Poppins';
+  font-family: 'Open sans';
   padding: 0 0 0 15px;
   border-radius: 5px;
   z-index: 2;
@@ -564,108 +529,6 @@ a {
   font-size: 0.8rem;
 }
 
-/*CELSISUS INFO & LOCATION*/
-/*.tempDigit {
-  position: relative;
-  top: 2%;
-  left: 4%;
-  width: 70px;
-  text-align: left;
-  font-size: 3rem;
-  color: #fff;
-}
-*/
-/*CONDITION OF TODAY EX-SUNNY, HAZE, FOG*/
-/*.tempCond {
-  position: relative;
-  top: 2%;
-  color: #fff;
-  left: 15%;
-  width: 180px;
-  font-size: 1.09rem;
-}*/
-
-/*IMG FOR WEATHER CONDITION*/
-/*.condImg {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 21%;
-  left: 3%;
-  outline: none;
-  border: none;
-}*/
-
-/*CITY DIV STYLING*/
-/*.citySection {
-  position: absolute;
-  top: 6%;
-  right: 3%;
-  text-align: right;
-  color: #fff;
-  max-width: 230px;
-}*/
-
-/*ALIGN TEXT LEFT */
-/*.temlInF {
-  color: #fff;
-  text-align: left;
-}*/
-
-/*FAHRENHEIT, HUMIDITY, CELSIUS, FAHRENHEITFEEL, TEXT STYLING AND POSITIONING*/
-/*.fahText,
-.humText,
-.celsText,
-.fahFeelText {
-  position: absolute;
-  width: 180px;
-  left: 15%;
-  top: 45%;
-}*/
-
-/*TOPPING FOR ALIGNING THE TEXT TO THE HUMIDITY ICON*/
-/*.humText {
-  top: 56%;
-}*/
-
-/*DESIGNING ICON AND POSITIONING*/
-/*.fahIcon,
-.humidityIcon,
-.celsiusIcon,
-.fahfeelIcon {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 44%;
-  left: 4.5%;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-}*/
-
-/*ALIGB HUMIDITY ICON*/
-/*.humidityIcon {
-  top: 55%;
-}*/
-
-/*ALIGN CELSIUS ICON*/
-/*.celsiusIcon {
-  top: 66.4%;
-}*/
-
-/*ALIGN CELSIUS TEXT*/
-/*.celsText {
-  top: 68%;
-}*/
-
-/*ALIGN FAHRENHEIT TEXT*/
-/*.fahFeelText {
-  top: 79%;
-}*/
-
-/*ALIGN FAHRENHEIT ICON*/
-/*.fahfeelIcon {
-  top: 78%;
-}*/
 
 /*APLLYING STYLE AND POSITION TO LAST UPDATED TEXT*/
 .lastUpdate {
@@ -1657,40 +1520,91 @@ a {
   border-radius: 50%;
 }
 
+
 .twentyFourZero-m {
   width: 100%;
   height: 140px;
   margin: 10px 0;
   overflow: scroll;
-  position: relative;
   scroll-snap-type: x mandatory;
+  color: #fff;
 }
 
 .twentyFourZero-s {
-  width: 730%;
-  height: 140px;
+  width: 2000%;
+  height: 110px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.twnetyFourCard {
+  width: 280px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  margin: 0 10px 0 30px;
+  scroll-snap-align: center;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  border: 0.01px solid #CACACA;
+}
+
+.cardHolder {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.twentyFourTag {
-  position: absolute;
-  background: rgba(0, 0, 0);
-  padding: 2px 8px 2px 8px;
-  top: 0;
-  left: 5px;
-  transition: 0.3s;
-  border-radius: 50px;
+.imgSec {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 0.1px solid #A5A5A5DE;
 }
 
-.twentyFourTagTog {
-  position: sticky;
-  width: 160px;
+.theDataHolder {
+  width: 180px;
+  height: 80px;
+  font-size: 1rem;
+}
+
+.letClass {
+  width: 80px;
+  height: 80px;
+}
+
+.timeHold {
+  width: 40px;
+  height: 18px;
+  background: #000;
+  border: .1px solid #C6C6C6;
+  border-radius: 30px;
+  margin: -10px 0 0 5px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.condHolder {
+  word-wrap: break-word;
+}
+.celFahHolder,.condHolder {
+  margin: 3px 0 3px 5px;
+  font-size: 0.8rem;
+}
+.imgClouds {
+  height: 20px;
+  margin: -2px 0 0 0;
+  font-size: 0.9rem;
+}
+.toFlextCloud {
+  display: flex;
+  align-items: center;
+}
+.toFlextCloud img {
+  width: 25px;
   height: 25px;
-  left: 5px;
-  top: -50px;
-  background: rgba(0, 0, 0);
-  margin: 0px 0 0 0;
 }
 
 @keyframes scaleSim {
@@ -1705,15 +1619,6 @@ a {
   margin: 0 0 0 -10px;
 }
 
-.twentyFourCard {
-  width: 70px;
-  height: 100px;
-  margin: 30px 10px 0 10px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 12px 3px 12px 3px;
-  box-shadow: .1px .1px 8px rgba(0, 0, 0, 0.7);
-  scroll-snap-align: end;
-}
 
 .imgClock {
   width: 100%;
@@ -1754,4 +1659,12 @@ a {
   align-items: center;
   border-radius: 50%;
   transition: 0.3s;
+}
+
+.fa-chevron-right {
+  margin: 2px 0 0 0;
+}
+
+.arrLeft {
+  transform: rotateY(-180deg);
 }

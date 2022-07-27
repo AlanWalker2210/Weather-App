@@ -6,21 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Weather Forecast</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="wrapper-pr" id="disappear">
+  <div class="wrapper-pre" id="disappear">
     <div class="wrapper-sub-pre">
-      <div class="circleSmall"></div>
-      <div class="circleOne"></div>
-      <div class="circleTwo"></div>
+      <div class="toRot">
+        <div class="subOne">
+          <div class="squareOne aLoad"></div>
+          <div class="squareTwo aLoad"></div>
+        </div>
+        <div class="subTwo">
+          <div class="squareThi aLoad"></div>
+          <div class="squareFou aLoad"></div>
+        </div>
+      </div>
       <!--  <div class="circleThree"></div>-->
     </div>
   </div>
@@ -40,7 +45,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="modal" id="styleDis" onclick="disableNav()"></div>
 
   <div class="navStartBlock" id="navCall">
@@ -61,7 +66,6 @@
       <ol>
         <li>Other Resources</li>
         <ul>
-          <li><a href="https://chartjs.org" target="_blank">Chart.js</a></li>
           <li><a href="https://basmilius.github.io/weather-icons/" target="_blank">Weather Icons</a></li>
           <li><a href="https://fontawesome.com" target="_blank">Font Icons</a></li>
         </ul>
@@ -223,8 +227,615 @@
         </div>
       </div>
 
+     <div class="twentyFourZero-m">
+        <div class="twentyFourTag">
+          <text class="txtTf">24 Hour ForeCast</text>
+        </div>
+        <div class="twentyFourZero-s">
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  00:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  01:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  02:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  03:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  04:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  05:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  06:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  07:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  08:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  09:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  10:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  11:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  12:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  13:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  14:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  15:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  16:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  17:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  18:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  19:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  20:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  21:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  22:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClassMain">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  23:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQueryMain">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondForeMain">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxtmain">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="willItRain-m" onscroll="runMath()">
+      <div class="willItRain-m">
         <div class="willItRain-s" id="rainSticky">
           <div class="toolTipRainOne" id="toolTipRain">
             Rain Forecast
@@ -306,7 +917,7 @@
         </div>
       </div>
 
-      <div class="willItRain-m" onscroll="runMath()">
+      <div class="willItRain-m">
         <div class="willItRain-s" id="rainSticky">
           <div class="toolTipRainOne" id="toolTipRain">
             Snow Forecast
@@ -387,12 +998,7 @@
           </div>
         </div>
       </div>
-
-      <div class="chartMainSection">
-        <div class="chartSubSection">
-          <canvas id="myChart" width="1200" height="230"></canvas>
-        </div>
-      </div>
+      
     </div>
     <div class="alertMainSection">
       <div class="alertSubSection">
@@ -557,326 +1163,617 @@
         </div>
       </div>
 
-
-      <div class="twentyFourZero-m" onscroll="runMath()">
-        <div class="twentyFourZero-s" id="willFore">
-          <div class="twentyFourTag" id="toToggCard">
-            <div class="textTF" id="toToggText">
-              24 Hour Forecast
+      <div class="twentyFourZero-m">
+        <div class="twentyFourTag">
+          <text class="txtTf">24 Hour ForeCast</text>
+        </div>
+        <div class="twentyFourZero-s">
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  00:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              Sunrise
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/sunrise.svg">
-            </div>
-            <div class="finalRes">
-              <text class="letDayInfo">06:00</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              Sunset
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/sunset.svg">
-            </div>
-            <div class="finalRes">
-              <text class="letDayInfo">06:00</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              Moonrise
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moonrise.svg">
-            </div>
-            <div class="finalRes">
-              <text class="letDayInfo">06:00</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  01:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              Moonset
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moonset.svg">
-            </div>
-            <div class="finalRes">
-              <text class="letDayInfo">06:00</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              00:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery"></text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              01:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery"></text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  02:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              02:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              03:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              04:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  03:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              05:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              06:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              07:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  04:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              08:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              09:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              10:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  05:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              11:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              12:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              13:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  06:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              14:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              15:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              16:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  07:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              17:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              18:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              19:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  08:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              20:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              21:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
-            </div>
-          </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              22:00
-            </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
-            </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  09:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="twentyFourCard">
-            <div class="txtClock">
-              23:00
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  10:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="imgClock">
-              <img src="/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg">
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  11:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="finalRes">
-              <text class="tempQuery">22</text>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  12:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  13:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  14:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  15:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  16:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  17:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  18:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  19:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  20:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  21:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  22:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="twnetyFourCard">
+            <div class="cardHolder">
+              <div class="imgSec">
+                <img src="/weather-icons-2.0.0/design/fill/animation-ready/hail.svg" class="letClass">
+              </div>
+              <div class="theDataHolder">
+                <div class="timeHold">
+                  23:00
+                </div>
+                <div class="celFahHolder">
+                  <text class="tempQuery">33°C | 56°C</text>
+                </div>
+                <div class="condHolder">
+                  <text class="tempCondFore">
+                    Moderate or heavy snow
+                  </text>
+                </div>
+                <div class="imgClouds">
+                  <div class="toFlextCloud">
+                    <img src="/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"><text class="cloudtxt">61%</text>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="willItRain-m" onscroll="runMath()">
+
+
+      <div class="willItRain-m">
         <div class="willItRain-s" id="rainSticky">
           <div class="toolTipRainOne" id="toolTipRain">
             Rain Forecast
@@ -958,7 +1855,7 @@
         </div>
       </div>
 
-      <div class="willItRain-m" onscroll="runMath()">
+      <div class="willItRain-m">
         <div class="willItRain-s" id="rainSticky">
           <div class="toolTipRainOne" id="toolTipRain">
             Snow Forecast
@@ -1041,46 +1938,40 @@
       </div>
 
     </div>
-</div>
+  </div>
 
 
-    <div class="fetchErrMain" id="fetchErr">
-      <text id="setFetchErr">City not found...</text><text class="xText" onclick="disableFetch()">×</text>
-    </div>
-    <div class="statusPopMain" id="statusDisplay">
-      <div class="statusPopSub">
-        <div class="netErr">
-          <text>You're not connected to internet...</text>
-        </div>
-        <div class="retry">
-          <text onclick="disableStatus()">×</text>
-        </div>
+  <div class="fetchErrMain" id="fetchErr">
+    <text id="setFetchErr">City not found...</text><text class="xText" onclick="disableFetch()">×</text>
+  </div>
+  <div class="statusPopMain" id="statusDisplay">
+    <div class="statusPopSub">
+      <div class="netErr">
+        <text>You're not connected to internet...</text>
+      </div>
+      <div class="retry">
+        <text onclick="disableStatus()">×</text>
       </div>
     </div>
-    <div class="warningPopUpMain" id="displayWarningCity">
-      <div class="warningPopUpSub">
-        <div class="textWarn">
-          <text class="warnThem" id="locError"></text>
-        </div>
-        <div class="xText">
-          <text class="removeWarn" onclick="displayNoneWarn()">×</text>
-        </div>
+  </div>
+  <div class="warningPopUpMain" id="displayWarningCity">
+    <div class="warningPopUpSub">
+      <div class="textWarn">
+        <text class="warnThem" id="locError"></text>
+      </div>
+      <div class="xText">
+        <text class="removeWarn" onclick="displayNoneWarn()">×</text>
       </div>
     </div>
-    <div class="fetchLoaderMain" id="loader">
-      <div class="fetchLoaderSub">
-        <div class="Loader">
-        </div>
+  </div>
+  <div class="fetchLoaderMain" id="loader">
+    <div class="fetchLoaderSub">
+      <div class="Loader">
       </div>
     </div>
+  </div>
 
-    <!--<div class="catchErrMain" id="catch">
-                                                                                        <div class="catchErrSub">
-                                                                                          <text>Code:503<br>we had some trouble while fetching from server...<br>"Please try again later"</text>
-                                                                                        </div>
-                                                                                        -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>

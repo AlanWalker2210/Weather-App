@@ -59,7 +59,7 @@ window.onload = function() {
   setTimeout(() => {
     disappear.classList.add("toggle");
     // content.classList.add("contentTogg");
-  }, 10);
+  }, 40);
   letLoad.style.display = 'none';
 }
 
@@ -77,13 +77,9 @@ locBtn.addEventListener("click", () => {
       lon = position.coords.longitude;
       lat = position.coords.latitude;
 
-      //  console.log(lom, lat)
-      
-      const api = "not given";
-
+      const api = `https://api.weatherapi.com/v1/forecast.json?key=272886315d4f4f6f844162320222601&q=${lat},${lon}&days=14&aqi=yes&alerts=yes`;
 
       fetch(api)
-
         .then(response => {
           var showId = document.getElementById("mBody");
           if (response.status == 200) {
@@ -92,17 +88,12 @@ locBtn.addEventListener("click", () => {
           }
           return response.json()
         })
-
         .then(data => {
-
           var cityNameInp = document.getElementById("searchCity");
-
           var cityNameIn = data.location.name;
-
           cityNameInp.value = cityNameIn;
 
           //Icon of current weather
-          var img = data.current.condition.icon;
           //COUNTRY details
           var cName = data.location.country;
           var rName = data.location.region;
@@ -170,36 +161,6 @@ locBtn.addEventListener("click", () => {
           aqSulfur.innerHTML = "Sulfur dioxide" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + syn;
           aqNitrogen.innerHTML = "Nitrogen dioxide" + "&nbsp;&nbsp;&nbsp;" + " - " + no2;
 
-
-          //Day forecasts
-
-          /*     var minC = data.forecast.forecastday[1].day.mintemp_c;
-          var maxC = data.forecast.forecastday[1].day.maxtemp_c;
-          var minF = data.forecast.forecastday[1].day.mintemp_f;
-          var maxF = data.forecast.forecastday[1].day.maxtemp_f;
-
-          minTempC.innerHTML = minC + "°C" + "/";
-          maxTempC.innerHTML = maxC + "°C";
-          minTempF.innerHTML = minF + "°F" + "/";
-          maxTempF.innerHTML = maxF + "°F";
-*/
-
-          /*      var minCSub = data.forecast.forecastday[2].day.mintemp_c;
-          var maxCSub = data.forecast.forecastday[2].day.maxtemp_c;
-          var minFSub = data.forecast.forecastday[2].day.mintemp_f;
-          var maxFSub = data.forecast.forecastday[2].day.maxtemp_f;
-
-          minTempSubC.innerHTML = minCSub + "°C" + "/";
-          maxTempSubC.innerHTML = maxCSub + "°C";
-          minTempSubF.innerHTML = minFSub + "°F" + "/";
-          maxTempSubF.innerHTML = maxFSub + "°F";
-*/
-          /*   var dateSecNxt = data.forecast.forecastday[2].date;
-          dayTwoSubDate.innerHTML = "Date" + " - " + dateSecNxt;
-          var dateSec = data.forecast.forecastday[1].date;
-          dayTwoDate.innerHTML = "Date" + " - " + dateSec;
-*/
-
           var epa_index = data.current.air_quality["us-epa-index"];
 
           if (epa_index == 0) {
@@ -207,15 +168,12 @@ locBtn.addEventListener("click", () => {
           }
           else if (epa_index == 1) {
             aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-1.svg"
-
           }
           else if (epa_index == 2) {
             aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-2.svg"
-
           }
           else if (epa_index == 3) {
             aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-3.svg"
-
           }
           else if (epa_index == 4) {
             aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-4.svg"
@@ -246,7 +204,6 @@ locBtn.addEventListener("click", () => {
 
           if (moonCond.innerHTML == "Moon phase - New Moon") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
-
           }
           else if (moonCond.innerHTML == "Moon phase - Waxing Crescent") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
@@ -277,7 +234,6 @@ locBtn.addEventListener("click", () => {
           sunRise.innerHTML = "Sun rise" + " - " + sunRiseT;
           sunSet.innerHTML = "Sun set" + " - " + sunSetT;
 
-
           //Vis Info 
           var visInKm = data.current.vis_km;
           var visInM = data.current.vis_miles;
@@ -293,7 +249,6 @@ locBtn.addEventListener("click", () => {
           if (arraySize.length > 0) {
             var alertDesc = data.alerts.alert[0].desc;
             var alertPos = data.alerts.alert[0].areas;
-
             alertText.innerHTML = alertDesc;
             placeAlert.innerHTML = alertPos;
           }
@@ -304,16 +259,6 @@ locBtn.addEventListener("click", () => {
           var aqCo2 = data.current.air_quality.co;
 
           // aqCo.innerHTML = aqCo2;
-
-          /*   var min = data.forecast.forecastday[1].day.mintemp_c;
-             var max = data.forecast.forecastday[1].day.maxtemp_c;
-             var minF = data.forecast.forecastday[1].day.mintemp_f;
-             var maxF = data.forecast.forecastday[1].day.maxtemp_f;
-
-             minTempC.innerHTML = min + "°C" + "/";
-             maxTempC.innerHTML = max + "°C";
-             minTempF.innerHTML = minF + "°F" + "/";
-             maxTempF.innerHTML = maxF + "°F";*/
 
           var is_day = data.current.is_day;
 
@@ -326,10 +271,8 @@ locBtn.addEventListener("click", () => {
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg"
             }
           }
-          else if (cond.innerHTML == "Partly Cloudy") {
-            // imgWall.src = "img/sunny.jpg"
+          else if (cond.innerHTML == "Partly cloudy") {
             backWall.src = "/backgrounds/cloudy.jpg"
-
             if (is_day == 1) {
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg"
             }
@@ -339,848 +282,448 @@ locBtn.addEventListener("click", () => {
           }
           else if (cond.innerHTML == "Cloudy") {
             backWall.src = "/backgrounds/cloudy.jpg"
-
             if (is_day == 1) {
               ImgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"
             }
           }
           else if (cond.innerHTML == "Overcast") {
             backWall.src = "/backgrounds/cloudy.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg"
             }
           }
           else if (cond.innerHTML == "Mist") {
             backWall.src = "/backgrounds/fog.jpg"
-
             if (is_day == 1) {
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg"
             }
             else {
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg"
-              //Night icon
             }
           }
           else if (cond.innerHTML == "Patchy rain possible") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
             }
           }
           else if (cond.innerHTML == "Patchy snow possible") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-snow.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-snow.svg"
             }
           }
           else if (cond.innerHTML == "Patchy sleet possible") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
             }
           }
           else if (cond.innerHTML == "Patchy freezing drizzle possible") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
             }
           }
           else if (cond.innerHTML == "Blowing snow") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-snow.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-snow.svg"
             }
           }
           else if (cond.innerHTML == "Thundery outbreaks possible") {
             backWall.src = "/backgrounds/thunderstorm.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day.svg"
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night.svg "
             }
           }
           else if (cond.innerHTML == "Blizzard") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-hail.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-hail.svg"
-
             }
           }
           else if (cond.innerHTML == "Fog") {
             backWall.src = "/backgrounds/fog.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg"
-
             }
           }
           else if (cond.innerHTML == "Freezing fog") {
             backWall.src = "/backgrounds/fog.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog.svg"
-
             }
           }
           else if (cond.innerHTML == "Patchy light drizzle") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
             }
           }
           else if (cond.innerHTML == "Light drizzle") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
             }
           }
           else if (cond.innerHTML == "Freezing drizzle") {
             backWall.src = "/backgrounds/fog.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Heavy freezing drizzle") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
             }
           }
-          else if (cond.innerHTML == "Patchy light drizzle") {
+          else if (cond.innerHTML == "Heavy freezing drizzle") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Light rain") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate rain at times") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate rain") {
             backWall.src = "/backgrounds/rain.jpg"
 
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
             }
           }
           else if (cond.innerHTML == "Heavy rain at times") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
           }
           else if (cond.innerHTML == "Heavy rain") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
           }
           else if (cond.innerHTML == "Light freezing rain") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy freezing rain") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Light sleet") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy sleet") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Patchy light snow") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Light snow") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Patchy moderate snow") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate snow") {
             backWall.src = "/backgrounds/snow.jpg"
 
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Patchy heavy snow") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Heavy snow") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Ice pelletes") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg"
-
             }
           }
           else if (cond.innerHTML == "Light rain shower") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy rain shower") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
           }
           else if (cond.innerHTML == "Torrential rain shower") {
             backWall.src = "/backgrounds/rain.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
             }
           }
           else if (cond.innerHTML == "Light sleet showers") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy sleet") {
             backWall.src = "/backgrounds/drizzle.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
             }
           }
           else if (cond.innerHTML == "Light snow showers") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy snow showers") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Light showers of ice pellets") {
             backWall.src = "/backgrounds/snow.jpg"
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy showers of ice pellets") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Patchy light rain with thunder") {
             backWall.src = "/backgrounds/thunderstorm.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
+            }
+          }
+          else if (cond.innerHTML == "Patchy light rain") {
+            backWall.src = "/backgrounds/rain.jpg"
+            if (is_day == 1) {
+              imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
+            }
+            else {
+              imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
             }
           }
           else if (cond.innerHTML == "Moderate or heavy rain with thunder") {
             backWall.src = "/backgrounds/thunderstorm.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
             }
           }
           else if (cond.innerHTML == "Patchy light snow with thunder") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
           }
           else if (cond.innerHTML == "Moderate or heavy snow with thunder") {
             backWall.src = "/backgrounds/snow.jpg"
-
             if (is_day == 1) {
-              //Day icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
             else {
-              //Night icon
               imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
             }
           }
-          var foreCastd1 = new Array();
-          foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
-          foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
-          foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
-          foreCastd1[3] = data.forecast.forecastday[0].hour[3].temp_c;
-          foreCastd1[4] = data.forecast.forecastday[0].hour[4].temp_c;
-          foreCastd1[5] = data.forecast.forecastday[0].hour[5].temp_c;
-          foreCastd1[6] = data.forecast.forecastday[0].hour[6].temp_c;
-          foreCastd1[7] = data.forecast.forecastday[0].hour[7].temp_c;
-          foreCastd1[8] = data.forecast.forecastday[0].hour[8].temp_c;
-          foreCastd1[9] = data.forecast.forecastday[0].hour[9].temp_c;
-          foreCastd1[10] = data.forecast.forecastday[0].hour[10].temp_c;
-          foreCastd1[11] = data.forecast.forecastday[0].hour[11].temp_c;
-          foreCastd1[12] = data.forecast.forecastday[0].hour[12].temp_c;
-          foreCastd1[13] = data.forecast.forecastday[0].hour[13].temp_c;
-          foreCastd1[14] = data.forecast.forecastday[0].hour[14].temp_c;
-          foreCastd1[15] = data.forecast.forecastday[0].hour[15].temp_c;
-          foreCastd1[16] = data.forecast.forecastday[0].hour[16].temp_c;
-          foreCastd1[17] = data.forecast.forecastday[0].hour[17].temp_c;
-          foreCastd1[18] = data.forecast.forecastday[0].hour[18].temp_c;
-          foreCastd1[19] = data.forecast.forecastday[0].hour[19].temp_c;
-          foreCastd1[20] = data.forecast.forecastday[0].hour[20].temp_c;
-          foreCastd1[21] = data.forecast.forecastday[0].hour[21].temp_c;
-          foreCastd1[22] = data.forecast.forecastday[0].hour[22].temp_c;
-          foreCastd1[23] = data.forecast.forecastday[0].hour[23].temp_c;
-
-          var foreCastd1Inf = new Array();
-          foreCastd1Inf[0] = data.forecast.forecastday[0].hour[0].temp_f;
-          foreCastd1Inf[1] = data.forecast.forecastday[0].hour[1].temp_f;
-          foreCastd1Inf[2] = data.forecast.forecastday[0].hour[2].temp_f;
-          foreCastd1Inf[3] = data.forecast.forecastday[0].hour[3].temp_f;
-          foreCastd1Inf[4] = data.forecast.forecastday[0].hour[4].temp_f;
-          foreCastd1Inf[5] = data.forecast.forecastday[0].hour[5].temp_f;
-          foreCastd1Inf[6] = data.forecast.forecastday[0].hour[6].temp_f;
-          foreCastd1Inf[7] = data.forecast.forecastday[0].hour[7].temp_f;
-          foreCastd1Inf[8] = data.forecast.forecastday[0].hour[8].temp_f;
-          foreCastd1Inf[9] = data.forecast.forecastday[0].hour[9].temp_f;
-          foreCastd1Inf[10] = data.forecast.forecastday[0].hour[10].temp_f;
-          foreCastd1Inf[11] = data.forecast.forecastday[0].hour[11].temp_f;
-          foreCastd1Inf[12] = data.forecast.forecastday[0].hour[12].temp_f;
-          foreCastd1Inf[13] = data.forecast.forecastday[0].hour[13].temp_f;
-          foreCastd1Inf[14] = data.forecast.forecastday[0].hour[14].temp_f;
-          foreCastd1Inf[15] = data.forecast.forecastday[0].hour[15].temp_f;
-          foreCastd1Inf[16] = data.forecast.forecastday[0].hour[16].temp_f;
-          foreCastd1Inf[17] = data.forecast.forecastday[0].hour[17].temp_f;
-          foreCastd1Inf[18] = data.forecast.forecastday[0].hour[18].temp_f;
-          foreCastd1Inf[19] = data.forecast.forecastday[0].hour[19].temp_f;
-          foreCastd1Inf[20] = data.forecast.forecastday[0].hour[20].temp_f;
-          foreCastd1Inf[21] = data.forecast.forecastday[0].hour[21].temp_f;
-          foreCastd1Inf[22] = data.forecast.forecastday[0].hour[22].temp_f;
-          foreCastd1Inf[23] = data.forecast.forecastday[0].hour[23].temp_f;
-
-          const ctx = document.getElementById('myChart').getContext('2d');
-          let myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
-            '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-            '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'
-    ],
-              datasets: [{
-                label: `Celsius`,
-                data: [
-        foreCastd1[0], foreCastd1[1], foreCastd1[2], foreCastd1[3],
-        foreCastd1[4], foreCastd1[5], foreCastd1[6], foreCastd1[7],
-        foreCastd1[8], foreCastd1[9], foreCastd1[10], foreCastd1[11],
-        foreCastd1[12], foreCastd1[13], foreCastd1[14], foreCastd1[15],
-        foreCastd1[16], foreCastd1[17], foreCastd1[18], foreCastd1[19],
-        foreCastd1[20], foreCastd1[21], foreCastd1[22], foreCastd1[23],
-        ],
 
 
-                backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-                borderColor: [
-                '#1394EF'
-            ],
-                borderWidth: 4,
-                tension: 0.4,
-        }, {
-                label: `Fahrenheit`,
-                data: [foreCastd1Inf[0], foreCastd1Inf[1], foreCastd1Inf[2], foreCastd1Inf[3],
-                   foreCastd1Inf[4], foreCastd1Inf[5], foreCastd1Inf[6], foreCastd1Inf[7],
-                   foreCastd1Inf[8], foreCastd1Inf[9], foreCastd1Inf[10], foreCastd1Inf[11],
-                   foreCastd1Inf[12], foreCastd1Inf[13], foreCastd1Inf[14], foreCastd1Inf[15],
-                   foreCastd1Inf[16], foreCastd1Inf[17], foreCastd1Inf[18], foreCastd1Inf[19],
-                   foreCastd1Inf[20], foreCastd1Inf[21], foreCastd1Inf[22], foreCastd1Inf[23],
-                           ],
-                backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-                borderColor: [
-                '#FC7403'
-            ],
-                borderWidth: 4,
-                tension: 0.4,
-        }]
-            },
+          for (var i = 0; i < 24; i++) {
+            var foreCastd1 = new Array();
+            foreCastd1[i] = data.forecast.forecastday[0].hour[i].temp_c;
+            var foreCastd1Inf = new Array();
+            foreCastd1Inf[i] = data.forecast.forecastday[0].hour[i].temp_f;
+            let tempFahCol = document.querySelectorAll('.tempQueryMain');
+            tempFahCol[i].innerHTML = foreCastd1[i] + "°-" + foreCastd1Inf[i] + "°F";
 
-            options: {
-              pointDotStrokeWidth: 5,
-              dataSetStrokeWidth: 6,
-              hoverRadius: 12,
-              hitRadius: 12,
-              respnsive: true,
-              scales: {
-                y: {
-                  beginAtZero: true,
-                },
-              },
-            }
-            // myChart.destroy()
-          })
-          let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
-
-          let rainTodayArr = new Array();
-
-          rainTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_rain;
-          rainTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_rain;
-          rainTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_rain;
-          rainTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_rain;
-          rainTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_rain;
-          rainTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_rain;
-          rainTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_rain;
-          rainTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_rain;
-          rainTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_rain;
-          rainTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_rain;
-          rainTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_rain;
-          rainTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_rain;
-          rainTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_rain;
-          rainTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_rain;
-          rainTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_rain;
-          rainTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_rain;
-          rainTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_rain;
-          rainTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_rain;
-          rainTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_rain;
-          rainTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_rain;
-          rainTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_rain;
-          rainTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_rain;
-          rainTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_rain;
-          rainTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_rain;
-
-          rainFeatArrToday[0].innerHTML = rainTodayArr[00] + "%";
-          rainFeatArrToday[1].innerHTML = rainTodayArr[01] + "%";
-          rainFeatArrToday[2].innerHTML = rainTodayArr[02] + "%";
-          rainFeatArrToday[3].innerHTML = rainTodayArr[03] + "%";
-          rainFeatArrToday[4].innerHTML = rainTodayArr[04] + "%";
-          rainFeatArrToday[5].innerHTML = rainTodayArr[05] + "%";
-          rainFeatArrToday[6].innerHTML = rainTodayArr[06] + "%";
-          rainFeatArrToday[7].innerHTML = rainTodayArr[07] + "%";
-          rainFeatArrToday[8].innerHTML = rainTodayArr[08] + "%";
-          rainFeatArrToday[9].innerHTML = rainTodayArr[09] + "%";
-          rainFeatArrToday[10].innerHTML = rainTodayArr[10] + "%";
-          rainFeatArrToday[11].innerHTML = rainTodayArr[11] + "%";
-          rainFeatArrToday[12].innerHTML = rainTodayArr[12] + "%";
-          rainFeatArrToday[13].innerHTML = rainTodayArr[13] + "%";
-          rainFeatArrToday[14].innerHTML = rainTodayArr[14] + "%";
-          rainFeatArrToday[15].innerHTML = rainTodayArr[15] + "%";
-          rainFeatArrToday[16].innerHTML = rainTodayArr[16] + "%";
-          rainFeatArrToday[17].innerHTML = rainTodayArr[17] + "%";
-          rainFeatArrToday[18].innerHTML = rainTodayArr[18] + "%";
-          rainFeatArrToday[19].innerHTML = rainTodayArr[19] + "%";
-          rainFeatArrToday[20].innerHTML = rainTodayArr[20] + "%";
-          rainFeatArrToday[21].innerHTML = rainTodayArr[21] + "%";
-          rainFeatArrToday[22].innerHTML = rainTodayArr[22] + "%";
-          rainFeatArrToday[23].innerHTML = rainTodayArr[23] + "%";
-
-
-          let snowRender = document.querySelectorAll('.snowFaetToday');
-          let snowTodayArr = new Array();
-
-          snowTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_snow;
-          snowTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_snow;
-          snowTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_snow;
-          snowTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_snow;
-          snowTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_snow;
-          snowTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_snow;
-          snowTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_snow;
-          snowTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_snow;
-          snowTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_snow;
-          snowTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_snow;
-          snowTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_snow;
-          snowTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_snow;
-          snowTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_snow;
-          snowTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_snow;
-          snowTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_snow;
-          snowTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_snow;
-          snowTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_snow;
-          snowTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_snow;
-          snowTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_snow;
-          snowTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_snow;
-          snowTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_snow;
-          snowTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_snow;
-          snowTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_snow;
-          snowTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_snow;
-
-          snowRender[0].innerHTML = snowTodayArr[0] + "%";
-          snowRender[1].innerHTML = snowTodayArr[1] + "%";
-          snowRender[2].innerHTML = snowTodayArr[2] + "%";
-          snowRender[3].innerHTML = snowTodayArr[3] + "%";
-          snowRender[4].innerHTML = snowTodayArr[4] + "%";
-          snowRender[5].innerHTML = snowTodayArr[5] + "%";
-          snowRender[6].innerHTML = snowTodayArr[6] + "%";
-          snowRender[7].innerHTML = snowTodayArr[7] + "%";
-          snowRender[8].innerHTML = snowTodayArr[8] + "%";
-          snowRender[9].innerHTML = snowTodayArr[9] + "%";
-          snowRender[10].innerHTML = snowTodayArr[10] + "%";
-          snowRender[11].innerHTML = snowTodayArr[11] + "%";
-          snowRender[12].innerHTML = snowTodayArr[12] + "%";
-          snowRender[13].innerHTML = snowTodayArr[13] + "%";
-          snowRender[14].innerHTML = snowTodayArr[14] + "%";
-          snowRender[15].innerHTML = snowTodayArr[15] + "%";
-          snowRender[16].innerHTML = snowTodayArr[16] + "%";
-          snowRender[17].innerHTML = snowTodayArr[17] + "%";
-          snowRender[18].innerHTML = snowTodayArr[18] + "%";
-          snowRender[19].innerHTML = snowTodayArr[19] + "%";
-          snowRender[20].innerHTML = snowTodayArr[20] + "%";
-          snowRender[21].innerHTML = snowTodayArr[21] + "%";
-          snowRender[22].innerHTML = snowTodayArr[22] + "%";
-          snowRender[23].innerHTML = snowTodayArr[23] + "%";
+            var rainTodayArr = new Array();
+            rainTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_rain;
+            let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
+            rainFeatArrToday[i].innerHTML = rainTodayArr[i] + "%";
+            let snowTodayArr = new Array();
+            snowTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_snow;
+            let snowRender = document.querySelectorAll('.snowFaetToday');
+            snowRender[i].innerHTML = snowTodayArr[i] + "%";
+          }
 
           let dateOne = data.forecast.forecastday[1].date;
           dayOneDate.innerHTML = dateOne;
@@ -1230,8 +773,8 @@ locBtn.addEventListener("click", () => {
 
           changeDynamic();
 
+
           function changeDynamic() {
-            var collector = document.querySelectorAll(".tempQuery");
             //  console.log(collector);
 
 
@@ -1243,410 +786,954 @@ locBtn.addEventListener("click", () => {
             // console.log(Math.floor(stickyProgCard));
 
             if (stickyProgCard > 0 && stickyProgCard < 50) {
-              disArr.style.opacity = '1';
-              let tempArr = new Array();
+              // disArr.style.opacity = '1';
+              disArr.classList.remove('arrLeft');
 
-              tempArr[0] = data.forecast.forecastday[1].hour[0].temp_c;
-              tempArr[1] = data.forecast.forecastday[1].hour[1].temp_c;
-              tempArr[2] = data.forecast.forecastday[1].hour[2].temp_c;
-              tempArr[3] = data.forecast.forecastday[1].hour[3].temp_c;
-              tempArr[4] = data.forecast.forecastday[1].hour[4].temp_c;
-              tempArr[5] = data.forecast.forecastday[1].hour[5].temp_c;
-              tempArr[6] = data.forecast.forecastday[1].hour[6].temp_c;
-              tempArr[7] = data.forecast.forecastday[1].hour[7].temp_c;
-              tempArr[8] = data.forecast.forecastday[1].hour[8].temp_c;
-              tempArr[9] = data.forecast.forecastday[1].hour[9].temp_c;
-              tempArr[10] = data.forecast.forecastday[1].hour[10].temp_c;
-              tempArr[11] = data.forecast.forecastday[1].hour[11].temp_c;
-              tempArr[12] = data.forecast.forecastday[1].hour[12].temp_c;
-              tempArr[13] = data.forecast.forecastday[1].hour[13].temp_c;
-              tempArr[14] = data.forecast.forecastday[1].hour[14].temp_c;
-              tempArr[15] = data.forecast.forecastday[1].hour[15].temp_c;
-              tempArr[16] = data.forecast.forecastday[1].hour[16].temp_c;
-              tempArr[17] = data.forecast.forecastday[1].hour[17].temp_c;
-              tempArr[18] = data.forecast.forecastday[1].hour[18].temp_c;
-              tempArr[19] = data.forecast.forecastday[1].hour[19].temp_c;
-              tempArr[20] = data.forecast.forecastday[1].hour[20].temp_c;
-              tempArr[21] = data.forecast.forecastday[1].hour[21].temp_c;
-              tempArr[22] = data.forecast.forecastday[1].hour[22].temp_c;
-              tempArr[23] = data.forecast.forecastday[1].hour[23].temp_c;
+              for (var i = 0; i < 24; i++) {
+                var collector = document.querySelectorAll(".tempQuery");
 
-              let tempFahArr = new Array();
-              tempFahArr[0] = data.forecast.forecastday[1].hour[0].temp_f;
-              tempFahArr[1] = data.forecast.forecastday[1].hour[1].temp_f;
-              tempFahArr[2] = data.forecast.forecastday[1].hour[2].temp_f;
-              tempFahArr[3] = data.forecast.forecastday[1].hour[3].temp_f;
-              tempFahArr[4] = data.forecast.forecastday[1].hour[4].temp_f;
-              tempFahArr[5] = data.forecast.forecastday[1].hour[5].temp_f;
-              tempFahArr[6] = data.forecast.forecastday[1].hour[6].temp_f;
-              tempFahArr[7] = data.forecast.forecastday[1].hour[7].temp_f;
-              tempFahArr[8] = data.forecast.forecastday[1].hour[8].temp_f;
-              tempFahArr[9] = data.forecast.forecastday[1].hour[9].temp_f;
-              tempFahArr[10] = data.forecast.forecastday[1].hour[10].temp_f;
-              tempFahArr[11] = data.forecast.forecastday[1].hour[11].temp_f;
-              tempFahArr[12] = data.forecast.forecastday[1].hour[12].temp_f;
-              tempFahArr[13] = data.forecast.forecastday[1].hour[13].temp_f;
-              tempFahArr[14] = data.forecast.forecastday[1].hour[14].temp_f;
-              tempFahArr[15] = data.forecast.forecastday[1].hour[15].temp_f;
-              tempFahArr[16] = data.forecast.forecastday[1].hour[16].temp_f;
-              tempFahArr[17] = data.forecast.forecastday[1].hour[17].temp_f;
-              tempFahArr[18] = data.forecast.forecastday[1].hour[18].temp_f;
-              tempFahArr[19] = data.forecast.forecastday[1].hour[19].temp_f;
-              tempFahArr[20] = data.forecast.forecastday[1].hour[20].temp_f;
-              tempFahArr[21] = data.forecast.forecastday[1].hour[21].temp_f;
-              tempFahArr[22] = data.forecast.forecastday[1].hour[22].temp_f;
-              tempFahArr[23] = data.forecast.forecastday[1].hour[23].temp_f;
+                var tempArr = new Array();
+                tempArr[i] = data.forecast.forecastday[1].hour[i].temp_c;
 
+                var tempFahArr = new Array();
+                tempFahArr[i] = data.forecast.forecastday[1].hour[i].temp_f;
 
-              collector[0].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[0] + " <sup>°</sup> F";
-              collector[1].innerHTML = tempArr[1] + " <sup>°</sup> C" + "<br>" + tempFahArr[1] + " <sup>°</sup> F";
-              collector[2].innerHTML = tempArr[2] + " <sup>°</sup> C" + "<br>" + tempFahArr[2] + " <sup>°</sup> F";
-              collector[3].innerHTML = tempArr[3] + " <sup>°</sup> C" + "<br>" + tempFahArr[3] + " <sup>°</sup> F";
-              collector[4].innerHTML = tempArr[4] + " <sup>°</sup> C" + "<br>" + tempFahArr[4] + " <sup>°</sup> F";
-              collector[5].innerHTML = tempArr[5] + " <sup>°</sup> C" + "<br>" + tempFahArr[5] + " <sup>°</sup> F";
-              collector[6].innerHTML = tempArr[6] + " <sup>°</sup> C" + "<br>" + tempFahArr[6] + " <sup>°</sup> F";
-              collector[7].innerHTML = tempArr[7] + " <sup>°</sup> C" + "<br>" + tempFahArr[7] + " <sup>°</sup> F";
-              collector[8].innerHTML = tempArr[8] + " <sup>°</sup> C" + "<br>" + tempFahArr[8] + " <sup>°</sup> F";
-              collector[9].innerHTML = tempArr[9] + " <sup>°</sup> C" + "<br>" + tempFahArr[9] + " <sup>°</sup> F";
-              collector[10].innerHTML = tempArr[10] + " <sup>°</sup> C" + "<br>" + tempFahArr[10] + " <sup>°</sup> F";
-              collector[11].innerHTML = tempArr[11] + " <sup>°</sup> C" + "<br>" + tempFahArr[11] + " <sup>°</sup> F";
-              collector[12].innerHTML = tempArr[12] + " <sup>°</sup> C" + "<br>" + tempFahArr[12] + " <sup>°</sup> F";
-              collector[13].innerHTML = tempArr[13] + " <sup>°</sup> C" + "<br>" + tempFahArr[13] + " <sup>°</sup> F";
-              collector[14].innerHTML = tempArr[14] + " <sup>°</sup> C" + "<br>" + tempFahArr[14] + " <sup>°</sup> F";
-              collector[15].innerHTML = tempArr[15] + " <sup>°</sup> C" + "<br>" + tempFahArr[15] + " <sup>°</sup> F";
-              collector[16].innerHTML = tempArr[16] + " <sup>°</sup> C" + "<br>" + tempFahArr[16] + " <sup>°</sup> F";
-              collector[17].innerHTML = tempArr[17] + " <sup>°</sup> C" + "<br>" + tempFahArr[17] + " <sup>°</sup> F";
-              collector[18].innerHTML = tempArr[18] + " <sup>°</sup> C" + "<br>" + tempFahArr[18] + " <sup>°</sup> F";
-              collector[19].innerHTML = tempArr[19] + " <sup>°</sup> C" + "<br>" + tempFahArr[19] + " <sup>°</sup> F";
-              collector[20].innerHTML = tempArr[20] + " <sup>°</sup> C" + "<br>" + tempFahArr[20] + " <sup>°</sup> F";
-              collector[21].innerHTML = tempArr[21] + " <sup>°</sup> C" + "<br>" + tempFahArr[21] + " <sup>°</sup> F";
-              collector[22].innerHTML = tempArr[22] + " <sup>°</sup> C" + "<br>" + tempFahArr[22] + " <sup>°</sup> F";
-              collector[23].innerHTML = tempArr[23] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
-
-              let rainTom = new Array();
-
-              rainTom[00] = data.forecast.forecastday[1].hour[0].chance_of_rain;
-              rainTom[01] = data.forecast.forecastday[1].hour[1].chance_of_rain;
-              rainTom[02] = data.forecast.forecastday[1].hour[2].chance_of_rain;
-              rainTom[03] = data.forecast.forecastday[1].hour[3].chance_of_rain;
-              rainTom[04] = data.forecast.forecastday[1].hour[4].chance_of_rain;
-              rainTom[05] = data.forecast.forecastday[1].hour[5].chance_of_rain;
-              rainTom[06] = data.forecast.forecastday[1].hour[6].chance_of_rain;
-              rainTom[07] = data.forecast.forecastday[1].hour[7].chance_of_rain;
-              rainTom[08] = data.forecast.forecastday[1].hour[8].chance_of_rain;
-              rainTom[09] = data.forecast.forecastday[1].hour[9].chance_of_rain;
-              rainTom[10] = data.forecast.forecastday[1].hour[10].chance_of_rain;
-              rainTom[11] = data.forecast.forecastday[1].hour[11].chance_of_rain;
-              rainTom[12] = data.forecast.forecastday[1].hour[12].chance_of_rain;
-              rainTom[13] = data.forecast.forecastday[1].hour[13].chance_of_rain;
-              rainTom[14] = data.forecast.forecastday[1].hour[14].chance_of_rain;
-              rainTom[15] = data.forecast.forecastday[1].hour[15].chance_of_rain;
-              rainTom[16] = data.forecast.forecastday[1].hour[16].chance_of_rain;
-              rainTom[17] = data.forecast.forecastday[1].hour[17].chance_of_rain;
-              rainTom[18] = data.forecast.forecastday[1].hour[18].chance_of_rain;
-              rainTom[19] = data.forecast.forecastday[1].hour[19].chance_of_rain;
-              rainTom[20] = data.forecast.forecastday[1].hour[20].chance_of_rain;
-              rainTom[21] = data.forecast.forecastday[1].hour[21].chance_of_rain;
-              rainTom[22] = data.forecast.forecastday[1].hour[22].chance_of_rain;
-              rainTom[23] = data.forecast.forecastday[1].hour[23].chance_of_rain;
-
-
-              rainRenderMulp[0].innerHTML = rainTom[0] + "%";
-              rainRenderMulp[1].innerHTML = rainTom[1] + "%";
-              rainRenderMulp[2].innerHTML = rainTom[2] + "%";
-              rainRenderMulp[3].innerHTML = rainTom[3] + "%";
-              rainRenderMulp[4].innerHTML = rainTom[4] + "%";
-              rainRenderMulp[5].innerHTML = rainTom[5] + "%";
-              rainRenderMulp[6].innerHTML = rainTom[6] + "%";
-              rainRenderMulp[7].innerHTML = rainTom[7] + "%";
-              rainRenderMulp[8].innerHTML = rainTom[8] + "%";
-              rainRenderMulp[9].innerHTML = rainTom[9] + "%";
-              rainRenderMulp[10].innerHTML = rainTom[10] + "%";
-              rainRenderMulp[11].innerHTML = rainTom[11] + "%";
-              rainRenderMulp[12].innerHTML = rainTom[12] + "%";
-              rainRenderMulp[13].innerHTML = rainTom[13] + "%";
-              rainRenderMulp[14].innerHTML = rainTom[14] + "%";
-              rainRenderMulp[15].innerHTML = rainTom[15] + "%";
-              rainRenderMulp[16].innerHTML = rainTom[16] + "%";
-              rainRenderMulp[17].innerHTML = rainTom[17] + "%";
-              rainRenderMulp[18].innerHTML = rainTom[18] + "%";
-              rainRenderMulp[19].innerHTML = rainTom[19] + "%";
-              rainRenderMulp[20].innerHTML = rainTom[20] + "%";
-              rainRenderMulp[21].innerHTML = rainTom[21] + "%";
-              rainRenderMulp[22].innerHTML = rainTom[22] + "%";
-              rainRenderMulp[23].innerHTML = rainTom[23] + "%";
-
-              let snowTom = new Array();
-
-              snowTom[00] = data.forecast.forecastday[1].hour[0].chance_of_snow;
-              snowTom[01] = data.forecast.forecastday[1].hour[1].chance_of_snow;
-              snowTom[02] = data.forecast.forecastday[1].hour[2].chance_of_snow;
-              snowTom[03] = data.forecast.forecastday[1].hour[3].chance_of_snow;
-              snowTom[04] = data.forecast.forecastday[1].hour[4].chance_of_snow;
-              snowTom[05] = data.forecast.forecastday[1].hour[5].chance_of_snow;
-              snowTom[06] = data.forecast.forecastday[1].hour[6].chance_of_snow;
-              snowTom[07] = data.forecast.forecastday[1].hour[7].chance_of_snow;
-              snowTom[08] = data.forecast.forecastday[1].hour[8].chance_of_snow;
-              snowTom[09] = data.forecast.forecastday[1].hour[9].chance_of_snow;
-              snowTom[10] = data.forecast.forecastday[1].hour[10].chance_of_snow;
-              snowTom[11] = data.forecast.forecastday[1].hour[11].chance_of_snow;
-              snowTom[12] = data.forecast.forecastday[1].hour[12].chance_of_snow;
-              snowTom[13] = data.forecast.forecastday[1].hour[13].chance_of_snow;
-              snowTom[14] = data.forecast.forecastday[1].hour[14].chance_of_snow;
-              snowTom[15] = data.forecast.forecastday[1].hour[15].chance_of_snow;
-              snowTom[16] = data.forecast.forecastday[1].hour[16].chance_of_snow;
-              snowTom[17] = data.forecast.forecastday[1].hour[17].chance_of_snow;
-              snowTom[18] = data.forecast.forecastday[1].hour[18].chance_of_snow;
-              snowTom[19] = data.forecast.forecastday[1].hour[19].chance_of_snow;
-              snowTom[20] = data.forecast.forecastday[1].hour[20].chance_of_snow;
-              snowTom[21] = data.forecast.forecastday[1].hour[21].chance_of_snow;
-              snowTom[22] = data.forecast.forecastday[1].hour[22].chance_of_snow;
-              snowTom[23] = data.forecast.forecastday[1].hour[23].chance_of_snow;
-
-              snowRenderMulp[0].innerHTML = snowTom[0] + "%";
-              snowRenderMulp[1].innerHTML = snowTom[1] + "%";
-              snowRenderMulp[2].innerHTML = snowTom[2] + "%";
-              snowRenderMulp[3].innerHTML = snowTom[3] + "%";
-              snowRenderMulp[4].innerHTML = snowTom[4] + "%";
-              snowRenderMulp[5].innerHTML = snowTom[5] + "%";
-              snowRenderMulp[6].innerHTML = snowTom[6] + "%";
-              snowRenderMulp[7].innerHTML = snowTom[7] + "%";
-              snowRenderMulp[8].innerHTML = snowTom[8] + "%";
-              snowRenderMulp[9].innerHTML = snowTom[9] + "%";
-              snowRenderMulp[10].innerHTML = snowTom[10] + "%";
-              snowRenderMulp[11].innerHTML = snowTom[11] + "%";
-              snowRenderMulp[12].innerHTML = snowTom[12] + "%";
-              snowRenderMulp[13].innerHTML = snowTom[13] + "%";
-              snowRenderMulp[14].innerHTML = snowTom[14] + "%";
-              snowRenderMulp[15].innerHTML = snowTom[15] + "%";
-              snowRenderMulp[16].innerHTML = snowTom[16] + "%";
-              snowRenderMulp[17].innerHTML = snowTom[17] + "%";
-              snowRenderMulp[18].innerHTML = snowTom[18] + "%";
-              snowRenderMulp[19].innerHTML = snowTom[19] + "%";
-              snowRenderMulp[20].innerHTML = snowTom[20] + "%";
-              snowRenderMulp[21].innerHTML = snowTom[21] + "%";
-              snowRenderMulp[22].innerHTML = snowTom[22] + "%";
-              snowRenderMulp[23].innerHTML = snowTom[23] + "%";
+                collector[i].innerHTML = tempArr[i] + "°C" + " | " + tempFahArr[i] + "°F";
+              }
 
 
 
-              let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
-              let sunSetDec = data.forecast.forecastday[1].astro.sunset;
-              let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
-              let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+              for (let i = 0; i < 24; i++) {
+                let rainTom = new Array();
+                let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
+                rainTom[i] = data.forecast.forecastday[1].hour[i].chance_of_rain;
+                rainRenderMulp[i].innerHTML = rainTom[i] + "%";
 
-              let lastInfo = document.querySelectorAll(".letDayInfo");
+                let snowTom = new Array();
+                let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
 
-              lastInfo[0].innerHTML = sunRiseDec;
-              lastInfo[1].innerHTML = sunSetDec;
-              lastInfo[2].innerHTML = moonRiseDec;
-              lastInfo[3].innerHTML = moonSetDec;
+                snowTom[i] = data.forecast.forecastday[1].hour[i].chance_of_snow;
+                snowRenderMulp[i].innerHTML = snowTom[i] + "%";
+              }
+
+
+              /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
+               let sunSetDec = data.forecast.forecastday[1].astro.sunset;
+               let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
+               let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+
+               let lastInfo = document.querySelectorAll(".letDayInfo");
+
+               lastInfo[0].innerHTML = sunRiseDec;
+               lastInfo[1].innerHTML = sunSetDec;
+               lastInfo[2].innerHTML = moonRiseDec;
+               lastInfo[3].innerHTML = moonSetDec;*/
 
               // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+              var collecterText = new Array();
 
+              collecterText[0] = data.forecast.forecastday[1].hour[0].condition.text;
+              collecterText[1] = data.forecast.forecastday[1].hour[1].condition.text;
+              collecterText[2] = data.forecast.forecastday[1].hour[2].condition.text;
+              collecterText[3] = data.forecast.forecastday[1].hour[3].condition.text;
+              collecterText[4] = data.forecast.forecastday[1].hour[4].condition.text;
+              collecterText[5] = data.forecast.forecastday[1].hour[5].condition.text;
+              collecterText[6] = data.forecast.forecastday[1].hour[6].condition.text;
+              collecterText[7] = data.forecast.forecastday[1].hour[7].condition.text;
+              collecterText[8] = data.forecast.forecastday[1].hour[8].condition.text;
+              collecterText[9] = data.forecast.forecastday[1].hour[9].condition.text;
+              collecterText[10] = data.forecast.forecastday[1].hour[10].condition.text;
+              collecterText[11] = data.forecast.forecastday[1].hour[11].condition.text;
+              collecterText[12] = data.forecast.forecastday[1].hour[12].condition.text;
+              collecterText[13] = data.forecast.forecastday[1].hour[13].condition.text;
+              collecterText[14] = data.forecast.forecastday[1].hour[14].condition.text;
+              collecterText[15] = data.forecast.forecastday[1].hour[15].condition.text;
+              collecterText[16] = data.forecast.forecastday[1].hour[16].condition.text;
+              collecterText[17] = data.forecast.forecastday[1].hour[17].condition.text;
+              collecterText[18] = data.forecast.forecastday[1].hour[18].condition.text;
+              collecterText[19] = data.forecast.forecastday[1].hour[19].condition.text;
+              collecterText[20] = data.forecast.forecastday[1].hour[20].condition.text;
+              collecterText[21] = data.forecast.forecastday[1].hour[21].condition.text;
+              collecterText[22] = data.forecast.forecastday[1].hour[22].condition.text;
+              collecterText[23] = data.forecast.forecastday[1].hour[23].condition.text;
+
+
+              console.log(collecterText);
+
+              let collectCond = document.querySelectorAll('.tempCondFore');
+
+              for (var i = 0; i < collecterText.length; i++) {
+                collectCond[i].innerHTML = collecterText[i];
+              }
+
+              var letImageArray = document.querySelectorAll('.letClass')
+
+              for (var i = 0; i < collecterText.length; i++) {
+                let is_day = new Array();
+                is_day[i] = data.forecast.forecastday[1].hour[i].is_day;
+
+                let is_cloud = new Array();
+                is_cloud[i] = data.forecast.forecastday[1].hour[i].cloud;
+                let is_cloud_rend = document.querySelectorAll('.cloudtxt');
+
+
+                is_cloud_rend[i].innerHTML = is_cloud[i] + "%";
+
+
+                if (collecterText[i] == 'Sunny' || collecterText[i] == 'Clear') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Partly cloudy') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Cloudy') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Overcast') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Mist') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy rain possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy snow possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy sleet possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy freezing drizzle possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Blowing snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Thundery outbreaks possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Blizzard') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-hail.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Fog') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Freezing fog') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Freezing drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy freezing drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate rain at times') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy rain at times') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light freezing rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy freezing rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light sleet') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy sleet') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy moderate snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy heavy snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Ice pelletes') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light rain shower') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy rain shower') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Torrential rain shower') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light sleet showers') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light snow showers') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy snow showers') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light showers of ice pellets') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy showers of ice pellets') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light rain with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy rain with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-extreme-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light snow with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy snow with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+              }
             }
-
             //CHANGE CONTENT
 
             else if (stickyProgCard > 50) {
-              disArr.style.opacity = '0';
-              let tempArr = new Array();
+              // disArr.style.opacity = '0';
+              disArr.classList.add('arrLeft');
 
-              tempArr[0] = data.forecast.forecastday[2].hour[0].temp_c;
-              tempArr[1] = data.forecast.forecastday[2].hour[1].temp_c;
-              tempArr[2] = data.forecast.forecastday[2].hour[2].temp_c;
-              tempArr[3] = data.forecast.forecastday[2].hour[3].temp_c;
-              tempArr[4] = data.forecast.forecastday[2].hour[4].temp_c;
-              tempArr[5] = data.forecast.forecastday[2].hour[5].temp_c;
-              tempArr[6] = data.forecast.forecastday[2].hour[6].temp_c;
-              tempArr[7] = data.forecast.forecastday[2].hour[7].temp_c;
-              tempArr[8] = data.forecast.forecastday[2].hour[8].temp_c;
-              tempArr[9] = data.forecast.forecastday[2].hour[9].temp_c;
-              tempArr[10] = data.forecast.forecastday[2].hour[10].temp_c;
-              tempArr[11] = data.forecast.forecastday[2].hour[11].temp_c;
-              tempArr[12] = data.forecast.forecastday[2].hour[12].temp_c;
-              tempArr[13] = data.forecast.forecastday[2].hour[13].temp_c;
-              tempArr[14] = data.forecast.forecastday[2].hour[14].temp_c;
-              tempArr[15] = data.forecast.forecastday[2].hour[15].temp_c;
-              tempArr[16] = data.forecast.forecastday[2].hour[16].temp_c;
-              tempArr[17] = data.forecast.forecastday[2].hour[17].temp_c;
-              tempArr[18] = data.forecast.forecastday[2].hour[18].temp_c;
-              tempArr[19] = data.forecast.forecastday[2].hour[19].temp_c;
-              tempArr[20] = data.forecast.forecastday[2].hour[20].temp_c;
-              tempArr[21] = data.forecast.forecastday[2].hour[21].temp_c;
-              tempArr[22] = data.forecast.forecastday[2].hour[22].temp_c;
-              tempArr[23] = data.forecast.forecastday[2].hour[23].temp_c;
+              for (var i = 0; i < 24; i++) {
+                var collector = document.querySelectorAll(".tempQuery");
 
-              let tempFahArr = new Array();
-              tempFahArr[0] = data.forecast.forecastday[2].hour[0].temp_f;
-              tempFahArr[1] = data.forecast.forecastday[2].hour[1].temp_f;
-              tempFahArr[2] = data.forecast.forecastday[2].hour[2].temp_f;
-              tempFahArr[3] = data.forecast.forecastday[2].hour[3].temp_f;
-              tempFahArr[4] = data.forecast.forecastday[2].hour[4].temp_f;
-              tempFahArr[5] = data.forecast.forecastday[2].hour[5].temp_f;
-              tempFahArr[6] = data.forecast.forecastday[2].hour[6].temp_f;
-              tempFahArr[7] = data.forecast.forecastday[2].hour[7].temp_f;
-              tempFahArr[8] = data.forecast.forecastday[2].hour[8].temp_f;
-              tempFahArr[9] = data.forecast.forecastday[2].hour[9].temp_f;
-              tempFahArr[10] = data.forecast.forecastday[2].hour[10].temp_f;
-              tempFahArr[11] = data.forecast.forecastday[2].hour[11].temp_f;
-              tempFahArr[12] = data.forecast.forecastday[2].hour[12].temp_f;
-              tempFahArr[13] = data.forecast.forecastday[2].hour[13].temp_f;
-              tempFahArr[14] = data.forecast.forecastday[2].hour[14].temp_f;
-              tempFahArr[15] = data.forecast.forecastday[2].hour[15].temp_f;
-              tempFahArr[16] = data.forecast.forecastday[2].hour[16].temp_f;
-              tempFahArr[17] = data.forecast.forecastday[2].hour[17].temp_f;
-              tempFahArr[18] = data.forecast.forecastday[2].hour[18].temp_f;
-              tempFahArr[19] = data.forecast.forecastday[2].hour[19].temp_f;
-              tempFahArr[20] = data.forecast.forecastday[2].hour[20].temp_f;
-              tempFahArr[21] = data.forecast.forecastday[2].hour[21].temp_f;
-              tempFahArr[22] = data.forecast.forecastday[2].hour[22].temp_f;
-              tempFahArr[23] = data.forecast.forecastday[2].hour[23].temp_f;
+                var tempArr = new Array();
+                tempArr[i] = data.forecast.forecastday[2].hour[i].temp_c;
 
-              // collector[0].innerHTML = tempArr[0] + "<br>" + tempFahArr[0];
-              collector[0].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[0] + " <sup>°</sup> F";
-              collector[1].innerHTML = tempArr[1] + " <sup>°</sup> C" + "<br>" + tempFahArr[1] + " <sup>°</sup> F";
-              collector[2].innerHTML = tempArr[2] + " <sup>°</sup> C" + "<br>" + tempFahArr[2] + " <sup>°</sup> F";
-              collector[3].innerHTML = tempArr[3] + " <sup>°</sup> C" + "<br>" + tempFahArr[3] + " <sup>°</sup> F";
-              collector[4].innerHTML = tempArr[4] + " <sup>°</sup> C" + "<br>" + tempFahArr[4] + " <sup>°</sup> F";
-              collector[5].innerHTML = tempArr[5] + " <sup>°</sup> C" + "<br>" + tempFahArr[5] + " <sup>°</sup> F";
-              collector[6].innerHTML = tempArr[6] + " <sup>°</sup> C" + "<br>" + tempFahArr[6] + " <sup>°</sup> F";
-              collector[7].innerHTML = tempArr[7] + " <sup>°</sup> C" + "<br>" + tempFahArr[7] + " <sup>°</sup> F";
-              collector[8].innerHTML = tempArr[8] + " <sup>°</sup> C" + "<br>" + tempFahArr[8] + " <sup>°</sup> F";
-              collector[9].innerHTML = tempArr[9] + " <sup>°</sup> C" + "<br>" + tempFahArr[9] + " <sup>°</sup> F";
-              collector[10].innerHTML = tempArr[10] + " <sup>°</sup> C" + "<br>" + tempFahArr[10] + " <sup>°</sup> F";
-              collector[11].innerHTML = tempArr[11] + " <sup>°</sup> C" + "<br>" + tempFahArr[11] + " <sup>°</sup> F";
-              collector[12].innerHTML = tempArr[12] + " <sup>°</sup> C" + "<br>" + tempFahArr[12] + " <sup>°</sup> F";
-              collector[13].innerHTML = tempArr[13] + " <sup>°</sup> C" + "<br>" + tempFahArr[13] + " <sup>°</sup> F";
-              collector[14].innerHTML = tempArr[14] + " <sup>°</sup> C" + "<br>" + tempFahArr[14] + " <sup>°</sup> F";
-              collector[15].innerHTML = tempArr[15] + " <sup>°</sup> C" + "<br>" + tempFahArr[15] + " <sup>°</sup> F";
-              collector[16].innerHTML = tempArr[16] + " <sup>°</sup> C" + "<br>" + tempFahArr[16] + " <sup>°</sup> F";
-              collector[17].innerHTML = tempArr[17] + " <sup>°</sup> C" + "<br>" + tempFahArr[17] + " <sup>°</sup> F";
-              collector[18].innerHTML = tempArr[18] + " <sup>°</sup> C" + "<br>" + tempFahArr[18] + " <sup>°</sup> F";
-              collector[19].innerHTML = tempArr[19] + " <sup>°</sup> C" + "<br>" + tempFahArr[19] + " <sup>°</sup> F";
-              collector[20].innerHTML = tempArr[20] + " <sup>°</sup> C" + "<br>" + tempFahArr[20] + " <sup>°</sup> F";
-              collector[21].innerHTML = tempArr[21] + " <sup>°</sup> C" + "<br>" + tempFahArr[21] + " <sup>°</sup> F";
-              collector[22].innerHTML = tempArr[22] + " <sup>°</sup> C" + "<br>" + tempFahArr[22] + " <sup>°</sup> F";
-              collector[23].innerHTML = tempArr[23] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+                var tempFahArr = new Array();
+                tempFahArr[i] = data.forecast.forecastday[2].hour[i].temp_f;
+
+                collector[i].innerHTML = tempArr[i] + "°C" + " | " + tempFahArr[i] + "°F";
+              }
+
+
+
+              for (let i = 0; i < 24; i++) {
+                let rainTom = new Array();
+                let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
+                rainTom[i] = data.forecast.forecastday[2].hour[i].chance_of_rain;
+                rainRenderMulp[i].innerHTML = rainTom[i] + "%";
+
+                let snowTom = new Array();
+                let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
+
+                snowTom[i] = data.forecast.forecastday[2].hour[i].chance_of_snow;
+                snowRenderMulp[i].innerHTML = snowTom[i] + "%";
+              }
+
+
+              /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
+               let sunSetDec = data.forecast.forecastday[1].astro.sunset;
+               let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
+               let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+
+               let lastInfo = document.querySelectorAll(".letDayInfo");
+
+               lastInfo[0].innerHTML = sunRiseDec;
+               lastInfo[1].innerHTML = sunSetDec;
+               lastInfo[2].innerHTML = moonRiseDec;
+               lastInfo[3].innerHTML = moonSetDec;*/
+
               // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+              var collecterText = new Array();
 
-              let sunRiseDec = data.forecast.forecastday[2].astro.sunrise;
-              let sunSetDec = data.forecast.forecastday[2].astro.sunset;
-              let moonRiseDec = data.forecast.forecastday[2].astro.moonrise;
-              let moonSetDec = data.forecast.forecastday[2].astro.moonset;
-
-              let lastInfo = document.querySelectorAll(".letDayInfo");
-
-              lastInfo[0].innerHTML = sunRiseDec;
-              lastInfo[1].innerHTML = sunSetDec;
-              lastInfo[2].innerHTML = moonRiseDec;
-              lastInfo[3].innerHTML = moonSetDec;
-
-
-              let rainNextArr = new Array();
-
-              rainNextArr[00] = data.forecast.forecastday[2].hour[0].chance_of_rain;
-              rainNextArr[01] = data.forecast.forecastday[2].hour[1].chance_of_rain;
-              rainNextArr[02] = data.forecast.forecastday[2].hour[2].chance_of_rain;
-              rainNextArr[03] = data.forecast.forecastday[2].hour[3].chance_of_rain;
-              rainNextArr[04] = data.forecast.forecastday[2].hour[4].chance_of_rain;
-              rainNextArr[05] = data.forecast.forecastday[2].hour[5].chance_of_rain;
-              rainNextArr[06] = data.forecast.forecastday[2].hour[6].chance_of_rain;
-              rainNextArr[07] = data.forecast.forecastday[2].hour[7].chance_of_rain;
-              rainNextArr[08] = data.forecast.forecastday[2].hour[8].chance_of_rain;
-              rainNextArr[09] = data.forecast.forecastday[2].hour[9].chance_of_rain;
-              rainNextArr[10] = data.forecast.forecastday[2].hour[10].chance_of_rain;
-              rainNextArr[11] = data.forecast.forecastday[2].hour[11].chance_of_rain;
-              rainNextArr[12] = data.forecast.forecastday[2].hour[12].chance_of_rain;
-              rainNextArr[13] = data.forecast.forecastday[2].hour[13].chance_of_rain;
-              rainNextArr[14] = data.forecast.forecastday[2].hour[14].chance_of_rain;
-              rainNextArr[15] = data.forecast.forecastday[2].hour[15].chance_of_rain;
-              rainNextArr[16] = data.forecast.forecastday[2].hour[16].chance_of_rain;
-              rainNextArr[17] = data.forecast.forecastday[2].hour[17].chance_of_rain;
-              rainNextArr[18] = data.forecast.forecastday[2].hour[18].chance_of_rain;
-              rainNextArr[19] = data.forecast.forecastday[2].hour[19].chance_of_rain;
-              rainNextArr[20] = data.forecast.forecastday[2].hour[20].chance_of_rain;
-              rainNextArr[21] = data.forecast.forecastday[2].hour[21].chance_of_rain;
-              rainNextArr[22] = data.forecast.forecastday[2].hour[22].chance_of_rain;
-              rainNextArr[23] = data.forecast.forecastday[2].hour[23].chance_of_rain;
-
-              rainRenderMulp[0].innerHTML = rainNextArr[00] + "%";
-              rainRenderMulp[1].innerHTML = rainNextArr[01] + "%";
-              rainRenderMulp[2].innerHTML = rainNextArr[02] + "%";
-              rainRenderMulp[3].innerHTML = rainNextArr[03] + "%";
-              rainRenderMulp[4].innerHTML = rainNextArr[04] + "%";
-              rainRenderMulp[5].innerHTML = rainNextArr[05] + "%";
-              rainRenderMulp[6].innerHTML = rainNextArr[06] + "%";
-              rainRenderMulp[7].innerHTML = rainNextArr[07] + "%";
-              rainRenderMulp[8].innerHTML = rainNextArr[08] + "%";
-              rainRenderMulp[9].innerHTML = rainNextArr[09] + "%";
-              rainRenderMulp[10].innerHTML = rainNextArr[10] + "%";
-              rainRenderMulp[11].innerHTML = rainNextArr[11] + "%";
-              rainRenderMulp[12].innerHTML = rainNextArr[12] + "%";
-              rainRenderMulp[13].innerHTML = rainNextArr[13] + "%";
-              rainRenderMulp[14].innerHTML = rainNextArr[14] + "%";
-              rainRenderMulp[15].innerHTML = rainNextArr[15] + "%";
-              rainRenderMulp[16].innerHTML = rainNextArr[16] + "%";
-              rainRenderMulp[17].innerHTML = rainNextArr[17] + "%";
-              rainRenderMulp[18].innerHTML = rainNextArr[18] + "%";
-              rainRenderMulp[19].innerHTML = rainNextArr[19] + "%";
-              rainRenderMulp[20].innerHTML = rainNextArr[20] + "%";
-              rainRenderMulp[21].innerHTML = rainNextArr[21] + "%";
-              rainRenderMulp[22].innerHTML = rainNextArr[22] + "%";
-              rainRenderMulp[23].innerHTML = rainNextArr[23] + "%";
+              collecterText[0] = data.forecast.forecastday[2].hour[0].condition.text;
+              collecterText[1] = data.forecast.forecastday[2].hour[1].condition.text;
+              collecterText[2] = data.forecast.forecastday[2].hour[2].condition.text;
+              collecterText[3] = data.forecast.forecastday[2].hour[3].condition.text;
+              collecterText[4] = data.forecast.forecastday[2].hour[4].condition.text;
+              collecterText[5] = data.forecast.forecastday[2].hour[5].condition.text;
+              collecterText[6] = data.forecast.forecastday[2].hour[6].condition.text;
+              collecterText[7] = data.forecast.forecastday[2].hour[7].condition.text;
+              collecterText[8] = data.forecast.forecastday[2].hour[8].condition.text;
+              collecterText[9] = data.forecast.forecastday[2].hour[9].condition.text;
+              collecterText[10] = data.forecast.forecastday[2].hour[10].condition.text;
+              collecterText[11] = data.forecast.forecastday[2].hour[11].condition.text;
+              collecterText[12] = data.forecast.forecastday[2].hour[12].condition.text;
+              collecterText[13] = data.forecast.forecastday[2].hour[13].condition.text;
+              collecterText[14] = data.forecast.forecastday[2].hour[14].condition.text;
+              collecterText[15] = data.forecast.forecastday[2].hour[15].condition.text;
+              collecterText[16] = data.forecast.forecastday[2].hour[16].condition.text;
+              collecterText[17] = data.forecast.forecastday[2].hour[17].condition.text;
+              collecterText[18] = data.forecast.forecastday[2].hour[18].condition.text;
+              collecterText[19] = data.forecast.forecastday[2].hour[19].condition.text;
+              collecterText[20] = data.forecast.forecastday[2].hour[20].condition.text;
+              collecterText[21] = data.forecast.forecastday[2].hour[21].condition.text;
+              collecterText[22] = data.forecast.forecastday[2].hour[22].condition.text;
+              collecterText[23] = data.forecast.forecastday[2].hour[23].condition.text;
 
 
-              let snowTom = new Array();
+              console.log(collecterText);
 
-              snowTom[00] = data.forecast.forecastday[2].hour[0].chance_of_snow;
-              snowTom[01] = data.forecast.forecastday[2].hour[1].chance_of_snow;
-              snowTom[02] = data.forecast.forecastday[2].hour[2].chance_of_snow;
-              snowTom[03] = data.forecast.forecastday[2].hour[3].chance_of_snow;
-              snowTom[04] = data.forecast.forecastday[2].hour[4].chance_of_snow;
-              snowTom[05] = data.forecast.forecastday[2].hour[5].chance_of_snow;
-              snowTom[06] = data.forecast.forecastday[2].hour[6].chance_of_snow;
-              snowTom[07] = data.forecast.forecastday[2].hour[7].chance_of_snow;
-              snowTom[08] = data.forecast.forecastday[2].hour[8].chance_of_snow;
-              snowTom[09] = data.forecast.forecastday[2].hour[9].chance_of_snow;
-              snowTom[10] = data.forecast.forecastday[2].hour[10].chance_of_snow;
-              snowTom[11] = data.forecast.forecastday[2].hour[11].chance_of_snow;
-              snowTom[12] = data.forecast.forecastday[2].hour[12].chance_of_snow;
-              snowTom[13] = data.forecast.forecastday[2].hour[13].chance_of_snow;
-              snowTom[14] = data.forecast.forecastday[2].hour[14].chance_of_snow;
-              snowTom[15] = data.forecast.forecastday[2].hour[15].chance_of_snow;
-              snowTom[16] = data.forecast.forecastday[2].hour[16].chance_of_snow;
-              snowTom[17] = data.forecast.forecastday[2].hour[17].chance_of_snow;
-              snowTom[18] = data.forecast.forecastday[2].hour[18].chance_of_snow;
-              snowTom[19] = data.forecast.forecastday[2].hour[19].chance_of_snow;
-              snowTom[20] = data.forecast.forecastday[2].hour[20].chance_of_snow;
-              snowTom[21] = data.forecast.forecastday[2].hour[21].chance_of_snow;
-              snowTom[22] = data.forecast.forecastday[2].hour[22].chance_of_snow;
-              snowTom[23] = data.forecast.forecastday[2].hour[23].chance_of_snow;
+              let collectCond = document.querySelectorAll('.tempCondFore');
 
-              snowRenderMulp[0].innerHTML = snowTom[0] + "%";
-              snowRenderMulp[1].innerHTML = snowTom[1] + "%";
-              snowRenderMulp[2].innerHTML = snowTom[2] + "%";
-              snowRenderMulp[3].innerHTML = snowTom[3] + "%";
-              snowRenderMulp[4].innerHTML = snowTom[4] + "%";
-              snowRenderMulp[5].innerHTML = snowTom[5] + "%";
-              snowRenderMulp[6].innerHTML = snowTom[6] + "%";
-              snowRenderMulp[7].innerHTML = snowTom[7] + "%";
-              snowRenderMulp[8].innerHTML = snowTom[8] + "%";
-              snowRenderMulp[9].innerHTML = snowTom[9] + "%";
-              snowRenderMulp[10].innerHTML = snowTom[10] + "%";
-              snowRenderMulp[11].innerHTML = snowTom[11] + "%";
-              snowRenderMulp[12].innerHTML = snowTom[12] + "%";
-              snowRenderMulp[13].innerHTML = snowTom[13] + "%";
-              snowRenderMulp[14].innerHTML = snowTom[14] + "%";
-              snowRenderMulp[15].innerHTML = snowTom[15] + "%";
-              snowRenderMulp[16].innerHTML = snowTom[16] + "%";
-              snowRenderMulp[17].innerHTML = snowTom[17] + "%";
-              snowRenderMulp[18].innerHTML = snowTom[18] + "%";
-              snowRenderMulp[19].innerHTML = snowTom[19] + "%";
-              snowRenderMulp[20].innerHTML = snowTom[20] + "%";
-              snowRenderMulp[21].innerHTML = snowTom[21] + "%";
-              snowRenderMulp[22].innerHTML = snowTom[22] + "%";
-              snowRenderMulp[23].innerHTML = snowTom[23] + "%";
+              for (var i = 0; i < collecterText.length; i++) {
+                collectCond[i].innerHTML = collecterText[i];
+              }
+
+              var letImageArray = document.querySelectorAll('.letClass');
+
+
+              for (var i = 0; i < collecterText.length; i++) {
+
+                let is_day = new Array();
+                is_day[i] = data.forecast.forecastday[2].hour[i].is_day;
+
+                let is_cloud = new Array();
+                is_cloud[i] = data.forecast.forecastday[2].hour[i].cloud;
+                let is_cloud_rend = document.querySelectorAll('.cloudtxt');
+
+
+                is_cloud_rend[i].innerHTML = is_cloud[i] + "%";
+
+
+                if (collecterText[i] == 'Sunny' || collecterText[i] == 'Clear') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Partly cloudy') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Cloudy') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Overcast') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Mist') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy rain possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy snow possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy sleet possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy freezing drizzle possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Blowing snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Thundery outbreaks possible') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Blizzard') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-hail.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Fog') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Freezing fog') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Freezing drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy freezing drizzle') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate rain at times') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy rain at times') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light freezing rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy freezing rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light sleet') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy sleet') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy moderate snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy heavy snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Heavy snow') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Ice pelletes') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light rain shower') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy rain shower') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Torrential rain shower') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light sleet showers') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-sleet.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light snow showers') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy snow showers') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Light showers of ice pellets') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy showers of ice pellets') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light rain with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light rain') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy rain with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-extreme-rain.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Patchy light snow with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+                else if (collecterText[i] == 'Moderate or heavy snow with thunder') {
+                  if (is_day[i] == 1) {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                  else {
+                    letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+                  }
+                }
+              }
             }
           }
         })
@@ -1663,52 +1750,34 @@ locBtn.addEventListener("click", () => {
     switch (error.code) {
       case error.PERMISSION_DENIED:
         loader.style.display = 'none';
-
         locError.innerHTML = "Location Permission Denied by user";
         var warn = document.getElementById("displayWarningCity");
         warn.classList.add("toggleWarn");
-        //console.log("User denied the request for Geolocation.");
         break;
       case error.POSITION_UNAVAILABLE:
         loader.style.display = 'none';
-
         locError.innerHTML = "Location information is unavailable";
         var warn = document.getElementById("displayWarningCity");
         warn.classList.add("toggleWarn");
-        // console.log("Location information is unavailable.");
         break;
       case error.TIMEOUT:
         loader.style.display = 'none';
-
         locError.innerHTML = "Location Request Timeout ";
         var warn = document.getElementById("displayWarningCity");
         warn.classList.add("toggleWarn");
-        //console.log("The request to get user location timed out.");
         break;
-        /*  case error.UNKNOWN_ERROR:
-            loader.style.display = 'none';
-            
-            locError.innerHTML = "An unknown error occurred";
-            var warn = document.getElementById("displayWarningCity");
-            warn.classList.add("toggleWarn");
-            //console.log("An unknown error occurred.");
-            break;*/
     }
   }
 })
-//alert(1)
+
 const btn = document.getElementById("searchCitybtn");
 
 btn.addEventListener('click', () => {
-
   loader.style.display = 'block';
-
   var inp = document.getElementById("searchCity").value;
 
-  const apiData = "not given";
-
+  const apiData = `https://api.weatherapi.com/v1/forecast.json?key=272886315d4f4f6f844162320222601&q=${inp}&days=10&aqi=yes&alerts=yes`;
   fetch(apiData)
-
     .then(response => {
       var showId = document.getElementById("mBody");
       if (response.status == 200) {
@@ -1734,14 +1803,11 @@ btn.addEventListener('click', () => {
 
       var todayChanceRain = data.forecast.forecastday[0].day.daily_chance_of_rain;
       var todayChanceSnow = data.forecast.forecastday[0].day.daily_chance_of_snow;
-      //IMAGE DISPLAY
-      //imgC.src = img;
 
-      //COUNTRY DISPLAY
       countryName.innerHTML = cName;
       regionName.innerHTML = rName;
       cityName.innerHTML = ctName;
-      //TEMP DISPLAY
+
       var tempN = Math.floor(tempN);
       var condition = data.current.condition.text;
 
@@ -1754,14 +1820,7 @@ btn.addEventListener('click', () => {
       chanceSnow.innerHTML = `<text class="fahMin">Snow Chance</text>` + " : " + todayChanceSnow + "%";
 
 
-      cond.innerHTML = condition;
 
-      /*    var conditionDayOne = data.forecast.forecastday[1].day.condition.text;
-          var conditionDayTwo = data.forecast.forecastday[2].day.condition.text;
-          conditionMul.innerHTML = '"' + conditionDayOne + '"';
-          conditionMulSub.innerHTML = '"' + conditionDayTwo + '"';*/
-
-      //Wind INFO
 
       windDegree = data.current.wind_degree;
       windDirection = data.current.wind_dir;
@@ -1772,12 +1831,7 @@ btn.addEventListener('click', () => {
       windD.innerHTML = "Wind Degree" + "&nbsp;&nbsp;&nbsp;" + " - " + windDegree;
       wind_s.innerHTML = "Wind speed" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + windSpeed + " " + "KMH";
       wind_m.innerHTML = "Wind speed" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + windMiles + " " + "MPH";
-      //Getting Hours For Day Night Icon 
-      //var a = new Date();
 
-      //  let h = a.getHours();
-
-      //GETTING AQ DATA 
       var arraySize = data.alerts.alert;
       var lstUpdate = data.current.last_updated;
 
@@ -1786,7 +1840,6 @@ btn.addEventListener('click', () => {
       var no2 = data.current.air_quality.no2;
       var pm2 = data.current.air_quality.pm2_5;
       var pm10d = data.current.air_quality.pm10;
-      //var o3 = data.current.air_quality.o3;
       var syn = data.current.air_quality.so2;
 
       aqC = Math.floor(aqC);
@@ -1810,15 +1863,12 @@ btn.addEventListener('click', () => {
       }
       else if (epa_index == 1) {
         aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-1.svg"
-
       }
       else if (epa_index == 2) {
         aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-2.svg"
-
       }
       else if (epa_index == 3) {
         aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-3.svg"
-
       }
       else if (epa_index == 4) {
         aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-4.svg"
@@ -1850,8 +1900,7 @@ btn.addEventListener('click', () => {
       else {
         alertText.innerHTML = "No alerts in your area"
       }
-      //  aqCo.innerHTML = aqCo2;
-      //VIS INFO 
+
       var visInKm = data.current.vis_km;
       var visInM = data.current.vis_miles;
 
@@ -1904,36 +1953,21 @@ btn.addEventListener('click', () => {
       }
 
 
-      //DAY TWO FORECAST
-      //   dayTwoDate.innerHTML = "Date" + " - " + dateSec;
 
       var minC = data.forecast.forecastday[1].day.mintemp_c;
       var maxC = data.forecast.forecastday[1].day.maxtemp_c;
       var minF = data.forecast.forecastday[1].day.mintemp_f;
       var maxF = data.forecast.forecastday[1].day.maxtemp_f;
 
-      /*    minTempC.innerHTML = minC + "°C" + "/";
-          maxTempC.innerHTML = maxC + "°C";
-          minTempF.innerHTML = minF + "°F" + "/";
-          maxTempF.innerHTML = maxF + "°F";*/
-
-
       var dateSecNxt = data.forecast.forecastday[2].date;
-      //  dayTwoSubDate.innerHTML = "Date" + " - " + dateSecNxt;
 
       var minCSub = data.forecast.forecastday[2].day.mintemp_c;
       var maxCSub = data.forecast.forecastday[2].day.maxtemp_c;
       var minFSub = data.forecast.forecastday[2].day.mintemp_f;
       var maxFSub = data.forecast.forecastday[2].day.maxtemp_f;
 
-      /* minTempSubC.innerHTML = minCSub + "°C" + "/";
-       maxTempSubC.innerHTML = maxCSub + "°C";
-       minTempSubF.innerHTML = minFSub + "°F" + "/";
-       maxTempSubF.innerHTML = maxFSub + "°F";*/
-
-      var is_day = data.current.is_day;
-
-      //Weather icon condition
+      cond.innerHTML = condition;
+      let is_day = data.current.is_day;
       if (cond.innerHTML == "Sunny" || cond.innerHTML == "Clear") {
         backWall.src = "/backgrounds/clear.jpg"
         if (is_day == 1) {
@@ -1944,9 +1978,7 @@ btn.addEventListener('click', () => {
         }
       }
       else if (cond.innerHTML == "Partly cloudy") {
-        // imgWall.src = "img/sunny.jpg"
         backWall.src = "/backgrounds/cloudy.jpg"
-
         if (is_day == 1) {
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg"
         }
@@ -1956,1046 +1988,455 @@ btn.addEventListener('click', () => {
       }
       else if (cond.innerHTML == "Cloudy") {
         backWall.src = "/backgrounds/cloudy.jpg"
-
         if (is_day == 1) {
           ImgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg"
         }
       }
       else if (cond.innerHTML == "Overcast") {
         backWall.src = "/backgrounds/cloudy.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg"
         }
       }
       else if (cond.innerHTML == "Mist") {
         backWall.src = "/backgrounds/fog.jpg"
-
         if (is_day == 1) {
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg"
         }
         else {
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg"
-          //Night icon
         }
       }
       else if (cond.innerHTML == "Patchy rain possible") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
         }
       }
       else if (cond.innerHTML == "Patchy snow possible") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-snow.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-snow.svg"
         }
       }
       else if (cond.innerHTML == "Patchy sleet possible") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
         }
       }
       else if (cond.innerHTML == "Patchy freezing drizzle possible") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
         }
       }
       else if (cond.innerHTML == "Blowing snow") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-snow.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-snow.svg"
         }
       }
       else if (cond.innerHTML == "Thundery outbreaks possible") {
         backWall.src = "/backgrounds/thunderstorm.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day.svg"
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night.svg "
         }
       }
       else if (cond.innerHTML == "Blizzard") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-hail.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-hail.svg"
-
         }
       }
       else if (cond.innerHTML == "Fog") {
         backWall.src = "/backgrounds/fog.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg"
-
         }
       }
       else if (cond.innerHTML == "Freezing fog") {
         backWall.src = "/backgrounds/fog.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/fog.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy light drizzle") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
         }
       }
       else if (cond.innerHTML == "Light drizzle") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
         }
       }
       else if (cond.innerHTML == "Freezing drizzle") {
         backWall.src = "/backgrounds/fog.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Heavy freezing drizzle") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
         }
       }
-      else if (cond.innerHTML == "Patchy light drizzle") {
+      else if (cond.innerHTML == "Heavy freezing drizzle") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Light rain") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate rain at times") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate rain") {
         backWall.src = "/backgrounds/rain.jpg"
 
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-drizzle.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-drizzle.svg"
-
         }
       }
       else if (cond.innerHTML == "Heavy rain at times") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Heavy rain") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Light freezing rain") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy freezing rain") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Light sleet") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day-sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night-sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy sleet") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy light snow") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Light snow") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy moderate snow") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate snow") {
         backWall.src = "/backgrounds/snow.jpg"
 
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy heavy snow") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Heavy snow") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Ice pelletes") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg"
-
         }
       }
       else if (cond.innerHTML == "Light rain shower") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy rain shower") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Torrential rain shower") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Light sleet showers") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy sleet") {
         backWall.src = "/backgrounds/drizzle.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg"
-
         }
       }
       else if (cond.innerHTML == "Light snow showers") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy snow showers") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Light showers of ice pellets") {
         backWall.src = "/backgrounds/snow.jpg"
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy showers of ice pellets") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy light rain with thunder") {
         backWall.src = "/backgrounds/thunderstorm.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy light rain") {
         backWall.src = "/backgrounds/rain.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy rain with thunder") {
         backWall.src = "/backgrounds/thunderstorm.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-rain.svg"
-
         }
       }
       else if (cond.innerHTML == "Patchy light snow with thunder") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
       }
       else if (cond.innerHTML == "Moderate or heavy snow with thunder") {
         backWall.src = "/backgrounds/snow.jpg"
-
         if (is_day == 1) {
-          //Day icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
-
         }
         else {
-          //Night icon
           imgC.src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-snow.svg"
         }
       }
 
-      var foreCastd1 = new Array();
-      foreCastd1[0] = data.forecast.forecastday[0].hour[0].temp_c;
-      foreCastd1[1] = data.forecast.forecastday[0].hour[1].temp_c;
-      foreCastd1[2] = data.forecast.forecastday[0].hour[2].temp_c;
-      foreCastd1[3] = data.forecast.forecastday[0].hour[3].temp_c;
-      foreCastd1[4] = data.forecast.forecastday[0].hour[4].temp_c;
-      foreCastd1[5] = data.forecast.forecastday[0].hour[5].temp_c;
-      foreCastd1[6] = data.forecast.forecastday[0].hour[6].temp_c;
-      foreCastd1[7] = data.forecast.forecastday[0].hour[7].temp_c;
-      foreCastd1[8] = data.forecast.forecastday[0].hour[8].temp_c;
-      foreCastd1[9] = data.forecast.forecastday[0].hour[9].temp_c;
-      foreCastd1[10] = data.forecast.forecastday[0].hour[10].temp_c;
-      foreCastd1[11] = data.forecast.forecastday[0].hour[11].temp_c;
-      foreCastd1[12] = data.forecast.forecastday[0].hour[12].temp_c;
-      foreCastd1[13] = data.forecast.forecastday[0].hour[13].temp_c;
-      foreCastd1[14] = data.forecast.forecastday[0].hour[14].temp_c;
-      foreCastd1[15] = data.forecast.forecastday[0].hour[15].temp_c;
-      foreCastd1[16] = data.forecast.forecastday[0].hour[16].temp_c;
-      foreCastd1[17] = data.forecast.forecastday[0].hour[17].temp_c;
-      foreCastd1[18] = data.forecast.forecastday[0].hour[18].temp_c;
-      foreCastd1[19] = data.forecast.forecastday[0].hour[19].temp_c;
-      foreCastd1[20] = data.forecast.forecastday[0].hour[20].temp_c;
-      foreCastd1[21] = data.forecast.forecastday[0].hour[21].temp_c;
-      foreCastd1[22] = data.forecast.forecastday[0].hour[22].temp_c;
-      foreCastd1[23] = data.forecast.forecastday[0].hour[23].temp_c;
+      for (let i = 0; i < 24; i++) {
+        var foreCastd1 = new Array();
+        foreCastd1[i] = data.forecast.forecastday[0].hour[i].temp_c;
+        var foreCastd1Inf = new Array();
+        foreCastd1Inf[i] = data.forecast.forecastday[0].hour[i].temp_f;
 
-      var foreCastd1Inf = new Array();
-      foreCastd1Inf[0] = data.forecast.forecastday[0].hour[0].temp_f;
-      foreCastd1Inf[1] = data.forecast.forecastday[0].hour[1].temp_f;
-      foreCastd1Inf[2] = data.forecast.forecastday[0].hour[2].temp_f;
-      foreCastd1Inf[3] = data.forecast.forecastday[0].hour[3].temp_f;
-      foreCastd1Inf[4] = data.forecast.forecastday[0].hour[4].temp_f;
-      foreCastd1Inf[5] = data.forecast.forecastday[0].hour[5].temp_f;
-      foreCastd1Inf[6] = data.forecast.forecastday[0].hour[6].temp_f;
-      foreCastd1Inf[7] = data.forecast.forecastday[0].hour[7].temp_f;
-      foreCastd1Inf[8] = data.forecast.forecastday[0].hour[8].temp_f;
-      foreCastd1Inf[9] = data.forecast.forecastday[0].hour[9].temp_f;
-      foreCastd1Inf[10] = data.forecast.forecastday[0].hour[10].temp_f;
-      foreCastd1Inf[11] = data.forecast.forecastday[0].hour[11].temp_f;
-      foreCastd1Inf[12] = data.forecast.forecastday[0].hour[12].temp_f;
-      foreCastd1Inf[13] = data.forecast.forecastday[0].hour[13].temp_f;
-      foreCastd1Inf[14] = data.forecast.forecastday[0].hour[14].temp_f;
-      foreCastd1Inf[15] = data.forecast.forecastday[0].hour[15].temp_f;
-      foreCastd1Inf[16] = data.forecast.forecastday[0].hour[16].temp_f;
-      foreCastd1Inf[17] = data.forecast.forecastday[0].hour[17].temp_f;
-      foreCastd1Inf[18] = data.forecast.forecastday[0].hour[18].temp_f;
-      foreCastd1Inf[19] = data.forecast.forecastday[0].hour[19].temp_f;
-      foreCastd1Inf[20] = data.forecast.forecastday[0].hour[20].temp_f;
-      foreCastd1Inf[21] = data.forecast.forecastday[0].hour[21].temp_f;
-      foreCastd1Inf[22] = data.forecast.forecastday[0].hour[22].temp_f;
-      foreCastd1Inf[23] = data.forecast.forecastday[0].hour[23].temp_f;
+        let tempFahCol = document.querySelectorAll('.tempQueryMain');
+        tempFahCol[i].innerHTML = foreCastd1[i] + "°C" + " | " + foreCastd1Inf[i] + "°F";
 
-      // myChart.destroy();*/
-
-      var ctx = document.getElementById("myChart").getContext('2d');
-
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
-                     '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-                     '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'
-             ],
-          datasets: [{
-            label: `Celsius`,
-            data: [
-                 foreCastd1[0], foreCastd1[1], foreCastd1[2], foreCastd1[3],
-                 foreCastd1[4], foreCastd1[5], foreCastd1[6], foreCastd1[7],
-                 foreCastd1[8], foreCastd1[9], foreCastd1[10], foreCastd1[11],
-                 foreCastd1[12], foreCastd1[13], foreCastd1[14], foreCastd1[15],
-                 foreCastd1[16], foreCastd1[17], foreCastd1[18], foreCastd1[19],
-                 foreCastd1[20], foreCastd1[21], foreCastd1[22], foreCastd1[23],
-                 ],
+        let rainTodayArr = new Array();
+        let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
 
 
-            backgroundColor: [
-                         'rgba(255, 99, 132, 0.2)',
-                     ],
-            borderColor: [
-                         '#1394EF'
-                     ],
-            borderWidth: 4,
-            tension: 0.4,
-                 }, {
-            label: `Fahrenheit`,
-            data: [foreCastd1Inf[0], foreCastd1Inf[1], foreCastd1Inf[2], foreCastd1Inf[3],
-                            foreCastd1Inf[4], foreCastd1Inf[5], foreCastd1Inf[6], foreCastd1Inf[7],
-                            foreCastd1Inf[8], foreCastd1Inf[9], foreCastd1Inf[10], foreCastd1Inf[11],
-                            foreCastd1Inf[12], foreCastd1Inf[13], foreCastd1Inf[14], foreCastd1Inf[15],
-                            foreCastd1Inf[16], foreCastd1Inf[17], foreCastd1Inf[18], foreCastd1Inf[19],
-                            foreCastd1Inf[20], foreCastd1Inf[21], foreCastd1Inf[22], foreCastd1Inf[23],
-                                    ],
-            backgroundColor: [
-                         'rgba(255, 99, 132, 0.2)',
-                     ],
-            borderColor: [
-                         '#FC7403'
-                     ],
-            borderWidth: 4,
-            tension: 0.4,
-                 }]
-        },
+        rainTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_rain;
 
-        options: {
-          pointDotStrokeWidth: 5,
-          dataSetStrokeWidth: 6,
-          hoverRadius: 12,
-          hitRadius: 12,
-          respnsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      })
+        rainFeatArrToday[i].innerHTML = rainTodayArr[i] + "%";
+        let snowTodayArr = new Array();
+        let snowRender = document.querySelectorAll('.snowFaetToday');
 
-      /* var foreCastCel = new Array();
+        snowTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_snow;
 
-       foreCastCel[0] = data.forecast.forecastday[1].hour[0].temp_c;
-       foreCastCel[1] = data.forecast.forecastday[1].hour[1].temp_c;
-       foreCastCel[2] = data.forecast.forecastday[1].hour[2].temp_c;
-       foreCastCel[3] = data.forecast.forecastday[1].hour[3].temp_c;
-       foreCastCel[4] = data.forecast.forecastday[1].hour[4].temp_c;
-       foreCastCel[5] = data.forecast.forecastday[1].hour[5].temp_c;
-       foreCastCel[6] = data.forecast.forecastday[1].hour[6].temp_c;
-       foreCastCel[7] = data.forecast.forecastday[1].hour[7].temp_c;
-       foreCastCel[8] = data.forecast.forecastday[1].hour[8].temp_c;
-       foreCastCel[9] = data.forecast.forecastday[1].hour[9].temp_c;
-       foreCastCel[10] = data.forecast.forecastday[1].hour[10].temp_c;
-       foreCastCel[11] = data.forecast.forecastday[1].hour[11].temp_c;
-       foreCastCel[12] = data.forecast.forecastday[1].hour[12].temp_c;
-       foreCastCel[13] = data.forecast.forecastday[1].hour[13].temp_c;
-       foreCastCel[14] = data.forecast.forecastday[1].hour[14].temp_c;
-       foreCastCel[15] = data.forecast.forecastday[1].hour[15].temp_c;
-       foreCastCel[16] = data.forecast.forecastday[1].hour[16].temp_c;
-       foreCastCel[17] = data.forecast.forecastday[1].hour[17].temp_c;
-       foreCastCel[18] = data.forecast.forecastday[1].hour[18].temp_c;
-       foreCastCel[19] = data.forecast.forecastday[1].hour[19].temp_c;
-       foreCastCel[20] = data.forecast.forecastday[1].hour[20].temp_c;
-       foreCastCel[21] = data.forecast.forecastday[1].hour[21].temp_c;
-       foreCastCel[22] = data.forecast.forecastday[1].hour[22].temp_c;
-       foreCastCel[23] = data.forecast.forecastday[1].hour[23].temp_c;
+        snowRender[i].innerHTML = snowTodayArr[i] + "%";
 
-       var foreCastFah = new Array();
+      }
 
-       foreCastFah[0] = data.forecast.forecastday[1].hour[0].temp_f;
-       foreCastFah[1] = data.forecast.forecastday[1].hour[1].temp_f;
-       foreCastFah[2] = data.forecast.forecastday[1].hour[2].temp_f;
-       foreCastFah[3] = data.forecast.forecastday[1].hour[3].temp_f;
-       foreCastFah[4] = data.forecast.forecastday[1].hour[4].temp_f;
-       foreCastFah[5] = data.forecast.forecastday[1].hour[5].temp_f;
-       foreCastFah[6] = data.forecast.forecastday[1].hour[6].temp_f;
-       foreCastFah[7] = data.forecast.forecastday[1].hour[7].temp_f;
-       foreCastFah[8] = data.forecast.forecastday[1].hour[8].temp_f;
-       foreCastFah[9] = data.forecast.forecastday[1].hour[9].temp_f;
-       foreCastFah[10] = data.forecast.forecastday[1].hour[10].temp_f;
-       foreCastFah[11] = data.forecast.forecastday[1].hour[11].temp_f;
-       foreCastFah[12] = data.forecast.forecastday[1].hour[12].temp_f;
-       foreCastFah[13] = data.forecast.forecastday[1].hour[13].temp_f;
-       foreCastFah[14] = data.forecast.forecastday[1].hour[14].temp_f;
-       foreCastFah[15] = data.forecast.forecastday[1].hour[15].temp_f;
-       foreCastFah[16] = data.forecast.forecastday[1].hour[16].temp_f;
-       foreCastFah[17] = data.forecast.forecastday[1].hour[17].temp_f;
-       foreCastFah[18] = data.forecast.forecastday[1].hour[18].temp_f;
-       foreCastFah[19] = data.forecast.forecastday[1].hour[19].temp_f;
-       foreCastFah[20] = data.forecast.forecastday[1].hour[20].temp_f;
-       foreCastFah[21] = data.forecast.forecastday[1].hour[21].temp_f;
-       foreCastFah[22] = data.forecast.forecastday[1].hour[22].temp_f;
-       foreCastFah[23] = data.forecast.forecastday[1].hour[23].temp_f;
-
-       tempZero.innerHTML = foreCastCel[0] + "°C" + "<br>" + foreCastFah[0] + "°F";
-       tempOne.innerHTML = foreCastCel[1] + "°C" + "<br>" + foreCastFah[1] + "°F";
-       tempTwo.innerHTML = foreCastCel[2] + "°C" + "<br>" + foreCastFah[2] + "°F";
-       tempThree.innerHTML = foreCastCel[3] + "°C" + "<br>" + foreCastFah[3] + "°F";
-       tempFour.innerHTML = foreCastCel[4] + "°C" + "<br>" + foreCastFah[4] + "°F";
-       tempFive.innerHTML = foreCastCel[5] + "°C" + "<br>" + foreCastFah[5] + "°F";
-       tempSix.innerHTML = foreCastCel[6] + "°C" + "<br>" + foreCastFah[6] + "°F";
-       tempSeven.innerHTML = foreCastCel[7] + "°C" + "<br>" + foreCastFah[7] + "°F";
-       tempEight.innerHTML = foreCastCel[8] + "°C" + "<br>" + foreCastFah[8] + "°F";
-       tempNine.innerHTML = foreCastCel[9] + "°C" + "<br>" + foreCastFah[9] + "°F";
-       tempTen.innerHTML = foreCastCel[10] + "°C" + "<br>" + foreCastFah[10] + "°F";
-       tempEleven.innerHTML = foreCastCel[11] + "°C" + "<br>" + foreCastFah[11] + "°F";
-       tempTwelve.innerHTML = foreCastCel[12] + "°C" + "<br>" + foreCastFah[12] + "°F";
-       tempThirteen.innerHTML = foreCastCel[13] + "°C" + "<br>" + foreCastFah[13] + "°F";
-       tempFourteen.innerHTML = foreCastCel[14] + "°C" + "<br>" + foreCastFah[14] + "°F";
-       tempFifteen.innerHTML = foreCastCel[15] + "°C" + "<br>" + foreCastFah[15] + "°F";
-       tempSixteen.innerHTML = foreCastCel[16] + "°C" + "<br>" + foreCastFah[16] + "°F";
-       tempSeventeen.innerHTML = foreCastCel[17] + "°C" + "<br>" + foreCastFah[17] + "°F";
-       tempEighteen.innerHTML = foreCastCel[18] + "°C" + "<br>" + foreCastFah[18] + "°F";
-       tempNineteen.innerHTML = foreCastCel[19] + "°C" + "<br>" + foreCastFah[19] + "°F";
-       tempTwenty.innerHTML = foreCastCel[20] + "°C" + "<br>" + foreCastFah[20] + "°F";
-       tempTwentyOne.innerHTML = foreCastCel[21] + "°C" + "<br>" + foreCastFah[21] + "°F";
-       tempTwentyTwo.innerHTML = foreCastCel[22] + "°C" + "<br>" + foreCastFah[22] + "°F";
-       tempTwentyThree.innerHTML = foreCastCel[23] + "°C" + "<br>" + foreCastFah[23] + "°F";
-
-       var sunRised1 = data.forecast.forecastday[1].astro.sunrise;
-       var sunSetd1 = data.forecast.forecastday[1].astro.sunset;
-       var moonRised1 = data.forecast.forecastday[1].astro.moonrise;
-       var moonSetd1 = data.forecast.forecastday[1].astro.moonset;
-
-
-       sunRiseText.innerHTML = sunRised1;
-       sunSetText.innerHTML = sunSetd1;
-       moonRiseText.innerHTML = moonRised1;
-       moonSetText.innerHTML = moonSetd1;
-
-       var foreCastCel2 = new Array();
-
-       foreCastCel2[0] = data.forecast.forecastday[2].hour[0].temp_c;
-       foreCastCel2[1] = data.forecast.forecastday[2].hour[1].temp_c;
-       foreCastCel2[2] = data.forecast.forecastday[2].hour[2].temp_c;
-       foreCastCel2[3] = data.forecast.forecastday[2].hour[3].temp_c;
-       foreCastCel2[4] = data.forecast.forecastday[2].hour[4].temp_c;
-       foreCastCel2[5] = data.forecast.forecastday[2].hour[5].temp_c;
-       foreCastCel2[6] = data.forecast.forecastday[2].hour[6].temp_c;
-       foreCastCel2[7] = data.forecast.forecastday[2].hour[7].temp_c;
-       foreCastCel2[8] = data.forecast.forecastday[2].hour[8].temp_c;
-       foreCastCel2[9] = data.forecast.forecastday[2].hour[9].temp_c;
-       foreCastCel2[10] = data.forecast.forecastday[2].hour[10].temp_c;
-       foreCastCel2[11] = data.forecast.forecastday[2].hour[11].temp_c;
-       foreCastCel2[12] = data.forecast.forecastday[2].hour[12].temp_c;
-       foreCastCel2[13] = data.forecast.forecastday[2].hour[13].temp_c;
-       foreCastCel2[14] = data.forecast.forecastday[2].hour[14].temp_c;
-       foreCastCel2[15] = data.forecast.forecastday[2].hour[15].temp_c;
-       foreCastCel2[16] = data.forecast.forecastday[2].hour[16].temp_c;
-       foreCastCel2[17] = data.forecast.forecastday[2].hour[17].temp_c;
-       foreCastCel2[18] = data.forecast.forecastday[2].hour[18].temp_c;
-       foreCastCel2[19] = data.forecast.forecastday[2].hour[19].temp_c;
-       foreCastCel2[20] = data.forecast.forecastday[2].hour[20].temp_c;
-       foreCastCel2[21] = data.forecast.forecastday[2].hour[21].temp_c;
-       foreCastCel2[22] = data.forecast.forecastday[2].hour[22].temp_c;
-       foreCastCel2[23] = data.forecast.forecastday[2].hour[23].temp_c;
-
-       var foreCastFah2 = new Array();
-
-       foreCastFah2[0] = data.forecast.forecastday[2].hour[0].temp_f;
-       foreCastFah2[1] = data.forecast.forecastday[2].hour[1].temp_f;
-       foreCastFah2[2] = data.forecast.forecastday[2].hour[2].temp_f;
-       foreCastFah2[3] = data.forecast.forecastday[2].hour[3].temp_f;
-       foreCastFah2[4] = data.forecast.forecastday[2].hour[4].temp_f;
-       foreCastFah2[5] = data.forecast.forecastday[2].hour[5].temp_f;
-       foreCastFah2[6] = data.forecast.forecastday[2].hour[6].temp_f;
-       foreCastFah2[7] = data.forecast.forecastday[2].hour[7].temp_f;
-       foreCastFah2[8] = data.forecast.forecastday[2].hour[8].temp_f;
-       foreCastFah2[9] = data.forecast.forecastday[2].hour[9].temp_f;
-       foreCastFah2[10] = data.forecast.forecastday[2].hour[10].temp_f;
-       foreCastFah2[11] = data.forecast.forecastday[2].hour[11].temp_f;
-       foreCastFah2[12] = data.forecast.forecastday[2].hour[12].temp_f;
-       foreCastFah2[13] = data.forecast.forecastday[2].hour[13].temp_f;
-       foreCastFah2[14] = data.forecast.forecastday[2].hour[14].temp_f;
-       foreCastFah2[15] = data.forecast.forecastday[2].hour[15].temp_f;
-       foreCastFah2[16] = data.forecast.forecastday[2].hour[16].temp_f;
-       foreCastFah2[17] = data.forecast.forecastday[2].hour[17].temp_f;
-       foreCastFah2[18] = data.forecast.forecastday[2].hour[18].temp_f;
-       foreCastFah2[19] = data.forecast.forecastday[2].hour[19].temp_f;
-       foreCastFah2[20] = data.forecast.forecastday[2].hour[20].temp_f;
-       foreCastFah2[21] = data.forecast.forecastday[2].hour[21].temp_f;
-       foreCastFah2[22] = data.forecast.forecastday[2].hour[22].temp_f;
-       foreCastFah2[23] = data.forecast.forecastday[2].hour[23].temp_f;
-
-
-       tempZeroTwo.innerHTML = foreCastCel2[0] + "°C" + "<br>" + foreCastFah2[0] + "°F";
-       tempOneTwo.innerHTML = foreCastCel2[1] + "°C" + "<br>" + foreCastFah2[1] + "°F";
-       tempTwoTwo.innerHTML = foreCastCel2[2] + "°C" + "<br>" + foreCastFah2[2] + "°F";
-       tempThreeTwo.innerHTML = foreCastCel2[3] + "°C" + "<br>" + foreCastFah2[3] + "°F";
-       tempFourTwo.innerHTML = foreCastCel2[4] + "°C" + "<br>" + foreCastFah2[4] + "°F";
-       tempFiveTwo.innerHTML = foreCastCel2[5] + "°C" + "<br>" + foreCastFah2[5] + "°F";
-       tempSixTwo.innerHTML = foreCastCel2[6] + "°C" + "<br>" + foreCastFah2[6] + "°F";
-       tempSevenTwo.innerHTML = foreCastCel2[7] + "°C" + "<br>" + foreCastFah2[7] + "°F";
-       tempEightTwo.innerHTML = foreCastCel2[8] + "°C" + "<br>" + foreCastFah2[8] + "°F";
-       tempNineTwo.innerHTML = foreCastCel2[9] + "°C" + "<br>" + foreCastFah2[9] + "°F";
-       tempTenTwo.innerHTML = foreCastCel2[10] + "°C" + "<br>" + foreCastFah2[10] + "°F";
-       tempElevenTwo.innerHTML = foreCastCel2[11] + "°C" + "<br>" + foreCastFah2[11] + "°F";
-       tempTwelveTwo.innerHTML = foreCastCel2[12] + "°C" + "<br>" + foreCastFah2[12] + "°F";
-       tempThirteenTwo.innerHTML = foreCastCel2[13] + "°C" + "<br>" + foreCastFah2[13] + "°F";
-       tempFourteenTwo.innerHTML = foreCastCel2[14] + "°C" + "<br>" + foreCastFah2[14] + "°F";
-       tempFifteenTwo.innerHTML = foreCastCel2[15] + "°C" + "<br>" + foreCastFah2[15] + "°F";
-       tempSixteenTwo.innerHTML = foreCastCel2[16] + "°C" + "<br>" + foreCastFah2[16] + "°F";
-       tempSeventeenTwo.innerHTML = foreCastCel2[17] + "°C" + "<br>" + foreCastFah2[17] + "°F";
-       tempEighteenTwo.innerHTML = foreCastCel2[18] + "°C" + "<br>" + foreCastFah2[18] + "°F";
-       tempNineteenTwo.innerHTML = foreCastCel2[19] + "°C" + "<br>" + foreCastFah2[19] + "°F";
-       tempTwentyTwoSub.innerHTML = foreCastCel2[20] + "°C" + "<br>" + foreCastFah2[20] + "°F";
-       tempTwentyOneTwo.innerHTML = foreCastCel2[21] + "°C" + "<br>" + foreCastFah2[21] + "°F";
-       tempTwentyTwoTwo.innerHTML = foreCastCel2[22] + "°C" + "<br>" + foreCastFah2[22] + "°F";
-       tempTwentyThreeTwo.innerHTML = foreCastCel2[23] + "°C" + "<br>" + foreCastFah2[23] + "°F";
-
-       var sunRised2 = data.forecast.forecastday[2].astro.sunrise;
-       var sunSetd2 = data.forecast.forecastday[2].astro.sunset;
-       var moonRised2 = data.forecast.forecastday[2].astro.moonrise;
-       var moonSetd2 = data.forecast.forecastday[2].astro.moonset;
-
-
-       sunRiseTextNxt.innerHTML = sunRised2;
-       sunSetTextNxt.innerHTML = sunSetd2;
-       moonRiseTextNxt.innerHTML = moonRised2;
-       moonSetTextNxt.innerHTML = moonSetd2;*/
-
-      let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
-
-      let rainTodayArr = new Array();
-
-      rainTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_rain;
-      rainTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_rain;
-      rainTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_rain;
-      rainTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_rain;
-      rainTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_rain;
-      rainTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_rain;
-      rainTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_rain;
-      rainTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_rain;
-      rainTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_rain;
-      rainTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_rain;
-      rainTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_rain;
-      rainTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_rain;
-      rainTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_rain;
-      rainTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_rain;
-      rainTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_rain;
-      rainTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_rain;
-      rainTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_rain;
-      rainTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_rain;
-      rainTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_rain;
-      rainTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_rain;
-      rainTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_rain;
-      rainTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_rain;
-      rainTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_rain;
-      rainTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_rain;
-
-      rainFeatArrToday[0].innerHTML = rainTodayArr[00] + "%";
-      rainFeatArrToday[1].innerHTML = rainTodayArr[01] + "%";
-      rainFeatArrToday[2].innerHTML = rainTodayArr[02] + "%";
-      rainFeatArrToday[3].innerHTML = rainTodayArr[03] + "%";
-      rainFeatArrToday[4].innerHTML = rainTodayArr[04] + "%";
-      rainFeatArrToday[5].innerHTML = rainTodayArr[05] + "%";
-      rainFeatArrToday[6].innerHTML = rainTodayArr[06] + "%";
-      rainFeatArrToday[7].innerHTML = rainTodayArr[07] + "%";
-      rainFeatArrToday[8].innerHTML = rainTodayArr[08] + "%";
-      rainFeatArrToday[9].innerHTML = rainTodayArr[09] + "%";
-      rainFeatArrToday[10].innerHTML = rainTodayArr[10] + "%";
-      rainFeatArrToday[11].innerHTML = rainTodayArr[11] + "%";
-      rainFeatArrToday[12].innerHTML = rainTodayArr[12] + "%";
-      rainFeatArrToday[13].innerHTML = rainTodayArr[13] + "%";
-      rainFeatArrToday[14].innerHTML = rainTodayArr[14] + "%";
-      rainFeatArrToday[15].innerHTML = rainTodayArr[15] + "%";
-      rainFeatArrToday[16].innerHTML = rainTodayArr[16] + "%";
-      rainFeatArrToday[17].innerHTML = rainTodayArr[17] + "%";
-      rainFeatArrToday[18].innerHTML = rainTodayArr[18] + "%";
-      rainFeatArrToday[19].innerHTML = rainTodayArr[19] + "%";
-      rainFeatArrToday[20].innerHTML = rainTodayArr[20] + "%";
-      rainFeatArrToday[21].innerHTML = rainTodayArr[21] + "%";
-      rainFeatArrToday[22].innerHTML = rainTodayArr[22] + "%";
-      rainFeatArrToday[23].innerHTML = rainTodayArr[23] + "%";
-
-
-      let snowRender = document.querySelectorAll('.snowFaetToday');
-      let snowTodayArr = new Array();
-
-      snowTodayArr[00] = data.forecast.forecastday[0].hour[0].chance_of_snow;
-      snowTodayArr[01] = data.forecast.forecastday[0].hour[1].chance_of_snow;
-      snowTodayArr[02] = data.forecast.forecastday[0].hour[2].chance_of_snow;
-      snowTodayArr[03] = data.forecast.forecastday[0].hour[3].chance_of_snow;
-      snowTodayArr[04] = data.forecast.forecastday[0].hour[4].chance_of_snow;
-      snowTodayArr[05] = data.forecast.forecastday[0].hour[5].chance_of_snow;
-      snowTodayArr[06] = data.forecast.forecastday[0].hour[6].chance_of_snow;
-      snowTodayArr[07] = data.forecast.forecastday[0].hour[7].chance_of_snow;
-      snowTodayArr[08] = data.forecast.forecastday[0].hour[8].chance_of_snow;
-      snowTodayArr[09] = data.forecast.forecastday[0].hour[9].chance_of_snow;
-      snowTodayArr[10] = data.forecast.forecastday[0].hour[10].chance_of_snow;
-      snowTodayArr[11] = data.forecast.forecastday[0].hour[11].chance_of_snow;
-      snowTodayArr[12] = data.forecast.forecastday[0].hour[12].chance_of_snow;
-      snowTodayArr[13] = data.forecast.forecastday[0].hour[13].chance_of_snow;
-      snowTodayArr[14] = data.forecast.forecastday[0].hour[14].chance_of_snow;
-      snowTodayArr[15] = data.forecast.forecastday[0].hour[15].chance_of_snow;
-      snowTodayArr[16] = data.forecast.forecastday[0].hour[16].chance_of_snow;
-      snowTodayArr[17] = data.forecast.forecastday[0].hour[17].chance_of_snow;
-      snowTodayArr[18] = data.forecast.forecastday[0].hour[18].chance_of_snow;
-      snowTodayArr[19] = data.forecast.forecastday[0].hour[19].chance_of_snow;
-      snowTodayArr[20] = data.forecast.forecastday[0].hour[20].chance_of_snow;
-      snowTodayArr[21] = data.forecast.forecastday[0].hour[21].chance_of_snow;
-      snowTodayArr[22] = data.forecast.forecastday[0].hour[22].chance_of_snow;
-      snowTodayArr[23] = data.forecast.forecastday[0].hour[23].chance_of_snow;
-
-      snowRender[0].innerHTML = snowTodayArr[0] + "%";
-      snowRender[1].innerHTML = snowTodayArr[1] + "%";
-      snowRender[2].innerHTML = snowTodayArr[2] + "%";
-      snowRender[3].innerHTML = snowTodayArr[3] + "%";
-      snowRender[4].innerHTML = snowTodayArr[4] + "%";
-      snowRender[5].innerHTML = snowTodayArr[5] + "%";
-      snowRender[6].innerHTML = snowTodayArr[6] + "%";
-      snowRender[7].innerHTML = snowTodayArr[7] + "%";
-      snowRender[8].innerHTML = snowTodayArr[8] + "%";
-      snowRender[9].innerHTML = snowTodayArr[9] + "%";
-      snowRender[10].innerHTML = snowTodayArr[10] + "%";
-      snowRender[11].innerHTML = snowTodayArr[11] + "%";
-      snowRender[12].innerHTML = snowTodayArr[12] + "%";
-      snowRender[13].innerHTML = snowTodayArr[13] + "%";
-      snowRender[14].innerHTML = snowTodayArr[14] + "%";
-      snowRender[15].innerHTML = snowTodayArr[15] + "%";
-      snowRender[16].innerHTML = snowTodayArr[16] + "%";
-      snowRender[17].innerHTML = snowTodayArr[17] + "%";
-      snowRender[18].innerHTML = snowTodayArr[18] + "%";
-      snowRender[19].innerHTML = snowTodayArr[19] + "%";
-      snowRender[20].innerHTML = snowTodayArr[20] + "%";
-      snowRender[21].innerHTML = snowTodayArr[21] + "%";
-      snowRender[22].innerHTML = snowTodayArr[22] + "%";
-      snowRender[23].innerHTML = snowTodayArr[23] + "%";
 
       let dateOne = data.forecast.forecastday[1].date;
       dayOneDate.innerHTML = dateOne;
@@ -3034,8 +2475,6 @@ btn.addEventListener('click', () => {
       rainChanceT.innerHTML = "Dailly Chance Of Rain : " + willItRainT + "%";
       snowChanceT.innerHTML = "Daily Chance Of Snow : " + willItSnowT + "%";
 
-      let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
-      let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
 
       let getId = document.getElementById('getId');
 
@@ -3046,425 +2485,956 @@ btn.addEventListener('click', () => {
       changeDynamic();
 
       function changeDynamic() {
-        var collector = document.querySelectorAll(".tempQuery");
-        //  console.log(collector);
-
 
         var scrollVar = document.getElementById('toScrollForUp');
         var stickyCard = -scrollVar.getBoundingClientRect().left;
         var stickyProgCard = (stickyCard / (scrollVar.getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 + 5;
 
 
-        // console.log(Math.floor(stickyProgCard));
 
         if (stickyProgCard > 0 && stickyProgCard < 50) {
-          disArr.style.opacity = '1';
-          let tempArr = new Array();
+          disArr.classList.remove('arrLeft');
 
-          tempArr[0] = data.forecast.forecastday[1].hour[0].temp_c;
-          tempArr[1] = data.forecast.forecastday[1].hour[1].temp_c;
-          tempArr[2] = data.forecast.forecastday[1].hour[2].temp_c;
-          tempArr[3] = data.forecast.forecastday[1].hour[3].temp_c;
-          tempArr[4] = data.forecast.forecastday[1].hour[4].temp_c;
-          tempArr[5] = data.forecast.forecastday[1].hour[5].temp_c;
-          tempArr[6] = data.forecast.forecastday[1].hour[6].temp_c;
-          tempArr[7] = data.forecast.forecastday[1].hour[7].temp_c;
-          tempArr[8] = data.forecast.forecastday[1].hour[8].temp_c;
-          tempArr[9] = data.forecast.forecastday[1].hour[9].temp_c;
-          tempArr[10] = data.forecast.forecastday[1].hour[10].temp_c;
-          tempArr[11] = data.forecast.forecastday[1].hour[11].temp_c;
-          tempArr[12] = data.forecast.forecastday[1].hour[12].temp_c;
-          tempArr[13] = data.forecast.forecastday[1].hour[13].temp_c;
-          tempArr[14] = data.forecast.forecastday[1].hour[14].temp_c;
-          tempArr[15] = data.forecast.forecastday[1].hour[15].temp_c;
-          tempArr[16] = data.forecast.forecastday[1].hour[16].temp_c;
-          tempArr[17] = data.forecast.forecastday[1].hour[17].temp_c;
-          tempArr[18] = data.forecast.forecastday[1].hour[18].temp_c;
-          tempArr[19] = data.forecast.forecastday[1].hour[19].temp_c;
-          tempArr[20] = data.forecast.forecastday[1].hour[20].temp_c;
-          tempArr[21] = data.forecast.forecastday[1].hour[21].temp_c;
-          tempArr[22] = data.forecast.forecastday[1].hour[22].temp_c;
-          tempArr[23] = data.forecast.forecastday[1].hour[23].temp_c;
+          for (var i = 0; i < 24; i++) {
+            var collector = document.querySelectorAll(".tempQuery");
 
-          let tempFahArr = new Array();
-          tempFahArr[0] = data.forecast.forecastday[1].hour[0].temp_f;
-          tempFahArr[1] = data.forecast.forecastday[1].hour[1].temp_f;
-          tempFahArr[2] = data.forecast.forecastday[1].hour[2].temp_f;
-          tempFahArr[3] = data.forecast.forecastday[1].hour[3].temp_f;
-          tempFahArr[4] = data.forecast.forecastday[1].hour[4].temp_f;
-          tempFahArr[5] = data.forecast.forecastday[1].hour[5].temp_f;
-          tempFahArr[6] = data.forecast.forecastday[1].hour[6].temp_f;
-          tempFahArr[7] = data.forecast.forecastday[1].hour[7].temp_f;
-          tempFahArr[8] = data.forecast.forecastday[1].hour[8].temp_f;
-          tempFahArr[9] = data.forecast.forecastday[1].hour[9].temp_f;
-          tempFahArr[10] = data.forecast.forecastday[1].hour[10].temp_f;
-          tempFahArr[11] = data.forecast.forecastday[1].hour[11].temp_f;
-          tempFahArr[12] = data.forecast.forecastday[1].hour[12].temp_f;
-          tempFahArr[13] = data.forecast.forecastday[1].hour[13].temp_f;
-          tempFahArr[14] = data.forecast.forecastday[1].hour[14].temp_f;
-          tempFahArr[15] = data.forecast.forecastday[1].hour[15].temp_f;
-          tempFahArr[16] = data.forecast.forecastday[1].hour[16].temp_f;
-          tempFahArr[17] = data.forecast.forecastday[1].hour[17].temp_f;
-          tempFahArr[18] = data.forecast.forecastday[1].hour[18].temp_f;
-          tempFahArr[19] = data.forecast.forecastday[1].hour[19].temp_f;
-          tempFahArr[20] = data.forecast.forecastday[1].hour[20].temp_f;
-          tempFahArr[21] = data.forecast.forecastday[1].hour[21].temp_f;
-          tempFahArr[22] = data.forecast.forecastday[1].hour[22].temp_f;
-          tempFahArr[23] = data.forecast.forecastday[1].hour[23].temp_f;
+            var tempArr = new Array();
+            tempArr[i] = data.forecast.forecastday[1].hour[i].temp_c;
+
+            var tempFahArr = new Array();
+            tempFahArr[i] = data.forecast.forecastday[1].hour[i].temp_f;
+
+            collector[i].innerHTML = tempArr[i] + "°C" + " | " + tempFahArr[i] + "°F";
+
+            let rainTom = new Array();
+            let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
+            rainTom[i] = data.forecast.forecastday[1].hour[i].chance_of_rain;
+            rainRenderMulp[i].innerHTML = rainTom[i] + "%";
+
+            let snowTom = new Array();
+            let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
+
+            snowTom[i] = data.forecast.forecastday[1].hour[i].chance_of_snow;
+            snowRenderMulp[i].innerHTML = snowTom[i] + "%";
+          }
 
 
-          collector[0].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[0] + " <sup>°</sup> F";
-          collector[1].innerHTML = tempArr[1] + " <sup>°</sup> C" + "<br>" + tempFahArr[1] + " <sup>°</sup> F";
-          collector[2].innerHTML = tempArr[2] + " <sup>°</sup> C" + "<br>" + tempFahArr[2] + " <sup>°</sup> F";
-          collector[3].innerHTML = tempArr[3] + " <sup>°</sup> C" + "<br>" + tempFahArr[3] + " <sup>°</sup> F";
-          collector[4].innerHTML = tempArr[4] + " <sup>°</sup> C" + "<br>" + tempFahArr[4] + " <sup>°</sup> F";
-          collector[5].innerHTML = tempArr[5] + " <sup>°</sup> C" + "<br>" + tempFahArr[5] + " <sup>°</sup> F";
-          collector[6].innerHTML = tempArr[6] + " <sup>°</sup> C" + "<br>" + tempFahArr[6] + " <sup>°</sup> F";
-          collector[7].innerHTML = tempArr[7] + " <sup>°</sup> C" + "<br>" + tempFahArr[7] + " <sup>°</sup> F";
-          collector[8].innerHTML = tempArr[8] + " <sup>°</sup> C" + "<br>" + tempFahArr[8] + " <sup>°</sup> F";
-          collector[9].innerHTML = tempArr[9] + " <sup>°</sup> C" + "<br>" + tempFahArr[9] + " <sup>°</sup> F";
-          collector[10].innerHTML = tempArr[10] + " <sup>°</sup> C" + "<br>" + tempFahArr[10] + " <sup>°</sup> F";
-          collector[11].innerHTML = tempArr[11] + " <sup>°</sup> C" + "<br>" + tempFahArr[11] + " <sup>°</sup> F";
-          collector[12].innerHTML = tempArr[12] + " <sup>°</sup> C" + "<br>" + tempFahArr[12] + " <sup>°</sup> F";
-          collector[13].innerHTML = tempArr[13] + " <sup>°</sup> C" + "<br>" + tempFahArr[13] + " <sup>°</sup> F";
-          collector[14].innerHTML = tempArr[14] + " <sup>°</sup> C" + "<br>" + tempFahArr[14] + " <sup>°</sup> F";
-          collector[15].innerHTML = tempArr[15] + " <sup>°</sup> C" + "<br>" + tempFahArr[15] + " <sup>°</sup> F";
-          collector[16].innerHTML = tempArr[16] + " <sup>°</sup> C" + "<br>" + tempFahArr[16] + " <sup>°</sup> F";
-          collector[17].innerHTML = tempArr[17] + " <sup>°</sup> C" + "<br>" + tempFahArr[17] + " <sup>°</sup> F";
-          collector[18].innerHTML = tempArr[18] + " <sup>°</sup> C" + "<br>" + tempFahArr[18] + " <sup>°</sup> F";
-          collector[19].innerHTML = tempArr[19] + " <sup>°</sup> C" + "<br>" + tempFahArr[19] + " <sup>°</sup> F";
-          collector[20].innerHTML = tempArr[20] + " <sup>°</sup> C" + "<br>" + tempFahArr[20] + " <sup>°</sup> F";
-          collector[21].innerHTML = tempArr[21] + " <sup>°</sup> C" + "<br>" + tempFahArr[21] + " <sup>°</sup> F";
-          collector[22].innerHTML = tempArr[22] + " <sup>°</sup> C" + "<br>" + tempFahArr[22] + " <sup>°</sup> F";
-          collector[23].innerHTML = tempArr[23] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+          /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
+           let sunSetDec = data.forecast.forecastday[1].astro.sunset;
+           let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
+           let moonSetDec = data.forecast.forecastday[1].astro.moonset;
 
-          let rainTom = new Array();
+           let lastInfo = document.querySelectorAll(".letDayInfo");
 
-          rainTom[00] = data.forecast.forecastday[1].hour[0].chance_of_rain;
-          rainTom[01] = data.forecast.forecastday[1].hour[1].chance_of_rain;
-          rainTom[02] = data.forecast.forecastday[1].hour[2].chance_of_rain;
-          rainTom[03] = data.forecast.forecastday[1].hour[3].chance_of_rain;
-          rainTom[04] = data.forecast.forecastday[1].hour[4].chance_of_rain;
-          rainTom[05] = data.forecast.forecastday[1].hour[5].chance_of_rain;
-          rainTom[06] = data.forecast.forecastday[1].hour[6].chance_of_rain;
-          rainTom[07] = data.forecast.forecastday[1].hour[7].chance_of_rain;
-          rainTom[08] = data.forecast.forecastday[1].hour[8].chance_of_rain;
-          rainTom[09] = data.forecast.forecastday[1].hour[9].chance_of_rain;
-          rainTom[10] = data.forecast.forecastday[1].hour[10].chance_of_rain;
-          rainTom[11] = data.forecast.forecastday[1].hour[11].chance_of_rain;
-          rainTom[12] = data.forecast.forecastday[1].hour[12].chance_of_rain;
-          rainTom[13] = data.forecast.forecastday[1].hour[13].chance_of_rain;
-          rainTom[14] = data.forecast.forecastday[1].hour[14].chance_of_rain;
-          rainTom[15] = data.forecast.forecastday[1].hour[15].chance_of_rain;
-          rainTom[16] = data.forecast.forecastday[1].hour[16].chance_of_rain;
-          rainTom[17] = data.forecast.forecastday[1].hour[17].chance_of_rain;
-          rainTom[18] = data.forecast.forecastday[1].hour[18].chance_of_rain;
-          rainTom[19] = data.forecast.forecastday[1].hour[19].chance_of_rain;
-          rainTom[20] = data.forecast.forecastday[1].hour[20].chance_of_rain;
-          rainTom[21] = data.forecast.forecastday[1].hour[21].chance_of_rain;
-          rainTom[22] = data.forecast.forecastday[1].hour[22].chance_of_rain;
-          rainTom[23] = data.forecast.forecastday[1].hour[23].chance_of_rain;
-
-
-          rainRenderMulp[0].innerHTML = rainTom[0] + "%";
-          rainRenderMulp[1].innerHTML = rainTom[1] + "%";
-          rainRenderMulp[2].innerHTML = rainTom[2] + "%";
-          rainRenderMulp[3].innerHTML = rainTom[3] + "%";
-          rainRenderMulp[4].innerHTML = rainTom[4] + "%";
-          rainRenderMulp[5].innerHTML = rainTom[5] + "%";
-          rainRenderMulp[6].innerHTML = rainTom[6] + "%";
-          rainRenderMulp[7].innerHTML = rainTom[7] + "%";
-          rainRenderMulp[8].innerHTML = rainTom[8] + "%";
-          rainRenderMulp[9].innerHTML = rainTom[9] + "%";
-          rainRenderMulp[10].innerHTML = rainTom[10] + "%";
-          rainRenderMulp[11].innerHTML = rainTom[11] + "%";
-          rainRenderMulp[12].innerHTML = rainTom[12] + "%";
-          rainRenderMulp[13].innerHTML = rainTom[13] + "%";
-          rainRenderMulp[14].innerHTML = rainTom[14] + "%";
-          rainRenderMulp[15].innerHTML = rainTom[15] + "%";
-          rainRenderMulp[16].innerHTML = rainTom[16] + "%";
-          rainRenderMulp[17].innerHTML = rainTom[17] + "%";
-          rainRenderMulp[18].innerHTML = rainTom[18] + "%";
-          rainRenderMulp[19].innerHTML = rainTom[19] + "%";
-          rainRenderMulp[20].innerHTML = rainTom[20] + "%";
-          rainRenderMulp[21].innerHTML = rainTom[21] + "%";
-          rainRenderMulp[22].innerHTML = rainTom[22] + "%";
-          rainRenderMulp[23].innerHTML = rainTom[23] + "%";
-
-          let snowTom = new Array();
-
-          snowTom[00] = data.forecast.forecastday[1].hour[0].chance_of_snow;
-          snowTom[01] = data.forecast.forecastday[1].hour[1].chance_of_snow;
-          snowTom[02] = data.forecast.forecastday[1].hour[2].chance_of_snow;
-          snowTom[03] = data.forecast.forecastday[1].hour[3].chance_of_snow;
-          snowTom[04] = data.forecast.forecastday[1].hour[4].chance_of_snow;
-          snowTom[05] = data.forecast.forecastday[1].hour[5].chance_of_snow;
-          snowTom[06] = data.forecast.forecastday[1].hour[6].chance_of_snow;
-          snowTom[07] = data.forecast.forecastday[1].hour[7].chance_of_snow;
-          snowTom[08] = data.forecast.forecastday[1].hour[8].chance_of_snow;
-          snowTom[09] = data.forecast.forecastday[1].hour[9].chance_of_snow;
-          snowTom[10] = data.forecast.forecastday[1].hour[10].chance_of_snow;
-          snowTom[11] = data.forecast.forecastday[1].hour[11].chance_of_snow;
-          snowTom[12] = data.forecast.forecastday[1].hour[12].chance_of_snow;
-          snowTom[13] = data.forecast.forecastday[1].hour[13].chance_of_snow;
-          snowTom[14] = data.forecast.forecastday[1].hour[14].chance_of_snow;
-          snowTom[15] = data.forecast.forecastday[1].hour[15].chance_of_snow;
-          snowTom[16] = data.forecast.forecastday[1].hour[16].chance_of_snow;
-          snowTom[17] = data.forecast.forecastday[1].hour[17].chance_of_snow;
-          snowTom[18] = data.forecast.forecastday[1].hour[18].chance_of_snow;
-          snowTom[19] = data.forecast.forecastday[1].hour[19].chance_of_snow;
-          snowTom[20] = data.forecast.forecastday[1].hour[20].chance_of_snow;
-          snowTom[21] = data.forecast.forecastday[1].hour[21].chance_of_snow;
-          snowTom[22] = data.forecast.forecastday[1].hour[22].chance_of_snow;
-          snowTom[23] = data.forecast.forecastday[1].hour[23].chance_of_snow;
-
-          snowRenderMulp[0].innerHTML = snowTom[0] + "%";
-          snowRenderMulp[1].innerHTML = snowTom[1] + "%";
-          snowRenderMulp[2].innerHTML = snowTom[2] + "%";
-          snowRenderMulp[3].innerHTML = snowTom[3] + "%";
-          snowRenderMulp[4].innerHTML = snowTom[4] + "%";
-          snowRenderMulp[5].innerHTML = snowTom[5] + "%";
-          snowRenderMulp[6].innerHTML = snowTom[6] + "%";
-          snowRenderMulp[7].innerHTML = snowTom[7] + "%";
-          snowRenderMulp[8].innerHTML = snowTom[8] + "%";
-          snowRenderMulp[9].innerHTML = snowTom[9] + "%";
-          snowRenderMulp[10].innerHTML = snowTom[10] + "%";
-          snowRenderMulp[11].innerHTML = snowTom[11] + "%";
-          snowRenderMulp[12].innerHTML = snowTom[12] + "%";
-          snowRenderMulp[13].innerHTML = snowTom[13] + "%";
-          snowRenderMulp[14].innerHTML = snowTom[14] + "%";
-          snowRenderMulp[15].innerHTML = snowTom[15] + "%";
-          snowRenderMulp[16].innerHTML = snowTom[16] + "%";
-          snowRenderMulp[17].innerHTML = snowTom[17] + "%";
-          snowRenderMulp[18].innerHTML = snowTom[18] + "%";
-          snowRenderMulp[19].innerHTML = snowTom[19] + "%";
-          snowRenderMulp[20].innerHTML = snowTom[20] + "%";
-          snowRenderMulp[21].innerHTML = snowTom[21] + "%";
-          snowRenderMulp[22].innerHTML = snowTom[22] + "%";
-          snowRenderMulp[23].innerHTML = snowTom[23] + "%";
-
-
-
-          let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
-          let sunSetDec = data.forecast.forecastday[1].astro.sunset;
-          let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
-          let moonSetDec = data.forecast.forecastday[1].astro.moonset;
-
-          let lastInfo = document.querySelectorAll(".letDayInfo");
-
-          lastInfo[0].innerHTML = sunRiseDec;
-          lastInfo[1].innerHTML = sunSetDec;
-          lastInfo[2].innerHTML = moonRiseDec;
-          lastInfo[3].innerHTML = moonSetDec;
+           lastInfo[0].innerHTML = sunRiseDec;
+           lastInfo[1].innerHTML = sunSetDec;
+           lastInfo[2].innerHTML = moonRiseDec;
+           lastInfo[3].innerHTML = moonSetDec;*/
 
           // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+          var collecterText = new Array();
 
+          collecterText[0] = data.forecast.forecastday[1].hour[0].condition.text;
+          collecterText[1] = data.forecast.forecastday[1].hour[1].condition.text;
+          collecterText[2] = data.forecast.forecastday[1].hour[2].condition.text;
+          collecterText[3] = data.forecast.forecastday[1].hour[3].condition.text;
+          collecterText[4] = data.forecast.forecastday[1].hour[4].condition.text;
+          collecterText[5] = data.forecast.forecastday[1].hour[5].condition.text;
+          collecterText[6] = data.forecast.forecastday[1].hour[6].condition.text;
+          collecterText[7] = data.forecast.forecastday[1].hour[7].condition.text;
+          collecterText[8] = data.forecast.forecastday[1].hour[8].condition.text;
+          collecterText[9] = data.forecast.forecastday[1].hour[9].condition.text;
+          collecterText[10] = data.forecast.forecastday[1].hour[10].condition.text;
+          collecterText[11] = data.forecast.forecastday[1].hour[11].condition.text;
+          collecterText[12] = data.forecast.forecastday[1].hour[12].condition.text;
+          collecterText[13] = data.forecast.forecastday[1].hour[13].condition.text;
+          collecterText[14] = data.forecast.forecastday[1].hour[14].condition.text;
+          collecterText[15] = data.forecast.forecastday[1].hour[15].condition.text;
+          collecterText[16] = data.forecast.forecastday[1].hour[16].condition.text;
+          collecterText[17] = data.forecast.forecastday[1].hour[17].condition.text;
+          collecterText[18] = data.forecast.forecastday[1].hour[18].condition.text;
+          collecterText[19] = data.forecast.forecastday[1].hour[19].condition.text;
+          collecterText[20] = data.forecast.forecastday[1].hour[20].condition.text;
+          collecterText[21] = data.forecast.forecastday[1].hour[21].condition.text;
+          collecterText[22] = data.forecast.forecastday[1].hour[22].condition.text;
+          collecterText[23] = data.forecast.forecastday[1].hour[23].condition.text;
+
+
+
+          let collectCond = document.querySelectorAll('.tempCondFore');
+
+          for (var i = 0; i < collecterText.length; i++) {
+            collectCond[i].innerHTML = collecterText[i];
+          }
+
+          var letImageArray = document.querySelectorAll('.letClass')
+
+          for (var i = 0; i < collecterText.length; i++) {
+            let is_day = new Array();
+            is_day[i] = data.forecast.forecastday[1].hour[i].is_day;
+
+            let is_cloud = new Array();
+            is_cloud[i] = data.forecast.forecastday[1].hour[i].cloud;
+            let is_cloud_rend = document.querySelectorAll('.cloudtxt');
+
+
+            is_cloud_rend[i].innerHTML = is_cloud[i] + "%";
+            if (collecterText[i] == 'Sunny' || collecterText[i] == 'Clear') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Partly cloudy') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Cloudy') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+              }
+            }
+            else if (collecterText[i] == 'Overcast') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Mist') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy rain possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy snow possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy sleet possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy freezing drizzle possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Blowing snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Thundery outbreaks possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+              }
+            }
+            else if (collecterText[i] == 'Blizzard') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-hail.svg";
+              }
+            }
+            else if (collecterText[i] == 'Fog') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Freezing fog') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Freezing drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy freezing drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate rain at times') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy rain at times') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light freezing rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy freezing rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light sleet') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy sleet') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy moderate snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy heavy snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Ice pelletes') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light rain shower') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy rain shower') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Torrential rain shower') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light sleet showers') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light snow showers') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy snow showers') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light showers of ice pellets') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy showers of ice pellets') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light rain with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy rain with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-extreme-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light snow with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy snow with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+          }
         }
-
         //CHANGE CONTENT
 
         else if (stickyProgCard > 50) {
-          disArr.style.opacity = '0';
-          let tempArr = new Array();
+          // disArr.style.opacity = '0';
+          disArr.classList.add('arrLeft');
 
-          tempArr[0] = data.forecast.forecastday[2].hour[0].temp_c;
-          tempArr[1] = data.forecast.forecastday[2].hour[1].temp_c;
-          tempArr[2] = data.forecast.forecastday[2].hour[2].temp_c;
-          tempArr[3] = data.forecast.forecastday[2].hour[3].temp_c;
-          tempArr[4] = data.forecast.forecastday[2].hour[4].temp_c;
-          tempArr[5] = data.forecast.forecastday[2].hour[5].temp_c;
-          tempArr[6] = data.forecast.forecastday[2].hour[6].temp_c;
-          tempArr[7] = data.forecast.forecastday[2].hour[7].temp_c;
-          tempArr[8] = data.forecast.forecastday[2].hour[8].temp_c;
-          tempArr[9] = data.forecast.forecastday[2].hour[9].temp_c;
-          tempArr[10] = data.forecast.forecastday[2].hour[10].temp_c;
-          tempArr[11] = data.forecast.forecastday[2].hour[11].temp_c;
-          tempArr[12] = data.forecast.forecastday[2].hour[12].temp_c;
-          tempArr[13] = data.forecast.forecastday[2].hour[13].temp_c;
-          tempArr[14] = data.forecast.forecastday[2].hour[14].temp_c;
-          tempArr[15] = data.forecast.forecastday[2].hour[15].temp_c;
-          tempArr[16] = data.forecast.forecastday[2].hour[16].temp_c;
-          tempArr[17] = data.forecast.forecastday[2].hour[17].temp_c;
-          tempArr[18] = data.forecast.forecastday[2].hour[18].temp_c;
-          tempArr[19] = data.forecast.forecastday[2].hour[19].temp_c;
-          tempArr[20] = data.forecast.forecastday[2].hour[20].temp_c;
-          tempArr[21] = data.forecast.forecastday[2].hour[21].temp_c;
-          tempArr[22] = data.forecast.forecastday[2].hour[22].temp_c;
-          tempArr[23] = data.forecast.forecastday[2].hour[23].temp_c;
+          for (var i = 0; i < 24; i++) {
+            var collector = document.querySelectorAll(".tempQuery");
 
-          let tempFahArr = new Array();
-          tempFahArr[0] = data.forecast.forecastday[2].hour[0].temp_f;
-          tempFahArr[1] = data.forecast.forecastday[2].hour[1].temp_f;
-          tempFahArr[2] = data.forecast.forecastday[2].hour[2].temp_f;
-          tempFahArr[3] = data.forecast.forecastday[2].hour[3].temp_f;
-          tempFahArr[4] = data.forecast.forecastday[2].hour[4].temp_f;
-          tempFahArr[5] = data.forecast.forecastday[2].hour[5].temp_f;
-          tempFahArr[6] = data.forecast.forecastday[2].hour[6].temp_f;
-          tempFahArr[7] = data.forecast.forecastday[2].hour[7].temp_f;
-          tempFahArr[8] = data.forecast.forecastday[2].hour[8].temp_f;
-          tempFahArr[9] = data.forecast.forecastday[2].hour[9].temp_f;
-          tempFahArr[10] = data.forecast.forecastday[2].hour[10].temp_f;
-          tempFahArr[11] = data.forecast.forecastday[2].hour[11].temp_f;
-          tempFahArr[12] = data.forecast.forecastday[2].hour[12].temp_f;
-          tempFahArr[13] = data.forecast.forecastday[2].hour[13].temp_f;
-          tempFahArr[14] = data.forecast.forecastday[2].hour[14].temp_f;
-          tempFahArr[15] = data.forecast.forecastday[2].hour[15].temp_f;
-          tempFahArr[16] = data.forecast.forecastday[2].hour[16].temp_f;
-          tempFahArr[17] = data.forecast.forecastday[2].hour[17].temp_f;
-          tempFahArr[18] = data.forecast.forecastday[2].hour[18].temp_f;
-          tempFahArr[19] = data.forecast.forecastday[2].hour[19].temp_f;
-          tempFahArr[20] = data.forecast.forecastday[2].hour[20].temp_f;
-          tempFahArr[21] = data.forecast.forecastday[2].hour[21].temp_f;
-          tempFahArr[22] = data.forecast.forecastday[2].hour[22].temp_f;
-          tempFahArr[23] = data.forecast.forecastday[2].hour[23].temp_f;
+            var tempArr = new Array();
+            tempArr[i] = data.forecast.forecastday[2].hour[i].temp_c;
 
-          // collector[0].innerHTML = tempArr[0] + "<br>" + tempFahArr[0];
-          collector[0].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[0] + " <sup>°</sup> F";
-          collector[1].innerHTML = tempArr[1] + " <sup>°</sup> C" + "<br>" + tempFahArr[1] + " <sup>°</sup> F";
-          collector[2].innerHTML = tempArr[2] + " <sup>°</sup> C" + "<br>" + tempFahArr[2] + " <sup>°</sup> F";
-          collector[3].innerHTML = tempArr[3] + " <sup>°</sup> C" + "<br>" + tempFahArr[3] + " <sup>°</sup> F";
-          collector[4].innerHTML = tempArr[4] + " <sup>°</sup> C" + "<br>" + tempFahArr[4] + " <sup>°</sup> F";
-          collector[5].innerHTML = tempArr[5] + " <sup>°</sup> C" + "<br>" + tempFahArr[5] + " <sup>°</sup> F";
-          collector[6].innerHTML = tempArr[6] + " <sup>°</sup> C" + "<br>" + tempFahArr[6] + " <sup>°</sup> F";
-          collector[7].innerHTML = tempArr[7] + " <sup>°</sup> C" + "<br>" + tempFahArr[7] + " <sup>°</sup> F";
-          collector[8].innerHTML = tempArr[8] + " <sup>°</sup> C" + "<br>" + tempFahArr[8] + " <sup>°</sup> F";
-          collector[9].innerHTML = tempArr[9] + " <sup>°</sup> C" + "<br>" + tempFahArr[9] + " <sup>°</sup> F";
-          collector[10].innerHTML = tempArr[10] + " <sup>°</sup> C" + "<br>" + tempFahArr[10] + " <sup>°</sup> F";
-          collector[11].innerHTML = tempArr[11] + " <sup>°</sup> C" + "<br>" + tempFahArr[11] + " <sup>°</sup> F";
-          collector[12].innerHTML = tempArr[12] + " <sup>°</sup> C" + "<br>" + tempFahArr[12] + " <sup>°</sup> F";
-          collector[13].innerHTML = tempArr[13] + " <sup>°</sup> C" + "<br>" + tempFahArr[13] + " <sup>°</sup> F";
-          collector[14].innerHTML = tempArr[14] + " <sup>°</sup> C" + "<br>" + tempFahArr[14] + " <sup>°</sup> F";
-          collector[15].innerHTML = tempArr[15] + " <sup>°</sup> C" + "<br>" + tempFahArr[15] + " <sup>°</sup> F";
-          collector[16].innerHTML = tempArr[16] + " <sup>°</sup> C" + "<br>" + tempFahArr[16] + " <sup>°</sup> F";
-          collector[17].innerHTML = tempArr[17] + " <sup>°</sup> C" + "<br>" + tempFahArr[17] + " <sup>°</sup> F";
-          collector[18].innerHTML = tempArr[18] + " <sup>°</sup> C" + "<br>" + tempFahArr[18] + " <sup>°</sup> F";
-          collector[19].innerHTML = tempArr[19] + " <sup>°</sup> C" + "<br>" + tempFahArr[19] + " <sup>°</sup> F";
-          collector[20].innerHTML = tempArr[20] + " <sup>°</sup> C" + "<br>" + tempFahArr[20] + " <sup>°</sup> F";
-          collector[21].innerHTML = tempArr[21] + " <sup>°</sup> C" + "<br>" + tempFahArr[21] + " <sup>°</sup> F";
-          collector[22].innerHTML = tempArr[22] + " <sup>°</sup> C" + "<br>" + tempFahArr[22] + " <sup>°</sup> F";
-          collector[23].innerHTML = tempArr[23] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+            var tempFahArr = new Array();
+            tempFahArr[i] = data.forecast.forecastday[2].hour[i].temp_f;
+
+            collector[i].innerHTML = tempArr[i] + "°C" + " | " + tempFahArr[i] + "°F";
+          }
+
+
+
+          for (let i = 0; i < 24; i++) {
+            let rainTom = new Array();
+            let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
+            rainTom[i] = data.forecast.forecastday[2].hour[i].chance_of_rain;
+            rainRenderMulp[i].innerHTML = rainTom[i] + "%";
+
+            let snowTom = new Array();
+            let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
+
+            snowTom[i] = data.forecast.forecastday[2].hour[i].chance_of_snow;
+            snowRenderMulp[i].innerHTML = snowTom[i] + "%";
+          }
+
+
+          /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
+           let sunSetDec = data.forecast.forecastday[1].astro.sunset;
+           let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
+           let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+
+           let lastInfo = document.querySelectorAll(".letDayInfo");
+
+           lastInfo[0].innerHTML = sunRiseDec;
+           lastInfo[1].innerHTML = sunSetDec;
+           lastInfo[2].innerHTML = moonRiseDec;
+           lastInfo[3].innerHTML = moonSetDec;*/
+
           // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
+          var collecterText = new Array();
 
-          let sunRiseDec = data.forecast.forecastday[2].astro.sunrise;
-          let sunSetDec = data.forecast.forecastday[2].astro.sunset;
-          let moonRiseDec = data.forecast.forecastday[2].astro.moonrise;
-          let moonSetDec = data.forecast.forecastday[2].astro.moonset;
-
-          let lastInfo = document.querySelectorAll(".letDayInfo");
-
-          lastInfo[0].innerHTML = sunRiseDec;
-          lastInfo[1].innerHTML = sunSetDec;
-          lastInfo[2].innerHTML = moonRiseDec;
-          lastInfo[3].innerHTML = moonSetDec;
-
-
-          let rainNextArr = new Array();
-
-          rainNextArr[00] = data.forecast.forecastday[2].hour[0].chance_of_rain;
-          rainNextArr[01] = data.forecast.forecastday[2].hour[1].chance_of_rain;
-          rainNextArr[02] = data.forecast.forecastday[2].hour[2].chance_of_rain;
-          rainNextArr[03] = data.forecast.forecastday[2].hour[3].chance_of_rain;
-          rainNextArr[04] = data.forecast.forecastday[2].hour[4].chance_of_rain;
-          rainNextArr[05] = data.forecast.forecastday[2].hour[5].chance_of_rain;
-          rainNextArr[06] = data.forecast.forecastday[2].hour[6].chance_of_rain;
-          rainNextArr[07] = data.forecast.forecastday[2].hour[7].chance_of_rain;
-          rainNextArr[08] = data.forecast.forecastday[2].hour[8].chance_of_rain;
-          rainNextArr[09] = data.forecast.forecastday[2].hour[9].chance_of_rain;
-          rainNextArr[10] = data.forecast.forecastday[2].hour[10].chance_of_rain;
-          rainNextArr[11] = data.forecast.forecastday[2].hour[11].chance_of_rain;
-          rainNextArr[12] = data.forecast.forecastday[2].hour[12].chance_of_rain;
-          rainNextArr[13] = data.forecast.forecastday[2].hour[13].chance_of_rain;
-          rainNextArr[14] = data.forecast.forecastday[2].hour[14].chance_of_rain;
-          rainNextArr[15] = data.forecast.forecastday[2].hour[15].chance_of_rain;
-          rainNextArr[16] = data.forecast.forecastday[2].hour[16].chance_of_rain;
-          rainNextArr[17] = data.forecast.forecastday[2].hour[17].chance_of_rain;
-          rainNextArr[18] = data.forecast.forecastday[2].hour[18].chance_of_rain;
-          rainNextArr[19] = data.forecast.forecastday[2].hour[19].chance_of_rain;
-          rainNextArr[20] = data.forecast.forecastday[2].hour[20].chance_of_rain;
-          rainNextArr[21] = data.forecast.forecastday[2].hour[21].chance_of_rain;
-          rainNextArr[22] = data.forecast.forecastday[2].hour[22].chance_of_rain;
-          rainNextArr[23] = data.forecast.forecastday[2].hour[23].chance_of_rain;
-
-          rainRenderMulp[0].innerHTML = rainNextArr[00] + "%";
-          rainRenderMulp[1].innerHTML = rainNextArr[01] + "%";
-          rainRenderMulp[2].innerHTML = rainNextArr[02] + "%";
-          rainRenderMulp[3].innerHTML = rainNextArr[03] + "%";
-          rainRenderMulp[4].innerHTML = rainNextArr[04] + "%";
-          rainRenderMulp[5].innerHTML = rainNextArr[05] + "%";
-          rainRenderMulp[6].innerHTML = rainNextArr[06] + "%";
-          rainRenderMulp[7].innerHTML = rainNextArr[07] + "%";
-          rainRenderMulp[8].innerHTML = rainNextArr[08] + "%";
-          rainRenderMulp[9].innerHTML = rainNextArr[09] + "%";
-          rainRenderMulp[10].innerHTML = rainNextArr[10] + "%";
-          rainRenderMulp[11].innerHTML = rainNextArr[11] + "%";
-          rainRenderMulp[12].innerHTML = rainNextArr[12] + "%";
-          rainRenderMulp[13].innerHTML = rainNextArr[13] + "%";
-          rainRenderMulp[14].innerHTML = rainNextArr[14] + "%";
-          rainRenderMulp[15].innerHTML = rainNextArr[15] + "%";
-          rainRenderMulp[16].innerHTML = rainNextArr[16] + "%";
-          rainRenderMulp[17].innerHTML = rainNextArr[17] + "%";
-          rainRenderMulp[18].innerHTML = rainNextArr[18] + "%";
-          rainRenderMulp[19].innerHTML = rainNextArr[19] + "%";
-          rainRenderMulp[20].innerHTML = rainNextArr[20] + "%";
-          rainRenderMulp[21].innerHTML = rainNextArr[21] + "%";
-          rainRenderMulp[22].innerHTML = rainNextArr[22] + "%";
-          rainRenderMulp[23].innerHTML = rainNextArr[23] + "%";
+          collecterText[0] = data.forecast.forecastday[2].hour[0].condition.text;
+          collecterText[1] = data.forecast.forecastday[2].hour[1].condition.text;
+          collecterText[2] = data.forecast.forecastday[2].hour[2].condition.text;
+          collecterText[3] = data.forecast.forecastday[2].hour[3].condition.text;
+          collecterText[4] = data.forecast.forecastday[2].hour[4].condition.text;
+          collecterText[5] = data.forecast.forecastday[2].hour[5].condition.text;
+          collecterText[6] = data.forecast.forecastday[2].hour[6].condition.text;
+          collecterText[7] = data.forecast.forecastday[2].hour[7].condition.text;
+          collecterText[8] = data.forecast.forecastday[2].hour[8].condition.text;
+          collecterText[9] = data.forecast.forecastday[2].hour[9].condition.text;
+          collecterText[10] = data.forecast.forecastday[2].hour[10].condition.text;
+          collecterText[11] = data.forecast.forecastday[2].hour[11].condition.text;
+          collecterText[12] = data.forecast.forecastday[2].hour[12].condition.text;
+          collecterText[13] = data.forecast.forecastday[2].hour[13].condition.text;
+          collecterText[14] = data.forecast.forecastday[2].hour[14].condition.text;
+          collecterText[15] = data.forecast.forecastday[2].hour[15].condition.text;
+          collecterText[16] = data.forecast.forecastday[2].hour[16].condition.text;
+          collecterText[17] = data.forecast.forecastday[2].hour[17].condition.text;
+          collecterText[18] = data.forecast.forecastday[2].hour[18].condition.text;
+          collecterText[19] = data.forecast.forecastday[2].hour[19].condition.text;
+          collecterText[20] = data.forecast.forecastday[2].hour[20].condition.text;
+          collecterText[21] = data.forecast.forecastday[2].hour[21].condition.text;
+          collecterText[22] = data.forecast.forecastday[2].hour[22].condition.text;
+          collecterText[23] = data.forecast.forecastday[2].hour[23].condition.text;
 
 
-          let snowTom = new Array();
+          console.log(collecterText);
 
-          snowTom[00] = data.forecast.forecastday[2].hour[0].chance_of_snow;
-          snowTom[01] = data.forecast.forecastday[2].hour[1].chance_of_snow;
-          snowTom[02] = data.forecast.forecastday[2].hour[2].chance_of_snow;
-          snowTom[03] = data.forecast.forecastday[2].hour[3].chance_of_snow;
-          snowTom[04] = data.forecast.forecastday[2].hour[4].chance_of_snow;
-          snowTom[05] = data.forecast.forecastday[2].hour[5].chance_of_snow;
-          snowTom[06] = data.forecast.forecastday[2].hour[6].chance_of_snow;
-          snowTom[07] = data.forecast.forecastday[2].hour[7].chance_of_snow;
-          snowTom[08] = data.forecast.forecastday[2].hour[8].chance_of_snow;
-          snowTom[09] = data.forecast.forecastday[2].hour[9].chance_of_snow;
-          snowTom[10] = data.forecast.forecastday[2].hour[10].chance_of_snow;
-          snowTom[11] = data.forecast.forecastday[2].hour[11].chance_of_snow;
-          snowTom[12] = data.forecast.forecastday[2].hour[12].chance_of_snow;
-          snowTom[13] = data.forecast.forecastday[2].hour[13].chance_of_snow;
-          snowTom[14] = data.forecast.forecastday[2].hour[14].chance_of_snow;
-          snowTom[15] = data.forecast.forecastday[2].hour[15].chance_of_snow;
-          snowTom[16] = data.forecast.forecastday[2].hour[16].chance_of_snow;
-          snowTom[17] = data.forecast.forecastday[2].hour[17].chance_of_snow;
-          snowTom[18] = data.forecast.forecastday[2].hour[18].chance_of_snow;
-          snowTom[19] = data.forecast.forecastday[2].hour[19].chance_of_snow;
-          snowTom[20] = data.forecast.forecastday[2].hour[20].chance_of_snow;
-          snowTom[21] = data.forecast.forecastday[2].hour[21].chance_of_snow;
-          snowTom[22] = data.forecast.forecastday[2].hour[22].chance_of_snow;
-          snowTom[23] = data.forecast.forecastday[2].hour[23].chance_of_snow;
+          let collectCond = document.querySelectorAll('.tempCondFore');
 
-          snowRenderMulp[0].innerHTML = snowTom[0] + "%";
-          snowRenderMulp[1].innerHTML = snowTom[1] + "%";
-          snowRenderMulp[2].innerHTML = snowTom[2] + "%";
-          snowRenderMulp[3].innerHTML = snowTom[3] + "%";
-          snowRenderMulp[4].innerHTML = snowTom[4] + "%";
-          snowRenderMulp[5].innerHTML = snowTom[5] + "%";
-          snowRenderMulp[6].innerHTML = snowTom[6] + "%";
-          snowRenderMulp[7].innerHTML = snowTom[7] + "%";
-          snowRenderMulp[8].innerHTML = snowTom[8] + "%";
-          snowRenderMulp[9].innerHTML = snowTom[9] + "%";
-          snowRenderMulp[10].innerHTML = snowTom[10] + "%";
-          snowRenderMulp[11].innerHTML = snowTom[11] + "%";
-          snowRenderMulp[12].innerHTML = snowTom[12] + "%";
-          snowRenderMulp[13].innerHTML = snowTom[13] + "%";
-          snowRenderMulp[14].innerHTML = snowTom[14] + "%";
-          snowRenderMulp[15].innerHTML = snowTom[15] + "%";
-          snowRenderMulp[16].innerHTML = snowTom[16] + "%";
-          snowRenderMulp[17].innerHTML = snowTom[17] + "%";
-          snowRenderMulp[18].innerHTML = snowTom[18] + "%";
-          snowRenderMulp[19].innerHTML = snowTom[19] + "%";
-          snowRenderMulp[20].innerHTML = snowTom[20] + "%";
-          snowRenderMulp[21].innerHTML = snowTom[21] + "%";
-          snowRenderMulp[22].innerHTML = snowTom[22] + "%";
-          snowRenderMulp[23].innerHTML = snowTom[23] + "%";
+          for (var i = 0; i < collecterText.length; i++) {
+            collectCond[i].innerHTML = collecterText[i];
+          }
+
+          var letImageArray = document.querySelectorAll('.letClass');
+
+
+          for (var i = 0; i < collecterText.length; i++) {
+
+            let is_day = new Array();
+            is_day[i] = data.forecast.forecastday[2].hour[i].is_day;
+
+            let is_cloud = new Array();
+            is_cloud[i] = data.forecast.forecastday[2].hour[i].cloud;
+            let is_cloud_rend = document.querySelectorAll('.cloudtxt');
+
+
+            is_cloud_rend[i].innerHTML = is_cloud[i] + "%";
+
+
+            if (collecterText[i] == 'Sunny' || collecterText[i] == 'Clear') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Partly cloudy') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Cloudy') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+              }
+            }
+            else if (collecterText[i] == 'Overcast') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Mist') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy rain possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy snow possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy sleet possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy freezing drizzle possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Blowing snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Thundery outbreaks possible') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+              }
+            }
+            else if (collecterText[i] == 'Blizzard') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-hail.svg";
+              }
+            }
+            else if (collecterText[i] == 'Fog') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Freezing fog') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Freezing drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy freezing drizzle') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate rain at times') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy rain at times') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light freezing rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy freezing rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light sleet') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy sleet') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy moderate snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy heavy snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Heavy snow') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Ice pelletes') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light rain shower') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy rain shower') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Torrential rain shower') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light sleet showers') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-sleet.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light snow showers') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy snow showers') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Light showers of ice pellets') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy showers of ice pellets') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light rain with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light rain') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy rain with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-extreme-rain.svg";
+              }
+            }
+            else if (collecterText[i] == 'Patchy light snow with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (collecterText[i] == 'Moderate or heavy snow with thunder') {
+              if (is_day[i] == 1) {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+          }
         }
       }
-
     })
     .catch(err => {
       var fetchIng = document.getElementById("fetchErr");
@@ -3485,7 +3455,12 @@ function suggestCity() {
 
   var inp = document.getElementById("searchCity").value;
 
-  
+  fetch(`https://api.api-ninjas.com/v1/city?name=${inp}&limit=30`, {
+      "method": "GET",
+      "headers": {
+        'X-Api-Key': 'iD+J6v11YMcxj+7ZBVgJWg==Yy92RR2H7vZ2NJuC',
+      },
+    })
     .then(response => {
       var first = document.getElementById('firstLine');
       var seco = document.getElementById('secondLine');
@@ -3577,8 +3552,6 @@ function displayNoneWarn() {
   var inpField = document.getElementById("searchCity");
 
   warn.classList.remove("toggleWarn");
-  // inpField.focus()
-  //inpField.value = '';
 }
 
 function enableInp() {
@@ -3599,7 +3572,6 @@ function disableInp() {
 
 const ArrowUp = document.getElementById("arrowUp");
 const rootElem = document.documentElement;
-// var stick = up.offsetTop;
 
 window.onscroll = function myfunc() {
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -3645,79 +3617,4 @@ function checkInt() {
       divDis.classList.add("toggleNet");
     }
   }, 3000)
-}
-
-
-
-function runMath() {
-  var stickyRain = document.querySelectorAll(".willItRain-s");
-  var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
-
-  let stickyPos = -stickyRain[0].getBoundingClientRect().left;
-  let stickyProg = (stickyPos / (stickyRain[0].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  //  console.log(stickyProg);
-
-  if (stickyProg > 2) {
-    stickyRainPos[0].classList.add('stickyClass');
-  }
-  else {
-    stickyRainPos[0].classList.remove('stickyClass');
-  }
-
-  let stickyPosTwo = -stickyRain[1].getBoundingClientRect().left;
-  let stickyProgTwo = (stickyPosTwo / (stickyRain[1].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  if (stickyProgTwo > 2) {
-    stickyRainPos[1].classList.add('stickyClass');
-  }
-  else {
-    stickyRainPos[1].classList.remove('stickyClass');
-  }
-
-  let stickyPosThi = -stickyRain[2].getBoundingClientRect().left;
-  let stickyProgThi = (stickyPosThi / (stickyRain[2].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  if (stickyProgThi > 2) {
-    stickyRainPos[2].classList.add('stickyClass');
-  }
-  else {
-    stickyRainPos[2].classList.remove('stickyClass');
-  }
-
-  var stickySnow = document.querySelectorAll(".willItRain-s");
-  var stickyRainPos = document.querySelectorAll('.toolTipRainOne')
-
-  let stickyPosA = -stickySnow[3].getBoundingClientRect().left;
-  let stickyProgSnow = (stickyPosA / (stickySnow[3].getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-  //  console.log(stickyProg);
-
-  if (stickyProgSnow > 2) {
-    stickyRainPos[3].classList.add('stickyClass');
-  }
-  else {
-    stickyRainPos[3].classList.remove('stickyClass');
-  }
-
-
-
-
-  let tFourCast = document.getElementById("willFore");
-
-  let stickyCard = -tFourCast.getBoundingClientRect().left;
-  let stickyProgCard = (stickyCard / (tFourCast.getBoundingClientRect().width - document.documentElement.clientWidth)) * 100 - 2;
-
-
-  let toTogg = document.getElementById("toToggCard");
-  let tFourText = document.getElementById("toToggText");
-
-  if (stickyProgCard > 2) {
-    toTogg.classList.add('twentyFourTagTog');
-    //  tFourText.classList.add('textTFtog');
-  }
-  else {
-    toTogg.classList.remove('twentyFourTagTog');
-    // tFourText.classList.remove('textTFtog');
-  }
 }
