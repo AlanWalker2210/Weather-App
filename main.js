@@ -713,7 +713,7 @@ locBtn.addEventListener("click", () => {
             var foreCastd1Inf = new Array();
             foreCastd1Inf[i] = data.forecast.forecastday[0].hour[i].temp_f;
             let tempFahCol = document.querySelectorAll('.tempQueryMain');
-            tempFahCol[i].innerHTML = foreCastd1[i] + "°-" + foreCastd1Inf[i] + "°F";
+            tempFahCol[i].innerHTML = foreCastd1[i] + "°C" + foreCastd1Inf[i] + "°F";
 
             var rainTodayArr = new Array();
             rainTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_rain;
@@ -2417,24 +2417,411 @@ btn.addEventListener('click', () => {
         foreCastd1[i] = data.forecast.forecastday[0].hour[i].temp_c;
         var foreCastd1Inf = new Array();
         foreCastd1Inf[i] = data.forecast.forecastday[0].hour[i].temp_f;
-
         let tempFahCol = document.querySelectorAll('.tempQueryMain');
         tempFahCol[i].innerHTML = foreCastd1[i] + "°C" + " | " + foreCastd1Inf[i] + "°F";
 
         let rainTodayArr = new Array();
         let rainFeatArrToday = document.querySelectorAll('.rainFaetToday');
-
-
         rainTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_rain;
-
         rainFeatArrToday[i].innerHTML = rainTodayArr[i] + "%";
+
         let snowTodayArr = new Array();
         let snowRender = document.querySelectorAll('.snowFaetToday');
-
         snowTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_snow;
-
         snowRender[i].innerHTML = snowTodayArr[i] + "%";
 
+        let cloudToday = new Array();
+        cloudToday[i] = data.forecast.forecastday[0].hour[i].cloud;
+        let cloudTodayRend = document.querySelectorAll('.cloudtxtmain');
+
+        cloudTodayRend[i].innerHTML = cloudToday[i] + "%";
+      }
+
+
+      for (var i = 0; i < 24; i++) {
+        let condRender = new Array();
+        condRender[i] = data.forecast.forecastday[0].hour[i].condition.text;
+        let condToday = document.querySelectorAll('.tempCondForeMain');
+        condToday[i].innerHTML = condRender[i];
+
+        let imageSrcMain = document.querySelectorAll('.letClassMain');
+
+        if (condRender[i] == 'Sunny' || condRender[i] == 'Clear') {
+          if (is_day[i] == 1) {
+            letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
+          }
+        }
+        else if (condRender[i] == 'Partly cloudy') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night.svg";
+          }
+        }
+        else if (condRender[i] == 'Cloudy') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+          }
+        }
+        else if (condRender[i] == 'Overcast') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg";
+          }
+        }
+        else if (condRender[i] == 'Mist') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy rain possible') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy snow possible') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy sleet possible') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy freezing drizzle possible') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+        }
+        else if (condRender[i] == 'Blowing snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Thundery outbreaks possible') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+          }
+        }
+        else if (condRender[i] == 'Blizzard') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-hail.svg";
+          }
+        }
+        else if (condRender[i] == 'Fog') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+          }
+        }
+        else if (condRender[i] == 'Freezing fog') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy light drizzle') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+        }
+        else if (condRender[i] == 'Light drizzle') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+        }
+        else if (condRender[i] == 'Freezing drizzle') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+        }
+        else if (condRender[i] == 'Heavy freezing drizzle') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+          }
+        }
+        else if (condRender[i] == 'Light rain') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate rain at times') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate rain') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Heavy rain at times') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Heavy rain') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Light freezing rain') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy freezing rain') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+          }
+        }
+        else if (condRender[i] == 'Light sleet') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy sleet') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy light snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Light snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy moderate snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy heavy snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Heavy snow') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Ice pelletes') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+          }
+        }
+        else if (condRender[i] == 'Light rain shower') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy rain shower') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Torrential rain shower') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Light sleet showers') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-sleet.svg";
+          }
+        }
+        else if (condRender[i] == 'Light snow showers') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy snow showers') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Light showers of ice pellets') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy showers of ice pellets') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy light rain with thunder') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy light rain') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy rain with thunder') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-extreme-rain.svg";
+          }
+        }
+        else if (condRender[i] == 'Patchy light snow with thunder') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+        }
+        else if (condRender[i] == 'Moderate or heavy snow with thunder') {
+          if (is_day[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+          else {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+          }
+        }
       }
 
 

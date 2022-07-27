@@ -498,7 +498,7 @@ a {
 .fahAndHum,
 .celCur {
   width: 100%;
-  height: 50px;
+  height: 55px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -507,7 +507,7 @@ a {
 .fahDiv,
 .humDiv {
   width: 48%;
-  height: 40px;
+  height: 38px;
   background: #0000007A;
   border-radius: 10px;
   border: 0.0001px solid #ABABABE0;
@@ -520,7 +520,7 @@ a {
 .fahIcon {
   width: 35px;
   height: 35px;
-  margin: 7px 3px 0 0;
+  margin: 4px 3px 0 0;
   background: #000;
   border-radius: 10px;
 }
@@ -545,27 +545,6 @@ a {
 .celsiusUnit {
   font-size: 10px;
 }
-
-/*CHART MAIN SECTION [TO ALIGN SUB SECTIONS]*/
-.chartMainSection {
-  position: relative;
-  left: 2.5%;
-  width: 95%;
-  height: 240px;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  overflow-x: scroll;
-  border-radius: 5px;
-  animation: scaleIn 1s linear;
-}
-
-/*OVERFLOWING X ON CHART TO CREATE A SCROLLABLE CHART*/
-.chartSubSection {
-  position: absolute;
-  overflow-x: scroll;
-}
-
 /*ALERT MAIN SECTION [TO ALIGN SUB SECTION] */
 .alertMainSection {
   position: relative;
@@ -1355,8 +1334,8 @@ a {
   width: 100%;
   height: 90px;
   overflow: scroll;
-  display: flex;
-  align-items: center;
+ /* display: flex;
+  align-items: ;*/
   color: #fff;
   position: relative;
   margin-bottom: -15px;
@@ -1375,6 +1354,7 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 0 0 0 0px;
 }
 
 .divOne {
@@ -1618,7 +1598,21 @@ a {
   text-align: center;
   margin: 0 0 0 -10px;
 }
-
+.twentyFourTag {
+  width: 130px;
+  height: 23px;
+  background: #1A1A1AF0;
+  position: sticky;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+.toolTipRainOne {
+  position: sticky;
+  width: 120px;
+}
 
 .imgClock {
   width: 100%;
