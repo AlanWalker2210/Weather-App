@@ -3849,6 +3849,8 @@ function suggestCity() {
       },
     })
     .then(response => {
+   //   console.log(response)
+
       var first = document.getElementById('firstLine');
       var seco = document.getElementById('secondLine');
       var thi = document.getElementById('thirdLine');
@@ -3868,6 +3870,7 @@ function suggestCity() {
       return response.json()
     })
     .then(data => {
+   //   console.log(data)
 
       var cityName = new Array();
 
@@ -3930,7 +3933,7 @@ function suggestCity() {
 
     })
     .catch(err => {
-      console.log(err)
+     // console.log(err)
     });
 }
 

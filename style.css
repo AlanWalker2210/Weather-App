@@ -25,6 +25,7 @@
 /*APPLYING LOCAL FONT TO ALL ELEMENTS IN BODY*/
 body {
   font-family: 'Open sans';
+  font-size: 0.9rem;
 }
 
 .mainBody {
@@ -568,7 +569,69 @@ a {
   border-radius: 5px;
   overflow: hidden;
 }
-
+.alertTestSecM {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.alertTestSecS {
+  width: 95%;
+  height: 170px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 5px;
+}
+.warnImg {
+  width: 30px;
+  height: 30px;
+}
+.alertFirstLine {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+}
+.alertIcon {
+  width: 80px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 10px;
+  border: 1px solid #797979E3;
+  border-radius: 20px;
+}
+.subBoxWarnHead {
+  width: 80%;
+  height: 25px;
+  overflow: scroll;
+}
+.mainBoxWarnHead {
+  width: 160%;
+  height: 25px;
+  border-radius: 20px;
+  display : flex;
+  align-items: center;
+  animation: scrollTxt 8s linear infinite;
+}
+@keyframes scrollTxt {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(0);
+  }
+/*  40% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(0);
+  }*/
+  100% {
+    transform: translateX(-80%);
+  }
+}
 /*POSITION AND FONT-SIZE FOR WARNING ICON*/
 
 
@@ -581,6 +644,7 @@ a {
   text-align: center;
   width: 100%;
 }
+
 
 /*CREATE A OVERFLOWING PLACES DIV*/
 .alertPlace {
