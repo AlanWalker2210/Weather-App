@@ -592,6 +592,7 @@ a {
   height: 30px;
   display: flex;
   align-items: flex-end;
+  border-bottom: .1px solid #797979E3;
 }
 .alertIcon {
   width: 80px;
@@ -605,7 +606,7 @@ a {
 .subBoxWarnHead {
   width: 80%;
   height: 25px;
-  overflow: scroll;
+  overflow: hidden;
 }
 .mainBoxWarnHead {
   width: 160%;
@@ -622,15 +623,22 @@ a {
   20% {
     transform: translateX(0);
   }
-/*  40% {
+  30% {
     transform: translateX(0);
   }
-  60% {
+/*  60% {
     transform: translateX(0);
   }*/
   100% {
     transform: translateX(-80%);
   }
+}
+.alertDescBox {
+  width: 90%;
+  height: 140px;
+  margin: 0 0 0 15px;
+  color: #fff;
+  overflow: scroll;
 }
 /*POSITION AND FONT-SIZE FOR WARNING ICON*/
 
@@ -1575,7 +1583,7 @@ a {
 }
 
 .twentyFourZero-s {
-  width: 2000%;
+  width: 2100%;
   height: 110px;
   display: flex;
   justify-content: space-around;
@@ -1610,9 +1618,8 @@ a {
 }
 
 .theDataHolder {
-  width: 180px;
+  width: 195px;
   height: 80px;
-  font-size: 1rem;
 }
 
 .letClass {

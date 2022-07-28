@@ -92,7 +92,7 @@
   </div>
   <div class="searchSection">
     <div class="inpSection">
-      <input type="text" placeholder="Enter city name" id="searchCity" class="inpSelf" onkeyup="suggestCity()" onkeydown="suggestCity()" onfocus="enableInp()" value="Ahmedabad" onblur="disableInp()">
+      <input type="text" placeholder="Enter city name" id="searchCity" class="inpSelf" onkeyup="suggestCity()" onkeydown="suggestCity()" onfocus="enableInp()" value="Denver" onblur="disableInp()">
     </div>
     <div class="searchIcon" id="searchCitybtn">
       <i class="fa fa-search" id="sBtn"></i>
@@ -1008,14 +1008,21 @@
             <div><text>Alerts</text></div>
           </div>
           <div class="subBoxWarnHead">
-            <div class="mainBoxWarnHead">
-              Lor3m upon us it is used in TV and is responsible 
+            <div class="mainBoxWarnHead" id="warnHead">
             </div>
           </div>
         </div>
+        <div class="alertDescBox">
+          <text class="noAlert" id="noAlert">There are no alerts in your area.</text>
+          <text style="color: red; font-style: italic;font-weight: bold;" class="alertHide">Alert Category : </text><text id="category"></text><br><br>
+          <text style="color: red; font-style: italic;font-weight: bold;" class="alertHide">Alert Description : </text>
+          <text id="alertDescM"></text><br><br>
+          <text style="color: red; font-style: italic;font-weight: bold;" class="alertHide">Alert Effective: </text> <text id="alertEffective"></text><br><br>
+          <text style="color: red; font-style: italic;font-weight: bold;" class="alertHide">Alert Expires: </text> <text id="alertExpires"></text>
+        </div>
       </div>
     </div>
-  <!--  <div class="alertMainSection">
+    <!--  <div class="alertMainSection">
       <div class="alertSubSection">
         <div class="alertText">
           <text class="alertTitle">Alert</text>

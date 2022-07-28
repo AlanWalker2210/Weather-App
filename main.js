@@ -1892,13 +1892,39 @@ btn.addEventListener('click', () => {
       lastUpdate.innerHTML = "Last updated" + ' - ' + lstUpdate;
 
       if (arraySize.length > 0) {
+        noAlert.style.display = 'none';
         var alertDesc = data.alerts.alert[0].desc;
         var alertPos = data.alerts.alert[0].areas;
-        placeAlert.innerHTML = alertPos;
-        alertText.innerHTML = alertDesc;
+        let headLineFrom = data.alerts.alert[0].headline
+        warnHead.innerHTML = headLineFrom;
+        let descFull = data.alerts.alert[0].desc;
+        alertDescM.innerHTML = descFull;
+        let alertCategory = data.alerts.alert[0].category;
+        category.innerHTML = alertCategory;
+        let alertEfx = data.alerts.alert[0].effective;
+        alertEffective.innerHTML = alertEfx;
+        let alertExp = data.alerts.alert[0].expires;
+        alertExpires.innerHTML = alertExp;
+
+        let alertNone = document.querySelectorAll('.alertHide');
+
+        for (var i = 0; i < alertNone.length; i++) {
+          alertNone[i].style.display = 'block';
+        }
       }
       else {
-        alertText.innerHTML = "No alerts in your area"
+        warnHead.innerHTML = '';
+        alertDescM.innerHTML = '';
+        category.innerHTML = '';
+        alertEffective.innerHTML = '';
+        alertExpires.innerHTML = '';
+
+        noAlert.style.display = 'block';
+        let alertNone = document.querySelectorAll('.alertHide');
+
+        for (var i = 0; i < alertNone.length; i++) {
+          alertNone[i].style.display = 'none';
+        }
       }
 
       var visInKm = data.current.vis_km;
@@ -2443,19 +2469,21 @@ btn.addEventListener('click', () => {
         condRender[i] = data.forecast.forecastday[0].hour[i].condition.text;
         let condToday = document.querySelectorAll('.tempCondForeMain');
         condToday[i].innerHTML = condRender[i];
+        let is_days = new Array()
+        is_days[i] = data.forecast.forecastday[0].hour[i].is_day;
 
         let imageSrcMain = document.querySelectorAll('.letClassMain');
 
         if (condRender[i] == 'Sunny' || condRender[i] == 'Clear') {
-          if (is_day[i] == 1) {
-            letImageArray[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+          if (is_days[i] == 1) {
+            imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
           }
           else {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
           }
         }
         else if (condRender[i] == 'Partly cloudy') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
           }
           else {
@@ -2463,7 +2491,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Cloudy') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
           }
           else {
@@ -2471,7 +2499,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Overcast') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
           }
           else {
@@ -2479,7 +2507,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Mist') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
           }
           else {
@@ -2487,7 +2515,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy rain possible') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
           }
           else {
@@ -2495,7 +2523,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy snow possible') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
           }
           else {
@@ -2503,7 +2531,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy sleet possible') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
           }
           else {
@@ -2511,7 +2539,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy freezing drizzle possible') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
           }
           else {
@@ -2519,7 +2547,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Blowing snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
           }
           else {
@@ -2527,7 +2555,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Thundery outbreaks possible') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
           }
           else {
@@ -2535,7 +2563,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Blizzard') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
           }
           else {
@@ -2543,7 +2571,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Fog') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
           }
           else {
@@ -2551,7 +2579,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Freezing fog') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
           }
           else {
@@ -2559,7 +2587,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy light drizzle') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
           }
           else {
@@ -2567,7 +2595,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light drizzle') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
           }
           else {
@@ -2575,7 +2603,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Freezing drizzle') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
           }
           else {
@@ -2583,7 +2611,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Heavy freezing drizzle') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
           }
           else {
@@ -2591,7 +2619,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light rain') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
           }
           else {
@@ -2599,7 +2627,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate rain at times') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
           }
           else {
@@ -2607,7 +2635,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate rain') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
           }
           else {
@@ -2615,7 +2643,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Heavy rain at times') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
           }
           else {
@@ -2623,7 +2651,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Heavy rain') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
           }
           else {
@@ -2631,7 +2659,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light freezing rain') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
           }
           else {
@@ -2639,7 +2667,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy freezing rain') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
           }
           else {
@@ -2647,7 +2675,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light sleet') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
           }
           else {
@@ -2655,7 +2683,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy sleet') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
           }
           else {
@@ -2663,7 +2691,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy light snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
           }
           else {
@@ -2671,7 +2699,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
           }
           else {
@@ -2679,7 +2707,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy moderate snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
           }
           else {
@@ -2687,7 +2715,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
           }
           else {
@@ -2695,7 +2723,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy heavy snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
           }
           else {
@@ -2703,7 +2731,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Heavy snow') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
           }
           else {
@@ -2711,7 +2739,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Ice pelletes') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
           }
           else {
@@ -2719,7 +2747,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light rain shower') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
           }
           else {
@@ -2727,7 +2755,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy rain shower') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
           }
           else {
@@ -2735,7 +2763,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Torrential rain shower') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
           }
           else {
@@ -2743,7 +2771,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light sleet showers') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
           }
           else {
@@ -2751,7 +2779,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light snow showers') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
           }
           else {
@@ -2759,7 +2787,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy snow showers') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
           }
           else {
@@ -2767,7 +2795,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Light showers of ice pellets') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
           }
           else {
@@ -2775,7 +2803,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy showers of ice pellets') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
           }
           else {
@@ -2783,7 +2811,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy light rain with thunder') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
           }
           else {
@@ -2791,7 +2819,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy light rain') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
           }
           else {
@@ -2799,7 +2827,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy rain with thunder') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
           }
           else {
@@ -2807,7 +2835,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Patchy light snow with thunder') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
           }
           else {
@@ -2815,7 +2843,7 @@ btn.addEventListener('click', () => {
           }
         }
         else if (condRender[i] == 'Moderate or heavy snow with thunder') {
-          if (is_day[i] == 1) {
+          if (is_days[i] == 1) {
             imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
           }
           else {
@@ -3849,7 +3877,7 @@ function suggestCity() {
       },
     })
     .then(response => {
-   //   console.log(response)
+      //   console.log(response)
 
       var first = document.getElementById('firstLine');
       var seco = document.getElementById('secondLine');
@@ -3870,7 +3898,7 @@ function suggestCity() {
       return response.json()
     })
     .then(data => {
-   //   console.log(data)
+      //   console.log(data)
 
       var cityName = new Array();
 
@@ -3933,7 +3961,7 @@ function suggestCity() {
 
     })
     .catch(err => {
-     // console.log(err)
+      // console.log(err)
     });
 }
 
@@ -3949,7 +3977,7 @@ function enableInp() {
   var subBox = document.getElementById("suggestionSubBox");
 
   mainBox.classList.add("pointer");
-  subBox.classList.add("pointer")
+  subBox.classList.add("pointer");
 }
 
 function disableInp() {
