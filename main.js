@@ -1849,12 +1849,12 @@ btn.addEventListener('click', () => {
       pm10d = Math.floor(pm10d);
       syn = Math.floor(syn)
 
-      aqCarbon.innerHTML = "Carbon dioxide" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + aqC;
-      aqOxygen.innerHTML = "Ozone" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + aqO;
-      aqParticleMin.innerHTML = "Particle matter2.5" + "&nbsp;" + " - " + pm2;
-      aqParticleMax.innerHTML = "Particle matter10" + "&nbsp;&nbsp;" + " - " + pm10d;
-      aqSulfur.innerHTML = "Sulfur dioxide" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + syn;
-      aqNitrogen.innerHTML = "Nitrogen dioxide" + "&nbsp;&nbsp;&nbsp;" + " - " + no2;
+      aqCarbon.innerHTML = aqC;
+      aqOxygen.innerHTML = aqO;
+      aqParticleMin.innerHTML = pm2;
+      aqParticleMax.innerHTML = pm10d;
+      aqSulfur.innerHTML = syn;
+      aqNitrogen.innerHTML = no2;
 
       var epa_index = data.current.air_quality["us-epa-index"];
 

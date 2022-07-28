@@ -5,24 +5,12 @@
   display: none;
 }
 
-/*@font-face {
-  font-family: 'Open sans';
-  src: url("/fonts/JosefinSans-Regular.ttf");
-}*/
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/*LOCAL FONT LINKING*/
-/* @font-face {
-    font-family: 'Open sans';
-    src: url("Poppins-regular.ttf");)
-  }*/
-
-/*APPLYING LOCAL FONT TO ALL ELEMENTS IN BODY*/
 body {
   font-family: 'Open sans';
   font-size: 0.9rem;
@@ -92,7 +80,7 @@ body {
     transform: scale(0.5);
   }
   50% {
-    background: #1945A6;
+    background: #10D8B2;
     transform: scale(1.2);
   }
   100% {
@@ -122,10 +110,10 @@ body {
   transition: 2s;
 }
 
-.txt {
+/*.txt {
   position: absolute;
   color: #fff;
-}
+}*/
 
 .bar {
   position: fixed;
@@ -681,7 +669,7 @@ a {
 .windMainSection {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 120px;
   margin: 0 0 10px 0;
   display: flex;
   justify-content: center;
@@ -692,7 +680,7 @@ a {
 /*DESIGNING CARD FOR WIND SECTION*/
 .windSubSection {
   position: relative;
-  height: 140px;
+  height: 110px;
   width: 95%;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
@@ -716,7 +704,7 @@ a {
 .aqiMainSection {
   position: relative;
   width: 100%;
-  height: 140px;
+  height: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -730,13 +718,31 @@ a {
   position: relative;
   top: 0;
   width: 95%;
-  height: 140px;
+  height: 110px;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   display: flex;
   align-items: center;
 }
-
+.longLine {
+  width: 150px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+}
+.letTxtLeft {
+  width: 120px;
+}
+.widthDash {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+}
+.fixAqi {
+  width: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
 /*ICON OF AIR QUALITY INDEX (US_EPA)*/
 .aqImg {
   position: relative;
