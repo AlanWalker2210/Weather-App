@@ -606,10 +606,11 @@ a {
   align-items: center;
 }
 .longLine {
-  width: 150px;
+  width: 200px;
   height: 15px;
   display: flex;
   justify-content: center;
+  background: #f00;
 }
 .letTxtLeft {
   width: 120px;
@@ -871,123 +872,7 @@ a {
   background: rgba(0,0,0,0.7);
   border-radius: 5px;
 }
-/* ASTRO MAIN DIV*/
-/*.astroMain {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px 0 15px 0;
-  animation: scaleIn 0.8s linear;
-  color: #fff;
-}
 
-/* SUB DIV ASTRO
-.astroSub {
-  position: relative;
-  width: 95%;
-  height: 150px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-}
-
-/*MOON IMG AND TEXT FOR MOON CONDITION
-.moonSetImg,
-.moonRiseImg,
-.moonIllumination,
-.sunRise,
-.sunSet {
-  width: 40px;
-  height: 40px;
-  background: #000;
-  border-radius: 50%;
-  position: absolute;
-}
-
-/*MOON _PHASE ICON
-.moonIllumination {
-  left: 2%;
-  top: 1%;
-}
-
-/*MOON RISE ICON
-.moonRiseImg {
-  top: 35%;
-  left: 2%;
-}
-
-/*MOON SET ICON
-.moonSetImg {
-  top: 70%;
-  left: 2%;
-}
-
-/*SUN RISE ICON
-.sunRise {
-  left: 4%;
-}
-
-/*SUN SET ICON
-.sunSet {
-  top: 50%;
-  left: 4%;
-}
-
-/* TEXT 
-.moonSetText,
-.moonRiseText,
-.moonCondition {
-  position: absolute;
-  top: 6%;
-  left: 15%;
-}
-
-/* TEXT 
-.moonRiseText {
-  top: 40%;
-}
-
-/* TEXT 
-.moonSetText {
-  top: 77%;
-}
-
-/* ALIGN & CENTRE ITEMS FOR ASTRO SUN SUB SECTION
-
-.astroSunMain {
-  width: 100%;
-  height: 100px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-/*DESIGNING CARD FOR ASTRO SUN SECTION
-
-.astroSunSub {
-  width: 95%;
-  height: 95px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-}
-
-/* TEXT 
-.sunSetText,
-.sunRiseText {
-  position: absolute;
-  left: 16.5%;
-  top: 10%;
-}
-
-/*TEXT
-.sunSetText {
-  top: 58%;
-}
-*/
 /* ALIGN & CENTRE ITEMS FOR UOARROW SUB SECTION*/
 .upArrowMain {
   position: fixed;
@@ -1019,15 +904,7 @@ a {
   margin: 0 0 0 0;
 }
 
-/* ANIMATION FOR ARROWUP ICON*/
-/* @keyframes arrowJump {
-   0% {
-     transform: translateX(100px);
-   }
-   100% {
-     transform: translateX(0);
-   }
- }*/
+
 .arrowMoreMain {
   position: relative;
   width: 100%;

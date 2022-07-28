@@ -112,11 +112,11 @@ locBtn.addEventListener("click", () => {
           //TEMP DISPLAY
           var tempN = Math.floor(tempN);
           var condition = data.current.condition.text;
-          fahText.innerHTML = "Fahrenheit" + " : " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
-          humiText.innerHTML = "Humidity" + " - " + humPer + "%";
-          feelsCelText.innerHTML = "Feels like" + " : " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
-          feelsFahText.innerHTML = "Feels like" + " : " + feelsFah + `<sup class="celsiusUnit">°F</sup>`;
-          feelsCelText.innerHTML = "Feels like" + " : " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
+          fahText.innerHTML = "Fahrenheit" + ": " + fahTemp + `<sup class="celsiusUnit">°F</sup>`;
+          humiText.innerHTML = "Humidity" + ": " + humPer + "%";
+          feelsCelText.innerHTML = "Feels like" + ": " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
+          feelsFahText.innerHTML = "Feels like" + ": " + feelsFah + `<sup class="celsiusUnit">°F</sup>`;
+          feelsCelText.innerHTML = "Feels like" + ": " + feelsCel + `<sup class="celsiusUnit">°C</sup>`;
 
           temp.innerHTML = tempN + `<sup class="celsiusUnit">°C</sup>`;
           cond.innerHTML = condition;
@@ -135,8 +135,6 @@ locBtn.addEventListener("click", () => {
           wind_m.innerHTML = "Wind speed" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + windMiles + " " + "MPH";
 
           //Getting localHours For Day Night Icon 
-          var a = new Date();
-          let h = a.getHours();
 
           //GETTING AQ DATA 
           var aqC = data.current.air_quality.co;
@@ -147,19 +145,19 @@ locBtn.addEventListener("click", () => {
           var syn = data.current.air_quality.so2;
 
 
-          aqC = Math.floor(aqC);
-          aqO = Math.floor(aqO);
-          no2 = Math.floor(no2);
-          pm2 = Math.floor(pm2);
-          pm10d = Math.floor(pm10d);
-          syn = Math.floor(syn)
+          aqC = Math.round(aqC);
+          aqO = Math.round(aqO);
+          no2 = Math.round(no2);
+          pm2 = Math.round(pm2);
+          pm10d = Math.round(pm10d);
+          syn = Math.round(syn)
 
-          aqCarbon.innerHTML = "Carbon dioxide" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + aqC;
-          aqOxygen.innerHTML = "Ozone" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + aqO;
-          aqParticleMin.innerHTML = "Particle matter2.5" + "&nbsp;" + " - " + pm2;
-          aqParticleMax.innerHTML = "Particle matter10" + "&nbsp;&nbsp;&nbsp;" + " - " + pm10d;
-          aqSulfur.innerHTML = "Sulfur dioxide" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + syn;
-          aqNitrogen.innerHTML = "Nitrogen dioxide" + "&nbsp;&nbsp;&nbsp;" + " - " + no2;
+          aqCarbon.innerHTML = aqC;
+          aqOxygen.innerHTML = aqO;
+          aqParticleMin.innerHTML = pm2;
+          aqParticleMax.innerHTML = pm10d;
+          aqSulfur.innerHTML = syn;
+          aqNitrogen.innerHTML = no2;
 
           var epa_index = data.current.air_quality["us-epa-index"];
 
@@ -193,46 +191,48 @@ locBtn.addEventListener("click", () => {
           else if (epa_index == 9) {
             aqOfIndex.src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-beaufort-9.svg"
           }
-          //Moon info
+          var sunRiseT = data.forecast.forecastday[0].astro.sunrise;
+          var sunSetT = data.forecast.forecastday[0].astro.sunset;
+
+          sunRise.innerHTML = sunRiseT;
+          sunSet.innerHTML = sunSetT;
+
+          //Moon Crescent info {
+
           var moonCres = data.forecast.forecastday[0].astro.moon_phase;
           var moonRiseT = data.forecast.forecastday[0].astro.moonrise;
           var moonSetT = data.forecast.forecastday[0].astro.moonset;
 
-          moonCond.innerHTML = "Moon phase" + " - " + moonCres;
-          moonRise.innerHTML = "Moon rise" + " - " + moonRiseT;
-          moonSet.innerHTML = "Moon set" + " - " + moonSetT;
+          var moonCond = document.getElementById("moonCond");
 
-          if (moonCond.innerHTML == "Moon phase - New Moon") {
+          moonCond.innerHTML = moonCres;
+          moonRise.innerHTML = moonRiseT;
+          moonSet.innerHTML = moonSetT;
+
+          if (moonCond.innerHTML == "New Moon") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - Waxing Crescent") {
+          else if (moonCond.innerHTML == "Waxing Crescent") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - First Quarter") {
+          else if (moonCond.innerHTML == "First Quarter") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-first-quarter.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - Waxing Gibbous") {
+          else if (moonCond.innerHTML == "Waxing Gibbous") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-gibbous.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - Full Moon") {
+          else if (moonCond.innerHTML == "Full Moon") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - Waning Gibbous") {
+          else if (moonCond.innerHTML == "Waning Gibbous") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-gibbous.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - Last Quarter") {
+          else if (moonCond.innerHTML == "Last Quarter") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-last-quarter.svg"
           }
-          else if (moonCond.innerHTML == "Moon phase - Waning Crescent") {
+          else if (moonCond.innerHTML == "Waning Crescent") {
             moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-crescent.svg"
           }
-
-          //Sun info 
-          var sunRiseT = data.forecast.forecastday[0].astro.sunrise;
-          var sunSetT = data.forecast.forecastday[0].astro.sunset;
-
-          sunRise.innerHTML = "Sun rise" + " - " + sunRiseT;
-          sunSet.innerHTML = "Sun set" + " - " + sunSetT;
 
           //Vis Info 
           var visInKm = data.current.vis_km;
@@ -247,13 +247,39 @@ locBtn.addEventListener("click", () => {
           lastUpdate.innerHTML = "Last updated" + ' - ' + lstUpdate;
 
           if (arraySize.length > 0) {
+            noAlert.style.display = 'none';
             var alertDesc = data.alerts.alert[0].desc;
             var alertPos = data.alerts.alert[0].areas;
-            alertText.innerHTML = alertDesc;
-            placeAlert.innerHTML = alertPos;
+            let headLineFrom = data.alerts.alert[0].headline
+            warnHead.innerHTML = headLineFrom;
+            let descFull = data.alerts.alert[0].desc;
+            alertDescM.innerHTML = descFull;
+            let alertCategory = data.alerts.alert[0].category;
+            category.innerHTML = alertCategory;
+            let alertEfx = data.alerts.alert[0].effective;
+            alertEffective.innerHTML = alertEfx;
+            let alertExp = data.alerts.alert[0].expires;
+            alertExpires.innerHTML = alertExp;
+
+            let alertNone = document.querySelectorAll('.alertHide');
+
+            for (var i = 0; i < alertNone.length; i++) {
+              alertNone[i].style.display = 'block';
+            }
           }
           else {
-            alertText.innerHTML = "No alerts in your area"
+            warnHead.innerHTML = '';
+            alertDescM.innerHTML = '';
+            category.innerHTML = '';
+            alertEffective.innerHTML = '';
+            alertExpires.innerHTML = '';
+
+            noAlert.style.display = 'block';
+            let alertNone = document.querySelectorAll('.alertHide');
+
+            for (var i = 0; i < alertNone.length; i++) {
+              alertNone[i].style.display = 'none';
+            }
           }
           //Aq info
           var aqCo2 = data.current.air_quality.co;
@@ -764,6 +790,395 @@ locBtn.addEventListener("click", () => {
 
           let rainRenderMulp = document.querySelectorAll('.rainFaetNext');
           let snowRenderMulp = document.querySelectorAll('.snowRenderMulp');
+
+          for (var i = 0; i < 24; i++) {
+            let condRender = new Array();
+            condRender[i] = data.forecast.forecastday[0].hour[i].condition.text;
+            let condToday = document.querySelectorAll('.tempCondForeMain');
+            condToday[i].innerHTML = condRender[i];
+            let is_days = new Array()
+            is_days[i] = data.forecast.forecastday[0].hour[i].is_day;
+
+            let imageSrcMain = document.querySelectorAll('.letClassMain');
+
+            if (condRender[i] == 'Sunny' || condRender[i] == 'Clear') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-day.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/clear-night.svg";
+              }
+            }
+            else if (condRender[i] == 'Partly cloudy') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-day.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/partly-cloudy-night.svg";
+              }
+            }
+            else if (condRender[i] == 'Cloudy') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/cloudy.svg";
+              }
+            }
+            else if (condRender[i] == 'Overcast') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night.svg";
+              }
+            }
+            else if (condRender[i] == 'Mist') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/mist.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy rain possible') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy snow possible') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy sleet possible') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/sleet.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy freezing drizzle possible') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (condRender[i] == 'Blowing snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/wind-snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Thundery outbreaks possible') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms.svg";
+              }
+            }
+            else if (condRender[i] == 'Blizzard') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-hail.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-hail.svg";
+              }
+            }
+            else if (condRender[i] == 'Fog') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+              }
+            }
+            else if (condRender[i] == 'Freezing fog') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-day.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/fog-night.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy light drizzle') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (condRender[i] == 'Light drizzle') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (condRender[i] == 'Freezing drizzle') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (condRender[i] == 'Heavy freezing drizzle') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/drizzle.svg";
+              }
+            }
+            else if (condRender[i] == 'Light rain') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate rain at times') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate rain') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Heavy rain at times') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Heavy rain') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Light freezing rain') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-night.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy freezing rain') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (condRender[i] == 'Light sleet') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy sleet') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-sleet.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-sleet.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy light snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Light snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy moderate snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy heavy snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Heavy snow') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Ice pelletes') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (condRender[i] == 'Light rain shower') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy rain shower') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-night-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Torrential rain shower') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-day-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/extreme-rain-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Light sleet showers') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-sleet.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-sleet.svg";
+              }
+            }
+            else if (condRender[i] == 'Light snow showers') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy snow showers') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Light showers of ice pellets') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy showers of ice pellets') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snowflake.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy light rain with thunder') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-overcast-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-overcast-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy light rain') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-day-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/overcast-night-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy rain with thunder') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-day-extreme-rain.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/thunderstorms-night-extreme-rain.svg";
+              }
+            }
+            else if (condRender[i] == 'Patchy light snow with thunder') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+            else if (condRender[i] == 'Moderate or heavy snow with thunder') {
+              if (is_days[i] == 1) {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+              else {
+                imageSrcMain[i].src = "/weather-icons-2.0.0/design/fill/animation-ready/snow.svg";
+              }
+            }
+          }
+
 
           let getId = document.getElementById('getId');
 
@@ -1842,12 +2257,12 @@ btn.addEventListener('click', () => {
       var pm10d = data.current.air_quality.pm10;
       var syn = data.current.air_quality.so2;
 
-      aqC = Math.floor(aqC);
-      aqO = Math.floor(aqO);
-      no2 = Math.floor(no2);
-      pm2 = Math.floor(pm2);
-      pm10d = Math.floor(pm10d);
-      syn = Math.floor(syn)
+      aqC = Math.round(aqC);
+      aqO = Math.round(aqO);
+      no2 = Math.round(no2);
+      pm2 = Math.round(pm2);
+      pm10d = Math.round(pm10d);
+      syn = Math.round(syn)
 
       aqCarbon.innerHTML = aqC;
       aqOxygen.innerHTML = aqO;
@@ -2939,14 +3354,14 @@ btn.addEventListener('click', () => {
           let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
           let moonSetDec = data.forecast.forecastday[1].astro.moonset;
           let moon_phase = data.forecast.forecastday[1].astro.moon_phase;
-          
+
           sunRiseFore.innerHTML = sunRiseDec;
           sunSetFore.innerHTML = sunSetDec;
           moonRiseFore.innerHTML = moonRiseDec;
           moonSetFore.innerHTML = moonSetDec;
           moonCondFore.innerHTML = moon_phase;
-          
- 
+
+
           if (moon_phase == "New Moon") {
             moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
           }
@@ -3436,14 +3851,14 @@ btn.addEventListener('click', () => {
           let moonRiseDec = data.forecast.forecastday[2].astro.moonrise;
           let moonSetDec = data.forecast.forecastday[2].astro.moonset;
           let moon_phase = data.forecast.forecastday[2].astro.moon_phase;
-          
+
           sunRiseFore.innerHTML = sunRiseDec;
           sunSetFore.innerHTML = sunSetDec;
           moonRiseFore.innerHTML = moonRiseDec;
           moonSetFore.innerHTML = moonSetDec;
           moonCondFore.innerHTML = moon_phase;
-          
-          
+
+
           if (moon_phase == "New Moon") {
             moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
           }
