@@ -110,33 +110,6 @@ body {
   transition: 2s;
 }
 
-/*.txt {
-  position: absolute;
-  color: #fff;
-}*/
-
-.bar {
-  position: fixed;
-  width: 30%;
-  height: 2px;
-  top: 58%;
-  border: 0.5px solid #FF0101;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.barSub {
-  width: 0px;
-  height: 10px;
-  background: #FF0101;
-  animation: prog 4s cubic-bezier(1, 0, 0, 1) infinite;
-}
-
-@keyframes prog {
-  100% {
-    width: 100%;
-  }
-}
 
 /*MAIN WRAP OF BACK WALLPAPERS*/
 .mainWrap {
@@ -225,16 +198,6 @@ body {
   transform: rotate(360deg);
 }
 
-.info {
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(45deg, #394199, #453999);
-  margin: 0 0 10px 0;
-}
-
 .fa-chevron-down {
   transition: 0.5s;
 }
@@ -271,12 +234,6 @@ a {
   margin: 10px 0 10px 0;
 }
 
-.createdBy {
-  position: fixed;
-  bottom: 0;
-  padding: 0 0 0 10px;
-}
-
 .modal {
   width: 100%;
   height: 100vh;
@@ -286,7 +243,6 @@ a {
   z-index: 555;
   display: none;
 }
-
 .navStartBlock {
   position: fixed;
   top: 0;
@@ -300,7 +256,6 @@ a {
   margin-left: -260px;
   transition: 0.8s;
 }
-
 .starterBlock {
   width: 100%;
   height: 50px;
@@ -314,15 +269,12 @@ a {
   letter-spacing: 1px;
   box-shadow: .1px .1px 5px #000;
 }
-
 .navCallTogg {
   margin-left: 0;
 }
-
 .clip-txt {
   color: #000;
 }
-
 .resourceDiv {
   width: 100%;
   height: 50px;
@@ -330,14 +282,12 @@ a {
   display: flex;
   align-items: center;
 }
-
 .apiHolder {
   margin: 0px 0 0 20px;
   height: 0px;
   overflow: hidden;
   transition: 0.8s;
 }
-
 .toggC {
   height: 370px;
 }
@@ -357,16 +307,6 @@ a {
 .fa-chevron-down {
   font-size: 0.8rem;
   transition: 0.8s;
-}
-
-@keyframes backMove {
-  0% {
-    background-position: 100% 100%;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
 }
 
 /*INPUT AND BUTTON DIV*/
@@ -535,28 +475,6 @@ a {
   font-size: 10px;
 }
 /*ALERT MAIN SECTION [TO ALIGN SUB SECTION] */
-.alertMainSection {
-  position: relative;
-  width: 100%;
-  height: 170px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0 10px 0;
-  animation: scaleIn 1s linear;
-}
-
-/* DESIGNING CARD FOR ALERT SECTION*/
-.alertSubSection {
-  position: relative;
-  height: 160px;
-  background: rgba(0, 0, 0, 0.7);
-  width: 95%;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  overflow: hidden;
-}
 .alertTestSecM {
   width: 100%;
   height: 180px;
@@ -628,43 +546,6 @@ a {
   color: #fff;
   overflow: scroll;
 }
-/*POSITION AND FONT-SIZE FOR WARNING ICON*/
-
-
-/* TITLE CONTAINS (ALERT)*/
-.alertTitle {
-  position: absolute;
-  top: 0;
-  height: 20px;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-}
-
-
-/*CREATE A OVERFLOWING PLACES DIV*/
-.alertPlace {
-  position: absolute;
-  top: 12%;
-  color: #fff;
-  font-size: 15px;
-  height: 25px;
-  overflow-x: scroll;
-  width: 100%;
-  text-align: center;
-}
-
-/*STYLING & OVERFLOWING THE ALERT DESCRIPTION*/
-.alertDesk {
-  position: absolute;
-  top: 28%;
-  width: 100%;
-  height: 120px;
-  overflow: scroll;
-  color: #f00;
-  text-align: center;
-}
-
 /* ALIGN & CENTRE ITEMS FOR WIND SUB SECTION*/
 .windMainSection {
   position: relative;
@@ -945,9 +826,53 @@ a {
   z-index: 7;
   transform: translateY(0);
 }
-
+.astroOfSunM {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.astroOfSunS {
+  width: 95%;
+  height: 95px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 5px;
+}
+.defineDiv {
+  width: 100%;
+  height: 47.5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.astroImg {
+  width: 35px;
+  height: 35px;
+  background: #000;
+  margin: 0 0 0 10px;
+  border-radius: 50%;
+}
+.titleSun {
+  margin: 0 0 0 10px;
+}
+.astroOfMoonM {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.astroOfMoonS {
+  height: 142.5px;
+  width: 95%;
+  background: rgba(0,0,0,0.7);
+  border-radius: 5px;
+}
 /* ASTRO MAIN DIV*/
-.astroMain {
+/*.astroMain {
   position: relative;
   width: 100%;
   height: 150px;
@@ -959,7 +884,7 @@ a {
   color: #fff;
 }
 
-/* SUB DIV ASTRO*/
+/* SUB DIV ASTRO
 .astroSub {
   position: relative;
   width: 95%;
@@ -968,7 +893,7 @@ a {
   border-radius: 5px;
 }
 
-/*MOON IMG AND TEXT FOR MOON CONDITION*/
+/*MOON IMG AND TEXT FOR MOON CONDITION
 .moonSetImg,
 .moonRiseImg,
 .moonIllumination,
@@ -981,36 +906,36 @@ a {
   position: absolute;
 }
 
-/*MOON _PHASE ICON*/
+/*MOON _PHASE ICON
 .moonIllumination {
   left: 2%;
   top: 1%;
 }
 
-/*MOON RISE ICON*/
+/*MOON RISE ICON
 .moonRiseImg {
   top: 35%;
   left: 2%;
 }
 
-/*MOON SET ICON*/
+/*MOON SET ICON
 .moonSetImg {
   top: 70%;
   left: 2%;
 }
 
-/*SUN RISE ICON*/
+/*SUN RISE ICON
 .sunRise {
   left: 4%;
 }
 
-/*SUN SET ICON*/
+/*SUN SET ICON
 .sunSet {
   top: 50%;
   left: 4%;
 }
 
-/* TEXT */
+/* TEXT 
 .moonSetText,
 .moonRiseText,
 .moonCondition {
@@ -1019,17 +944,17 @@ a {
   left: 15%;
 }
 
-/* TEXT */
+/* TEXT 
 .moonRiseText {
   top: 40%;
 }
 
-/* TEXT */
+/* TEXT 
 .moonSetText {
   top: 77%;
 }
 
-/* ALIGN & CENTRE ITEMS FOR ASTRO SUN SUB SECTION*/
+/* ALIGN & CENTRE ITEMS FOR ASTRO SUN SUB SECTION
 
 .astroSunMain {
   width: 100%;
@@ -1041,7 +966,7 @@ a {
   color: #fff;
 }
 
-/*DESIGNING CARD FOR ASTRO SUN SECTION*/
+/*DESIGNING CARD FOR ASTRO SUN SECTION
 
 .astroSunSub {
   width: 95%;
@@ -1050,7 +975,7 @@ a {
   border-radius: 5px;
 }
 
-/* TEXT */
+/* TEXT 
 .sunSetText,
 .sunRiseText {
   position: absolute;
@@ -1058,11 +983,11 @@ a {
   top: 10%;
 }
 
-/*TEXT*/
+/*TEXT
 .sunSetText {
   top: 58%;
 }
-
+*/
 /* ALIGN & CENTRE ITEMS FOR UOARROW SUB SECTION*/
 .upArrowMain {
   position: fixed;

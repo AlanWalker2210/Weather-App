@@ -1938,8 +1938,8 @@ btn.addEventListener('click', () => {
       var sunRiseT = data.forecast.forecastday[0].astro.sunrise;
       var sunSetT = data.forecast.forecastday[0].astro.sunset;
 
-      sunRise.innerHTML = "Sun rise" + " - " + sunRiseT;
-      sunSet.innerHTML = "Sun set" + " - " + sunSetT;
+      sunRise.innerHTML = sunRiseT;
+      sunSet.innerHTML = sunSetT;
 
       //Moon Crescent info {
 
@@ -1949,32 +1949,32 @@ btn.addEventListener('click', () => {
 
       var moonCond = document.getElementById("moonCond");
 
-      moonCond.innerHTML = "Moon phase" + " - " + moonCres;
-      moonRise.innerHTML = "Moon rise" + " - " + moonRiseT;
-      moonSet.innerHTML = "Moon set" + " - " + moonSetT;
+      moonCond.innerHTML = moonCres;
+      moonRise.innerHTML = moonRiseT;
+      moonSet.innerHTML = moonSetT;
 
-      if (moonCond.innerHTML == "Moon phase - New Moon") {
+      if (moonCond.innerHTML == "New Moon") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - Waxing Crescent") {
+      else if (moonCond.innerHTML == "Waxing Crescent") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - First Quarter") {
+      else if (moonCond.innerHTML == "First Quarter") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-first-quarter.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - Waxing Gibbous") {
+      else if (moonCond.innerHTML == "Waxing Gibbous") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-gibbous.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - Full Moon") {
+      else if (moonCond.innerHTML == "Full Moon") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - Waning Gibbous") {
+      else if (moonCond.innerHTML == "Waning Gibbous") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-gibbous.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - Last Quarter") {
+      else if (moonCond.innerHTML == "Last Quarter") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-last-quarter.svg"
       }
-      else if (moonCond.innerHTML == "Moon phase - Waning Crescent") {
+      else if (moonCond.innerHTML == "Waning Crescent") {
         moonDist.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-crescent.svg"
       }
 
@@ -2934,17 +2934,43 @@ btn.addEventListener('click', () => {
           }
 
 
-          /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
-           let sunSetDec = data.forecast.forecastday[1].astro.sunset;
-           let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
-           let moonSetDec = data.forecast.forecastday[1].astro.moonset;
-
-           let lastInfo = document.querySelectorAll(".letDayInfo");
-
-           lastInfo[0].innerHTML = sunRiseDec;
-           lastInfo[1].innerHTML = sunSetDec;
-           lastInfo[2].innerHTML = moonRiseDec;
-           lastInfo[3].innerHTML = moonSetDec;*/
+          let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
+          let sunSetDec = data.forecast.forecastday[1].astro.sunset;
+          let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
+          let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+          let moon_phase = data.forecast.forecastday[1].astro.moon_phase;
+          
+          sunRiseFore.innerHTML = sunRiseDec;
+          sunSetFore.innerHTML = sunSetDec;
+          moonRiseFore.innerHTML = moonRiseDec;
+          moonSetFore.innerHTML = moonSetDec;
+          moonCondFore.innerHTML = moon_phase;
+          
+ 
+          if (moon_phase == "New Moon") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
+          }
+          else if (moon_phase == "Waxing Crescent") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
+          }
+          else if (moon_phase == "First Quarter") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-first-quarter.svg"
+          }
+          else if (moon_phase == "Waxing Gibbous") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-gibbous.svg"
+          }
+          else if (moon_phase == "Full Moon") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg"
+          }
+          else if (moon_phase == "Waning Gibbous") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-gibbous.svg"
+          }
+          else if (moon_phase == "Last Quarter") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-last-quarter.svg"
+          }
+          else if (moon_phase == "Waning Crescent") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-crescent.svg"
+          }
 
           // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
           var collecterText = new Array();
@@ -3405,18 +3431,43 @@ btn.addEventListener('click', () => {
             snowRenderMulp[i].innerHTML = snowTom[i] + "%";
           }
 
-
-          /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
-           let sunSetDec = data.forecast.forecastday[1].astro.sunset;
-           let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
-           let moonSetDec = data.forecast.forecastday[1].astro.moonset;
-
-           let lastInfo = document.querySelectorAll(".letDayInfo");
-
-           lastInfo[0].innerHTML = sunRiseDec;
-           lastInfo[1].innerHTML = sunSetDec;
-           lastInfo[2].innerHTML = moonRiseDec;
-           lastInfo[3].innerHTML = moonSetDec;*/
+          let sunRiseDec = data.forecast.forecastday[2].astro.sunrise;
+          let sunSetDec = data.forecast.forecastday[2].astro.sunset;
+          let moonRiseDec = data.forecast.forecastday[2].astro.moonrise;
+          let moonSetDec = data.forecast.forecastday[2].astro.moonset;
+          let moon_phase = data.forecast.forecastday[2].astro.moon_phase;
+          
+          sunRiseFore.innerHTML = sunRiseDec;
+          sunSetFore.innerHTML = sunSetDec;
+          moonRiseFore.innerHTML = moonRiseDec;
+          moonSetFore.innerHTML = moonSetDec;
+          moonCondFore.innerHTML = moon_phase;
+          
+          
+          if (moon_phase == "New Moon") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
+          }
+          else if (moon_phase == "Waxing Crescent") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
+          }
+          else if (moon_phase == "First Quarter") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-first-quarter.svg"
+          }
+          else if (moon_phase == "Waxing Gibbous") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-gibbous.svg"
+          }
+          else if (moon_phase == "Full Moon") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg"
+          }
+          else if (moon_phase == "Waning Gibbous") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-gibbous.svg"
+          }
+          else if (moon_phase == "Last Quarter") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-last-quarter.svg"
+          }
+          else if (moon_phase == "Waning Crescent") {
+            moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-crescent.svg"
+          }
 
           // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
           var collecterText = new Array();
