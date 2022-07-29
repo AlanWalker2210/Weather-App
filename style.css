@@ -41,14 +41,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .toRot {
   width: 50px;
   height: 50px;
   transform: rotate(0deg);
   animation: rotRv 8s linear infinite;
-  
+
 }
-.subOne,.subTwo {
+
+.subOne,
+.subTwo {
   width: 100%;
   height: 50%;
   display: flex;
@@ -56,49 +59,61 @@ body {
   align-items: center;
   margin: 0px 0;
 }
+
 .aLoad {
   width: 15px;
   height: 15px;
   border-radius: 2px 0 2px 0;
   animation: animateYellow 2s linear infinite;
 }
+
 .squareOne {
   animation-delay: .0s;
 }
+
 .squareTwo {
   animation-delay: .5s;
 }
+
 .squareThi {
   animation-delay: 1.5s;
 }
+
 .squareFou {
   animation-delay: 1s;
 }
+
 @keyframes animateYellow {
   0% {
     background: #000;
     transform: scale(0.5);
   }
+
   50% {
     background: #10D8B2;
     transform: scale(1.2);
   }
+
   100% {
     background: #000;
     transform: scale(0.5);
-  } 
+  }
 }
+
 @keyframes rotRev {
   0% {
     transform: rotate(0);
   }
+
   50% {
     transform: rotateY(360deg);
   }
+
   100% {
     transform: rotateY(0);
   }
 }
+
 .toggle {
   transform: translateY(2400px);
   opacity: 1;
@@ -123,9 +138,10 @@ body {
 /*SIZING OF BACKGROUND WALLPAPER*/
 .backWall {
   position: fixed;
-  width: 100%;
+  width: 110%;
   height: 100vh;
   z-index: -1000;
+  /*  background-size: 150% 150%;*/
 }
 
 .navBtn {
@@ -138,6 +154,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 556;
+  animation: jumpU 1s linear;
 }
 
 .gitHub {
@@ -146,7 +163,6 @@ body {
   display: flex;
   align-items: center;
   border-bottom: .1px solid #000;
-  border-top: .1px solid #000;
 }
 
 .navBtnSub {
@@ -243,6 +259,7 @@ a {
   z-index: 555;
   display: none;
 }
+
 .navStartBlock {
   position: fixed;
   top: 0;
@@ -256,6 +273,7 @@ a {
   margin-left: -260px;
   transition: 0.8s;
 }
+
 .starterBlock {
   width: 100%;
   height: 50px;
@@ -269,12 +287,43 @@ a {
   letter-spacing: 1px;
   box-shadow: .1px .1px 5px #000;
 }
+
 .navCallTogg {
   margin-left: 0;
+}
+
+.prRunsOn {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: .1px solid #000;
+  padding: 0 0 0 10px;
+}
+.htmlSec {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10px;
+}
+.collapsePr {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.extendPr {
+  height: 150px;
+  border-bottom: .1px solid #000;
+}
+.fa-brands {
+  font-size: 1.2rem;
 }
 .clip-txt {
   color: #000;
 }
+
 .resourceDiv {
   width: 100%;
   height: 50px;
@@ -282,14 +331,16 @@ a {
   display: flex;
   align-items: center;
 }
+
 .apiHolder {
   margin: 0px 0 0 20px;
   height: 0px;
   overflow: hidden;
   transition: 0.8s;
 }
+
 .toggC {
-  height: 370px;
+  height: 300px;
 }
 
 .rotC {
@@ -354,7 +405,6 @@ a {
   border-radius: 50%;
   z-index: 5;
   transition: 0.5s;
-
 }
 
 /*SEARCH & LOCATION ICON HOVER EFFECT*/
@@ -427,7 +477,7 @@ a {
 .fahAndHum,
 .celCur {
   width: 100%;
-  height: 55px;
+  height: 52px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -436,14 +486,15 @@ a {
 .fahDiv,
 .humDiv {
   width: 48%;
-  height: 38px;
+  height: 35px;
   background: #0000007A;
   border-radius: 10px;
-  border: 0.0001px solid #ABABABE0;
+  /*border: 0.0001px solid #ABABABE0;*/
   display: flex;
   align-items: center;
   font-size: 1rem;
   font-size: 0.9rem;
+  box-shadow: .1px 3px 3px #000;
 }
 
 .fahIcon {
@@ -474,6 +525,7 @@ a {
 .celsiusUnit {
   font-size: 10px;
 }
+
 /*ALERT MAIN SECTION [TO ALIGN SUB SECTION] */
 .alertTestSecM {
   width: 100%;
@@ -483,23 +535,26 @@ a {
   align-items: center;
   color: #fff;
 }
+
 .alertTestSecS {
   width: 95%;
   height: 170px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
 }
+
 .warnImg {
   width: 30px;
   height: 30px;
 }
+
 .alertFirstLine {
   width: 100%;
   height: 30px;
   display: flex;
   align-items: flex-end;
-  border-bottom: .1px solid #797979E3;
 }
+
 .alertIcon {
   width: 80px;
   height: 25px;
@@ -509,36 +564,43 @@ a {
   border: 1px solid #797979E3;
   border-radius: 20px;
 }
+
 .subBoxWarnHead {
   width: 80%;
   height: 25px;
   overflow: hidden;
 }
+
 .mainBoxWarnHead {
-  width: 160%;
+  width: 200%;
   height: 25px;
   border-radius: 20px;
-  display : flex;
+  display: flex;
   align-items: center;
   animation: scrollTxt 8s linear infinite;
 }
+
 @keyframes scrollTxt {
   0% {
     transform: translateX(0);
   }
+
   20% {
     transform: translateX(0);
   }
+
   30% {
     transform: translateX(0);
   }
-/*  60% {
+
+  /*  60% {
     transform: translateX(0);
   }*/
   100% {
     transform: translateX(-80%);
   }
 }
+
 .alertDescBox {
   width: 90%;
   height: 140px;
@@ -546,6 +608,7 @@ a {
   color: #fff;
   overflow: scroll;
 }
+
 /* ALIGN & CENTRE ITEMS FOR WIND SUB SECTION*/
 .windMainSection {
   position: relative;
@@ -605,26 +668,30 @@ a {
   display: flex;
   align-items: center;
 }
+
 .longLine {
   width: 200px;
   height: 15px;
   display: flex;
   justify-content: center;
-  background: #f00;
 }
+
 .letTxtLeft {
   width: 120px;
 }
+
 .widthDash {
   display: flex;
   justify-content: center;
   width: 30px;
 }
+
 .fixAqi {
   width: 30px;
   display: flex;
   justify-content: flex-end;
 }
+
 /*ICON OF AIR QUALITY INDEX (US_EPA)*/
 .aqImg {
   position: relative;
@@ -827,6 +894,7 @@ a {
   z-index: 7;
   transform: translateY(0);
 }
+
 .astroOfSunM {
   width: 100%;
   height: 100px;
@@ -835,12 +903,14 @@ a {
   align-items: center;
   color: #fff;
 }
+
 .astroOfSunS {
   width: 95%;
   height: 95px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
 }
+
 .defineDiv {
   width: 100%;
   height: 47.5px;
@@ -848,6 +918,7 @@ a {
   align-items: center;
   justify-content: flex-start;
 }
+
 .astroImg {
   width: 35px;
   height: 35px;
@@ -855,9 +926,11 @@ a {
   margin: 0 0 0 10px;
   border-radius: 50%;
 }
+
 .titleSun {
   margin: 0 0 0 10px;
 }
+
 .astroOfMoonM {
   height: 150px;
   width: 100%;
@@ -866,10 +939,11 @@ a {
   align-items: center;
   color: #fff;
 }
+
 .astroOfMoonS {
   height: 142.5px;
   width: 95%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
 }
 
@@ -904,7 +978,29 @@ a {
   margin: 0 0 0 0;
 }
 
-
+.viewTwoDayM {
+  width: 100%;
+  height: 40px;
+  margin: 3px 0 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.viewTwoDayS {
+  width: 160px;
+  height: 40px;
+  background: #63D6EE;
+  text-align: center;
+  box-shadow: 5px 5px 1px #000;
+  border: 1.5px solid #000;
+  border-radius: 3px;
+  color: #000;
+  transition: 0.3s;
+}
+.viewTwoDayS:hover {
+  transform: scale(0.9);
+  box-shadow: 0px 0px 0px #000;
+}
 .arrowMoreMain {
   position: relative;
   width: 100%;
@@ -945,7 +1041,7 @@ a {
 }
 
 .arrowRotTwo {
-  transform: translateX(-5px)rotate(35deg);
+  transform: rotateX(-180deg);
 }
 
 .folderHide {
@@ -1214,7 +1310,7 @@ a {
   width: 100%;
   height: 90px;
   overflow: scroll;
- /* display: flex;
+  /* display: flex;
   align-items: ;*/
   color: #fff;
   position: relative;
@@ -1445,22 +1541,28 @@ a {
   text-align: center;
   font-size: 0.8rem;
 }
+
 .condHolder {
   word-wrap: break-word;
 }
-.celFahHolder,.condHolder {
+
+.celFahHolder,
+.condHolder {
   margin: 3px 0 3px 5px;
   font-size: 0.8rem;
 }
+
 .imgClouds {
   height: 20px;
   margin: -2px 0 0 0;
   font-size: 0.9rem;
 }
+
 .toFlextCloud {
   display: flex;
   align-items: center;
 }
+
 .toFlextCloud img {
   width: 25px;
   height: 25px;
@@ -1477,6 +1579,7 @@ a {
   text-align: center;
   margin: 0 0 0 -10px;
 }
+
 .twentyFourTag {
   width: 130px;
   height: 23px;
@@ -1488,6 +1591,7 @@ a {
   justify-content: center;
   border-radius: 20px;
 }
+
 .toolTipRainOne {
   position: sticky;
   width: 120px;

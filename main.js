@@ -37,6 +37,11 @@ function navFunc() {
   styleDis.style.display = 'block';
 }
 
+function runSomefunc() {
+  chevRot.classList.toggle('rotC');
+  prRun.classList.toggle('extendPr');
+}
+
 function runSomeF() {
   itSelf.classList.toggle('toggC');
   arrowDown.classList.toggle('rotC');
@@ -58,7 +63,6 @@ function funcToDet() {
 window.onload = function() {
   setTimeout(() => {
     disappear.classList.add("toggle");
-    // content.classList.add("contentTogg");
   }, 40);
   letLoad.style.display = 'none';
 }
@@ -77,7 +81,6 @@ locBtn.addEventListener("click", () => {
       lon = position.coords.longitude;
       lat = position.coords.latitude;
 
-      const api = `https://api.weatherapi.com/v1/forecast.json?key=272886315d4f4f6f844162320222601&q=${lat},${lon}&days=14&aqi=yes&alerts=yes`;
 
       fetch(api)
         .then(response => {
@@ -135,6 +138,11 @@ locBtn.addEventListener("click", () => {
           wind_m.innerHTML = "Wind speed" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + " - " + windMiles + " " + "MPH";
 
           //Getting localHours For Day Night Icon 
+          var todayChanceRain = data.forecast.forecastday[0].day.daily_chance_of_rain;
+          var todayChanceSnow = data.forecast.forecastday[0].day.daily_chance_of_snow;
+
+          chanceRain.innerHTML = `<text class="fahMin">Rain Chance</text>` + " : " + todayChanceRain + "%";
+          chanceSnow.innerHTML = `<text class="fahMin">Snow Chance</text>` + " : " + todayChanceSnow + "%";
 
           //GETTING AQ DATA 
           var aqC = data.current.air_quality.co;
@@ -197,7 +205,6 @@ locBtn.addEventListener("click", () => {
           sunRise.innerHTML = sunRiseT;
           sunSet.innerHTML = sunSetT;
 
-          //Moon Crescent info {
 
           var moonCres = data.forecast.forecastday[0].astro.moon_phase;
           var moonRiseT = data.forecast.forecastday[0].astro.moonrise;
@@ -284,7 +291,6 @@ locBtn.addEventListener("click", () => {
           //Aq info
           var aqCo2 = data.current.air_quality.co;
 
-          // aqCo.innerHTML = aqCo2;
 
           var is_day = data.current.is_day;
 
@@ -739,7 +745,7 @@ locBtn.addEventListener("click", () => {
             var foreCastd1Inf = new Array();
             foreCastd1Inf[i] = data.forecast.forecastday[0].hour[i].temp_f;
             let tempFahCol = document.querySelectorAll('.tempQueryMain');
-            tempFahCol[i].innerHTML = foreCastd1[i] + "°C" + foreCastd1Inf[i] + "°F";
+            tempFahCol[i].innerHTML = foreCastd1[i] + "°C" + " | " + foreCastd1Inf[i] + "°F";
 
             var rainTodayArr = new Array();
             rainTodayArr[i] = data.forecast.forecastday[0].hour[i].chance_of_rain;
@@ -1231,20 +1237,43 @@ locBtn.addEventListener("click", () => {
                 snowRenderMulp[i].innerHTML = snowTom[i] + "%";
               }
 
+              let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
+              let sunSetDec = data.forecast.forecastday[1].astro.sunset;
+              let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
+              let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+              let moon_phase = data.forecast.forecastday[1].astro.moon_phase;
 
-              /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
-               let sunSetDec = data.forecast.forecastday[1].astro.sunset;
-               let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
-               let moonSetDec = data.forecast.forecastday[1].astro.moonset;
+              sunRiseFore.innerHTML = sunRiseDec;
+              sunSetFore.innerHTML = sunSetDec;
+              moonRiseFore.innerHTML = moonRiseDec;
+              moonSetFore.innerHTML = moonSetDec;
+              moonCondFore.innerHTML = moon_phase;
 
-               let lastInfo = document.querySelectorAll(".letDayInfo");
+              if (moon_phase == "New Moon") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
+              }
+              else if (moon_phase == "Waxing Crescent") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
+              }
+              else if (moon_phase == "First Quarter") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-first-quarter.svg"
+              }
+              else if (moon_phase == "Waxing Gibbous") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-gibbous.svg"
+              }
+              else if (moon_phase == "Full Moon") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg"
+              }
+              else if (moon_phase == "Waning Gibbous") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-gibbous.svg"
+              }
+              else if (moon_phase == "Last Quarter") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-last-quarter.svg"
+              }
+              else if (moon_phase == "Waning Crescent") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-crescent.svg"
+              }
 
-               lastInfo[0].innerHTML = sunRiseDec;
-               lastInfo[1].innerHTML = sunSetDec;
-               lastInfo[2].innerHTML = moonRiseDec;
-               lastInfo[3].innerHTML = moonSetDec;*/
-
-              // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
               var collecterText = new Array();
 
               collecterText[0] = data.forecast.forecastday[1].hour[0].condition.text;
@@ -1691,6 +1720,43 @@ locBtn.addEventListener("click", () => {
                 collector[i].innerHTML = tempArr[i] + "°C" + " | " + tempFahArr[i] + "°F";
               }
 
+              let sunRiseDec = data.forecast.forecastday[2].astro.sunrise;
+              let sunSetDec = data.forecast.forecastday[2].astro.sunset;
+              let moonRiseDec = data.forecast.forecastday[2].astro.moonrise;
+              let moonSetDec = data.forecast.forecastday[2].astro.moonset;
+              let moon_phase = data.forecast.forecastday[2].astro.moon_phase;
+
+              sunRiseFore.innerHTML = sunRiseDec;
+              sunSetFore.innerHTML = sunSetDec;
+              moonRiseFore.innerHTML = moonRiseDec;
+              moonSetFore.innerHTML = moonSetDec;
+              moonCondFore.innerHTML = moon_phase;
+
+              if (moon_phase == "New Moon") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-new.svg"
+              }
+              else if (moon_phase == "Waxing Crescent") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-crescent.svg"
+              }
+              else if (moon_phase == "First Quarter") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-first-quarter.svg"
+              }
+              else if (moon_phase == "Waxing Gibbous") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waxing-gibbous.svg"
+              }
+              else if (moon_phase == "Full Moon") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-full.svg"
+              }
+              else if (moon_phase == "Waning Gibbous") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-gibbous.svg"
+              }
+              else if (moon_phase == "Last Quarter") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-last-quarter.svg"
+              }
+              else if (moon_phase == "Waning Crescent") {
+                moonDistFore.src = "/weather-icons-2.0.0/design/fill/animation-ready/moon-waning-crescent.svg"
+              }
+
 
 
               for (let i = 0; i < 24; i++) {
@@ -1706,20 +1772,6 @@ locBtn.addEventListener("click", () => {
                 snowRenderMulp[i].innerHTML = snowTom[i] + "%";
               }
 
-
-              /*  let sunRiseDec = data.forecast.forecastday[1].astro.sunrise;
-               let sunSetDec = data.forecast.forecastday[1].astro.sunset;
-               let moonRiseDec = data.forecast.forecastday[1].astro.moonrise;
-               let moonSetDec = data.forecast.forecastday[1].astro.moonset;
-
-               let lastInfo = document.querySelectorAll(".letDayInfo");
-
-               lastInfo[0].innerHTML = sunRiseDec;
-               lastInfo[1].innerHTML = sunSetDec;
-               lastInfo[2].innerHTML = moonRiseDec;
-               lastInfo[3].innerHTML = moonSetDec;*/
-
-              // collector[23].innerHTML = tempArr[0] + " <sup>°</sup> C" + "<br>" + tempFahArr[23] + " <sup>°</sup> F";
               var collecterText = new Array();
 
               collecterText[0] = data.forecast.forecastday[2].hour[0].condition.text;
@@ -2191,7 +2243,6 @@ btn.addEventListener('click', () => {
   loader.style.display = 'block';
   var inp = document.getElementById("searchCity").value;
 
-  const apiData = `https://api.weatherapi.com/v1/forecast.json?key=272886315d4f4f6f844162320222601&q=${inp}&days=10&aqi=yes&alerts=yes`;
   fetch(apiData)
     .then(response => {
       var showId = document.getElementById("mBody");
@@ -4336,12 +4387,7 @@ function suggestCity() {
 
   var inp = document.getElementById("searchCity").value;
 
-  fetch(`https://api.api-ninjas.com/v1/city?name=${inp}&limit=30`, {
-      "method": "GET",
-      "headers": {
-        'X-Api-Key': 'iD+J6v11YMcxj+7ZBVgJWg==Yy92RR2H7vZ2NJuC',
-      },
-    })
+  
     .then(response => {
       //   console.log(response)
 
@@ -4463,7 +4509,6 @@ window.onscroll = function myfunc() {
   }
   else {
     ArrowUp.classList.remove("navAd");
-
   }
 }
 ArrowUp.onclick = function() {
@@ -4475,8 +4520,7 @@ ArrowUp.onclick = function() {
 }
 
 function rotateArr() {
-  arOne.classList.toggle("arrowRotOne");
-  arTwo.classList.toggle("arrowRotTwo");
+  arOne.classList.toggle("arrowRotTwo");
   showFore.classList.toggle("folderShow");
 }
 

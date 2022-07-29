@@ -84,12 +84,27 @@
       </ol>
     </div>
     <div class="gitHub">
-      <a href="">View Code On Github</a>
+      <a href="https://github.com/panchalbhavya2210/Weather-App" target="_blank">View Code On Github</a>
+    </div>
+    <div class="prRunsOn" onclick="runSomefunc()">
+      Project Runs On Lines&nbsp;<text class="fa fa-chevron-down" id="chevRot"></text>
+    </div>
+    <div class="collapsePr" id="prRun">
+      <div class="htmlSec">
+        <text class="fa-brands fa-html5"></text>&nbsp;&nbsp;<text>HTML : 2048</text>
+      </div>
+      <div class="htmlSec">
+        <text class="fa-brands fa-css3"></text>&nbsp;&nbsp;<text>CSS : 1648</text>
+      </div>
+      <div class="htmlSec">
+        <text class="fa-brands fa-js"></text>&nbsp;&nbsp;<text>Javascript : 4555</text>
+      </div>
     </div>
     <div class="Note">
-      <li>Disable Dark Mode For Better Experience.</li>
+      <li style="list-style: none">Disable Dark Mode For Better Experience.</li>
     </div>
   </div>
+
   <div class="searchSection">
     <div class="inpSection">
       <input type="text" placeholder="Enter city name" id="searchCity" class="inpSelf" onkeyup="suggestCity()" onkeydown="suggestCity()" onfocus="enableInp()" value="Denver" onblur="disableInp()">
@@ -1116,15 +1131,14 @@
         </div>
       </div>
     </div>
-    <div class="arrowMoreMain" onclick="rotateArr()">
-      <div class="arrowText">
-        <p>
-          View 2-days forecast
-        </p>
+
+    <div class="viewTwoDayM">
+      <div class="viewTwoDayS" onclick="rotateArr()">
+        <div class="txtOfViewTwo">View 2-days forecast</div>
+        <div class="fa fa-chevron-down" id="arOne"></div>
       </div>
-      <div class="arrowOne" id="arOne"></div>
-      <div class="arrowSec" id="arTwo"></div>
     </div>
+
 
     <div class="folderHide" id="showFore">
       <div class="dateToForeOne-m">
@@ -1964,40 +1978,40 @@
           </div>
         </div>
       </div>
-    <div class="astroOfSunM">
-      <div class="astroOfSunS">
-        <div class="defineDiv">
-          <img src="/weather-icons-2.0.0/design/fill/animation-ready/sunrise.svg" class="astroImg">
-          <text class="titleSun">Sun Rise : &nbsp;</text>
-          <text id="sunRiseFore"></text>
-        </div>
-        <div class="defineDiv">
-          <img src="/weather-icons-2.0.0/design/fill/animation-ready/sunset.svg" class="astroImg">
-          <text class="titleSun">Sun Set : &nbsp;</text>
-          <text id="sunSetFore"></text>
+      <div class="astroOfSunM">
+        <div class="astroOfSunS">
+          <div class="defineDiv">
+            <img src="/weather-icons-2.0.0/design/fill/animation-ready/sunrise.svg" class="astroImg">
+            <text class="titleSun">Sun Rise : &nbsp;</text>
+            <text id="sunRiseFore"></text>
+          </div>
+          <div class="defineDiv">
+            <img src="/weather-icons-2.0.0/design/fill/animation-ready/sunset.svg" class="astroImg">
+            <text class="titleSun">Sun Set : &nbsp;</text>
+            <text id="sunSetFore"></text>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="astroOfMoonM">
-      <div class="astroOfMoonS">
-        <div class="defineDiv">
-          <img src="/weather-icons-2.0.0/design/fill/animation-ready/.svg" class="astroImg" id="moonDistFore">
-          <text class="titleSun">Moon Phase : &nbsp;</text>
-          <text class="sunRise" id="moonCondFore"></text>
-        </div>
-        <div class="defineDiv">
-          <img src="/weather-icons-2.0.0/design/fill/animation-ready/moonrise.svg" class="astroImg">
-          <text class="titleSun">Moon Rise : &nbsp;</text>
-          <text id="moonRiseFore"></text>
-        </div>
-        <div class="defineDiv">
-          <img src="/weather-icons-2.0.0/design/fill/animation-ready/moonset.svg" class="astroImg">
-          <text class="titleSun">Moon Set : &nbsp;</text>
-          <text id="moonSetFore"></text>
+      <div class="astroOfMoonM">
+        <div class="astroOfMoonS">
+          <div class="defineDiv">
+            <img src="/weather-icons-2.0.0/design/fill/animation-ready/.svg" class="astroImg" id="moonDistFore">
+            <text class="titleSun">Moon Phase : &nbsp;</text>
+            <text class="sunRise" id="moonCondFore"></text>
+          </div>
+          <div class="defineDiv">
+            <img src="/weather-icons-2.0.0/design/fill/animation-ready/moonrise.svg" class="astroImg">
+            <text class="titleSun">Moon Rise : &nbsp;</text>
+            <text id="moonRiseFore"></text>
+          </div>
+          <div class="defineDiv">
+            <img src="/weather-icons-2.0.0/design/fill/animation-ready/moonset.svg" class="astroImg">
+            <text class="titleSun">Moon Set : &nbsp;</text>
+            <text id="moonSetFore"></text>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 
