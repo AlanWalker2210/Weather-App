@@ -2400,7 +2400,19 @@ locBtn.addEventListener("click", () => {
 
 const btn = document.getElementById("searchCitybtn");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", btnInpEnt);
+
+const searchCity = document.getElementById("searchCity");
+
+searchCity.addEventListener("keypress", btnInpEnt);
+
+function btnInpEnt() {
+  var mainBox = document.getElementById("suggestionBox");
+  var subBox = document.getElementById("suggestionSubBox");
+
+  mainBox.classList.remove("pointer");
+  subBox.classList.remove("pointer");
+
   loader.style.display = "block";
   var inp = document.getElementById("searchCity").value;
 
@@ -4649,7 +4661,7 @@ btn.addEventListener("click", () => {
         setFetchErr.innerHTML = "An unknown error occurred...";
       }
     });
-});
+}
 
 function suggestCity() {
   var inp = document.getElementById("searchCity").value;

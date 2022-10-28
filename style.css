@@ -1662,8 +1662,36 @@ a {
     justify-content: space-around;
     align-items: center;
   }
-
   .windAqiVisWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .visibiltySubSection {
+    position: relative;
+    height: 110px;
+    width: 86%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .aqiSubSection {
+    position: relative;
+    top: 0;
+    width: 86%;
+    height: 110px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .windSubSection {
+    position: relative;
+    height: 110px;
+    width: 86%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
     display: flex;
     align-items: center;
   }
