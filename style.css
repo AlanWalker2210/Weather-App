@@ -1,7 +1,10 @@
 .dateToForeOne-s::-webkit-scrollbar,
 .twentyFourZero-m::-webkit-scrollbar,
 .chartMainSection::-webkit-scrollbar,
-.willItRain-m::-webkit-scrollbar {
+.willItRain-m::-webkit-scrollbar,
+.mainBoxWarnHead::-webkit-scrollbar,
+.subBoxWarnHead::-webkit-scrollbar,
+.alertDescBox::-webkit-scrollbar {
   display: none;
 }
 
@@ -1649,4 +1652,19 @@ a {
 
 .arrLeft {
   transform: rotateY(-180deg);
+}
+
+@media only screen and (min-width: 675px) {
+  .twentyFourZero-s {
+    width: 700%;
+    height: 110px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .windAqiVisWrapper {
+    display: flex;
+    align-items: center;
+  }
 }
