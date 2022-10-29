@@ -1743,4 +1743,10 @@ a {
     transition: 0.8s;
     transform: translateY(0);
   }
+  .firstCityClick {
+    width: 100%;
+    height: 10px;
+    background-color: #f00;
+    cursor: pointer;
+  }
 }

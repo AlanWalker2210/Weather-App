@@ -4716,7 +4716,7 @@ function suggestCity() {
       fiveCity.innerHTML = cityName[4];
 
       var field = document.getElementById("searchCity");
-      firstCity.onclick = function () {
+      firstCityClick.onclick = function () {
         field.value = firstCity.innerHTML;
         if (firstCity.innerHTML == "Ahmadabad") {
           field.value = "Ahmedabad";
