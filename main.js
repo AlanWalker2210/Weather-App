@@ -2404,7 +2404,12 @@ btn.addEventListener("click", btnInpEnt);
 
 const searchCity = document.getElementById("searchCity");
 
-searchCity.addEventListener("keypress", btnInpEnt);
+searchCity.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    btnInpEnt();
+  }
+});
 
 function btnInpEnt() {
   var mainBox = document.getElementById("suggestionBox");
@@ -2428,10 +2433,6 @@ function btnInpEnt() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-      //IMAGE JSON
-      //var img = data.current.condition.icon;
-      //COUNTRY JSON
       var cName = data.location.country;
       var rName = data.location.region;
       var ctName = data.location.name;
