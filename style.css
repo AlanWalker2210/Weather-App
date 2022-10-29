@@ -4,7 +4,8 @@
 .willItRain-m::-webkit-scrollbar,
 .mainBoxWarnHead::-webkit-scrollbar,
 .subBoxWarnHead::-webkit-scrollbar,
-.alertDescBox::-webkit-scrollbar {
+.alertDescBox::-webkit-scrollbar,
+.suggestionSubBox::-webkit-scrollbar {
   display: none;
 }
 
@@ -1662,10 +1663,19 @@ a {
     justify-content: space-around;
     align-items: center;
   }
-  .windAqiVisWrapper {
+  .windAqiVisWrapper,
+  .sunAndMoonWrap {
     display: flex;
     align-items: center;
     justify-content: space-around;
+  }
+  .defineSun {
+    height: 70px;
+  }
+  .astroOfSunS,
+  .astroOfMoonS {
+    width: 80%;
+    height: 140px;
   }
   .visibiltySubSection {
     position: relative;
@@ -1694,5 +1704,43 @@ a {
     border-radius: 5px;
     display: flex;
     align-items: center;
+  }
+  .arrowRight {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    background: #dcdcdcd9;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .suggestionMainBox {
+    width: 100%;
+    height: 210px;
+    position: absolute;
+    z-index: 8;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.8s;
+    transform: translateY(-800px);
+  }
+  .suggestionSubBox {
+    width: 35%;
+    height: 220px;
+    background: #000;
+    overflow: scroll;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 0 0 35px;
+  }
+  .pointer {
+    transition: 0.8s;
+    transform: translateY(0);
   }
 }
