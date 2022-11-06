@@ -4663,7 +4663,11 @@ function btnInpEnt() {
       }
     });
 }
+/*let suggestionBox = document.getElementById("suggestionBox");
 
+suggestionBox.onclick = function () {
+  alert(1);
+};*/
 function suggestCity() {
   var inp = document.getElementById("searchCity").value;
   fetch(`https://api.api-ninjas.com/v1/city?name=${inp}&limit=30`, {
@@ -4716,28 +4720,33 @@ function suggestCity() {
       fiveCity.innerHTML = cityName[4];
 
       var field = document.getElementById("searchCity");
-      firstCityClick.onclick = function () {
+      firstCity.onclick = function () {
         field.value = firstCity.innerHTML;
         if (firstCity.innerHTML == "Ahmadabad") {
           field.value = "Ahmedabad";
         }
+        btnInpEnt();
       };
       secondCity.onclick = function () {
         field.value = secondCity.innerHTML;
         if (secondCity.innerHTML == "Ahmadabad") {
           field.value = "Ahmedabad";
         }
+        btnInpEnt();
       };
       thirdCity.onclick = function () {
         field.value = thirdCity.innerHTML;
+        btnInpEnt();
       };
 
       fourCity.onclick = function () {
         field.value = fourCity.innerHTML;
+        btnInpEnt();
       };
 
       fiveCity.onclick = function () {
         field.value = fiveCity.innerHTML;
+        btnInpEnt();
       };
 
       var countName = new Array();
@@ -4777,8 +4786,10 @@ function disableInp() {
   var mainBox = document.getElementById("suggestionBox");
   var subBox = document.getElementById("suggestionSubBox");
 
-  mainBox.classList.remove("pointer");
-  subBox.classList.remove("pointer");
+  setTimeout(() => {
+    mainBox.classList.remove("pointer");
+    subBox.classList.remove("pointer");
+  }, 500);
 }
 
 const ArrowUp = document.getElementById("arrowUp");
