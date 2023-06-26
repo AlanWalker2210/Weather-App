@@ -1,0 +1,37 @@
+{
+    "short_name": "Weather App",
+    "name": "Temp Cast",
+    "icons" : [
+      {
+      "src": "temp-cast-manifest/temp-cast-removebg.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    }],
+    "id": "/",
+    "start_url": "/",
+    "background_color": "#000000",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#04bfd4",
+    "description": "A perfect weather app created with weatherapi.com. It shows reliable data and also shows the alerts around your area.",
+    "screenshots": [
+        {
+          "src": "temp-cast-manifest/weather_app_ss1.jpeg",
+          "type": "image/jpeg",
+          "sizes": "720x1430"
+        },
+        {
+          "src": "temp-cast-manifest/weather_app_ss2.jpeg",
+          "type": "image/jpeg",
+          "sizes": "720x1430"
+
+        },
+        {
+          "src": "temp-cast-manifest/weather_app_ss3.jpeg",
+          "type": "image/jpeg",
+          "sizes": "720x1430"
+
+        }
+        
+      ]
+  }
